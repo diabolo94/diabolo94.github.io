@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-tw">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('請使用正確的咒語') !== ''){
+                alert('咒語無法發動，請再嘗試');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="jP1adw4x65DvqhgN8RF3-hto_ym608I4M5iTzJ5_cww" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CTF,guide," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="量子能量塔" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="11月9日更新：  CTF All in one  0x01 什麼是CTFPS:暫時參考內容以後再修改。CTF全稱為Capture The Flag，也就是所謂的奪旗賽，起源于1996年DEFCON全球黑客大會，是讓黑客和資安愛好者進行技術競技的一種比賽。 0x02 CTF的歷史0x03 CTF的種類比賽一般上有3種模">
+<meta name="keywords" content="CTF,guide">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTF終極指南">
+<meta property="og:url" content="https://diabolo94.github.io/2017/11/06/CTFfinalguide/index.html">
+<meta property="og:site_name" content="量子能量塔">
+<meta property="og:description" content="11月9日更新：  CTF All in one  0x01 什麼是CTFPS:暫時參考內容以後再修改。CTF全稱為Capture The Flag，也就是所謂的奪旗賽，起源于1996年DEFCON全球黑客大會，是讓黑客和資安愛好者進行技術競技的一種比賽。 0x02 CTF的歷史0x03 CTF的種類比賽一般上有3種模式。分別是  解題模式 - Jeopardy 戰爭分享模式 - Bellumin">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2017-11-23T19:48:17.974Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CTF終極指南">
+<meta name="twitter:description" content="11月9日更新：  CTF All in one  0x01 什麼是CTFPS:暫時參考內容以後再修改。CTF全稱為Capture The Flag，也就是所謂的奪旗賽，起源于1996年DEFCON全球黑客大會，是讓黑客和資安愛好者進行技術競技的一種比賽。 0x02 CTF的歷史0x03 CTF的種類比賽一般上有3種模式。分別是  解題模式 - Jeopardy 戰爭分享模式 - Bellumin">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://diabolo94.github.io/2017/11/06/CTFfinalguide/"/>
+
+
+
+
+
+  <title></title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '<app_id>',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_tw/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">量子能量塔</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首頁">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-歸檔">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-標籤">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分類">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-關於我">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於我
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-聯動之術">
+          <a href="/friends" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br />
+            
+            聯動之術
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-coc7版">
+          <a href="/COC7.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-space-shuttle"></i> <br />
+            
+            COC7版
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-模範合集">
+          <a href="/havey.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-subway"></i> <br />
+            
+            模範合集
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/11/06/CTFfinalguide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/milo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子能量塔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">CTF終極指南</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-11-06T18:58:16+08:00">
+                2017-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/06/CTFfinalguide/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/06/CTFfinalguide/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/06/CTFfinalguide/" class="leancloud_visitors" data-flag-title="CTF終極指南">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字數統計&#58;</span>
+                
+                <span title="字數統計">
+                  1,593
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">閱讀時長 &asymp;</span>
+                
+                <span title="閱讀時長">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>11月9日更新：</p>
+<ul>
+<li>CTF All in one</li>
+</ul>
+<h1 id="0x01-什麼是CTF"><a href="#0x01-什麼是CTF" class="headerlink" title="0x01 什麼是CTF"></a>0x01 什麼是CTF</h1><p>PS:暫時參考內容以後再修改。<br>CTF全稱為Capture The Flag，也就是所謂的奪旗賽，起源于1996年DEFCON全球黑客大會，是讓黑客和資安愛好者進行技術競技的一種比賽。</p>
+<h1 id="0x02-CTF的歷史"><a href="#0x02-CTF的歷史" class="headerlink" title="0x02 CTF的歷史"></a>0x02 CTF的歷史</h1><h1 id="0x03-CTF的種類"><a href="#0x03-CTF的種類" class="headerlink" title="0x03 CTF的種類"></a>0x03 CTF的種類</h1><p>比賽一般上有3種模式。分別是</p>
+<ul>
+<li>解題模式 - Jeopardy</li>
+<li>戰爭分享模式 - Belluminar</li>
+<li>攻防模式 - Attack &amp; Defense</li>
+</ul>
+<p>在解題模式當中，參賽者需要解答出以下類型的題型，每題都會有不一樣的分數，而比賽的最終積分也會決定參賽者的排名。</p>
+<ul>
+<li>Reverse Engineering<ul>
+<li>題目涉及到軟件逆向，破解技術等，要求有較強的反彙編、反編譯功底。主要考查參賽選手的逆向分析能力。</li>
+<li>所需知識：彙編語言，加密與解密，常見反編譯工具。</li>
+</ul>
+</li>
+<li>Binary Exploitation</li>
+<li>Web<ul>
+<li>Web是CTF的主要題型，題目涉及到許多常見的Web漏洞，如XSS、文件包含、代碼執行、上傳漏洞、SQL注入等。也有一些簡單的關於網絡基礎知識的考察，如返回包、TCP/IP、數據包內容和構造。可以說題目環境比較接近真實環境。</li>
+<li>所需知識：PHP、Python、TCP/IP、SQL。</li>
+</ul>
+</li>
+<li>Cryptography<ul>
+<li>題目考察各種加解密技術，包括古典加密技術、現代加密技術甚至出題者自創加密技術，以及一些常見編碼解碼，主要考查參賽選手密碼學相關知識點。通常也會和其他題目相結合。</li>
+<li>所需知識：密碼學。</li>
+</ul>
+</li>
+<li>Forensics<ul>
+<li>In a CTF context, “Forensics” challenges can include file format analysis, steganography, memory dump analysis, or network packet capture analysis. Any challenge to examine and process a hidden piece of information out of static data files could be considered a Forensics challenge.</li>
+<li>所需知識：fil format，scripting language (e.g.Python)，manipulate binary data (byte-level manipulations) in that language understand protocols, structures, and encodings</li>
+</ul>
+</li>
+<li>Pwn<ul>
+<li>Pwn 在黑客俚語中代表著攻破，獲取權限，在CTF比賽中它代表著溢出類的題目，其中常見類型溢出漏洞有整數溢出、棧溢出、堆溢出等。主要考查參賽選手對漏洞的利用能力。<ul>
+<li>所需知識：C，Olly Debug+IDA，數據結構，操作系統。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Misc<ul>
+<li>Misc即安全雜項，題目涉及隱寫術、流量分析、人肉搜索、數據分析等，覆蓋面比較廣，主要考查參賽選手的各種基礎綜合知識。</li>
+<li>所需知識：常見隱寫術工具、Wireshark 等流量審查工具、編碼知識</li>
+</ul>
+</li>
+<li>Mobile<ul>
+<li>主要分為 Android和iOS 兩個平台，以Android逆向為主，破解APK並提交正確答案。</li>
+<li>所需知識：Java，Android 開發，常見工具。</li>
+</ul>
+</li>
+</ul>
+<p>Normally, players will specialize in one of these categories. Although it is possible to have a basic knowledge of all of them, we suggest you begin by focusing on the one that interests you most. This guide will be focusing On Binary Exploitation.</p>
+<h1 id="0x04-CTF新手須知"><a href="#0x04-CTF新手須知" class="headerlink" title="0x04 CTF新手須知"></a>0x04 CTF新手須知</h1><p>若想知道世界各地在什麼時候會舉辦CTF比賽，<a href="https://ctftime.org" target="_blank" rel="noopener">CTF Times</a>是你可以查詢的地方。這個網站找到一切以前和即將舉行的CTF比賽。當然你也可以找到比賽隊伍的成績，世界排名以及他們提供的答案(Writeup)。</p>
+<p>以下是本人推荐新手可以参加的CTF比赛。</p>
+<ul>
+<li><a href="https://picoctf.com" target="_blank" rel="noopener">PicoCTF</a></li>
+<li><a href="http://plaidctf.com" target="_blank" rel="noopener">PlaidCTF</a></li>
+<li><a href="https://hsctf.com" target="_blank" rel="noopener">HSCTF</a></li>
+<li><a href="https://ctf.csaw.io" target="_blank" rel="noopener">CSAW CTF</a></li>
+<li><a href="https://backdoor.sdslabs.co" target="_blank" rel="noopener">Backdoor</a></li>
+<li>HITCON CTF<ul>
+<li><a href="https://ctf2015.hitcon.org/dashboard" target="_blank" rel="noopener">2015</a> </li>
+<li><a href="https://ctf2016.hitcon.org/dashboard" target="_blank" rel="noopener">2016</a></li>
+<li><a href="https://ctf2017.hitcon.org/dashboard" target="_blank" rel="noopener">2017</a></li>
+</ul>
+</li>
+</ul>
+<p>每當你做完一道題目的時候，可以把自己的做法和用到的思路寫成Writeup，目的是為了將自己在解題的時候，所學到的知識有系統的整理好，也方便以後可以參考回自己做過類似的題目。</p>
+<p>你也可以瀏覽<a href="https://rupigcute.wixsite.com/quantiumtown/ctf" target="_blank" rel="noopener">CTF完整資源導航網站</a>來找到更多有關資訊。<br>第二個推薦的導航網站<a href="https://gotyour.pw/resources.html" target="_blank" rel="noopener">Got Your Pw</a>。</p>
+<p>一些CTF的介紹文章/Wiki/投影片。</p>
+<ul>
+<li><a href="https://goo.gl/NyqRQv" target="_blank" rel="noopener">Becoming A Security Master 2017 by C.K.Chan from Bamboo Fox.</a></li>
+<li><a href="https://www.gitbook.com/book/firmianay/ctf-all-in-one/details" target="_blank" rel="noopener">All In One CTF</a></li>
+<li><a href="https://goo.gl/Xrd6TK" target="_blank" rel="noopener">CTF經驗分享 by Mango from Bamboofox</a></li>
+<li><a href="https://goo.gl/p2QKax" target="_blank" rel="noopener">CTF比賽總是輸，你還差點Tricks</a></li>
+<li><a href="https://goo.gl/GPBRjb" target="_blank" rel="noopener">CTF超入門 (for 第12回セキュリティさくら)</a></li>
+<li><a href="https://goo.gl/9ubxPd" target="_blank" rel="noopener">CTF for ビギナーズ　ネットワーク講習資料</a></li>
+<li><a href="https://goo.gl/fnfbxj" target="_blank" rel="noopener">CTF UCLA Beginner’s Guide</a></li>
+<li><a href="https://kitctf.de/learning/getting-started" target="_blank" rel="noopener">Getting Started with CTF</a></li>
+</ul>
+<p>而<a href="https://goo.gl/CUWiPu" target="_blank" rel="noopener">CTF維基</a>則涵蓋了一般的出題思路以及其解題的方式，不管你是新手還是老手都建議你看一看，畢竟基本的一些思路，在這個維基裡面都解釋得非常清楚。此外，想更深入了解維基裡面的每個項目，也可以繼續關注本人的部落格，作者會不定時更新一些對於該維基項目的補充和新的資訊。</p>
+<h1 id="0x05-學習資源"><a href="#0x05-學習資源" class="headerlink" title="0x05 學習資源"></a>0x05 學習資源</h1><ul>
+<li><a href="https://goo.gl/jBLRTG" target="_blank" rel="noopener">BambooFox CTF戰隊的社團課程</a>：課程內容有Linux Basic,Set up VMware,Programming,Web Security,Assmbly Languge,Buffer overflow,ROP,Crypto,Reverse Engineering等等。</li>
+<li><a href="https://goo.gl/zynoHu" target="_blank" rel="noopener">Linux</a></li>
+<li><a href="https://goo.gl/7GeRhU" target="_blank" rel="noopener">實驗吧CTF訓練課程&amp;比賽題目練習</a></li>
+<li><a href="https://goo.gl/jyDmYQ" target="_blank" rel="noopener">逆向工程學習指南</a></li>
+<li><a href="https://goo.gl/e5XqmZ" target="_blank" rel="noopener">PwnWiki.io</a></li>
+<li><a href="https://goo.gl/L7rcxz" target="_blank" rel="noopener">Software Security Learning by Chybeta</a></li>
+<li><a href="https://goo.gl/h3EJKJ" target="_blank" rel="noopener">Web Security Learning by Chybeta</a></li>
+<li><a href="https://www.pediy.com/kssd/index.html" target="_blank" rel="noopener">看雪软件安全文档库2013版本</a>：內有電腦基礎，逆向，系統，調試，編程語言，軟件保護，PEDIY，病毒，漏洞分析，網絡安全等知識。</li>
+<li><a href="https://goo.gl/X1nxBn" target="_blank" rel="noopener">《加密解密第三版》</a>。這本書已經包含了大部分前面文檔庫裡面涵蓋的知識。</li>
+<li><a href="https://www.kanxue.com/book-list.htm" target="_blank" rel="noopener">看雪學院2017精華資源指南</a></li>
+<li><a href="https://goo.gl/e2Dp6n" target="_blank" rel="noopener">看雪論壇</a></li>
+<li><a href="http://www.shentoushi.top" target="_blank" rel="noopener">滲透師導航</a></li>
+<li><a href="https://apsdehal.in/awesome-ctf/#tutorials" target="_blank" rel="noopener">Awesome CTF</a></li>
+<li><a href="https://gotyour.pw/resources.html" target="_blank" rel="noopener">Got your PW</a></li>
+</ul>
+<p>除了以上資源，你也可以自己上網閱讀一些大神寫的文章，從他們自我總結的經驗當中，你往往可以學得更快。單單看並不足夠，最重要的還是要自己做筆記，唯有這樣你才會清楚知道自己已經學會了什麼知識。</p>
+<h1 id="0x06-個人推薦CTF訓練基地"><a href="#0x06-個人推薦CTF訓練基地" class="headerlink" title="0x06 個人推薦CTF訓練基地"></a>0x06 個人推薦CTF訓練基地</h1><p>1.<a href="http://overthewire.org/wargames/" target="_blank" rel="noopener">http://overthewire.org/wargames/</a><br>2.<a href="http://reversing.kr/index.php" target="_blank" rel="noopener">http://reversing.kr/index.php</a><br>3.<a href="http://pwnable.kr" target="_blank" rel="noopener">http://pwnable.kr</a><br>4.<a href="https://exploit-exercises.com" target="_blank" rel="noopener">https://exploit-exercises.com</a><br>5.<a href="https://www.enigmagroup.org/" target="_blank" rel="noopener">https://www.enigmagroup.org/</a><br>6.<a href="https://www.hackthissite.org" target="_blank" rel="noopener">https://www.hackthissite.org</a><br>7.<a href="https://w3challs.com" target="_blank" rel="noopener">https://w3challs.com</a><br>8.<a href="https://microcorruption.com/login" target="_blank" rel="noopener">https://microcorruption.com/login</a><br>9.<a href="http://smashthestack.org" target="_blank" rel="noopener">http://smashthestack.org</a><br>10.<a href="http://wargame.kr" target="_blank" rel="noopener">http://wargame.kr</a><br>11.<a href="https://ctflearn.com/index.php" target="_blank" rel="noopener">https://ctflearn.com/index.php</a><br>12.<a href="https://pwnable.tw" target="_blank" rel="noopener">https://pwnable.tw</a><br>13.<a href="https://ringzer0team.com" target="_blank" rel="noopener">https://ringzer0team.com</a><br>14.<a href="https://hackme.inndy.tw" target="_blank" rel="noopener">https://hackme.inndy.tw</a><br>15.<a href="https://ctf365.com" target="_blank" rel="noopener">https://ctf365.com</a><br>16.<a href="http://pwnwiki.io/#!index.md" target="_blank" rel="noopener">http://pwnwiki.io/#!index.md</a><br>17.<a href="http://ctf.sqrt-1.me" target="_blank" rel="noopener">http://ctf.sqrt-1.me</a><br>18.<a href="http://www.shiyanbar.com/ctf/practice" target="_blank" rel="noopener">http://www.shiyanbar.com/ctf/practice</a><br>19.<a href="https://bamboofox.cs.nctu.edu.tw/wargame" target="_blank" rel="noopener">https://bamboofox.cs.nctu.edu.tw/wargame</a><br>20.<a href="http://solveme.safflower.kr" target="_blank" rel="noopener">http://solveme.safflower.kr</a></p>
+<h1 id="0x06-CTF出題方向"><a href="#0x06-CTF出題方向" class="headerlink" title="0x06 CTF出題方向"></a>0x06 CTF出題方向</h1><h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h2 id="Forensic"><a href="#Forensic" class="headerlink" title="Forensic"></a>Forensic</h2><h2 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h2><p><a href="http://vancir.com/tutorials.html" target="_blank" rel="noopener">http://vancir.com/tutorials.html</a><br><a href="http://www.louys.net.cn/index.php/archives/120/" target="_blank" rel="noopener">http://www.louys.net.cn/index.php/archives/120/</a></p>
+<h2 id="Reverse-Enginnering"><a href="#Reverse-Enginnering" class="headerlink" title="Reverse Enginnering"></a>Reverse Enginnering</h2><h2 id="隱寫術"><a href="#隱寫術" class="headerlink" title="隱寫術"></a>隱寫術</h2><h2 id="Binary-Exploitation"><a href="#Binary-Exploitation" class="headerlink" title="Binary Exploitation"></a>Binary Exploitation</h2><h2 id="Cryptography"><a href="#Cryptography" class="headerlink" title="Cryptography"></a>Cryptography</h2><h1 id="0x07-CTF實際好用工具推薦"><a href="#0x07-CTF實際好用工具推薦" class="headerlink" title="0x07 CTF實際好用工具推薦"></a>0x07 CTF實際好用工具推薦</h1><h1 id="0x08-CTF戰隊的部落格"><a href="#0x08-CTF戰隊的部落格" class="headerlink" title="0x08 CTF戰隊的部落格"></a>0x08 CTF戰隊的部落格</h1><h1 id="0x09-搭建CTF比賽平台"><a href="#0x09-搭建CTF比賽平台" class="headerlink" title="0x09 搭建CTF比賽平台"></a>0x09 搭建CTF比賽平台</h1><h2 id="參考鏈接"><a href="#參考鏈接" class="headerlink" title="參考鏈接"></a>參考鏈接</h2><ul>
+<li><a href="https://rupigcute.wixsite.com/quantiumtown/rssindex" target="_blank" rel="noopener">https://rupigcute.wixsite.com/quantiumtown/rssindex</a></li>
+<li><a href="https://ctf-wiki.github.io/ctf-wiki/#" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/#</a></li>
+<li><a href="https://www.gitbook.com/book/wizardforcel/ctf-field-guide" target="_blank" rel="noopener">https://www.gitbook.com/book/wizardforcel/ctf-field-guide</a></li>
+<li><a href="http://www.storysec.com/?p=89" target="_blank" rel="noopener">http://www.storysec.com/?p=89</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author：</strong>
+    Milo
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link：</strong>
+    <a href="https://diabolo94.github.io/2017/11/06/CTFfinalguide/" title="CTF終極指南">https://diabolo94.github.io/2017/11/06/CTFfinalguide/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice： </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/guide/" rel="tag"># guide</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/05/rnganbitstream/" rel="next" title="隨機數生成原理">
+                <i class="fa fa-chevron-left"></i> 隨機數生成原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/08/stego/" rel="prev" title="解開隱寫術之謎">
+                解開隱寫術之謎 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a0435fe1fcb1776" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/milo.jpg"
+                alt="Milo" />
+            
+              <p class="site-author-name" itemprop="name">Milo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/diabolo94" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/JenqNing" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:tomlimjenqning@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/+NoelSebastianLimJenqNing" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/diabolowing" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/SFERA1000/?ref=bookmarks" target="_blank" title="Security and Digital Forensic Information">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>Security and Digital Forensic Information</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                LINKS
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rupigcute.wixsite.com/quantiumtown" title="量子城" target="_blank">量子城</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://unlimitmaze.blogspot.my" title="洛林賢者無盡迷宮" target="_blank">洛林賢者無盡迷宮</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bluebear171.github.io" title="星塵物語" target="_blank">星塵物語</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://seesaawiki.jp/forgetlostspace" title="破碎的失落空間" target="_blank">破碎的失落空間</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://trpgrss.weebly.com" title="卡特莱兹酒館" target="_blank">卡特莱兹酒館</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rupigcute.wixsite.com/dramatime" title="Dramatime" target="_blank">Dramatime</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rupigcute.wixsite.com/nicetools" title="小熊天藍星工具屋" target="_blank">小熊天藍星工具屋</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://seesaawiki.jp/bluebear119" title="實用索引" target="_blank">實用索引</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://diabloice.blogspot.my" title="風鈴的世界" target="_blank">風鈴的世界</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-什麼是CTF"><span class="nav-number">1.</span> <span class="nav-text">0x01 什麼是CTF</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-CTF的歷史"><span class="nav-number">2.</span> <span class="nav-text">0x02 CTF的歷史</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-CTF的種類"><span class="nav-number">3.</span> <span class="nav-text">0x03 CTF的種類</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x04-CTF新手須知"><span class="nav-number">4.</span> <span class="nav-text">0x04 CTF新手須知</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x05-學習資源"><span class="nav-number">5.</span> <span class="nav-text">0x05 學習資源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x06-個人推薦CTF訓練基地"><span class="nav-number">6.</span> <span class="nav-text">0x06 個人推薦CTF訓練基地</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x06-CTF出題方向"><span class="nav-number">7.</span> <span class="nav-text">0x06 CTF出題方向</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Web"><span class="nav-number">7.1.</span> <span class="nav-text">Web</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Forensic"><span class="nav-number">7.2.</span> <span class="nav-text">Forensic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pwn"><span class="nav-number">7.3.</span> <span class="nav-text">Pwn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reverse-Enginnering"><span class="nav-number">7.4.</span> <span class="nav-text">Reverse Enginnering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隱寫術"><span class="nav-number">7.5.</span> <span class="nav-text">隱寫術</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Exploitation"><span class="nav-number">7.6.</span> <span class="nav-text">Binary Exploitation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cryptography"><span class="nav-number">7.7.</span> <span class="nav-text">Cryptography</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x07-CTF實際好用工具推薦"><span class="nav-number">8.</span> <span class="nav-text">0x07 CTF實際好用工具推薦</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x08-CTF戰隊的部落格"><span class="nav-number">9.</span> <span class="nav-text">0x08 CTF戰隊的部落格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x09-搭建CTF比賽平台"><span class="nav-number">10.</span> <span class="nav-text">0x09 搭建CTF比賽平台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#參考鏈接"><span class="nav-number">10.1.</span> <span class="nav-text">參考鏈接</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Milo</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">13.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://quantiumtower.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://diabolo94.github.io/2017/11/06/CTFfinalguide/';
+          this.page.identifier = '2017/11/06/CTFfinalguide/';
+          this.page.title = 'CTF終極指南';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://quantiumtower.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+
+  <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

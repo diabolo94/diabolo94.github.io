@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-tw">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('請使用正確的咒語') !== ''){
+                alert('咒語無法發動，請再嘗試');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="jP1adw4x65DvqhgN8RF3-hto_ym608I4M5iTzJ5_cww" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="guide,tools,markdown," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="量子能量塔" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="簡介 HackMD 是一個跨平台的Markdown即時協作筆記。所以你可以和朋友們在電腦、平板甚至是手機上同一時間製作你們的筆記。最方便的就是，你可以在首頁透過Facebook、Twitter、GitHub、Dropbox以及Google來登入HackMD。 分享功能你可以輕易的複製文件的網址來分享此文件。 權限設置在">
+<meta name="keywords" content="guide,tools,markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hackmd.io使用指南">
+<meta property="og:url" content="https://diabolo94.github.io/2017/11/18/hackmdio/index.html">
+<meta property="og:site_name" content="量子能量塔">
+<meta property="og:description" content="簡介 HackMD 是一個跨平台的Markdown即時協作筆記。所以你可以和朋友們在電腦、平板甚至是手機上同一時間製作你們的筆記。最方便的就是，你可以在首頁透過Facebook、Twitter、GitHub、Dropbox以及Google來登入HackMD。 分享功能你可以輕易的複製文件的網址來分享此文件。 權限設置在頁面的右上方有個小按鈕，你可以透過以下選項來更改權限： 隨意：任何人都可以編輯以">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://i.imgur.com/9cgQVqD.png">
+<meta property="og:image" content="https://diabolo94.github.io/images/dotdot.PNG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/101code.jpg">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/101result.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/continue.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/tagthis.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/show.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/slide.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/speaker.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/readpdf.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/sequence.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/flowchat.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/graphiz.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/mermaid.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/warning.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/mark.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/emp.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/picgitcat.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/xianshi.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/leg.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/zhujiaofinal.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/footer.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/def.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/def2.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/ppp.JPG">
+<meta property="og:image" content="https://diabolo94.github.io/images/hackmd/short.JPG">
+<meta property="og:updated_time" content="2017-11-18T10:14:35.810Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hackmd.io使用指南">
+<meta name="twitter:description" content="簡介 HackMD 是一個跨平台的Markdown即時協作筆記。所以你可以和朋友們在電腦、平板甚至是手機上同一時間製作你們的筆記。最方便的就是，你可以在首頁透過Facebook、Twitter、GitHub、Dropbox以及Google來登入HackMD。 分享功能你可以輕易的複製文件的網址來分享此文件。 權限設置在頁面的右上方有個小按鈕，你可以透過以下選項來更改權限： 隨意：任何人都可以編輯以">
+<meta name="twitter:image" content="https://i.imgur.com/9cgQVqD.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://diabolo94.github.io/2017/11/18/hackmdio/"/>
+
+
+
+
+
+  <title></title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '<app_id>',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_tw/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">量子能量塔</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首頁">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-歸檔">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-標籤">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分類">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-關於我">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於我
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-聯動之術">
+          <a href="/friends" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br />
+            
+            聯動之術
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-coc7版">
+          <a href="/COC7.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-space-shuttle"></i> <br />
+            
+            COC7版
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-模範合集">
+          <a href="/havey.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-subway"></i> <br />
+            
+            模範合集
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/11/18/hackmdio/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/milo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子能量塔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Hackmd.io使用指南</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-11-18T11:19:58+08:00">
+                2017-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learning-Guide/" itemprop="url" rel="index">
+                    <span itemprop="name">Learning Guide</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/18/hackmdio/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/18/hackmdio/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/18/hackmdio/" class="leancloud_visitors" data-flag-title="Hackmd.io使用指南">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字數統計&#58;</span>
+                
+                <span title="字數統計">
+                  2,409
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">閱讀時長 &asymp;</span>
+                
+                <span title="閱讀時長">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h1><p><i class="fa fa-file-text"></i> <strong>HackMD</strong> 是一個跨平台的Markdown即時協作筆記。<br>所以你可以和朋友們在<strong>電腦、平板甚至是手機</strong>上同一時間製作你們的筆記。<br>最方便的就是，你可以在首頁透過<strong>Facebook、Twitter、GitHub、Dropbox以及Google</strong>來登入<strong>HackMD</strong>。</p>
+<h1 id="分享功能"><a href="#分享功能" class="headerlink" title="分享功能"></a>分享功能</h1><p>你可以輕易的複製文件的網址來分享此文件。</p>
+<h1 id="權限設置"><a href="#權限設置" class="headerlink" title="權限設置"></a>權限設置</h1><p>在頁面的右上方有個小按鈕，你可以透過以下選項來更改權限：<br><i class="fa fa-leaf fa-fw"></i> 隨意：任何人都可以編輯以及瀏覽這份筆記。<br><i class="fa fa-shield fa-fw"></i>可編輯：已經登入的使用者才可以編輯這個筆記。（客人可以瀏覽）<br><i class="fa fa-id-card" fa-fw=""></i> 限制：已經登入的使用者可以編輯這個筆記。（禁止客人瀏覽）<br><i class="fa fa-lock fa-fw"></i> 鎖定：只有擁有者可以更改這份筆記。（客人可瀏覽）<br><i class="fa fa-umbrella fa-fw"></i> 保護：只有擁有者可以更改這份筆記。（禁止客人瀏覽）<br><i class="fa fa-hand-stop-o fa-fw"></i> 私有：只有擁有者可以更改與檢視這份筆記。</p>
+<p><strong>只有筆記的擁有者可以更改權限。</strong></p>
+<h1 id="模式轉換"><a href="#模式轉換" class="headerlink" title="模式轉換"></a>模式轉換</h1><p><strong>電腦 &amp; 平板</strong><br><i class="fa fa-eye fa-fw"></i> 檢視：只看到結果。<br><i class="fa fa-columns fa-fw"></i> 同時：同時看到兩邊。<br><i class="fa fa-edit fa-fw"></i> 編輯：只看到編輯器。</p>
+<p><strong>手機</strong><br><i class="fa fa-toggle-on fa-fw"></i> 檢視：只看到結果。<br><i class="fa fa-toggle-off fa-fw"></i> 編輯：只看到編輯器。</p>
+<h1 id="匯入和匯出"><a href="#匯入和匯出" class="headerlink" title="匯入和匯出"></a>匯入和匯出</h1><p>你可以在點擊<strong>Menu</strong>功能後，從 <strong>Dropbox</strong> <i class="fa fa-dropbox">、</i><strong>Google Drive</strong> <i class="fa fa-cloud-download"></i>、<strong>Gitgist</strong><i class="fa fa-github"></i> 匯入 <strong>.md</strong> <i class="fa fa-file-text"></i> 或是從<strong>剪貼簿Clipboard</strong> <i class="fa fa-clipboard"></i> 匯入。至於匯出也一樣如此。</p>
+<h1 id="下載格式"><a href="#下載格式" class="headerlink" title="下載格式"></a>下載格式</h1><p>你可以將此Markdown文件在下載的時候轉換成以下格式：</p>
+<ul>
+<li>MarkDown</li>
+<li>HTML</li>
+<li>RAW HTML</li>
+<li>ODF(beta)</li>
+</ul>
+<h1 id="上載圖片"><a href="#上載圖片" class="headerlink" title="上載圖片"></a>上載圖片</h1><p>上傳圖片<br>只要按下這個按鈕 <i class="fa fa-camera"></i><br>或是 <strong>拖放</strong> 圖片到編輯器，甚至 <strong>貼上</strong> 圖片也可以喔！<br>這會自動上傳圖片至 <strong><a href="http://imgur.com" target="_blank" rel="noopener">imgur</a></strong>，啥都不必煩惱了 🤖<br><img src="https://i.imgur.com/9cgQVqD.png" alt=""></p>
+<h1 id="Emoji功能"><a href="#Emoji功能" class="headerlink" title="Emoji功能"></a>Emoji功能</h1><p>你可以在<strong>HackMD</strong>自由的使用表情符號<br>😭 😓 😪 😴 🙄 🤔 😍 😘 😗 😁 😆 😅 😂</p>
+<blockquote>
+<p>完整的表情符號列表在<a href="http://www.emoji-cheat-sheet.com/" target="_blank" rel="noopener">這裡</a></p>
+</blockquote>
+<h1 id="簡報模式-amp-書本模式"><a href="#簡報模式-amp-書本模式" class="headerlink" title="簡報模式&amp;書本模式"></a>簡報模式&amp;書本模式</h1><p>除此之外，<strong>HackMD</strong>還具備了讓你將MarkDown文件變成<strong>簡報模式</strong>和<strong>書本模式</strong>的功能。那樣你就可以直接用此來進行你的Presentation或者輕鬆的向看電子書那樣，閱讀你的MarkDown文件。</p>
+<h1 id="目錄功能"><a href="#目錄功能" class="headerlink" title="目錄功能"></a>目錄功能</h1><p>在<strong>同時模式</strong>裡面，你可以再右下角找到目錄的小按鈕 <i class="fa fa-bars"></i>。當你按下之後，他會顯示出你當前所在的區塊，以及完整的目錄表。若想跳轉到其他區塊，你只需要點擊目錄裡面列出的章節題目就可。</p>
+<h1 id="Sublime-Text快捷鍵"><a href="#Sublime-Text快捷鍵" class="headerlink" title="Sublime Text快捷鍵"></a>Sublime Text快捷鍵</h1><blockquote>
+<p>可以在這<a href="https://codemirror.net/demo/sublime.html" target="_blank" rel="noopener">網站</a>找到一些快捷鍵來提升你的文件處理的效率。</p>
+</blockquote>
+<h1 id="Markdown自動完成功能"><a href="#Markdown自動完成功能" class="headerlink" title="Markdown自動完成功能"></a>Markdown自動完成功能</h1><p>提供完整的 Markdown 自動完成與提示。</p>
+<ul>
+<li>表情符號：輸入<code>:</code></li>
+<li>程式碼區塊：輸入以下格式<br><img src="/images/dotdot.PNG" alt=""></li>
+<li>標頭：輸入<code>#</code></li>
+<li>參考：輸入<code>[]</code></li>
+<li>外部：輸入<code>{}</code></li>
+<li>圖片：輸入<code>!</code></li>
+</ul>
+<h1 id="程式碼區塊"><a href="#程式碼區塊" class="headerlink" title="程式碼區塊"></a>程式碼區塊</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">"JavaScript syntax highlighting"</span>;</div><div class="line">alert(s);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">$initHighlight</span>(<span class="params">block, cls</span>) </span>&#123;</div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    <span class="keyword">if</span> (cls.search(<span class="regexp">/\bno\-highlight\b/</span>) != <span class="number">-1</span>)</div><div class="line">      <span class="keyword">return</span> process(block, <span class="literal">true</span>, <span class="number">0x0F</span>) + </div><div class="line">             <span class="string">' class=""'</span>;</div><div class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</div><div class="line">    <span class="comment">/* handle exception */</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span> / <span class="number">2</span>; i &lt; classes.length; i++) &#123;</div><div class="line">    <span class="keyword">if</span> (checkCondition(classes[i]) === <span class="literal">undefined</span>)</div><div class="line">      <span class="keyword">return</span> <span class="regexp">/\d+[\s/]/g</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果想要<strong>行號</strong>，在表明程式語言之後輸入 <code>=</code>以及想處於的行號碼<code>=101</code>。<br>您也可以指定開始行號，如下所示，行號從101開始。</p>
+</blockquote>
+<p><img src="/images/hackmd/101code.jpg" alt=""></p>
+<p>這就是顯示後的樣子。<br><img src="/images/hackmd/101result.JPG" alt=""></p>
+<blockquote>
+<p>或是可以接續上一個程式碼區塊的行號，使用 <code>=+</code>。</p>
+</blockquote>
+<p><img src="/images/hackmd/continue.JPG" alt=""></p>
+<p>本人用Python Code的例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> sympy.solvers <span class="keyword">import</span> solve</div><div class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> Symbol</div><div class="line"></div><div class="line"><span class="comment"># This comes from https://github.com/sourcekris/RsaCtfTool/blob/master/wiener_attack.py</span></div><div class="line"><span class="comment"># He made it, and I am incorporating it into my Factorizer. </span></div><div class="line"></div><div class="line"><span class="comment"># A reimplementation of pablocelayes rsa-wiener-attack for this purpose</span></div><div class="line"><span class="comment"># https://github.com/pablocelayes/rsa-wiener-attack/</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">WienerAttack</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rational_to_contfrac</span> <span class="params">(self, x, y)</span>:</span></div><div class="line">        a = x//y</div><div class="line">        <span class="keyword">if</span> a * y == x:</div><div class="line">            <span class="keyword">return</span> [a]</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            pquotients = self.rational_to_contfrac(y, x - a * y)</div><div class="line">            pquotients.insert(<span class="number">0</span>, a)</div><div class="line">            <span class="keyword">return</span> pquotients</div></pre></td></tr></table></figure></p>
+<h1 id="標籤"><a href="#標籤" class="headerlink" title="標籤"></a>標籤</h1><p>如同以下方式來使用標籤，它們會顯示在您的<strong>歷史紀錄</strong>。<br>要寫tags: + <code>筆記</code> <code>教程</code> <code>作業</code></p>
+<p>顯示結果如下<br><img src="/images/hackmd/tagthis.JPG" alt=""></p>
+<h1 id="YAML-metadata"><a href="#YAML-metadata" class="headerlink" title="YAML metadata"></a><a href="https://hackmd.io/yaml-metadata" target="_blank" rel="noopener">YAML metadata</a></h1><p>提供描述筆記的資訊，以進階設定瀏覽行為，詳細請至上連結。</p>
+<ul>
+<li>robots: 設定網路機器人 meta。</li>
+<li>lang: 設定瀏覽器顯示語言。</li>
+<li>dir: 設定文字方向。</li>
+<li>breaks: 設定是否使用分行。</li>
+<li>mathjax: 設定是否使用 mathjax。</li>
+</ul>
+<h1 id="清單功能"><a href="#清單功能" class="headerlink" title="清單功能"></a>清單功能</h1><ul>
+<li style="list-style: none"><input type="checkbox"> 待辦<ul>
+<li style="list-style: none"><input type="checkbox" checked> 打東東</li>
+<li style="list-style: none"><input type="checkbox" checked> 喝珍珠奶茶</li>
+<li style="list-style: none"><input type="checkbox"> 玩CTF</li>
+</ul>
+</li>
+</ul>
+<h1 id="引用區塊標籤"><a href="#引用區塊標籤" class="headerlink" title="引用區塊標籤"></a>引用區塊標籤</h1><blockquote>
+<p>你可以使用以下語法，表明自己的 <strong>姓名、時間與顏色</strong> 並與其他的引用區塊做區別。<br>[name=Milo] [time=Sun, October 22, 2017 9:59 PM] [color=#907bf7]</p>
+<blockquote>
+<p>也支援巢狀引用區塊喔！<br>[name=Milo] [time=Sun, October 22, 2017 10:00 PM] [color=red]</p>
+</blockquote>
+</blockquote>
+<p>顯示結果如下<br><img src="/images/hackmd/show.JPG" alt=""></p>
+<h1 id="視頻"><a href="#視頻" class="headerlink" title="視頻"></a>視頻</h1><ul>
+<li><p>Youtube<br>用這格式輸入可公開Youtube視頻鏈接的代號<br>例子：輸入<code>{}</code>,然後在裡面加上<code>%youtube CJ9xqHAdFjM %</code></p>
+<div class="video-container"><iframe src="//www.youtube.com/embed/CJ9xqHAdFjM" frameborder="0" allowfullscreen></iframe></div>
+</li>
+<li><p>Vimeo<br>用這格式輸入可公開Vimeo視頻鏈接的代號<br>例子：輸入<code>{}</code>,然後在裡面加上<code>%vimeo 230308008 %</code></p>
+<div class="video-container"><iframe src="//player.vimeo.com/video/230308008" frameborder="0" allowfullscreen></iframe></div>
+</li>
+</ul>
+<h1 id="Gist"><a href="#Gist" class="headerlink" title="Gist"></a>Gist</h1><p>用這格式輸入可公開Gist<br>例子：輸入<code>{}</code>，然後在裡面加上例子：輸入<code>{}</code>,然後在裡面加上<code>%gist schacon/4277 %</code><br><script src="//gist.github.com/schacon/4277.js"></script></p>
+<h1 id="SlideShare"><a href="#SlideShare" class="headerlink" title="SlideShare"></a>SlideShare</h1><p>輸入<code>{}</code>，括號裡面再輸入<code>%slideshare HacksInTaiwan/ctf-56046764 %</code><br>你的Hackmd.io就會有以下的顯示<br><img src="/images/hackmd/slide.JPG" alt=""></p>
+<h1 id="Speakerdeck"><a href="#Speakerdeck" class="headerlink" title="Speakerdeck"></a>Speakerdeck</h1><p>輸入<code>{}</code>，括號裡面再輸入<code>%speakerdeck sugarenia/xxlcss-how-to-scale-css-and-keep-your-sanity %</code><br>你的Hackmd.io就會有以下的顯示<br><img src="/images/hackmd/speaker.JPG" alt=""></p>
+<h1 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h1><p><strong>注意：請使用 https 的網址，否則可能會被您的瀏覽器阻擋載入。</strong><br>輸入<code>{}</code>，括號裡面再輸入<code>%pdf https://beginners.re/RE4B-EN.pdf %</code><br><img src="/images/hackmd/readpdf.JPG" alt=""></p>
+<h1 id="MathJax"><a href="#MathJax" class="headerlink" title="MathJax"></a>MathJax</h1><p>你可以使用 <strong>MathJax</strong> 語法來產生<em>LaTeX</em> 數學表達式，如同 <a href="http://math.stackexchange.com/" target="_blank" rel="noopener">math.stackexchange.com</a>：</p>
+<p>The <em>Gamma function</em> satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral</p>
+<p>$$<br>x = {-b \pm \sqrt{b^2-4ac} \over 2a}.<br>$$</p>
+<p>$$<br>\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.<br>$$</p>
+<blockquote>
+<p>更多關於 <strong>LaTeX</strong> 數學表達式 <a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">請至這裡</a></p>
+</blockquote>
+<h1 id="UML-圖表"><a href="#UML-圖表" class="headerlink" title="UML 圖表"></a>UML 圖表</h1><h2 id="循序圖"><a href="#循序圖" class="headerlink" title="循序圖"></a>循序圖</h2><p>您可以像是以下使用循序圖：<br>在程式碼區域輸入<code>sequence</code><br>你的Hackmd.io就會有以下的顯示<br><img src="/images/hackmd/sequence.JPG" alt=""></p>
+<blockquote>
+<p>更多關於 <strong>循序圖</strong> 語法 <a href="http://bramp.github.io/js-sequence-diagrams/" target="_blank" rel="noopener">在這裡</a>.</p>
+</blockquote>
+<h2 id="流程圖"><a href="#流程圖" class="headerlink" title="流程圖"></a>流程圖</h2><p>您可以像是以下使用流程圖：<br>在程式碼區域輸入<code>flow</code><br>你的Hackmd.io就會有以下的顯示<br><img src="/images/hackmd/flowchat.JPG" alt=""></p>
+<blockquote>
+<p>更多關於 <strong>流程圖</strong> 語法 <a href="http://adrai.github.io/flowchart.js/" target="_blank" rel="noopener">在這裡</a>.</p>
+</blockquote>
+<h2 id="Graphviz"><a href="#Graphviz" class="headerlink" title="Graphviz"></a>Graphviz</h2><p>在程式碼區域輸入<code>graphiz</code><br>你的Hackmd.io就會有以下的顯示<br><img src="/images/hackmd/graphiz.JPG" alt=""></p>
+<blockquote>
+<p>更多關於 <strong>Graphviz</strong> 語法 <a href="http://www.tonyballantyne.com/graphs.html" target="_blank" rel="noopener">在這裡</a></p>
+</blockquote>
+<h2 id="Mermaid"><a href="#Mermaid" class="headerlink" title="Mermaid"></a>Mermaid</h2><p>在程式碼區域輸入<code>mermaid</code><br>你的Hackmd.io就會有以下的顯示<br><img src="/images/hackmd/mermaid.JPG" alt=""></p>
+<blockquote>
+<p>更多關於 <strong>Mermaid</strong> 語法 <a href="http://knsv.github.io/mermaid" target="_blank" rel="noopener">在這裡</a></p>
+</blockquote>
+<h1 id="警告區塊"><a href="#警告區塊" class="headerlink" title="警告區塊"></a>警告區塊</h1><p>輸入<br><code>:::success
+成功板塊
+:::</code><br><code>:::info
+公佈信息
+:::</code><br><code>:::warning
+注意一下
+:::</code><br><code>:::danger
+危險地帶
+:::</code><br>你的Hackmd.io就會有以下的顯示<br><img src="/images/hackmd/warning.JPG" alt=""></p>
+<h1 id="排版功能"><a href="#排版功能" class="headerlink" title="排版功能"></a>排版功能</h1><h2 id="標題"><a href="#標題" class="headerlink" title="標題"></a>標題</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># h1 標頭</div><div class="line">## h2 標頭</div><div class="line">### h3 標頭</div><div class="line">#### h4 標頭</div><div class="line">##### h5 標頭</div><div class="line">###### h6 標頭</div></pre></td></tr></table></figure>
+<h2 id="水平分隔線"><a href="#水平分隔線" class="headerlink" title="水平分隔線"></a>水平分隔線</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">___</div><div class="line">或者</div><div class="line">***</div></pre></td></tr></table></figure>
+<h2 id="字形替換"><a href="#字形替換" class="headerlink" title="字形替換"></a>字形替換</h2><p>輸入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(c) (C) (r) (R) (tm) (TM) (p) (P) +-</div></pre></td></tr></table></figure></p>
+<p>會顯示這樣<br><img src="/images/hackmd/mark.JPG" alt=""></p>
+<p>“Smartypants, 雙引號”</p>
+<p>‘Smartypants, 單引號’</p>
+<h2 id="強調"><a href="#強調" class="headerlink" title="強調"></a>強調</h2><p>輸入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">**這是粗體文字**</div><div class="line"></div><div class="line">__這是粗體文字__</div><div class="line"></div><div class="line">*這是斜體文字*</div><div class="line"></div><div class="line">_這是斜體文字_</div><div class="line"></div><div class="line">~~這是刪除文字~~</div><div class="line"></div><div class="line">上標： 19^th^</div><div class="line"></div><div class="line">下標： H~2~O</div><div class="line"></div><div class="line">++這是底線文字++</div><div class="line"></div><div class="line">==這是標記文字==</div></pre></td></tr></table></figure></p>
+<p>會顯示這樣<br><img src="/images/hackmd/emp.JPG" alt=""></p>
+<h2 id="引用區塊"><a href="#引用區塊" class="headerlink" title="引用區塊"></a>引用區塊</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 引用區塊也可以是巢狀的喔...</div><div class="line">&gt;&gt; ...可以多層次的使用...</div><div class="line">&gt; &gt; &gt; ...或是用空白隔開</div></pre></td></tr></table></figure>
+<blockquote>
+<p>引用區塊也可以是巢狀的喔…</p>
+<blockquote>
+<p>…可以多層次的使用…</p>
+<blockquote>
+<p>…或是用空白隔開 </p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="清單"><a href="#清單" class="headerlink" title="清單"></a>清單</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+ 在行開頭使用 `+` `-` 或是 `*` 來建立清單</div><div class="line">+ 空兩個空白就可以產生子清單</div><div class="line">  - 當清單標記使用的字元不同，會強制建立新的清單</div><div class="line">    * Ac tristique libero volutpat at</div><div class="line">    + Facilisis in pretium nisl aliquet</div><div class="line">    - Nulla volutpat aliquam velit</div><div class="line">+ 非常簡單！</div></pre></td></tr></table></figure>
+<ul>
+<li>在行開頭使用 <code>+</code> <code>-</code> 或是 <code>*</code> 來建立清單</li>
+<li>空兩個空白就可以產生子清單<ul>
+<li>當清單標記使用的字元不同，會強制建立新的清單<ul>
+<li>Ac tristique libero volutpat at</li>
+</ul>
+<ul>
+<li>Facilisis in pretium nisl aliquet</li>
+</ul>
+<ul>
+<li>Nulla volutpat aliquam velit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>非常簡單！</li>
+</ul>
+<h2 id="編號"><a href="#編號" class="headerlink" title="編號"></a>編號</h2><ol>
+<li>Lorem ipsum dolor sit amet</li>
+<li>Consectetur adipiscing elit</li>
+<li><p>Integer molestie lorem at massa</p>
+</li>
+<li><p>您可以逐次增加項目數字…</p>
+</li>
+<li>…或是全部都使用 <code>1.</code></li>
+<li>feafw</li>
+<li>332</li>
+<li>242</li>
+<li>2552</li>
+<li>e2</li>
+</ol>
+<p>從其他範圍開始編號清單</p>
+<ol>
+<li>foo</li>
+<li>bar</li>
+</ol>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">| ------ | ----------- |</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>選項</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>path to data files to supply the data that will be passed into templates.</td>
+</tr>
+<tr>
+<td>engine</td>
+<td>engine to be used for processing templates. Handlebars is the default.</td>
+</tr>
+<tr>
+<td>ext</td>
+<td>extension to be used for dest files.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="向右對齊"><a href="#向右對齊" class="headerlink" title="向右對齊"></a>向右對齊</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">| ------:| -----------:|</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">選項</th>
+<th style="text-align:right">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">data</td>
+<td style="text-align:right">path to data files to supply the data that will be passed into templates.</td>
+</tr>
+<tr>
+<td style="text-align:right">engine</td>
+<td style="text-align:right">engine to be used for processing templates. Handlebars is the default.</td>
+</tr>
+<tr>
+<td style="text-align:right">ext</td>
+<td style="text-align:right">extension to be used for dest files.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="向左對齊"><a href="#向左對齊" class="headerlink" title="向左對齊"></a>向左對齊</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">|:------ |:----------- |</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">選項</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">data</td>
+<td style="text-align:left">path to data files to supply the data that will be passed into templates.</td>
+</tr>
+<tr>
+<td style="text-align:left">engine</td>
+<td style="text-align:left">engine to be used for processing templates. Handlebars is the default.</td>
+</tr>
+<tr>
+<td style="text-align:left">ext</td>
+<td style="text-align:left">extension to be used for dest files.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="置中對齊"><a href="#置中對齊" class="headerlink" title="置中對齊"></a>置中對齊</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">|:------:|:-----------:|</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">選項</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">data</td>
+<td style="text-align:center">path to data files to supply the data that will be passed into templates.</td>
+</tr>
+<tr>
+<td style="text-align:center">engine</td>
+<td style="text-align:center">engine to be used for processing templates. Handlebars is the default.</td>
+</tr>
+<tr>
+<td style="text-align:center">ext</td>
+<td style="text-align:center">extension to be used for dest files.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="連結"><a href="#連結" class="headerlink" title="連結"></a>連結</h1><p><a href="http://seesaawiki.jp/forgetlostspace/" target="_blank" rel="noopener">連結文字</a><br><a href="https://rupigcute.wixsite.com/quantiumtown" title="看到我這個可愛的標題嗎🐙" target="_blank" rel="noopener">加上標題的連結文字</a></p>
+<h1 id="圖片"><a href="#圖片" class="headerlink" title="圖片"></a>圖片</h1><p><img src="/images/hackmd/picgitcat.JPG" alt=""></p>
+<p>顯示出來的結果(只放部分圖片)<br><img src="/images/hackmd/xianshi.JPG" alt=""></p>
+<h1 id="註腳"><a href="#註腳" class="headerlink" title="註腳"></a>註腳</h1><p><img src="/images/hackmd/leg.JPG" alt=""><br>顯示出來的結果<br><img src="/images/hackmd/zhujiaofinal.JPG" alt=""></p>
+<p>你的Markdown文字最後也會出現你之前寫下的Footer。<br><img src="/images/hackmd/footer.JPG" alt=""></p>
+<h1 id="定義清單"><a href="#定義清單" class="headerlink" title="定義清單"></a>定義清單</h1><p><img src="/images/hackmd/def.JPG" alt=""><br>使用後的結果如下<br><img src="/images/hackmd/def2.JPG" alt=""></p>
+<h1 id="縮寫"><a href="#縮寫" class="headerlink" title="縮寫"></a>縮寫</h1><p>這是 HTML 的縮寫範例<br>它會轉換 “HTML”，但是縮寫旁邊其他的部分，例如：”xxxHTMLyyy”，不受影響<br><img src="/images/hackmd/ppp.JPG" alt=""><br>最後顯示成這個樣子<br><img src="/images/hackmd/short.JPG" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author：</strong>
+    Milo
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link：</strong>
+    <a href="https://diabolo94.github.io/2017/11/18/hackmdio/" title="Hackmd.io使用指南">https://diabolo94.github.io/2017/11/18/hackmdio/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice： </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/guide/" rel="tag"># guide</a>
+          
+            <a href="/tags/tools/" rel="tag"># tools</a>
+          
+            <a href="/tags/markdown/" rel="tag"># markdown</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/16/discordpromote/" rel="next" title="可愛又好玩的語音聊天平台-Discord">
+                <i class="fa fa-chevron-left"></i> 可愛又好玩的語音聊天平台-Discord
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/20/debugexp/" rel="prev" title="Debug指令完整教學">
+                Debug指令完整教學 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a0435fe1fcb1776" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/milo.jpg"
+                alt="Milo" />
+            
+              <p class="site-author-name" itemprop="name">Milo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/diabolo94" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/JenqNing" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:tomlimjenqning@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/+NoelSebastianLimJenqNing" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/diabolowing" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/SFERA1000/?ref=bookmarks" target="_blank" title="Security and Digital Forensic Information">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>Security and Digital Forensic Information</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                LINKS
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rupigcute.wixsite.com/quantiumtown" title="量子城" target="_blank">量子城</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://unlimitmaze.blogspot.my" title="洛林賢者無盡迷宮" target="_blank">洛林賢者無盡迷宮</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bluebear171.github.io" title="星塵物語" target="_blank">星塵物語</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://seesaawiki.jp/forgetlostspace" title="破碎的失落空間" target="_blank">破碎的失落空間</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://trpgrss.weebly.com" title="卡特莱兹酒館" target="_blank">卡特莱兹酒館</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rupigcute.wixsite.com/dramatime" title="Dramatime" target="_blank">Dramatime</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rupigcute.wixsite.com/nicetools" title="小熊天藍星工具屋" target="_blank">小熊天藍星工具屋</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://seesaawiki.jp/bluebear119" title="實用索引" target="_blank">實用索引</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://diabloice.blogspot.my" title="風鈴的世界" target="_blank">風鈴的世界</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#簡介"><span class="nav-number">1.</span> <span class="nav-text">簡介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分享功能"><span class="nav-number">2.</span> <span class="nav-text">分享功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#權限設置"><span class="nav-number">3.</span> <span class="nav-text">權限設置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模式轉換"><span class="nav-number">4.</span> <span class="nav-text">模式轉換</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#匯入和匯出"><span class="nav-number">5.</span> <span class="nav-text">匯入和匯出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下載格式"><span class="nav-number">6.</span> <span class="nav-text">下載格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上載圖片"><span class="nav-number">7.</span> <span class="nav-text">上載圖片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Emoji功能"><span class="nav-number">8.</span> <span class="nav-text">Emoji功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#簡報模式-amp-書本模式"><span class="nav-number">9.</span> <span class="nav-text">簡報模式&書本模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目錄功能"><span class="nav-number">10.</span> <span class="nav-text">目錄功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sublime-Text快捷鍵"><span class="nav-number">11.</span> <span class="nav-text">Sublime Text快捷鍵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown自動完成功能"><span class="nav-number">12.</span> <span class="nav-text">Markdown自動完成功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#程式碼區塊"><span class="nav-number">13.</span> <span class="nav-text">程式碼區塊</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#標籤"><span class="nav-number">14.</span> <span class="nav-text">標籤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#YAML-metadata"><span class="nav-number">15.</span> <span class="nav-text">YAML metadata</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#清單功能"><span class="nav-number">16.</span> <span class="nav-text">清單功能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用區塊標籤"><span class="nav-number">17.</span> <span class="nav-text">引用區塊標籤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#視頻"><span class="nav-number">18.</span> <span class="nav-text">視頻</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Gist"><span class="nav-number">19.</span> <span class="nav-text">Gist</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SlideShare"><span class="nav-number">20.</span> <span class="nav-text">SlideShare</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Speakerdeck"><span class="nav-number">21.</span> <span class="nav-text">Speakerdeck</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PDF"><span class="nav-number">22.</span> <span class="nav-text">PDF</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MathJax"><span class="nav-number">23.</span> <span class="nav-text">MathJax</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UML-圖表"><span class="nav-number">24.</span> <span class="nav-text">UML 圖表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#循序圖"><span class="nav-number">24.1.</span> <span class="nav-text">循序圖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程圖"><span class="nav-number">24.2.</span> <span class="nav-text">流程圖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graphviz"><span class="nav-number">24.3.</span> <span class="nav-text">Graphviz</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mermaid"><span class="nav-number">24.4.</span> <span class="nav-text">Mermaid</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#警告區塊"><span class="nav-number">25.</span> <span class="nav-text">警告區塊</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#排版功能"><span class="nav-number">26.</span> <span class="nav-text">排版功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#標題"><span class="nav-number">26.1.</span> <span class="nav-text">標題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#水平分隔線"><span class="nav-number">26.2.</span> <span class="nav-text">水平分隔線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字形替換"><span class="nav-number">26.3.</span> <span class="nav-text">字形替換</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#強調"><span class="nav-number">26.4.</span> <span class="nav-text">強調</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用區塊"><span class="nav-number">26.5.</span> <span class="nav-text">引用區塊</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清單"><span class="nav-number">26.6.</span> <span class="nav-text">清單</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#編號"><span class="nav-number">26.7.</span> <span class="nav-text">編號</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">26.8.</span> <span class="nav-text">表格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向右對齊"><span class="nav-number">26.8.1.</span> <span class="nav-text">向右對齊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向左對齊"><span class="nav-number">26.8.2.</span> <span class="nav-text">向左對齊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#置中對齊"><span class="nav-number">26.8.3.</span> <span class="nav-text">置中對齊</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#連結"><span class="nav-number">27.</span> <span class="nav-text">連結</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#圖片"><span class="nav-number">28.</span> <span class="nav-text">圖片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#註腳"><span class="nav-number">29.</span> <span class="nav-text">註腳</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定義清單"><span class="nav-number">30.</span> <span class="nav-text">定義清單</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#縮寫"><span class="nav-number">31.</span> <span class="nav-text">縮寫</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Milo</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">13.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://quantiumtower.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://diabolo94.github.io/2017/11/18/hackmdio/';
+          this.page.identifier = '2017/11/18/hackmdio/';
+          this.page.title = 'Hackmd.io使用指南';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://quantiumtower.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+  <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>
