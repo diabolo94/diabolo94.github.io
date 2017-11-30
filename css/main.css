@@ -1738,7 +1738,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b8f2a3;
+  background: #0a3ec2;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2574,4 +2574,11 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+body {
+  background-image: url("/images/watercover.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 100%;
+  background-size: cover;
 }
