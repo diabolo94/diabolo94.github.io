@@ -21,7 +21,7 @@
 <h3 id="加密解密"><a href="#加密解密" class="headerlink" title="加密解密"></a>加密解密</h3><ul>
 <li>字符集和字符編碼</li>
 </ul>
-<h2 id="Course’s-Notes"><a href="#Course’s-Notes" class="headerlink" title="Course’s Notes"></a>Course’s Notes</h2><h2 id="CTF-Notes"><a href="#CTF-Notes" class="headerlink" title="CTF Notes"></a>CTF Notes</h2><h3 id="PWN終極指南"><a href="#PWN終極指南" class="headerlink" title="PWN終極指南"></a>PWN終極指南</h3><h2 id="LICENSE"><a href="#LICENSE" class="headerlink" title="LICENSE"></a>LICENSE</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MIT LICENSE.</div><div class="line">COPYRIGHT (C) 2017 Diabolo Jenq Ning</div></pre></td></tr></table></figure>
+<h2 id="Course’s-Notes"><a href="#Course’s-Notes" class="headerlink" title="Course’s Notes"></a>Course’s Notes</h2><h2 id="CTF-Notes"><a href="#CTF-Notes" class="headerlink" title="CTF Notes"></a>CTF Notes</h2><h3 id="PWN終極指南"><a href="#PWN終極指南" class="headerlink" title="PWN終極指南"></a>PWN終極指南</h3><h2 id="LICENSE"><a href="#LICENSE" class="headerlink" title="LICENSE"></a>LICENSE</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MIT LICENSE.</div><div class="line">COPYRIGHT (C) <span class="number">2017</span> <span class="keyword">Diabolo </span><span class="keyword">Jenq </span>Ning</div></pre></td></tr></table></figure>
 <hr>
 <p>Started on 2017/11/22 </p>
 ]]></content>
@@ -256,15 +256,15 @@
 :::</code><br><code>:::danger
 危險地帶
 :::</code><br>你的Hackmd.io就會有以下的顯示<br><img src="/images/hackmd/warning.JPG" alt=""></p>
-<h1 id="排版功能"><a href="#排版功能" class="headerlink" title="排版功能"></a>排版功能</h1><h2 id="標題"><a href="#標題" class="headerlink" title="標題"></a>標題</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># h1 標頭</div><div class="line">## h2 標頭</div><div class="line">### h3 標頭</div><div class="line">#### h4 標頭</div><div class="line">##### h5 標頭</div><div class="line">###### h6 標頭</div></pre></td></tr></table></figure>
-<h2 id="水平分隔線"><a href="#水平分隔線" class="headerlink" title="水平分隔線"></a>水平分隔線</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">___</div><div class="line">或者</div><div class="line">***</div></pre></td></tr></table></figure>
-<h2 id="字形替換"><a href="#字形替換" class="headerlink" title="字形替換"></a>字形替換</h2><p>輸入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(c) (C) (r) (R) (tm) (TM) (p) (P) +-</div></pre></td></tr></table></figure></p>
+<h1 id="排版功能"><a href="#排版功能" class="headerlink" title="排版功能"></a>排版功能</h1><h2 id="標題"><a href="#標題" class="headerlink" title="標題"></a>標題</h2><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># h1 標頭</div><div class="line">## h2 標頭</div><div class="line">### h3 標頭</div><div class="line">#### h4 標頭</div><div class="line">##### h5 標頭</div><div class="line">###### h6 標頭</div></pre></td></tr></table></figure>
+<h2 id="水平分隔線"><a href="#水平分隔線" class="headerlink" title="水平分隔線"></a>水平分隔線</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="emphasis">___</span></div><div class="line">或者</div><div class="line"><span class="emphasis">***</span></div></pre></td></tr></table></figure>
+<h2 id="字形替換"><a href="#字形替換" class="headerlink" title="字形替換"></a>字形替換</h2><p>輸入<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="name">c</span>) (<span class="name">C</span>) (<span class="name">r</span>) (<span class="name">R</span>) (<span class="name">tm</span>) (<span class="name">TM</span>) (<span class="name">p</span>) (<span class="name">P</span>) +-</div></pre></td></tr></table></figure></p>
 <p>會顯示這樣<br><img src="/images/hackmd/mark.JPG" alt=""></p>
 <p>“Smartypants, 雙引號”</p>
 <p>‘Smartypants, 單引號’</p>
-<h2 id="強調"><a href="#強調" class="headerlink" title="強調"></a>強調</h2><p>輸入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">**這是粗體文字**</div><div class="line"></div><div class="line">__這是粗體文字__</div><div class="line"></div><div class="line">*這是斜體文字*</div><div class="line"></div><div class="line">_這是斜體文字_</div><div class="line"></div><div class="line">~~這是刪除文字~~</div><div class="line"></div><div class="line">上標： 19^th^</div><div class="line"></div><div class="line">下標： H~2~O</div><div class="line"></div><div class="line">++這是底線文字++</div><div class="line"></div><div class="line">==這是標記文字==</div></pre></td></tr></table></figure></p>
+<h2 id="強調"><a href="#強調" class="headerlink" title="強調"></a>強調</h2><p>輸入<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">**這是粗體文字**</div><div class="line"></div><div class="line"><span class="symbol">__</span>這是粗體文字<span class="symbol">__</span></div><div class="line"></div><div class="line">*這是斜體文字*</div><div class="line"></div><div class="line"><span class="symbol">_</span>這是斜體文字<span class="symbol">_</span></div><div class="line"></div><div class="line">~~這是刪除文字~~</div><div class="line"></div><div class="line">上標： <span class="number">19</span>^th^</div><div class="line"></div><div class="line">下標： H~<span class="number">2</span>~O</div><div class="line"></div><div class="line">++這是底線文字++</div><div class="line"></div><div class="line">==這是標記文字==</div></pre></td></tr></table></figure></p>
 <p>會顯示這樣<br><img src="/images/hackmd/emp.JPG" alt=""></p>
-<h2 id="引用區塊"><a href="#引用區塊" class="headerlink" title="引用區塊"></a>引用區塊</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 引用區塊也可以是巢狀的喔...</div><div class="line">&gt;&gt; ...可以多層次的使用...</div><div class="line">&gt; &gt; &gt; ...或是用空白隔開</div></pre></td></tr></table></figure>
+<h2 id="引用區塊"><a href="#引用區塊" class="headerlink" title="引用區塊"></a>引用區塊</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> 引用區塊也可以是巢狀的喔...</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt; ...可以多層次的使用...</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> &gt; &gt; ...或是用空白隔開</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>引用區塊也可以是巢狀的喔…</p>
 <blockquote>
@@ -274,7 +274,7 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h2 id="清單"><a href="#清單" class="headerlink" title="清單"></a>清單</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+ 在行開頭使用 `+` `-` 或是 `*` 來建立清單</div><div class="line">+ 空兩個空白就可以產生子清單</div><div class="line">  - 當清單標記使用的字元不同，會強制建立新的清單</div><div class="line">    * Ac tristique libero volutpat at</div><div class="line">    + Facilisis in pretium nisl aliquet</div><div class="line">    - Nulla volutpat aliquam velit</div><div class="line">+ 非常簡單！</div></pre></td></tr></table></figure>
+<h2 id="清單"><a href="#清單" class="headerlink" title="清單"></a>清單</h2><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+ 在行開頭使用 `+` `-` 或是 `*` 來建立清單</div><div class="line">+ 空兩個空白就可以產生子清單</div><div class="line">  - 當清單標記使用的字元不同，會強制建立新的清單</div><div class="line">    * Ac tristique libero volutpat at</div><div class="line">    + Facilisis <span class="keyword">in</span> pretium nisl aliquet</div><div class="line">    - Nulla volutpat aliquam velit</div><div class="line">+ 非常簡單！</div></pre></td></tr></table></figure>
 <ul>
 <li>在行開頭使用 <code>+</code> <code>-</code> 或是 <code>*</code> 來建立清單</li>
 <li>空兩個空白就可以產生子清單<ul>
@@ -311,7 +311,7 @@
 <li>foo</li>
 <li>bar</li>
 </ol>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">| ------ | ----------- |</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">|<span class="string"> 選項 </span>|<span class="string"> 描述 </span>|</div><div class="line">|<span class="string"> ------ </span>|<span class="string"> ----------- </span>|</div><div class="line">|<span class="string"> data   </span>|<span class="string"> path to data files to supply the data that will be passed into templates. </span>|</div><div class="line">|<span class="string"> engine </span>|<span class="string"> engine to be used for processing templates. Handlebars is the default. </span>|</div><div class="line">|<span class="string"> ext    </span>|<span class="string"> extension to be used for dest files. </span>|</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -334,7 +334,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="向右對齊"><a href="#向右對齊" class="headerlink" title="向右對齊"></a>向右對齊</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">| ------:| -----------:|</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
+<h3 id="向右對齊"><a href="#向右對齊" class="headerlink" title="向右對齊"></a>向右對齊</h3><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">|<span class="string"> 選項 </span>|<span class="string"> 描述 </span>|</div><div class="line">|<span class="string"> ------:</span>|<span class="string"> -----------:</span>|</div><div class="line">|<span class="string"> data   </span>|<span class="string"> path to data files to supply the data that will be passed into templates. </span>|</div><div class="line">|<span class="string"> engine </span>|<span class="string"> engine to be used for processing templates. Handlebars is the default. </span>|</div><div class="line">|<span class="string"> ext    </span>|<span class="string"> extension to be used for dest files. </span>|</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -357,7 +357,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="向左對齊"><a href="#向左對齊" class="headerlink" title="向左對齊"></a>向左對齊</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">|:------ |:----------- |</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
+<h3 id="向左對齊"><a href="#向左對齊" class="headerlink" title="向左對齊"></a>向左對齊</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">|<span class="symbol">:------</span> |<span class="symbol">:-----------</span> |</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used <span class="keyword">for</span> processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used <span class="keyword">for</span> dest files. |</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -380,7 +380,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="置中對齊"><a href="#置中對齊" class="headerlink" title="置中對齊"></a>置中對齊</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">|:------:|:-----------:|</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
+<h3 id="置中對齊"><a href="#置中對齊" class="headerlink" title="置中對齊"></a>置中對齊</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="params">| 選項 |</span> 描述 <span class="params">|</span></div><div class="line"><span class="params">|</span><span class="symbol">:------</span><span class="symbol">:|</span><span class="symbol">:-----------</span><span class="symbol">:|</span></div><div class="line"><span class="params">| data   |</span> path to data files to supply the data that will be passed into templates. <span class="params">|</span></div><div class="line"><span class="params">|</span> engine <span class="params">| engine to be used <span class="keyword">for</span> processing templates. Handlebars is the default. |</span></div><div class="line"><span class="params">| ext    |</span> extension to be used <span class="keyword">for</span> dest files. <span class="params">|</span></div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -450,9 +450,9 @@
         
         <tags>
             
-            <tag> discord </tag>
-            
             <tag> guide </tag>
+            
+            <tag> discord </tag>
             
         </tags>
         
@@ -857,9 +857,9 @@
         
         <tags>
             
-            <tag> guide </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> guide </tag>
             
             <tag> steganography </tag>
             
@@ -966,7 +966,7 @@
 <li><a href="https://apsdehal.in/awesome-ctf/#tutorials" target="_blank" rel="noopener">Awesome CTF</a></li>
 </ul>
 <p>除了以上資源，你也可以自己上網閱讀一些大神寫的文章，從他們自我總結的經驗當中，你往往可以學得更快。單單看並不足夠，最重要的還是要自己做筆記，唯有這樣你才會清楚知道自己已經學會了什麼知識。</p>
-<h1 id="0x06-個人推薦CTF訓練基地"><a href="#0x06-個人推薦CTF訓練基地" class="headerlink" title="0x06 個人推薦CTF訓練基地"></a>0x06 個人推薦CTF訓練基地</h1><p><a href="http://overthewire.org/wargames/" target="_blank" rel="noopener">Overthewire</a><br>所提供的挑戰：Bandit，Natas，Leviathan，Narnia，Krypton，Behemoth，Utumno，Maze，Vortex，Semtex，Manpage，Drifter，HES2010<br>Abraxas，Monxla，Kishi。</p>
+<h1 id="0x06-個人推薦CTF訓練基地"><a href="#0x06-個人推薦CTF訓練基地" class="headerlink" title="0x06 個人推薦CTF訓練基地"></a>0x06 個人推薦CTF訓練基地</h1><p><a href="http://overthewire.org/wargames/" target="_blank" rel="noopener">Overthewire</a><br>所提供的挑戰：Bandit，Natas，Leviathan，Narnia，Krypton，Behemoth，Utumno，Maze，Vortex，Semtex，Manpage，Drifter，HES2010，Abraxas，Monxla，Kishi。</p>
 <p><a href="https://www.enigmagroup.org/" target="_blank" rel="noopener">Enigmagroup</a><br>所提供的挑戰：Basic，Realistic，Crypto，Cracking，Auditing，Patching，Praogramming，Stego。</p>
 <p><a href="https://www.hackthissite.org" target="_blank" rel="noopener">Hack This Site</a><br>所提供的挑戰：Basic，Realistic，Application，Programming，Phonephreaking，Javascript，Forensic，Extbasic，Stego，IRC</p>
 <p><a href="https://w3challs.com" target="_blank" rel="noopener">W3Chall</a><br>所提供的挑戰：Hacking，Cracking，Wargame，Forensic，Crypto，Programming and /dev/null</p>
@@ -976,14 +976,14 @@
 <p><a href="https://microcorruption.com/login" target="_blank" rel="noopener">Micro Corruption</a></p>
 <p><a href="http://smashthestack.org" target="_blank" rel="noopener">Samsh the stack</a></p>
 <p>10.<a href="http://wargame.kr" target="_blank" rel="noopener">http://wargame.kr</a><br>11.<a href="https://ctflearn.com/index.php" target="_blank" rel="noopener">https://ctflearn.com/index.php</a><br>12.<a href="https://pwnable.tw" target="_blank" rel="noopener">https://pwnable.tw</a><br>13.<a href="https://ringzer0team.com" target="_blank" rel="noopener">https://ringzer0team.com</a><br>14.<a href="https://hackme.inndy.tw" target="_blank" rel="noopener">https://hackme.inndy.tw</a><br>15.<a href="https://ctf365.com" target="_blank" rel="noopener">https://ctf365.com</a><br>16.<a href="http://pwnwiki.io/#!index.md" target="_blank" rel="noopener">http://pwnwiki.io/#!index.md</a><br>17.<a href="http://ctf.sqrt-1.me" target="_blank" rel="noopener">http://ctf.sqrt-1.me</a><br>18.<a href="http://www.shiyanbar.com/ctf/practice" target="_blank" rel="noopener">http://www.shiyanbar.com/ctf/practice</a><br>19.<a href="https://bamboofox.cs.nctu.edu.tw/wargame" target="_blank" rel="noopener">https://bamboofox.cs.nctu.edu.tw/wargame</a><br>20.<a href="http://solveme.safflower.kr" target="_blank" rel="noopener">http://solveme.safflower.kr</a></p>
-<h1 id="0x06-CTF出題方向學習資源"><a href="#0x06-CTF出題方向學習資源" class="headerlink" title="0x06 CTF出題方向學習資源"></a>0x06 CTF出題方向學習資源</h1><h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><ul>
+<h1 id="0x07-CTF出題方向學習資源"><a href="#0x07-CTF出題方向學習資源" class="headerlink" title="0x07 CTF出題方向學習資源"></a>0x07 CTF出題方向學習資源</h1><h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><ul>
 <li><a href="https://goo.gl/h3EJKJ" target="_blank" rel="noopener">Web Security Learning by Chybeta</a><br><a href="https://chybeta.gitbooks.io/waf-bypass/sqlzhu-ru/mysqlzhu-ru.html" target="_blank" rel="noopener">https://chybeta.gitbooks.io/waf-bypass/sqlzhu-ru/mysqlzhu-ru.html</a><br><a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a><br><a href="http://redtiger.labs.overthewire.org" target="_blank" rel="noopener">http://redtiger.labs.overthewire.org</a><br><a href="http://xss-quiz.int21h.jp" target="_blank" rel="noopener">http://xss-quiz.int21h.jp</a><br><a href="https://alf.nu/alert1" target="_blank" rel="noopener">https://alf.nu/alert1</a><br><a href="http://google-gruyere.appspot.com" target="_blank" rel="noopener">http://google-gruyere.appspot.com</a><br><a href="https://xss-game.appspot.com" target="_blank" rel="noopener">https://xss-game.appspot.com</a><br><a href="http://ctf.infosecinstitute.com/index.php" target="_blank" rel="noopener">http://ctf.infosecinstitute.com/index.php</a><br><a href="http://ctf.infosecinstitute.com/ctf2/" target="_blank" rel="noopener">http://ctf.infosecinstitute.com/ctf2/</a><br><a href="http://prompt.ml/0" target="_blank" rel="noopener">http://prompt.ml/0</a><br><a href="http://www.webug.org" target="_blank" rel="noopener">http://www.webug.org</a></li>
 </ul>
 <h2 id="Forensic"><a href="#Forensic" class="headerlink" title="Forensic"></a>Forensic</h2><h2 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h2><ul>
 <li><a href="https://goo.gl/L7rcxz" target="_blank" rel="noopener">Software Security Learning by Chybeta</a><br><a href="http://vancir.com/tutorials.html" target="_blank" rel="noopener">http://vancir.com/tutorials.html</a><br><a href="http://www.louys.net.cn/index.php/archives/120/" target="_blank" rel="noopener">http://www.louys.net.cn/index.php/archives/120/</a><br><a href="https://github.com/firmianay/Binary-Reading-List" target="_blank" rel="noopener">https://github.com/firmianay/Binary-Reading-List</a><br><a href="http://security.cs.rpi.edu/courses/binexp-spring2015/" target="_blank" rel="noopener">http://security.cs.rpi.edu/courses/binexp-spring2015/</a></li>
 </ul>
-<h2 id="Reverse-Enginnering"><a href="#Reverse-Enginnering" class="headerlink" title="Reverse Enginnering"></a>Reverse Enginnering</h2><h2 id="隱寫術"><a href="#隱寫術" class="headerlink" title="隱寫術"></a>隱寫術</h2><h2 id="Cryptography"><a href="#Cryptography" class="headerlink" title="Cryptography"></a>Cryptography</h2><h1 id="0x07-CTF實際好用工具推薦"><a href="#0x07-CTF實際好用工具推薦" class="headerlink" title="0x07 CTF實際好用工具推薦"></a>0x07 CTF實際好用工具推薦</h1><p>1.CTF 工具 <a href="https://ctf-wiki.github.io/ctf-tools/#!index.md" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-tools/#!index.md</a><br>2.CTF Tools List by Zardus <a href="https://github.com/zardus/ctf-tools" target="_blank" rel="noopener">https://github.com/zardus/ctf-tools</a><br>3.<a href="https://github.com/Gallopsled/pwntools" target="_blank" rel="noopener">https://github.com/Gallopsled/pwntools</a>  Documentation: <a href="https://docs.pwntools.com/en/stable/" target="_blank" rel="noopener">https://docs.pwntools.com/en/stable/</a><br>4.<a href="https://github.com/truongkma/ctf-tools" target="_blank" rel="noopener">https://github.com/truongkma/ctf-tools</a><br>5.<a href="https://github.com/P1kachu/v0lt" target="_blank" rel="noopener">https://github.com/P1kachu/v0lt</a><br>6.<a href="https://github.com/TUCTF/Tools" target="_blank" rel="noopener">https://github.com/TUCTF/Tools</a><br>7.<a href="http://blog.csdn.net/ida0918/article/details/52819147" target="_blank" rel="noopener">http://blog.csdn.net/ida0918/article/details/52819147</a><br>8.<a href="https://github.com/truongkma/ctf-tools" target="_blank" rel="noopener">https://github.com/truongkma/ctf-tools</a></p>
-<h1 id="0x08-CTF戰隊的部落格"><a href="#0x08-CTF戰隊的部落格" class="headerlink" title="0x08 CTF戰隊的部落格"></a>0x08 CTF戰隊的部落格</h1><h1 id="0x09-搭建CTF比賽平台"><a href="#0x09-搭建CTF比賽平台" class="headerlink" title="0x09 搭建CTF比賽平台"></a>0x09 搭建CTF比賽平台</h1><h2 id="參考鏈接"><a href="#參考鏈接" class="headerlink" title="參考鏈接"></a>參考鏈接</h2><ul>
+<h2 id="Reverse-Enginnering"><a href="#Reverse-Enginnering" class="headerlink" title="Reverse Enginnering"></a>Reverse Enginnering</h2><h2 id="隱寫術"><a href="#隱寫術" class="headerlink" title="隱寫術"></a>隱寫術</h2><h2 id="Cryptography"><a href="#Cryptography" class="headerlink" title="Cryptography"></a>Cryptography</h2><h1 id="0x08-CTF實際好用工具推薦"><a href="#0x08-CTF實際好用工具推薦" class="headerlink" title="0x08 CTF實際好用工具推薦"></a>0x08 CTF實際好用工具推薦</h1><p>1.CTF 工具 <a href="https://ctf-wiki.github.io/ctf-tools/#!index.md" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-tools/#!index.md</a><br>2.CTF Tools List by Zardus <a href="https://github.com/zardus/ctf-tools" target="_blank" rel="noopener">https://github.com/zardus/ctf-tools</a><br>3.<a href="https://github.com/Gallopsled/pwntools" target="_blank" rel="noopener">https://github.com/Gallopsled/pwntools</a>  Documentation: <a href="https://docs.pwntools.com/en/stable/" target="_blank" rel="noopener">https://docs.pwntools.com/en/stable/</a><br>4.<a href="https://github.com/truongkma/ctf-tools" target="_blank" rel="noopener">https://github.com/truongkma/ctf-tools</a><br>5.<a href="https://github.com/P1kachu/v0lt" target="_blank" rel="noopener">https://github.com/P1kachu/v0lt</a><br>6.<a href="https://github.com/TUCTF/Tools" target="_blank" rel="noopener">https://github.com/TUCTF/Tools</a><br>7.<a href="http://blog.csdn.net/ida0918/article/details/52819147" target="_blank" rel="noopener">http://blog.csdn.net/ida0918/article/details/52819147</a><br>8.<a href="https://github.com/truongkma/ctf-tools" target="_blank" rel="noopener">https://github.com/truongkma/ctf-tools</a></p>
+<h1 id="0x09-CTF戰隊的部落格"><a href="#0x09-CTF戰隊的部落格" class="headerlink" title="0x09 CTF戰隊的部落格"></a>0x09 CTF戰隊的部落格</h1><h1 id="0x10-搭建CTF比賽平台"><a href="#0x10-搭建CTF比賽平台" class="headerlink" title="0x10 搭建CTF比賽平台"></a>0x10 搭建CTF比賽平台</h1><h2 id="參考鏈接"><a href="#參考鏈接" class="headerlink" title="參考鏈接"></a>參考鏈接</h2><ul>
 <li><a href="https://rupigcute.wixsite.com/quantiumtown/rssindex" target="_blank" rel="noopener">https://rupigcute.wixsite.com/quantiumtown/rssindex</a></li>
 <li><a href="https://ctf-wiki.github.io/ctf-wiki/#" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/#</a></li>
 <li><a href="https://www.gitbook.com/book/wizardforcel/ctf-field-guide" target="_blank" rel="noopener">https://www.gitbook.com/book/wizardforcel/ctf-field-guide</a></li>
@@ -1000,9 +1000,9 @@
         
         <tags>
             
-            <tag> guide </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> guide </tag>
             
         </tags>
         
@@ -1218,9 +1218,9 @@
         
         <tags>
             
-            <tag> tools </tag>
-            
             <tag> security </tag>
+            
+            <tag> tools </tag>
             
             <tag> github </tag>
             

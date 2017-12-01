@@ -73,13 +73,25 @@
   
 
   
+    
+      
+    
 
+    
+  
+
+  
+    
+      
+    
+
+    
   
 
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Lato:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -144,7 +156,7 @@
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     },
     algolia: {
@@ -499,19 +511,7 @@
               
 
               
-                <span class="post-meta-divider">|</span>
-              
 
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">閱讀時長 &asymp;</span>
-                
-                <span title="閱讀時長">
-                  4
-                </span>
               
             </div>
           
@@ -533,15 +533,74 @@
       
         
           
-          0x01 背景序列密碼起源於20世紀20年代的維爾姆(Vernam)密碼。Vernam密碼中的密鑰序列要求是隨機的序列，由於密碼中的密鑰序列的產生、存儲以及分配等方面存在一定的困難，Vernam體制在當時並沒有得到廣泛的應用。然而，在微電子技術和數學理論逐漸變得完善後，序列密碼終於得到了長足的發展和
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/03/stream-cipher/#espandi" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <h1 id="0x01-背景"><a href="#0x01-背景" class="headerlink" title="0x01 背景"></a>0x01 背景</h1><p>序列密碼起源於20世紀20年代的維爾姆(Vernam)密碼。Vernam密碼中的密鑰序列要求是隨機的序列，由於密碼中的密鑰序列的產生、存儲以及分配等方面存在一定的困難，Vernam體制在當時並沒有得到廣泛的應用。然而，在微電子技術和數學理論逐漸變得完善後，序列密碼終於得到了長足的發展和應用。</p>
+<p>目前，序列密碼是世界各國的軍事和外交等重要領域中使用的主要密碼體制之一。序列密碼是對稱密碼體制中的一類，又稱為流密碼。</p>
+<h1 id="0x02-原理"><a href="#0x02-原理" class="headerlink" title="0x02 原理"></a>0x02 原理</h1><p>在序列密碼中，明文的每一個位會和密鑰序列的位相加來進行所謂的加密。而序列密碼共有2種：同步序列密碼和異步序列密碼。前者密碼序列取決於密鑰而後者則是密鑰和密文。</p>
+<p>要對密文進行加密，我們需要將每一個位置的$x_i$與一個密鑰序列位$s_i$相加後再使用模數2來執行該運算。</p>
+<h2 id="定義"><a href="#定義" class="headerlink" title="定義"></a>定義</h2><p>明文，密文和密鑰是由獨立的位組成，也可以寫成：$x_i,y_i,s_i∈{0,1}$<br>加密: $y_i= E s_i(x_i)\equiv x_i + s_i mod 2$<br>解密: $x_i= D s_i(y_i)\equiv y_i + s_i mod 2$</p>
+<h2 id="3個疑問要點"><a href="#3個疑問要點" class="headerlink" title="3個疑問要點"></a>3個疑問要點</h2><ul>
+<li>為什麼加密和解密使用相同函數?</li>
+<li>為什麼可以使用簡單的Mod2加法進行加密？</li>
+<li>密鑰序列位$s_i$的本質是什麼？</li>
+</ul>
+<p><strong>為什麼加密和解密使用相同函數?</strong></p>
+<p>需證明：使用解密函數後，可得回明文位$x_i$。<br>已知：密文位$y_i$是通過加密函數$y_i\equiv x_i + s_i mod 2$計算得到。</p>
+<p>把此加密表達式插入加密函數：<br>$d s_i\equiv y_i+s_i mod 2$<br>     $\equiv (x_i + s_i)+s_i mod 2$<br>     $x_i + s_i + s_i mod 2$<br>     $x_i + 2s_i mod 2$<br>     $x_i + 0 mod 2$<br>     $x_i mod 2$<br>Q.E.D</p>
+<p>表達式$2s_i mod 2$是0，因為$2\equiv 0 mod 2$。另外，若$s_i$的值為0，此時$2s_i = 2⋅0  \equiv 0 mod 2$。而$s_i$的值為1，此時$2s_i = 2⋅1 =2 \equiv 0 mod 2$。</p>
+<p><strong>為什麼可以使用簡單的Mod2加法進行加密？</strong></p>
+<p>首先，執行mod2算術運算時，得到的結果只能為0或者1。因此我們可以把mod2的算術運算看成Boolean。</p>
+<table>
+<thead>
+<tr>
+<th>$x_i$</th>
+<th>$s_i$</th>
+<th>$y_i\equiv x_i + s_i mod 2$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>其结果和XOR的真值表是一样的。</p>
+<p>我們來看一個實際例子：<br>A 的ASCII數值為65，轉成二進制為1000001。<br>假設密鑰序列的$s_i$開頭位是0101100。<br>經過加密後密文為1101101，換回字母是小寫的m。當然如果使用同樣的密鑰解密，那就可以得回明文為A。<br>也因為這樣所以便可以使用Mod2加法進行加密。</p>
+<p><strong>密鑰序列位$s_i$的本質是什麼？</strong></p>
+<p>根據以上例子，序列密碼的安全取決於密鑰序列。所以要使到攻擊者難以猜測，那麼序列密碼在加密時就必須使用隨機生成的密鑰序列。</p>
+<p>而要生成隨機密鑰序列，可以使用接下來介紹的其中一種隨機數生成器。</p>
+<h1 id="0x03-隨機數生成器"><a href="#0x03-隨機數生成器" class="headerlink" title="0x03 隨機數生成器"></a>0x03 隨機數生成器</h1><p>現在讓我們來了解到底有哪些的隨機數生成器(RNGs)。</p>
+<h2 id="真隨機數生成器-TRNGs"><a href="#真隨機數生成器-TRNGs" class="headerlink" title="真隨機數生成器(TRNGs)"></a>真隨機數生成器(TRNGs)</h2><ul>
+<li>輸出不可複制。</li>
+<li>多為基於物理過程。</li>
+<li>在密碼學中主要用作是生成會話密鑰。更詳細的用途以後會發文解釋清楚。</li>
+</ul>
+<h2 id="偽隨機數生成器-PRNGs"><a href="#偽隨機數生成器-PRNGs" class="headerlink" title="偽隨機數生成器(PRNGs)"></a>偽隨機數生成器(PRNGs)</h2><p>從一個初始種子開始計算來得到序列。以下是其計算方式：<br>$s<em>0 = seed$<br>$s</em>{x+1}= f(s_i),i=0,1,$</p>
+<p>這是其推廣形式，其中t為常數項。<br>$s_{i+1} = f(s<em>i,s</em>{i-1},\ldots s_{i-t})$</p>
+<p>例子：線性同餘生成器<br>$s<em>0 = seed$<br>$s</em>{x + 1} \equiv a{s_i} + b mod m,i = 0,1,\ldots$</p>
+<h2 id="加密安全的偽隨機數生成器-CSPRNGs"><a href="#加密安全的偽隨機數生成器-CSPRNGs" class="headerlink" title="加密安全的偽隨機數生成器(CSPRNGs)"></a>加密安全的偽隨機數生成器(CSPRNGs)</h2><h1 id="0x04-一次一密-One-Time-Pad"><a href="#0x04-一次一密-One-Time-Pad" class="headerlink" title="0x04 一次一密(One Time Pad)"></a>0x04 一次一密(One Time Pad)</h1><h2 id="資料來源"><a href="#資料來源" class="headerlink" title="資料來源"></a>資料來源</h2><ul>
+<li>《深入淺出密碼學——常用密碼技術原理與應用:第2章》</li>
+<li>《Crytography and network security principles and practice 》</li>
+</ul>
+<p>ps：持續更新內容當中</p>
+
+          
         
       
     </div>
@@ -702,19 +761,7 @@
               
 
               
-                <span class="post-meta-divider">|</span>
-              
 
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">閱讀時長 &asymp;</span>
-                
-                <span title="閱讀時長">
-                  3
-                </span>
               
             </div>
           
@@ -736,18 +783,38 @@
       
         
           
-          
-文章來源：https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd
+            <ul>
+<li>文章來源：<a href="https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd" target="_blank" rel="noopener">https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd</a></li>
+</ul>
+<p>Hack with Github在Medium上發布了他們10月份中最受矚目的5大工具和目錄。而所發布的工具以及目錄如下：</p>
+<h1 id="Awesome-Red-Teaming"><a href="#Awesome-Red-Teaming" class="headerlink" title="Awesome Red Teaming"></a><a href="https://github.com/yeyintminthuhtut/Awesome-Red-Teaming" target="_blank" rel="noopener">Awesome Red Teaming</a></h1><p>List of Awesome Red Team / Red Teaming Resources</p>
+<p>This list is for anyone wishing to learn about Red Teaming but do not have a starting point.</p>
+<p>Anyway, this is a living resources and will update regularly with latest Adversarial Tactics and Techniques.</p>
+<p>You can help by sending Pull Requests to add more information.</p>
+<h1 id="Awesome-Security"><a href="#Awesome-Security" class="headerlink" title="Awesome Security"></a><a href="https://github.com/qazbnm456/awesome-web-security" target="_blank" rel="noopener">Awesome Security</a></h1><p>A list of Web Security materials and resources for learning the cutting edge penetrating technique.</p>
+<h1 id="Awesome-Yara"><a href="#Awesome-Yara" class="headerlink" title="Awesome Yara"></a><a href="https://github.com/InQuest/awesome-yara" target="_blank" rel="noopener">Awesome Yara</a></h1><p>A curated list of awesome YARA rules, tools, and resources.</p>
+<h1 id="Awesome-Hacking"><a href="#Awesome-Hacking" class="headerlink" title="Awesome Hacking"></a><a href="https://github.com/vitalysim/Awesome-Hacking-Resources" target="_blank" rel="noopener">Awesome Hacking</a></h1><p>A collection of hacking and penetration testing resouces to make you better!</p>
+<h1 id="Deceptiveidn"><a href="#Deceptiveidn" class="headerlink" title="Deceptiveidn"></a><a href="https://github.com/trailofbits/deceptiveidn" target="_blank" rel="noopener">Deceptiveidn</a></h1><p>Phishers are still using Internationalized Domain Names to trick users. This project uses computer vision to automatically check if IDNs have a deceptive reading.</p>
+<h1 id="3-大BlackHat-Arsenal工具大放送"><a href="#3-大BlackHat-Arsenal工具大放送" class="headerlink" title="3 大BlackHat Arsenal工具大放送"></a>3 大BlackHat Arsenal工具大放送</h1><p>以下3個工具是在BlackHat arsenal裡面大放光芒，備受歡迎的。</p>
+<h1 id="2FAssassin"><a href="#2FAssassin" class="headerlink" title="2FAssassin"></a><a href="https://github.com/maxwellkoh/2FAssassin" target="_blank" rel="noopener">2FAssassin</a></h1><p>The tool exploits the common vulnerabilities that caused private keys leakage.</p>
+<h1 id="WHID-Injector"><a href="#WHID-Injector" class="headerlink" title="WHID Injector"></a><a href="https://github.com/whid-injector/WHID" target="_blank" rel="noopener">WHID Injector</a></h1><p>WiFi HID Injector for Fun &amp; Profit</p>
+<h1 id="CERTitude"><a href="#CERTitude" class="headerlink" title="CERTitude"></a><a href="https://github.com/CERT-W/certitude" target="_blank" rel="noopener">CERTitude</a></h1><p>CERTitude is a Python-based tool which aims at assessing the compromised perimeter during incident response assignments. It allows analysts to perform large scale scans of Windows-based information systems by searching for behavioural patterns described in IOC (Indicator Of Compromise) files.</p>
+<p>Notable features:</p>
+<ul>
+<li>Ability to scan hosts in a way that prevents the target workstation from knowing what the investigator is searching for</li>
+<li>Ability to retrieve some pieces of data from the hosts</li>
+<li>Multiple scanner instances (for IOCs and/or hash scans) can be run at the same time for parallel scanning</li>
+<li>Built with security considerations in mind (protected database, secure communications with hosts using IPSec)</li>
+</ul>
+<h1 id="其他有趣的Tweet"><a href="#其他有趣的Tweet" class="headerlink" title="其他有趣的Tweet"></a>其他有趣的Tweet</h1><p>想懂得更多的也可以看看哦。</p>
+<h1 id="PCI-Express-DIY-hacking-toolkit"><a href="#PCI-Express-DIY-hacking-toolkit" class="headerlink" title="PCI Express DIY hacking toolkit"></a><a href="https://github.com/Cr4sh/s6_pcie_microblaze" target="_blank" rel="noopener">PCI Express DIY hacking toolkit</a></h1><p>This repository contains a set of tools and proof of concepts related to PCI-E bus and DMA attacks.</p>
+<h1 id="jSQL-Injection-automate-tool"><a href="#jSQL-Injection-automate-tool" class="headerlink" title="jSQL Injection automate tool"></a><a href="https://github.com/ron190/jsql-injection" target="_blank" rel="noopener">jSQL Injection automate tool</a></h1><p>jSQL Injection is a Java application for automatic SQL database injection.</p>
+<h1 id="Radare2"><a href="#Radare2" class="headerlink" title="Radare2"></a><a href="https://github.com/radare/radare2" target="_blank" rel="noopener">Radare2</a></h1><p>r2 is a rewrite from scratch of radare in order to provide a set of libraries and tools to work with binary files.</p>
+<p>Radare project started as a forensics tool, a scriptable commandline hexadecimal editor able to open disk files, but later support for analyzing binaries, disassembling code, debugging programs, attaching to remote gdb servers, ..</p>
+<h1 id="krackattacks-test-ap-ft"><a href="#krackattacks-test-ap-ft" class="headerlink" title="krackattacks-test-ap-ft"></a><a href="https://github.com/vanhoefm/krackattacks-test-ap-ft" target="_blank" rel="noopener">krackattacks-test-ap-ft</a></h1><p>This script tests if APs are affected by CVE-2017-13082 (KRACK attack)</p>
+<h1 id="relative-url-extractor"><a href="#relative-url-extractor" class="headerlink" title="relative-url-extractor"></a><a href="https://github.com/jobertabma/relative-url-extractor" target="_blank" rel="noopener">relative-url-extractor</a></h1><p>During reconnaissance (recon) it is often helpful to get a quick overview of all the relative endpoints in a file. These days web applications have frontend pipelines that make it harder for humans to understand minified code. This tool contains a nifty regular expression to find and extract the relative URLs in such files. This can help surface new targets for security researchers to look at. It can also be used to periodically compare the results of the same file, to see which new endpoints have been deployed. History has shown that this is a goldmine for bug bounty hunters.</p>
 
-Hack with Github在Medium上發布了他們10月份中最受矚目的5大工具和目錄。而所發布的工具以及目錄如下
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/02/top5gitsectool/#espandi" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
         
       
     </div>
@@ -908,19 +975,7 @@ Hack with Github在Medium上發布了他們10月份中最受矚目的5大工具�
               
 
               
-                <span class="post-meta-divider">|</span>
-              
 
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">閱讀時長 &asymp;</span>
-                
-                <span title="閱讀時長">
-                  3
-                </span>
               
             </div>
           
@@ -945,7 +1000,7 @@ Hack with Github在Medium上發布了他們10月份中最受矚目的5大工具�
 <h2 id="推薦書籍"><a href="#推薦書籍" class="headerlink" title="推薦書籍"></a>推薦書籍</h2><p><a href="https://goo.gl/9iRyB2" target="_blank" rel="noopener">C語言程序設計（The C Programming Language (2nd Edition), Brian W.Kernighan &amp; Dennis M.Ritchie著）</a><br><a href="https://goo.gl/qdBgsB" target="_blank" rel="noopener">C primer plus</a><br>​
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/01/unpackguide/#espandi" rel="contents">
+            <a class="btn" href="/2017/11/01/unpackguide/" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -1191,7 +1246,7 @@ Hack with Github在Medium上發布了他們10月份中最受矚目的5大工具�
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Milo</span>
 
@@ -1208,15 +1263,9 @@ Hack with Github在Medium上發布了他們10月份中最受矚目的5大工具�
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
 
 
 

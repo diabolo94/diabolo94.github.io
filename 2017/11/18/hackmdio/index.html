@@ -73,13 +73,25 @@
   
 
   
+    
+      
+    
 
+    
+  
+
+  
+    
+      
+    
+
+    
   
 
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Lato:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -173,7 +185,7 @@
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     },
     algolia: {
@@ -530,19 +542,7 @@
               
 
               
-                <span class="post-meta-divider">|</span>
-              
 
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">閱讀時長 &asymp;</span>
-                
-                <span title="閱讀時長">
-                  10
-                </span>
               
             </div>
           
@@ -675,15 +675,15 @@
 :::</code><br><code>:::danger
 危險地帶
 :::</code><br>你的Hackmd.io就會有以下的顯示<br><img src="/images/hackmd/warning.JPG" alt=""></p>
-<h1 id="排版功能"><a href="#排版功能" class="headerlink" title="排版功能"></a>排版功能</h1><h2 id="標題"><a href="#標題" class="headerlink" title="標題"></a>標題</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># h1 標頭</div><div class="line">## h2 標頭</div><div class="line">### h3 標頭</div><div class="line">#### h4 標頭</div><div class="line">##### h5 標頭</div><div class="line">###### h6 標頭</div></pre></td></tr></table></figure>
-<h2 id="水平分隔線"><a href="#水平分隔線" class="headerlink" title="水平分隔線"></a>水平分隔線</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">___</div><div class="line">或者</div><div class="line">***</div></pre></td></tr></table></figure>
-<h2 id="字形替換"><a href="#字形替換" class="headerlink" title="字形替換"></a>字形替換</h2><p>輸入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(c) (C) (r) (R) (tm) (TM) (p) (P) +-</div></pre></td></tr></table></figure></p>
+<h1 id="排版功能"><a href="#排版功能" class="headerlink" title="排版功能"></a>排版功能</h1><h2 id="標題"><a href="#標題" class="headerlink" title="標題"></a>標題</h2><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># h1 標頭</div><div class="line">## h2 標頭</div><div class="line">### h3 標頭</div><div class="line">#### h4 標頭</div><div class="line">##### h5 標頭</div><div class="line">###### h6 標頭</div></pre></td></tr></table></figure>
+<h2 id="水平分隔線"><a href="#水平分隔線" class="headerlink" title="水平分隔線"></a>水平分隔線</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="emphasis">___</span></div><div class="line">或者</div><div class="line"><span class="emphasis">***</span></div></pre></td></tr></table></figure>
+<h2 id="字形替換"><a href="#字形替換" class="headerlink" title="字形替換"></a>字形替換</h2><p>輸入<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="name">c</span>) (<span class="name">C</span>) (<span class="name">r</span>) (<span class="name">R</span>) (<span class="name">tm</span>) (<span class="name">TM</span>) (<span class="name">p</span>) (<span class="name">P</span>) +-</div></pre></td></tr></table></figure></p>
 <p>會顯示這樣<br><img src="/images/hackmd/mark.JPG" alt=""></p>
 <p>“Smartypants, 雙引號”</p>
 <p>‘Smartypants, 單引號’</p>
-<h2 id="強調"><a href="#強調" class="headerlink" title="強調"></a>強調</h2><p>輸入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">**這是粗體文字**</div><div class="line"></div><div class="line">__這是粗體文字__</div><div class="line"></div><div class="line">*這是斜體文字*</div><div class="line"></div><div class="line">_這是斜體文字_</div><div class="line"></div><div class="line">~~這是刪除文字~~</div><div class="line"></div><div class="line">上標： 19^th^</div><div class="line"></div><div class="line">下標： H~2~O</div><div class="line"></div><div class="line">++這是底線文字++</div><div class="line"></div><div class="line">==這是標記文字==</div></pre></td></tr></table></figure></p>
+<h2 id="強調"><a href="#強調" class="headerlink" title="強調"></a>強調</h2><p>輸入<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">**這是粗體文字**</div><div class="line"></div><div class="line"><span class="symbol">__</span>這是粗體文字<span class="symbol">__</span></div><div class="line"></div><div class="line">*這是斜體文字*</div><div class="line"></div><div class="line"><span class="symbol">_</span>這是斜體文字<span class="symbol">_</span></div><div class="line"></div><div class="line">~~這是刪除文字~~</div><div class="line"></div><div class="line">上標： <span class="number">19</span>^th^</div><div class="line"></div><div class="line">下標： H~<span class="number">2</span>~O</div><div class="line"></div><div class="line">++這是底線文字++</div><div class="line"></div><div class="line">==這是標記文字==</div></pre></td></tr></table></figure></p>
 <p>會顯示這樣<br><img src="/images/hackmd/emp.JPG" alt=""></p>
-<h2 id="引用區塊"><a href="#引用區塊" class="headerlink" title="引用區塊"></a>引用區塊</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 引用區塊也可以是巢狀的喔...</div><div class="line">&gt;&gt; ...可以多層次的使用...</div><div class="line">&gt; &gt; &gt; ...或是用空白隔開</div></pre></td></tr></table></figure>
+<h2 id="引用區塊"><a href="#引用區塊" class="headerlink" title="引用區塊"></a>引用區塊</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;</span><span class="bash"> 引用區塊也可以是巢狀的喔...</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">&gt; ...可以多層次的使用...</span></div><div class="line"><span class="meta">&gt;</span><span class="bash"> &gt; &gt; ...或是用空白隔開</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>引用區塊也可以是巢狀的喔…</p>
 <blockquote>
@@ -693,7 +693,7 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<h2 id="清單"><a href="#清單" class="headerlink" title="清單"></a>清單</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+ 在行開頭使用 `+` `-` 或是 `*` 來建立清單</div><div class="line">+ 空兩個空白就可以產生子清單</div><div class="line">  - 當清單標記使用的字元不同，會強制建立新的清單</div><div class="line">    * Ac tristique libero volutpat at</div><div class="line">    + Facilisis in pretium nisl aliquet</div><div class="line">    - Nulla volutpat aliquam velit</div><div class="line">+ 非常簡單！</div></pre></td></tr></table></figure>
+<h2 id="清單"><a href="#清單" class="headerlink" title="清單"></a>清單</h2><figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">+ 在行開頭使用 `+` `-` 或是 `*` 來建立清單</div><div class="line">+ 空兩個空白就可以產生子清單</div><div class="line">  - 當清單標記使用的字元不同，會強制建立新的清單</div><div class="line">    * Ac tristique libero volutpat at</div><div class="line">    + Facilisis <span class="keyword">in</span> pretium nisl aliquet</div><div class="line">    - Nulla volutpat aliquam velit</div><div class="line">+ 非常簡單！</div></pre></td></tr></table></figure>
 <ul>
 <li>在行開頭使用 <code>+</code> <code>-</code> 或是 <code>*</code> 來建立清單</li>
 <li>空兩個空白就可以產生子清單<ul>
@@ -730,7 +730,7 @@
 <li>foo</li>
 <li>bar</li>
 </ol>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">| ------ | ----------- |</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">|<span class="string"> 選項 </span>|<span class="string"> 描述 </span>|</div><div class="line">|<span class="string"> ------ </span>|<span class="string"> ----------- </span>|</div><div class="line">|<span class="string"> data   </span>|<span class="string"> path to data files to supply the data that will be passed into templates. </span>|</div><div class="line">|<span class="string"> engine </span>|<span class="string"> engine to be used for processing templates. Handlebars is the default. </span>|</div><div class="line">|<span class="string"> ext    </span>|<span class="string"> extension to be used for dest files. </span>|</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -753,7 +753,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="向右對齊"><a href="#向右對齊" class="headerlink" title="向右對齊"></a>向右對齊</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">| ------:| -----------:|</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
+<h3 id="向右對齊"><a href="#向右對齊" class="headerlink" title="向右對齊"></a>向右對齊</h3><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">|<span class="string"> 選項 </span>|<span class="string"> 描述 </span>|</div><div class="line">|<span class="string"> ------:</span>|<span class="string"> -----------:</span>|</div><div class="line">|<span class="string"> data   </span>|<span class="string"> path to data files to supply the data that will be passed into templates. </span>|</div><div class="line">|<span class="string"> engine </span>|<span class="string"> engine to be used for processing templates. Handlebars is the default. </span>|</div><div class="line">|<span class="string"> ext    </span>|<span class="string"> extension to be used for dest files. </span>|</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -776,7 +776,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="向左對齊"><a href="#向左對齊" class="headerlink" title="向左對齊"></a>向左對齊</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">|:------ |:----------- |</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
+<h3 id="向左對齊"><a href="#向左對齊" class="headerlink" title="向左對齊"></a>向左對齊</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">|<span class="symbol">:------</span> |<span class="symbol">:-----------</span> |</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used <span class="keyword">for</span> processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used <span class="keyword">for</span> dest files. |</div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -799,7 +799,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="置中對齊"><a href="#置中對齊" class="headerlink" title="置中對齊"></a>置中對齊</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| 選項 | 描述 |</div><div class="line">|:------:|:-----------:|</div><div class="line">| data   | path to data files to supply the data that will be passed into templates. |</div><div class="line">| engine | engine to be used for processing templates. Handlebars is the default. |</div><div class="line">| ext    | extension to be used for dest files. |</div></pre></td></tr></table></figure>
+<h3 id="置中對齊"><a href="#置中對齊" class="headerlink" title="置中對齊"></a>置中對齊</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="params">| 選項 |</span> 描述 <span class="params">|</span></div><div class="line"><span class="params">|</span><span class="symbol">:------</span><span class="symbol">:|</span><span class="symbol">:-----------</span><span class="symbol">:|</span></div><div class="line"><span class="params">| data   |</span> path to data files to supply the data that will be passed into templates. <span class="params">|</span></div><div class="line"><span class="params">|</span> engine <span class="params">| engine to be used <span class="keyword">for</span> processing templates. Handlebars is the default. |</span></div><div class="line"><span class="params">| ext    |</span> extension to be used <span class="keyword">for</span> dest files. <span class="params">|</span></div></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -1160,7 +1160,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Milo</span>
 
@@ -1177,15 +1177,9 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
 
 
 
