@@ -44,6 +44,59 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Hexo世界裡靈活運用Markdown和html不是夢]]></title>
+      <url>/2017/12/02/hexomarkdown/</url>
+      <content type="html"><![CDATA[<p>Markdown 是一種輕量級的標記語言，其用簡單的標記語法便可達到排版的目的，其可以使我們更加專注於內容的編寫，而不需過多關注排版。本文主要整理了 Markdown中的常用的標記語法，以便自己與他人以後查用。</p>
+<p>Hexo 是基於 GitHub 的博客平台，Github 中的文本格式是 .md，那麼用Hexo寫博客也必然要用到 Markdown。本文首先帶你選擇適合你的Markdown 編輯器(推薦 Atom )，然後對 Markdown 語法做一簡要介紹。<br><a id="more"></a></p>
+<h1 id="Note標籤"><a href="#Note標籤" class="headerlink" title="Note標籤"></a>Note標籤</h1><ul>
+<li>一般Note </li>
+</ul>
+<div class="note">note</div>
+
+<p><code>&lt;div class=&quot;note&quot;&gt;default&lt;/div&gt;</code></p>
+<ul>
+<li>default</li>
+</ul>
+<div class="note default">default</div>
+
+<p><code>&lt;div class=&quot;note default&quot;&gt;default&lt;/div&gt;</code></p>
+<div class="note success">success</div>
+
+<div class="note primary">primary</div>
+
+<div class="note info">info</div>
+
+<div class="note warning">warning</div>
+
+<div class="note danger">danger</div>
+
+<div class="note danger no-icon">danger no-icon</div>
+
+<h1 id="Tab的顯示"><a href="#Tab的顯示" class="headerlink" title="Tab的顯示"></a>Tab的顯示</h1><div class="tabs" id="咖啡"><ul class="nav-tabs"><li class="tab"><a href="#咖啡-1">咖啡 1</a></li><li class="tab active"><a href="#咖啡-2">咖啡 2</a></li><li class="tab"><a href="#咖啡-3">咖啡 3</a></li></ul><div class="tab-content"><div class="tab-pane" id="咖啡-1"><p><strong>這是咖啡</strong>好喝嗎？</p>
+</div><div class="tab-pane active" id="咖啡-2"><p><strong>這是雪糕</strong>甜甜的</p>
+</div><div class="tab-pane" id="咖啡-3"><p><strong>這是布丁</strong>請你吃哦！</p>
+</div></div></div>]]></content>
+      
+        <categories>
+            
+            <category> Learning Guide </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> guide </tag>
+            
+            <tag> markdown </tag>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[字符集(Charcater Set)與字符編碼(Encoding)]]></title>
       <url>/2017/11/29/charencoding/</url>
       <content type="html"><![CDATA[<h1 id="0x01-基礎知識"><a href="#0x01-基礎知識" class="headerlink" title="0x01 基礎知識"></a>0x01 基礎知識</h1><p>在了解編碼是怎麼一回事之前，我們必須要先知道2個概念，那就是位和字節。位(bit)是指電腦裡面存放的二進制數值=0或者1。而只要有8個位便可稱之為字節(byte)。例子：01000001，在16進制裡面，這個字節=0x41。</p>
@@ -62,11 +115,11 @@
         
         <tags>
             
+            <tag> guide </tag>
+            
             <tag> encoding </tag>
             
             <tag> binary </tag>
-            
-            <tag> guide </tag>
             
         </tags>
         
@@ -857,9 +910,9 @@
         
         <tags>
             
-            <tag> guide </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> guide </tag>
             
             <tag> steganography </tag>
             
@@ -1000,9 +1053,9 @@
         
         <tags>
             
-            <tag> guide </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> guide </tag>
             
         </tags>
         

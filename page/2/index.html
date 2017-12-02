@@ -397,6 +397,240 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/11/05/rnganbitstream/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/milo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子能量塔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/05/rnganbitstream/" itemprop="url">隨機數生成原理</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-11-05T19:21:36+08:00">
+                2017-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Cryptography/" itemprop="url" rel="index">
+                    <span itemprop="name">Cryptography</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/05/rnganbitstream/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/05/rnganbitstream/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/05/rnganbitstream/" class="leancloud_visitors" data-flag-title="隨機數生成原理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字數統計&#58;</span>
+                
+                <span title="字數統計">
+                  1,210
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="0x01-隨機數的使用"><a href="#0x01-隨機數的使用" class="headerlink" title="0x01 隨機數的使用"></a>0x01 隨機數的使用</h1><ul>
+<li>Key distribution and reciprocal authenticaltion schemes.</li>
+<li>Generation of session keys or keys for RSA.</li>
+<li>Generation of a bit stream for symmetric encryption.</li>
+</ul>
+<h1 id="0x02-成為隨機數的條件"><a href="#0x02-成為隨機數的條件" class="headerlink" title="0x02 成為隨機數的條件"></a>0x02 成為隨機數的條件</h1><ul>
+<li>均勻分佈：序列中比特分佈必須均勻，也就是說1和0的出現頻率應該近似相等。</li>
+<li>獨立性：序列中沒有任何一個單獨序列可以從其他序列推斷出來。</li>
+<li>不可預測性：必須令攻擊者無法從現有的隨機數推斷出之後可能會生成的隨機數。</li>
+</ul>
+<h1 id="0x03-偽隨機數生成器-PRNGs"><a href="#0x03-偽隨機數生成器-PRNGs" class="headerlink" title="0x03 偽隨機數生成器(PRNGs)"></a>0x03 偽隨機數生成器(PRNGs)</h1><p>偽隨機數生成器會輸入一個成為種子(Seed)的固定值，然後再通過使用可決定性(Deterministic）的演算法來生成一系列的比特。通常，種子由TRNG生成。通常，如圖所示，存在一些反饋路徑，通過該反饋路徑將算法的一些結果反饋為輸入作為附加輸出位。重要的是要注意的是，輸出比特流完全由輸入值或值確定，以便知道算法和種子的對手可以再現整個比特流。<br>A PRNG takes as input with a fixed value, called the seed, and produces a sequence of output bits using a deterministic algorithm. Quite often, the seed isgenerated by a TRNG. Typically, as shown, there is some feedback path by which some of the results of the algorithm are fed back as input as additional output bits are produced. The important thing to note is that the output bit stream is determined solely by the input value or values, so that an adversary who knows the algorithm and the seed can reproduce the entire bit stream.</p>
+<p>An algorithm that is used to produce an open-ended sequence of bits is referred to as a PRNG. A common application for an open-ended sequence of bits is as input to a symmetric stream cipher, as discussed in Section 8.4. Also, see Figure 4.1a.</p>
+<p>Pseudorandom function (PRF): A PRF is used to produce a pseudorandom string of bits of some fixed length. Examples are symmetric encryption keys and nonces. Typically, the PRF takes as input a seed plus some context specific values, such as a user ID or an application ID. A number of examples of PRFswill be seen throughout this book, notably in Chapters 17 and 18.</p>
+<h1 id="0x04-TRNGs"><a href="#0x04-TRNGs" class="headerlink" title="0x04 (TRNGs)"></a>0x04 (TRNGs)</h1><p>a true random number generator (TRNG) with two forms of pseudorandom number generators. A TRNG takes as input a source that is<br>effectively random; the source is often referred to as an entropy source. We discuss such sources in Section 8.6. In essence, the entropy source is drawn from the physical environment of the computer and could include things such as keystroke timing patterns, disk electrical activity, mouse movements, and instantaneous values of the system clock. The source, or combination of sources, serve as input to an algorithm that produces random binary output. The TRNG may simply involve conversion ofan analog source to a binary output. The TRNG may involve additional processing to overcome any bias in the source.</p>
+<h1 id="0x05-True-Random-Number-Generator"><a href="#0x05-True-Random-Number-Generator" class="headerlink" title="0x05 True Random Number Generator"></a>0x05 True Random Number Generator</h1><ul>
+<li>Non-deterministic source, physical environment</li>
+<li>Detect ionizing radiation events, leaky capacitors,thermal noise from resistors or audio inputs</li>
+<li>Mouse/keyboard activity, I/O operations, interrupts</li>
+<li>Inconvenient, small number of values</li>
+</ul>
+<h1 id="Pseudo-Random-Number-Generator"><a href="#Pseudo-Random-Number-Generator" class="headerlink" title="Pseudo Random Number Generator"></a>Pseudo Random Number Generator</h1><ul>
+<li>Deterministic algorithms to calculate numbers in “relatively random” sequence</li>
+<li>Seed is algorithm input</li>
+<li>Produces continuous stream of random bits</li>
+<li>Pseudo Random Function</li>
+<li>Same as PRNG but produces string of bits of some</li>
+</ul>
+<h1 id="Requirements-of-PRNG"><a href="#Requirements-of-PRNG" class="headerlink" title="Requirements of PRNG"></a>Requirements of PRNG</h1><p>Hard to determine pseudo-random stream if don’t know seed(but know algorithm)</p>
+<ul>
+<li>Randomness<br>Test for uniformity, scalability, consistency<br>Examples: Frequency, runs, compressability</li>
+<li>Unpredictability<br>-Forward and backward unpredictability<br>-Seed must be secure(Use TRNG to generate seed)</li>
+</ul>
+<h1 id="Linear-Congruential-Generator"><a href="#Linear-Congruential-Generator" class="headerlink" title="Linear Congruential Generator"></a>Linear Congruential Generator</h1><p>Parameters:<br>m, the modulus, m &gt; 0<br>a, the multiplier, 0 &lt; a &lt; m<br>c, the increment, 0 ≤ c &lt; m<br>X0, the seed, 0 ≤ X0 &lt; m<br>Generate sequence of pseudo-random numbers, {Xn}:<br>Xn+1 = (aXn + c) mod m<br>Choice of a, c and m is important:<br>m should be large, prime, e.g. 231 − 1<br>If c=0, few good values of a, e.g. 75 = 16807<br>If attacker knows parameters and one number, can easily<br>determine subsequent numbers</p>
+<h1 id="Blum-Blum-Shub-Generator"><a href="#Blum-Blum-Shub-Generator" class="headerlink" title="Blum Blum Shub Generator"></a>Blum Blum Shub Generator</h1><p>Parameters:<br>p, q: large prime numbers such that p ≡ q ≡ 3 (mod 4)<br>n = p × q<br>s, random number relatively prime to n<br>Generate sequence of bits, Bi<br>:<br>X0 = s<br>2 mod n<br>for i = 1 → ∞<br>Xi = (Xi−1)<br>2 mod n<br>Bi = Xi mod 2<br>Cryptographically secure pseudo-random bit generator</p>
+<p>Example Operation of BBS Generator<br>n = 192649 = 383 × 503, s = 101355</p>
+<p>PRNG Mechanisms Based on Block Ciphers<br>Use symmetric block ciphers (e.g. AES, DES) to produce pseudo-random bits<br>Seed is encryption key, K, and value V (which is updated)</p>
+<h1 id="ANSI-X9-17-PRNG"><a href="#ANSI-X9-17-PRNG" class="headerlink" title="ANSI X9.17 PRNG"></a>ANSI X9.17 PRNG</h1><p>Cryptographically secure PRNG using Triple DES<br>Parameters:<br>64-bit date/time representation, DTi<br>64-bit seed value, Vi<br>Pair of 56-bit DES keys, K1 and K2<br>Operation:<br>Uses Triple DES three times<br>(see next slide)<br>Output:<br>64-bit pseudo-random number, Ri<br>64-bit seed value, Vi+1</p>
+<h1 id="Stream-Ciphers"><a href="#Stream-Ciphers" class="headerlink" title="Stream Ciphers"></a>Stream Ciphers</h1><p>Encrypt one byte at a time by XOR with pseudo-random byte</p>
+<p>Output of generator is called keystream</p>
+<h1 id="Design-Criteria-for-Stream-Ciphers"><a href="#Design-Criteria-for-Stream-Ciphers" class="headerlink" title="Design Criteria for Stream Ciphers"></a>Design Criteria for Stream Ciphers</h1><p>Important Considerations<br>Encryption sequence should have large period<br>Keystream should approximate true random number<br>stream<br>Key must withstand brute force attacks<br>Comparison to Block Ciphers<br>Stream ciphers often simpler to implement, faster<br>Block ciphers can re-use keys</p>
+<h1 id="RC4"><a href="#RC4" class="headerlink" title="RC4"></a>RC4</h1><p>Designed by Ron Rivest in 1987<br>Used in secure web browsing and wireless LANs<br>Very simple and efficient implementation<br>Can use variable size key: 8 to 2048 bits<br>Several theoretical limitations of RC4<br>No known attacks if use 128-bit key and discard initial values of stream<br>RC4 is used in WEP (shown to be weak security for wireless LANs)—problem with how keys are used, not RC4 algorithm</p>
+<h1 id="RC4-Algorithm"><a href="#RC4-Algorithm" class="headerlink" title="RC4 Algorithm"></a>RC4 Algorithm</h1><p>Parameters and Variables<br>Variable length key, K, from 1 to 256 Bytes<br>State vector, S, 256 Bytes<br>Temporary vector, T, 256 Bytes<br>A byte from keystream, k, generated from S</p>
+<h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><ol>
+<li>Initialise S to values 0 to 255; initialise T with<br>repeating values of key, K</li>
+<li>Use T to create initial permutation of S</li>
+<li>Permutate S and generate keystream, k from S</li>
+<li>Encrypt a byte of plaintext, p, by XOR with k</li>
+</ol>
+<p>Initial State of S and T<br>for i = 0 to 255 do<br>S[i] = i;<br>T[i] = K[i mod keylen];</p>
+<p>Initial Permutation of S<br>j = 0;<br>for i = 0 to 255 do<br>j = (j + S[i] + T[i]) mod 256;<br>Swap (S[i], S[j]);</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/11/03/stream-cipher/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1094,7 +1328,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -1116,7 +1350,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -1284,7 +1518,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14.0k</span>
+    <span title="Site words total count">14.2k</span>
   
 </div>
 
