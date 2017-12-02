@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="Personal Notes About Everything. Learning Journey is my way.  This is my personal study notes for whatever that I like the most in my life time.  Items marked w">
+<meta name="description" content="Personal Notes About Everything. Learning Journey is my way.  This is my personal study notes for whatever that I like the most in my life time.">
 <meta name="keywords" content="CTF,guide - security - forensic">
 <meta property="og:type" content="article">
 <meta property="og:title" content="個人學習記錄">
 <meta property="og:url" content="https://diabolo94.github.io/3018/01/19/studynote/index.html">
 <meta property="og:site_name" content="量子能量塔">
-<meta property="og:description" content="Personal Notes About Everything. Learning Journey is my way.  This is my personal study notes for whatever that I like the most in my life time.  Items marked with (-) are still works in progress. Ite">
+<meta property="og:description" content="Personal Notes About Everything. Learning Journey is my way.  This is my personal study notes for whatever that I like the most in my life time.">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2017-11-29T19:20:34.268Z">
+<meta property="og:updated_time" content="2017-12-02T03:23:02.292Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="個人學習記錄">
-<meta name="twitter:description" content="Personal Notes About Everything. Learning Journey is my way.  This is my personal study notes for whatever that I like the most in my life time.  Items marked with (-) are still works in progress. Ite">
+<meta name="twitter:description" content="Personal Notes About Everything. Learning Journey is my way.  This is my personal study notes for whatever that I like the most in my life time.">
 
 
 
@@ -232,7 +232,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description"></h1>
+        <h1 class="site-subtitle" itemprop="description">量子雖然連肉眼都看不見，但卻有著無限的能量。</h1>
       
   </div>
 
@@ -538,7 +538,7 @@
         <h1 id="Personal-Notes-About-Everything"><a href="#Personal-Notes-About-Everything" class="headerlink" title="Personal Notes About Everything."></a>Personal Notes About Everything.</h1><blockquote>
 <p>Learning Journey is my way.</p>
 </blockquote>
-<p>This is my personal study notes for whatever that I like the most in my life time.</p>
+<p>This is my personal study notes for whatever that I like the most in my life time.<br><a id="more"></a></p>
 <ul>
 <li>Items marked with <code>(-)</code> are still works in progress.</li>
 <li>Items marked with <code>(el)</code> means external links.</li>
@@ -694,9 +694,11 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/milo.jpg"
-                alt="Milo" />
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+                <img class="site-author-image" itemprop="image"
+                    src="/images/milo.jpg"
+                    alt="Milo" />
+              </a>
             
               <p class="site-author-name" itemprop="name">Milo</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -839,11 +841,35 @@
                   </li>
                 
               </ul>
-            </div>
-          
-
-          
-
+            <div id="days"></div>
+</script>
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("11/01/2017 12:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已萌萌的運行了"+daysold+"天"+hrsold+"小時"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>  
+            </div>            
+           
         </div>
       </section>
 
@@ -878,7 +904,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
+  <span class="with-love" id="heart">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Milo</span>

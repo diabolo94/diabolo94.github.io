@@ -138,7 +138,7 @@
 <meta property="og:title" content="Debug指令完整教學">
 <meta property="og:url" content="https://diabolo94.github.io/2017/11/20/debugexp/index.html">
 <meta property="og:site_name" content="量子能量塔">
-<meta property="og:description" content="0x01 背景Debug是DOS和Windows裡面專門調試程序以及讓你在電腦上編寫匯編語言一種工具。一般上，我們可以使用它，來查看CPU各種寄存器中的內容、內存的情況和在機器碼級跟蹤程序的運行。而Debug指令只能在這些版本的Windows內使用：Windows® 9x/Me，Windows® NT/2000/XP/2003。而在之後版本的Windows就再也無法使用這個指令了。Debug最初的">
+<meta property="og:description" content="0x01 背景Debug是DOS和Windows裡面專門調試程序以及讓你在電腦上編寫匯編語言一種工具。一般上，我們可以使用它，來查看CPU各種寄存器中的內容、內存的情況和在機器碼級跟蹤程序的運行。而Debug指令只能在這些版本的Windows內使用：Windows® 9x/Me，Windows® NT/2000/XP/2003。而在之後版本的Windows就再也無法使用這個指令了。">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://diabolo94.github.io/images/debugmode/01.JPG">
 <meta property="og:image" content="https://diabolo94.github.io/images/debugmode/02.JPG">
@@ -151,10 +151,10 @@
 <meta property="og:image" content="https://diabolo94.github.io/images/debugmode/09.JPG">
 <meta property="og:image" content="https://diabolo94.github.io/images/debugmode/10.JPG">
 <meta property="og:image" content="https://diabolo94.github.io/images/debugmode/11.JPG">
-<meta property="og:updated_time" content="2017-11-28T13:06:50.293Z">
+<meta property="og:updated_time" content="2017-12-02T03:24:55.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Debug指令完整教學">
-<meta name="twitter:description" content="0x01 背景Debug是DOS和Windows裡面專門調試程序以及讓你在電腦上編寫匯編語言一種工具。一般上，我們可以使用它，來查看CPU各種寄存器中的內容、內存的情況和在機器碼級跟蹤程序的運行。而Debug指令只能在這些版本的Windows內使用：Windows® 9x/Me，Windows® NT/2000/XP/2003。而在之後版本的Windows就再也無法使用這個指令了。Debug最初的">
+<meta name="twitter:description" content="0x01 背景Debug是DOS和Windows裡面專門調試程序以及讓你在電腦上編寫匯編語言一種工具。一般上，我們可以使用它，來查看CPU各種寄存器中的內容、內存的情況和在機器碼級跟蹤程序的運行。而Debug指令只能在這些版本的Windows內使用：Windows® 9x/Me，Windows® NT/2000/XP/2003。而在之後版本的Windows就再也無法使用這個指令了。">
 <meta name="twitter:image" content="https://diabolo94.github.io/images/debugmode/01.JPG">
 
 
@@ -244,7 +244,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description"></h1>
+        <h1 class="site-subtitle" itemprop="description">量子雖然連肉眼都看不見，但卻有著無限的能量。</h1>
       
   </div>
 
@@ -547,7 +547,7 @@
       
 
       
-        <h1 id="0x01-背景"><a href="#0x01-背景" class="headerlink" title="0x01 背景"></a>0x01 背景</h1><p>Debug是DOS和Windows裡面專門調試程序以及讓你在電腦上編寫匯編語言一種工具。一般上，我們可以使用它，來查看CPU各種寄存器中的內容、內存的情況和在機器碼級跟蹤程序的運行。而Debug指令只能在這些版本的Windows內使用：Windows® 9x/Me，Windows® NT/2000/XP/2003。而在之後版本的Windows就再也無法使用這個指令了。Debug最初的設計是用來處理.最大容量可達到65280 (6xx1024-256)bytes或少於此大小的.COM文件。而至於少過多少，那就得取決於程序必須在堆棧上同時放置的最大字節數。為什麼一定要減掉256字節呢？那是因為DEBUG經常使用從00到FF十六進制偏移量的區域來存儲一些內部數據，例如加載的文件的名字。所以.COM程序應該只能是用在單個內存段裡面（只有64 KiB）。</p>
+        <h1 id="0x01-背景"><a href="#0x01-背景" class="headerlink" title="0x01 背景"></a>0x01 背景</h1><p>Debug是DOS和Windows裡面專門調試程序以及讓你在電腦上編寫匯編語言一種工具。一般上，我們可以使用它，來查看CPU各種寄存器中的內容、內存的情況和在機器碼級跟蹤程序的運行。而Debug指令只能在這些版本的Windows內使用：Windows® 9x/Me，Windows® NT/2000/XP/2003。而在之後版本的Windows就再也無法使用這個指令了。<a id="more"></a>Debug最初的設計是用來處理.最大容量可達到65280 (6xx1024-256)bytes或少於此大小的.COM文件。而至於少過多少，那就得取決於程序必須在堆棧上同時放置的最大字節數。為什麼一定要減掉256字節呢？那是因為DEBUG經常使用從00到FF十六進制偏移量的區域來存儲一些內部數據，例如加載的文件的名字。所以.COM程序應該只能是用在單個內存段裡面（只有64 KiB）。</p>
 <p>這裡先簡單介紹會用到的Debug指令的Option。</p>
 <ul>
 <li><code>-r</code> 查看、改變CPU寄存器的內容</li>
@@ -737,9 +737,11 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image"
-                src="/images/milo.jpg"
-                alt="Milo" />
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+                <img class="site-author-image" itemprop="image"
+                    src="/images/milo.jpg"
+                    alt="Milo" />
+              </a>
             
               <p class="site-author-name" itemprop="name">Milo</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -882,11 +884,35 @@
                   </li>
                 
               </ul>
-            </div>
-          
-
-          
-
+            <div id="days"></div>
+</script>
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("11/01/2017 12:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已萌萌的運行了"+daysold+"天"+hrsold+"小時"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>  
+            </div>            
+           
         </div>
       </section>
 
@@ -921,7 +947,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
-  <span class="with-love">
+  <span class="with-love" id="heart">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Milo</span>

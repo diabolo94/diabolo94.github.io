@@ -8,7 +8,7 @@
       <content type="html"><![CDATA[<h1 id="Personal-Notes-About-Everything"><a href="#Personal-Notes-About-Everything" class="headerlink" title="Personal Notes About Everything."></a>Personal Notes About Everything.</h1><blockquote>
 <p>Learning Journey is my way.</p>
 </blockquote>
-<p>This is my personal study notes for whatever that I like the most in my life time.</p>
+<p>This is my personal study notes for whatever that I like the most in my life time.<br><a id="more"></a></p>
 <ul>
 <li>Items marked with <code>(-)</code> are still works in progress.</li>
 <li>Items marked with <code>(el)</code> means external links.</li>
@@ -75,7 +75,7 @@
     <entry>
       <title><![CDATA[Debug指令完整教學]]></title>
       <url>/2017/11/20/debugexp/</url>
-      <content type="html"><![CDATA[<h1 id="0x01-背景"><a href="#0x01-背景" class="headerlink" title="0x01 背景"></a>0x01 背景</h1><p>Debug是DOS和Windows裡面專門調試程序以及讓你在電腦上編寫匯編語言一種工具。一般上，我們可以使用它，來查看CPU各種寄存器中的內容、內存的情況和在機器碼級跟蹤程序的運行。而Debug指令只能在這些版本的Windows內使用：Windows® 9x/Me，Windows® NT/2000/XP/2003。而在之後版本的Windows就再也無法使用這個指令了。Debug最初的設計是用來處理.最大容量可達到65280 (6xx1024-256)bytes或少於此大小的.COM文件。而至於少過多少，那就得取決於程序必須在堆棧上同時放置的最大字節數。為什麼一定要減掉256字節呢？那是因為DEBUG經常使用從00到FF十六進制偏移量的區域來存儲一些內部數據，例如加載的文件的名字。所以.COM程序應該只能是用在單個內存段裡面（只有64 KiB）。</p>
+      <content type="html"><![CDATA[<h1 id="0x01-背景"><a href="#0x01-背景" class="headerlink" title="0x01 背景"></a>0x01 背景</h1><p>Debug是DOS和Windows裡面專門調試程序以及讓你在電腦上編寫匯編語言一種工具。一般上，我們可以使用它，來查看CPU各種寄存器中的內容、內存的情況和在機器碼級跟蹤程序的運行。而Debug指令只能在這些版本的Windows內使用：Windows® 9x/Me，Windows® NT/2000/XP/2003。而在之後版本的Windows就再也無法使用這個指令了。<a id="more"></a>Debug最初的設計是用來處理.最大容量可達到65280 (6xx1024-256)bytes或少於此大小的.COM文件。而至於少過多少，那就得取決於程序必須在堆棧上同時放置的最大字節數。為什麼一定要減掉256字節呢？那是因為DEBUG經常使用從00到FF十六進制偏移量的區域來存儲一些內部數據，例如加載的文件的名字。所以.COM程序應該只能是用在單個內存段裡面（只有64 KiB）。</p>
 <p>這裡先簡單介紹會用到的Debug指令的Option。</p>
 <ul>
 <li><code>-r</code> 查看、改變CPU寄存器的內容</li>
