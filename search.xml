@@ -46,8 +46,8 @@
     <entry>
       <title><![CDATA[Hexo世界裡靈活運用Markdown和html不是夢]]></title>
       <url>/2017/12/02/hexomarkdown/</url>
-      <content type="html"><![CDATA[<p>Markdown 是一種輕量級的標記語言，其用簡單的標記語法便可達到排版的目的，其可以使我們更加專注於內容的編寫，而不需過多關注排版。本文主要整理了 Markdown中的常用的標記語法，以便自己與他人以後查用。</p>
-<p>Hexo 是基於 GitHub 的博客平台，Github 中的文本格式是 .md，那麼用Hexo寫博客也必然要用到 Markdown。本文首先帶你選擇適合你的Markdown 編輯器(推薦 Atom )，然後對 Markdown 語法做一簡要介紹。<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p>Markdown是一種輕量級的標記語言，其用簡單的標記語法便可達到排版的目的，其可以使我們更加專注於內容的編寫，而不需過多關注排版。本文主要整理了 Markdown中的常用的標記語法，以便自己與他人以後查用。</p>
+<a id="more"></a>
 <h1 id="Note標籤"><a href="#Note標籤" class="headerlink" title="Note標籤"></a>Note標籤</h1><ul>
 <li>一般Note </li>
 </ul>
@@ -75,7 +75,8 @@
 <h1 id="Tab的顯示"><a href="#Tab的顯示" class="headerlink" title="Tab的顯示"></a>Tab的顯示</h1><div class="tabs" id="咖啡"><ul class="nav-tabs"><li class="tab"><a href="#咖啡-1">咖啡 1</a></li><li class="tab active"><a href="#咖啡-2">咖啡 2</a></li><li class="tab"><a href="#咖啡-3">咖啡 3</a></li></ul><div class="tab-content"><div class="tab-pane" id="咖啡-1"><p><strong>這是咖啡</strong>好喝嗎？</p>
 </div><div class="tab-pane active" id="咖啡-2"><p><strong>這是雪糕</strong>甜甜的</p>
 </div><div class="tab-pane" id="咖啡-3"><p><strong>這是布丁</strong>請你吃哦！</p>
-</div></div></div>]]></content>
+</div></div></div>
+]]></content>
       
         <categories>
             
@@ -529,7 +530,7 @@
 <ul>
 <li><a href="http://www.hackcollege.com/blog/2011/11/23/infographic-get-more-out-of-google.html" target="_blank" rel="noopener">Get More out of Google</a></li>
 </ul>
-<h1 id="0x02-Google-Custom-Search"><a href="#0x02-Google-Custom-Search" class="headerlink" title="0x02 Google Custom Search"></a>0x02 Google Custom Search</h1><h1 id="0x03-其他實際搜尋引擎"><a href="#0x03-其他實際搜尋引擎" class="headerlink" title="0x03 其他實際搜尋引擎"></a>0x03 其他實際搜尋引擎</h1><h2 id="綜合"><a href="#綜合" class="headerlink" title="綜合"></a>綜合</h2><ul>
+<h1 id="0x02-Google-Custom-Search"><a href="#0x02-Google-Custom-Search" class="headerlink" title="0x02 Google Custom Search"></a>0x02 Google Custom Search</h1><h1 id="0x03-其他實際搜尋引擎-amp-導航網站"><a href="#0x03-其他實際搜尋引擎-amp-導航網站" class="headerlink" title="0x03 其他實際搜尋引擎&amp;導航網站"></a>0x03 其他實際搜尋引擎&amp;導航網站</h1><h2 id="綜合"><a href="#綜合" class="headerlink" title="綜合"></a>綜合</h2><ul>
 <li><a href="https://btdb.to" target="_blank" rel="noopener">Bit Torrent Database</a></li>
 <li><a href="https://thepiratebay.org/blog" target="_blank" rel="noopener">海盜灣ORG</a>   </li>
 <li><a href="http://search.chongbuluo.com" target="_blank" rel="noopener">蟲部落快搜</a></li>
@@ -707,19 +708,46 @@
 <p><a href="http://symbolhound.com/" target="_blank" rel="noopener">Symbol Hound</a>：當涉及到搜索特殊符號時，谷歌和其他搜索引擎並不是最佳選擇。例如谷歌，去掉了許多標點符號和特殊符號。如果你想搜索含有特殊字符的變量和錯誤代碼，使用普通的搜索引擎可能不會返回你期望的結果。Symbol Hound 的出現解決了這一問題。</p>
 <p><a href="http://merobase.com/" target="_blank" rel="noopener">Merobase</a>：Merobase搜索引擎與其他不一樣，它並不是用來搜索源碼，而是幫你搜索和定位軟件組件，可以搜索Java、C++、C#等語言編寫的組件。Merobase還可以搜索基於查詢的簡單文本接口，你也可以搜索基於函數、面向對象、名稱、測試驅動的查詢，這也是它的一大亮點。</p>
 <p><a href="http://down.admin5.com" target="_blank" rel="noopener">a5源碼</a></p>
+<p><a href="http://www.oschina.net/project" target="_blank" rel="noopener">開源項目</a></p>
 <h1 id="電驢"><a href="#電驢" class="headerlink" title="電驢"></a>電驢</h1><ul>
 <li><a href="http://tinyurl.com/3dahxw" target="_blank" rel="noopener">電驢資源搜索</a></li>
 <li><a href="https://emulefans.com" target="_blank" rel="noopener">電驢Fans</a></li>
 <li><a href="http://www.ed2000.com" target="_blank" rel="noopener">ED2000</a></li>
 </ul>
-<h2 id="特別資源"><a href="#特別資源" class="headerlink" title="特別資源"></a>特別資源</h2><p>密碼:llvAZ1T5UvNxrRFhCrWmE9gn0wUetr20Pt0Wi3lR5WWj84UigMllEFyvf/AMFWaV</p>
 <h1 id="0x04-Private-Tracker"><a href="#0x04-Private-Tracker" class="headerlink" title="0x04 Private Tracker"></a>0x04 Private Tracker</h1><ul>
 <li><a href="https://opentrackers.org" target="_blank" rel="noopener">Open Trackers:Open List for register private tracker</a></li>
 </ul>
-<h1 id="0x05-更換VPN"><a href="#0x05-更換VPN" class="headerlink" title="0x05 更換VPN"></a>0x05 更換VPN</h1><p>待更新</p>
+<h1 id="0x05-導航網站"><a href="#0x05-導航網站" class="headerlink" title="0x05 導航網站"></a>0x05 導航網站</h1><ul>
+<li><a href="http://lackar.com/aa/" target="_blank" rel="noopener">Anywhere Anything</a></li>
+<li><a href="http://1nami.com/" target="_blank" rel="noopener">1納米學習導航</a></li>
+<li><a href="https://navisec.it/" target="_blank" rel="noopener">NaviSec.it – 纳威安全导航</a></li>
+<li><a href="http://ilxdh.com/" target="_blank" rel="noopener">龍軒導航</a></li>
+<li><a href="https://fulck.com/" target="_blank" rel="noopener">Fluck</a></li>
+<li><a href="http://hao.uisdc.com/" target="_blank" rel="noopener">設計師導航</a></li>
+<li><a href="https://shouku123.com/" target="_blank" rel="noopener">收庫網</a></li>
+<li><a href="http://www.meddir.cn/" target="_blank" rel="noopener">醫學導航</a></li>
+<li><a href="http://www.moe123.net/" target="_blank" rel="noopener">萌導航Moe</a></li>
+<li><a href="http://www.dydh.org/" target="_blank" rel="noopener">電影導航Org</a></li>
+<li><a href="http://www.ifanqiang.com/" target="_blank" rel="noopener">愛翻牆</a></li>
+<li><a href="https://botw.org/" target="_blank" rel="noopener">Best of the web</a></li>
+<li><a href="http://www.pp93.com/" target="_blank" rel="noopener">PP93綠色導航</a></li>
+<li><a href="http://www.gitnavi.com/" target="_blank" rel="noopener">GitNavi.com</a></li>
+<li><a href="https://www.bidianer.com/" target="_blank" rel="noopener">筆點-簡潔自定義導航</a></li>
+<li><a href="https://www.seeseed.com/" target="_blank" rel="noopener">Seeseed-無盡設計可能</a></li>
+<li><a href="https://hi.hishare.site/" target="_blank" rel="noopener">星空導航</a></li>
+<li><a href="https://ac.hishare.site/" target="_blank" rel="noopener">動漫風導航</a></li>
+<li><a href="http://www.helloworld114.com/page-front/index.html" target="_blank" rel="noopener">Helloworld 114導航</a></li>
+<li><a href="http://www.giffox.com/#" target="_blank" rel="noopener">Giffox</a></li>
+<li><a href="http://sucheye.com/main/login?where=/" target="_blank" rel="noopener">如眸导航</a></li>
+<li><a href="http://longmiao.wang/" target="_blank" rel="noopener">龍喵網</a></li>
+<li><a href="http://www.gal123.com/" target="_blank" rel="noopener">紳士導航</a></li>
+<li><a href="http://5ciy.com/" target="_blank" rel="noopener">5次元導航</a></li>
+<li><a href="http://www.smallbear.me/" target="_blank" rel="noopener">小熊時光機</a></li>
+<li><a href="http://mdwhat.com/home/index/0/common" target="_blank" rel="noopener">魔導網</a></li>
+</ul>
 <h1 id="0x06-加入群組"><a href="#0x06-加入群組" class="headerlink" title="0x06 加入群組"></a>0x06 加入群組</h1><p>待更新</p>
-<h1 id="0x07-最終手段-踏入暗網"><a href="#0x07-最終手段-踏入暗網" class="headerlink" title="0x07 最終手段:踏入暗網"></a>0x07 最終手段:踏入暗網</h1><p>待更新</p>
-<h1 id="0x08-參考資料"><a href="#0x08-參考資料" class="headerlink" title="0x08 參考資料"></a>0x08 參考資料</h1><p><a href="https://www.zhihu.com/question/28013848" target="_blank" rel="noopener">https://www.zhihu.com/question/28013848</a><br><a href="http://www.sowang.com/seek.htm" target="_blank" rel="noopener">http://www.sowang.com/seek.htm</a><br><a href="http://blog.joaoko.net/archives/222" target="_blank" rel="noopener">http://blog.joaoko.net/archives/222</a><br><a href="https://www.0101tx.com/about/" target="_blank" rel="noopener">https://www.0101tx.com/about/</a></p>
+<h1 id="0x07-更換VPN"><a href="#0x07-更換VPN" class="headerlink" title="0x07 更換VPN"></a>0x07 更換VPN</h1><p>待更新</p>
+<h1 id="0x08-最終手段-踏入暗網"><a href="#0x08-最終手段-踏入暗網" class="headerlink" title="0x08 最終手段:踏入暗網"></a>0x08 最終手段:踏入暗網</h1><h1 id="0x09-參考資料"><a href="#0x09-參考資料" class="headerlink" title="0x09 參考資料"></a>0x09 參考資料</h1><p><a href="https://www.zhihu.com/question/28013848" target="_blank" rel="noopener">https://www.zhihu.com/question/28013848</a><br><a href="http://www.sowang.com/seek.htm" target="_blank" rel="noopener">http://www.sowang.com/seek.htm</a><br><a href="http://blog.joaoko.net/archives/222" target="_blank" rel="noopener">http://blog.joaoko.net/archives/222</a><br><a href="https://www.0101tx.com/about/" target="_blank" rel="noopener">https://www.0101tx.com/about/</a></p>
 ]]></content>
       
         <categories>
@@ -760,9 +788,9 @@
         
         <tags>
             
-            <tag> python </tag>
-            
             <tag> note </tag>
+            
+            <tag> python </tag>
             
             <tag> reverse engineering </tag>
             
@@ -1019,18 +1047,32 @@
 <li><a href="https://apsdehal.in/awesome-ctf/#tutorials" target="_blank" rel="noopener">Awesome CTF</a></li>
 </ul>
 <p>除了以上資源，你也可以自己上網閱讀一些大神寫的文章，從他們自我總結的經驗當中，你往往可以學得更快。單單看並不足夠，最重要的還是要自己做筆記，唯有這樣你才會清楚知道自己已經學會了什麼知識。</p>
-<h1 id="0x06-個人推薦CTF訓練基地"><a href="#0x06-個人推薦CTF訓練基地" class="headerlink" title="0x06 個人推薦CTF訓練基地"></a>0x06 個人推薦CTF訓練基地</h1><p><a href="http://overthewire.org/wargames/" target="_blank" rel="noopener">Overthewire</a><br>所提供的挑戰：Bandit，Natas，Leviathan，Narnia，Krypton，Behemoth，Utumno，Maze，Vortex，Semtex，Manpage，Drifter，HES2010，Abraxas，Monxla，Kishi。</p>
-<p><a href="https://www.enigmagroup.org/" target="_blank" rel="noopener">Enigmagroup</a><br>所提供的挑戰：Basic，Realistic，Crypto，Cracking，Auditing，Patching，Praogramming，Stego。</p>
-<p><a href="https://www.hackthissite.org" target="_blank" rel="noopener">Hack This Site</a><br>所提供的挑戰：Basic，Realistic，Application，Programming，Phonephreaking，Javascript，Forensic，Extbasic，Stego，IRC</p>
-<p><a href="https://w3challs.com" target="_blank" rel="noopener">W3Chall</a><br>所提供的挑戰：Hacking，Cracking，Wargame，Forensic，Crypto，Programming and /dev/null</p>
-<p><a href="http://reversing.kr/index.php" target="_blank" rel="noopener">Reversing.kr</a></p>
-<p><a href="http://pwnable.kr" target="_blank" rel="noopener">Pwnable.kr</a></p>
-<p><a href="https://exploit-exercises.com" target="_blank" rel="noopener">Exploit-exercises</a></p>
-<p><a href="https://microcorruption.com/login" target="_blank" rel="noopener">Micro Corruption</a></p>
-<p><a href="http://smashthestack.org" target="_blank" rel="noopener">Samsh the stack</a></p>
-<p>10.<a href="http://wargame.kr" target="_blank" rel="noopener">http://wargame.kr</a><br>11.<a href="https://ctflearn.com/index.php" target="_blank" rel="noopener">https://ctflearn.com/index.php</a><br>12.<a href="https://pwnable.tw" target="_blank" rel="noopener">https://pwnable.tw</a><br>13.<a href="https://ringzer0team.com" target="_blank" rel="noopener">https://ringzer0team.com</a><br>14.<a href="https://hackme.inndy.tw" target="_blank" rel="noopener">https://hackme.inndy.tw</a><br>15.<a href="https://ctf365.com" target="_blank" rel="noopener">https://ctf365.com</a><br>16.<a href="http://pwnwiki.io/#!index.md" target="_blank" rel="noopener">http://pwnwiki.io/#!index.md</a><br>17.<a href="http://ctf.sqrt-1.me" target="_blank" rel="noopener">http://ctf.sqrt-1.me</a><br>18.<a href="http://www.shiyanbar.com/ctf/practice" target="_blank" rel="noopener">http://www.shiyanbar.com/ctf/practice</a><br>19.<a href="https://bamboofox.cs.nctu.edu.tw/wargame" target="_blank" rel="noopener">https://bamboofox.cs.nctu.edu.tw/wargame</a><br>20.<a href="http://solveme.safflower.kr" target="_blank" rel="noopener">http://solveme.safflower.kr</a></p>
+<h1 id="0x06-個人推薦CTF訓練基地"><a href="#0x06-個人推薦CTF訓練基地" class="headerlink" title="0x06 個人推薦CTF訓練基地"></a>0x06 個人推薦CTF訓練基地</h1><ul>
+<li><a href="http://overthewire.org/wargames/" target="_blank" rel="noopener">Overthewire</a></li>
+<li><a href="https://backdoor.sdslabs.co" target="_blank" rel="noopener">Backdoor CTF</a></li>
+<li><a href="https://www.enigmagroup.org/" target="_blank" rel="noopener">Enigmagroup</a></li>
+<li><a href="https://www.hackthissite.org" target="_blank" rel="noopener">Hack This Site</a></li>
+<li><a href="https://w3challs.com" target="_blank" rel="noopener">W3Chall</a></li>
+<li><a href="http://reversing.kr/index.php" target="_blank" rel="noopener">Reversing.kr</a></li>
+<li><a href="http://pwnable.kr" target="_blank" rel="noopener">Pwnable.kr</a></li>
+<li><a href="https://exploit-exercises.com" target="_blank" rel="noopener">Exploit-exercises</a></li>
+<li><a href="https://microcorruption.com/login" target="_blank" rel="noopener">Micro Corruption</a></li>
+<li><a href="http://smashthestack.org" target="_blank" rel="noopener">Samsh the stack</a></li>
+<li><a href="http://wargame.kr" target="_blank" rel="noopener">Wargame Kr</a></li>
+<li><a href="https://ctflearn.com/index.php" target="_blank" rel="noopener">CTF Learn</a></li>
+<li><a href="https://pwnable.tw" target="_blank" rel="noopener">Pwnable TW</a></li>
+<li>[Ringzer 0 Team(<a href="https://ringzer0team.com" target="_blank" rel="noopener">https://ringzer0team.com</a>)</li>
+<li><a href="https://hackme.inndy.tw" target="_blank" rel="noopener">Hackme Inddy Tw</a></li>
+<li><a href="https://ctf365.com" target="_blank" rel="noopener">CTF 365</a></li>
+<li><a href="http://pwnwiki.io/#!index.md" target="_blank" rel="noopener">PWN Wiki</a></li>
+<li><a href="http://ctf.sqrt-1.me" target="_blank" rel="noopener">CTF Sqrt</a></li>
+<li><a href="http://www.shiyanbar.com/ctf/practice" target="_blank" rel="noopener">實驗吧CTF</a></li>
+<li><a href="https://bamboofox.cs.nctu.edu.tw/courses" target="_blank" rel="noopener">Bamboofox- list of challenge in each course</a></li>
+<li><a href="http://solveme.safflower.kr" target="_blank" rel="noopener">Solve Me</a></li>
+</ul>
 <h1 id="0x07-CTF出題方向學習資源"><a href="#0x07-CTF出題方向學習資源" class="headerlink" title="0x07 CTF出題方向學習資源"></a>0x07 CTF出題方向學習資源</h1><h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><ul>
-<li><a href="https://goo.gl/h3EJKJ" target="_blank" rel="noopener">Web Security Learning by Chybeta</a><br><a href="https://chybeta.gitbooks.io/waf-bypass/sqlzhu-ru/mysqlzhu-ru.html" target="_blank" rel="noopener">https://chybeta.gitbooks.io/waf-bypass/sqlzhu-ru/mysqlzhu-ru.html</a><br><a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a><br><a href="http://redtiger.labs.overthewire.org" target="_blank" rel="noopener">http://redtiger.labs.overthewire.org</a><br><a href="http://xss-quiz.int21h.jp" target="_blank" rel="noopener">http://xss-quiz.int21h.jp</a><br><a href="https://alf.nu/alert1" target="_blank" rel="noopener">https://alf.nu/alert1</a><br><a href="http://google-gruyere.appspot.com" target="_blank" rel="noopener">http://google-gruyere.appspot.com</a><br><a href="https://xss-game.appspot.com" target="_blank" rel="noopener">https://xss-game.appspot.com</a><br><a href="http://ctf.infosecinstitute.com/index.php" target="_blank" rel="noopener">http://ctf.infosecinstitute.com/index.php</a><br><a href="http://ctf.infosecinstitute.com/ctf2/" target="_blank" rel="noopener">http://ctf.infosecinstitute.com/ctf2/</a><br><a href="http://prompt.ml/0" target="_blank" rel="noopener">http://prompt.ml/0</a><br><a href="http://www.webug.org" target="_blank" rel="noopener">http://www.webug.org</a></li>
+<li><a href="https://goo.gl/h3EJKJ" target="_blank" rel="noopener">Web Security Learning by Chybeta</a></li>
+<li><a href="https://chybeta.gitbooks.io/waf-bypass/sqlzhu-ru/mysqlzhu-ru.html" target="_blank" rel="noopener">WAF by pass</a><br><a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a><br><a href="http://redtiger.labs.overthewire.org" target="_blank" rel="noopener">http://redtiger.labs.overthewire.org</a><br><a href="http://xss-quiz.int21h.jp" target="_blank" rel="noopener">http://xss-quiz.int21h.jp</a><br><a href="https://alf.nu/alert1" target="_blank" rel="noopener">https://alf.nu/alert1</a><br><a href="http://google-gruyere.appspot.com" target="_blank" rel="noopener">http://google-gruyere.appspot.com</a><br><a href="https://xss-game.appspot.com" target="_blank" rel="noopener">https://xss-game.appspot.com</a><br><a href="http://ctf.infosecinstitute.com/index.php" target="_blank" rel="noopener">http://ctf.infosecinstitute.com/index.php</a><br><a href="http://ctf.infosecinstitute.com/ctf2/" target="_blank" rel="noopener">http://ctf.infosecinstitute.com/ctf2/</a><br><a href="http://prompt.ml/0" target="_blank" rel="noopener">http://prompt.ml/0</a><br><a href="http://www.webug.org" target="_blank" rel="noopener">http://www.webug.org</a></li>
 </ul>
 <h2 id="Forensic"><a href="#Forensic" class="headerlink" title="Forensic"></a>Forensic</h2><h2 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h2><ul>
 <li><a href="https://goo.gl/L7rcxz" target="_blank" rel="noopener">Software Security Learning by Chybeta</a><br><a href="http://vancir.com/tutorials.html" target="_blank" rel="noopener">http://vancir.com/tutorials.html</a><br><a href="http://www.louys.net.cn/index.php/archives/120/" target="_blank" rel="noopener">http://www.louys.net.cn/index.php/archives/120/</a><br><a href="https://github.com/firmianay/Binary-Reading-List" target="_blank" rel="noopener">https://github.com/firmianay/Binary-Reading-List</a><br><a href="http://security.cs.rpi.edu/courses/binexp-spring2015/" target="_blank" rel="noopener">http://security.cs.rpi.edu/courses/binexp-spring2015/</a></li>
@@ -1125,13 +1167,13 @@
         
         <tags>
             
-            <tag> note </tag>
-            
             <tag> cryptography </tag>
             
-            <tag> stream cipher </tag>
+            <tag> note </tag>
             
             <tag> security </tag>
+            
+            <tag> stream cipher </tag>
             
         </tags>
         
@@ -1217,9 +1259,9 @@
         
         <tags>
             
-            <tag> note </tag>
-            
             <tag> cryptography </tag>
+            
+            <tag> note </tag>
             
             <tag> security </tag>
             
