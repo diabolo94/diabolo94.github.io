@@ -44,10 +44,148 @@
     </entry>
     
     <entry>
+      <title><![CDATA[深入理解計算機第一章筆記]]></title>
+      <url>/2017/12/06/opch1/</url>
+      <content type="html"><![CDATA[<h1 id="編譯系統"><a href="#編譯系統" class="headerlink" title="編譯系統"></a>編譯系統</h1><p>要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。<br>首先我們要有一個C文件。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//hello.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;   </span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"hello,world\n"</span>);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在Unix裡面執行<code>gcc -o hello hello.c</code>，此時編譯器便會讀取hello.c且將它轉成二進制文件。轉換過程如下。<br><img src="" alt=""></p>
+<p>這過程(編譯系統)總共有4個階段：</p>
+<h2 id="預處理階段"><a href="#預處理階段" class="headerlink" title="預處理階段"></a>預處理階段</h2><p>預處理器(cpp)會根據C文件裡面的#的命令來讀取Header，例如在這裡會讀取stdio.h, 然後將其內容加入原本的C文件裡面，生成一個以.i作為擴展名的文件。</p>
+<h2 id="編譯階段"><a href="#編譯階段" class="headerlink" title="編譯階段"></a>編譯階段</h2><p>然後編譯器會把hello.i轉成hello.s,也就是所謂的匯編語言程序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">main：</div><div class="line">    subq $8,%rsp</div><div class="line">    movl $.LCO,%edi</div><div class="line">    call puts</div><div class="line">    movl $0, %eax</div><div class="line">    addq $8, %rsp</div><div class="line">    ret</div></pre></td></tr></table></figure></p>
+<h2 id="匯編階段"><a href="#匯編階段" class="headerlink" title="匯編階段"></a>匯編階段</h2><p>然後就匯編器就可以派上用場啦，他能將hello.s轉成機械語言指令，再把指令變成可重定位目標程序(Relocatable object program)的格式，存放在hello.o中。</p>
+<h2 id="鏈接階段"><a href="#鏈接階段" class="headerlink" title="鏈接階段"></a>鏈接階段</h2><p>因為這裡helloc程序用了printf函數。此函數其實是本來就屬於標準C Library裡面的一個函數要調用此函數，我們就必須用到鏈接器(ld)將函數合拼到hello.o裡面，完成這過程後，最終也生成了可以被系統執行的hello文件(可執行目標文件)。</p>
+<h1 id="運行可執行目標文件hello"><a href="#運行可執行目標文件hello" class="headerlink" title="運行可執行目標文件hello"></a>運行可執行目標文件hello</h1><p>在命令行輸入<code>./hello</code>,系統便會運行hello程序，也會返回結果hello,world在你的Shell裡面。</p>
+<h1 id="系統的硬件組成"><a href="#系統的硬件組成" class="headerlink" title="系統的硬件組成"></a>系統的硬件組成</h1><p>包括了總線，I/O設備，主存還有處理器。</p>
+<h2 id="總線"><a href="#總線" class="headerlink" title="總線"></a>總線</h2><h2 id="I-O設備"><a href="#I-O設備" class="headerlink" title="I/O設備"></a>I/O設備</h2><h2 id="主存"><a href="#主存" class="headerlink" title="主存"></a>主存</h2><h2 id="處理器"><a href="#處理器" class="headerlink" title="處理器"></a>處理器</h2><p>## </p>
+]]></content>
+      
+        <categories>
+            
+            <category> Learning Guide </category>
+            
+            <category> Deep Understanding of Operating System </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> guide </tag>
+            
+            <tag> operating system </tag>
+            
+            <tag> note </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[2016 SANS Holiday Hack Challenge Writeups]]></title>
+      <url>/2017/12/05/sans2016HHC/</url>
+      <content type="html"><![CDATA[<h1 id="SANS2016HHC"><a href="#SANS2016HHC" class="headerlink" title="SANS2016HHC"></a>SANS2016HHC</h1><p>This is the writeup on how I solve the 2016 SANS Holiday Hack Challege</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>故事發生在一個夜深人靜的晚上，喬斯(Josh Doise)和傑西卡(Jessica Doise)在睡覺的時候聽到聖誕老人竟然出現在他們家裡的聲音。但正當他們決定要去看看聖誕老人的真面目時，發生了一些十分奇怪的事情，一陣禮物被撕破的聲音從他們家樓下傳出來。他們還聽到尖銳的打鬥聲，很可惜的是，在他們去到樓下時候，聖誕老人已經不見了，只見到家裡一片混亂，家裡的聖誕樹還甚至被劈開一半呢。為了調查事件的發生你們將開始一段新的冒險。<a id="more"></a>在我進入遊戲教程前，我想先說這個遊戲裡面所有的挑戰都是他們設計的：</p>
+<ul>
+<li>Mark Baggett</li>
+<li>Tad Bennett</li>
+<li>Ron Bowes</li>
+<li>Jeff McJunkin</li>
+<li>Tim Medin</li>
+<li>Lee Neely</li>
+<li>Ed Skoudis</li>
+<li>Joshua Wright</li>
+</ul>
+<p>在這裡感謝他們設計的挑戰讓我學到新的Forensic知識。想進入遊戲挑戰自己的人可以按<a href="https://quest2016.holidayhackchallenge.com/" target="_blank" rel="noopener">這裡</a></p>
+<h1 id="Part-1-A-Most-Curious-Business-Card"><a href="#Part-1-A-Most-Curious-Business-Card" class="headerlink" title="Part 1:A Most Curious Business Card"></a>Part 1:A Most Curious Business Card</h1><p><img src="https://s29.postimg.org/88tfwhkjr/venue1.jpg" alt=""></p>
+<p>遊戲一開始你就會身處在聖誕老人不見了的案發現場。在和喬斯和傑西卡對話後，你知道你需要調查那張留在現場神秘的卡片。這張卡片留下了聖誕老人的Twitter戶口以及Instagram戶口。</p>
+<p><img src="https://s29.postimg.org/69cik10ef/santawclaus_shadow.png" alt=""></p>
+<p>仔細調查後，你可以發現到聖誕老人的Tweet隱藏着其他信息。如果想快速獲取聖誕老人留下的所以信息你可以用tweet_dumper.py，一次過將所有對話save成CSV文件。當你成功把所有對話都整齊排列好你會看到所有的信息會組成一個很大而且明顯的信息，那就是:BUGBOUNTY。</p>
+<p>你也可以在<a href="http://twlets.com/" target="_blank" rel="noopener">http://twlets.com/</a> 這個網站直接將自己或他人Twitter的信息變成CSV文件。<br><img src="https://s23.postimg.org/xsrti039n/bugbunty.jpg" alt=""></p>
+<p>接著你可以查看聖誕老人的Instagram，在第一張照片找到了2個Zip File的提示。</p>
+<p><img src="https://s23.postimg.org/aq25xsut7/Insta.jpg" alt=""></p>
+<ul>
+<li><p>提示1：電腦上出現了Zip file的名字：SantaGram_v4.2.zip<br><img src="https://s30.postimg.org/g3duylzrl/instagram_p1.png" alt=""></p>
+</li>
+<li><p>提示2：紙張上有這個網站<a href="http://www.northpolewonderland.com/" target="_blank" rel="noopener">http://www.northpolewonderland.com/</a><br><img src="https://s23.postimg.org/j130t7gzf/instagram_p2.png" alt=""></p>
+</li>
+</ul>
+<p>憑著這兩個提示你可以聯想到的是Zip File的位置可能就是:<a href="http://www.northpolewonderland.com/SantaGram_v4.2.zip" target="_blank" rel="noopener">http://www.northpolewonderland.com/SantaGram_v4.2.zip</a> 。經過嘗試後你就會成功下載到那個Zip File。裡面有一個SantaGram_4.2.apk的文件。</p>
+<h1 id="Part-2-Awesome-Package-Konveyance"><a href="#Part-2-Awesome-Package-Konveyance" class="headerlink" title="Part 2:Awesome Package Konveyance"></a>Part 2:Awesome Package Konveyance</h1><p><img src="https://s24.postimg.org/t3kwc4rad/Holly.jpg" alt=""></p>
+<p>接下來的故事發展，你會通過一個禮物袋來到一個冰天雪地的地方。沒錯，這裡就是聖誕老人和他的精靈居住的地方，北極。這時候你會見到Holly Evergreen。他會告訴你以下幾件事情：</p>
+<ul>
+<li>在你去攻擊任何一個系統之前，請先去拜訪Oracle。</li>
+<li>Santagram 是聖誕老人和他的精靈所使用的社交媒體，想知道更多可以去拜訪在北極的其他精靈哦。</li>
+<li>找齊所有啟動Cranberry Pi的零件，找齊後他會給你Cranbian image，並且希望你能幫他找到Login的密碼。[詳細資料請參考Part 3]</li>
+</ul>
+<p>零件的所在地:[以後補充]</p>
+<ul>
+<li>Cranberry Pi Board</li>
+<li>Power Cord</li>
+<li>HDMI Cable</li>
+<li>SD Card</li>
+<li>Heat Sink</li>
+</ul>
+<p><img src="https://s23.postimg.org/7zo277wor/Shinny_Uptree.jpg" alt=""></p>
+<p>為了找回失踪的聖誕老人，你必須想辦法去知道Santagram_4.2.apk 這個文件裡面到底隱藏了什麼信息。在北極尋找了一段時間後，你可以在聖誕老人工作室的火車站找到Shinny Upatree。他會告訴你怎樣去分析你找到的APK文件。從他口中你明白到了以下的事情：</p>
+<ul>
+<li>APK File 也是Zip File的一種你可以Unzip來取得裡面的所有文件。</li>
+<li>APK File 是用Java程式語言來寫，想找回原本的Coding，要用Android Studio 或者JadX 來Decompile那個APK File。</li>
+<li>Jadx commandline可以將APK file Decompile成每一個獨立的Java文件。</li>
+<li>Joshua在2016Hack Fest呈現的<a href="https://goo.gl/m076lb" target="_blank" rel="noopener">簡報</a>裡面也有提及如何更有效的使用Android Studio and JadX來分析Apk文件。</li>
+</ul>
+<p>得到這些有用的情報後，你可以開始分析你得到的Apk文件了。正當你Unzip的時候發覺你需要輸入密碼才能繼續你的分析，不然你就無法繼續下去。其實，我在解題的時候在這裡卡了很久的一段時間，直到我在Reddit那邊見到有一個人給予的提示：你可能已經一早獲得了Unzip Santagram的密碼，只是你自己沒察覺到而已。我腦中醒起會不會是之前的BUGBOUNTY。最後，皇天不負有心人，我成功找到密碼(bugbounty)啦。進入分析Apk的階段，你可以用JadX 去Decompile 你得到的Apk文件，一旦Jadx成功Decompile後，你就能找題目要求你的username and password。使用Text Search功能你可以找到username and password 都隱藏在Code裡面。這段Code你可以在northpolewonderlad.santagram.SplashScreen Class裡面找到。</p>
+<p><img src="https://s28.postimg.org/4gi5nv3gt/userpass.jpg" alt=""></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jSONObject.<span class="keyword">put</span>(<span class="string">"username"</span>, <span class="string">"guest"</span>);</div><div class="line">jSONObject.<span class="keyword">put</span>(<span class="string">"password"</span>, <span class="string">"busyreindeer78"</span>);</div></pre></td></tr></table></figure>
+<p>另外，題目要求的Audio Component你可以在res/raw裡面找到，文件名稱為：discombobulatedaudio1.mp3。Unzip Santagram的Apk你也可以的直接得到該Mp3 File。</p>
+<p><code>unzip Santagram_4.2.apk</code></p>
+<p>如果想要該Mp3文件，可以到這裡<a href="https://drive.google.com/open?id=0B18u7ECQO-gTLTUteDQ4ZDZsdkk" target="_blank" rel="noopener">下載</a></p>
+<h1 id="Part-3-A-Fresh-Baked-Holiday-Pi"><a href="#Part-3-A-Fresh-Baked-Holiday-Pi" class="headerlink" title="Part 3: A Fresh-Baked Holiday Pi"></a>Part 3: A Fresh-Baked Holiday Pi</h1><p>在解決了apk的文件後，你終於可以靜下心來研究一下你剛剛得到的Cranbian image。要知道怎樣使用這個Image你可以找在聖誕樹下的Wunhorse Openslae來詢問。從他口中你明白到了以下的事情：</p>
+<ul>
+<li>Cranbian 其實是Linux Based的File System Image。</li>
+<li>Eskoudis 的部落格會教你<a href="https://pen-testing.sans.org/blog/2016/12/07/mount-a-raspberry-pi-file-system-image" target="_blank" rel="noopener">如何Mount a Raspberry Pi File System Image</a></li>
+</ul>
+<p>當你Unzip disk image後，你可以按照以下步驟來打開Cranbian image。</p>
+<ul>
+<li>Step 1:用<code>fdisk -l cranbian-jessie.img</code>command你可以得知這個Image由2個部分組成。而你要找的資料是在第二個部分裡面。你也會知道開始的Sectors會是137216。 </li>
+<li>Step 2:由於mount command需要用到Offset，所以你要計算出Offset的總值得。這個Image的offset=512×137216=70254592</li>
+<li>Step 3:打<code>mount -v -o offset=70254592 -t ext4 cranbian-jessie.img mnt/</code> 你就能成功Mount Cranbian Image。這個Mount Command裡面的 -v 是verbose, 會顯示更多正在Run着的Command的資訊。-o options列出還要使用的Option。 -t = type System file的種類， 而最後的/mnt是我自己設定的Mount Point.你可以用mkdir來建立一個你要的Mount point。<br><img src="https://s28.postimg.org/6o0gdt80t/Mountimg.jpg" alt=""></li>
+</ul>
+<p>根據題目要求，你需要找出Cranpi account的Password。一般來說，Linux存儲密碼的位置會放在<code>/etc/shadow</code>File裡面。而這些密碼都會用某些演算法進行加密再被存儲到這個位置。用<code>cat mnt/etc/shadow</code>,會得到Cranpi account密碼被hashing後的value。<br><img src="https://s30.postimg.org/c0yurwpup/shadow.jpg" alt=""></p>
+<p>要找會原來的值(密碼)，你需要將Hash值還原回原本的文字。在Kali Linux裡面John the ripper是一個非常優秀的密碼破解工具。為了減輕破解密碼的難度，住在Small Tree house的Minty Candycane給了你最有用的提示，用Rockyou.txt來配合Crack的過程。使用方法是，在Linux Shell裡面打<code>john --wordlist=rockyou.lst mnt/etc/shadow</code>就會開始進行Password Cracking。破解後的密碼是yummycookies。<br><img src="https://s23.postimg.org/4sgnepyxn/cracked.jpg" alt="cracked.jpg"></p>
+<p>然後把你得到的密碼告訴Holly Evergreen，他就會Unlock Cranbian Pi的Account讓你使用。<br><img src="https://s27.postimg.org/t16jh940z/cpi.jpg" alt=""></p>
+<p>現在你可以用Cranbian Pi去啟動遊戲裡面每個Terminal了。</p>
+<p>當你找到Terminal後，會見到旁邊有一個被密碼上鎖的門。你需要好好利用Terminal裡面的資訊來找到門的密碼。<br><img src="https://s24.postimg.org/hq02dcuol/Elf_House2_Front.jpg" alt="Elf House2Front.jpg"></p>
+<ul>
+<li>Door 1 - Elf House #2</li>
+</ul>
+<p>一旦你Access Terminal後，你會見到這句話</p>
+<blockquote>
+<p>To open the door, find both parts of the passphrase inside the /out.pcap file</p>
+</blockquote>
+<p>待補充</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Writeups </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> writeups </tag>
+            
+            <tag> SANS </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hexo世界裡靈活運用Markdown和html不是夢]]></title>
       <url>/2017/12/02/hexomarkdown/</url>
-      <content type="html"><![CDATA[<p>Markdown是一種輕量級的標記語言，其用簡單的標記語法便可達到排版的目的，其可以使我們更加專注於內容的編寫，而不需過多關注排版。本文主要整理了 Markdown中的常用的標記語法，以便自己與他人以後查用。</p>
-<a id="more"></a>
+      <content type="html"><![CDATA[<p>Markdown是一種輕量級的標記語言，其用簡單的標記語法便可達到排版的目的，其可以使我們更加專注於內容的編寫，而不需過多關注排版。本文主要整理了 Markdown中的常用的標記語法，以便自己與他人以後查用。<br><a id="more"></a></p>
 <h1 id="Note標籤"><a href="#Note標籤" class="headerlink" title="Note標籤"></a>Note標籤</h1><ul>
 <li>一般Note </li>
 </ul>
@@ -101,7 +239,7 @@
       <title><![CDATA[字符集(Charcater Set)與字符編碼(Encoding)]]></title>
       <url>/2017/11/29/charencoding/</url>
       <content type="html"><![CDATA[<h1 id="0x01-基礎知識"><a href="#0x01-基礎知識" class="headerlink" title="0x01 基礎知識"></a>0x01 基礎知識</h1><p>在了解編碼是怎麼一回事之前，我們必須要先知道2個概念，那就是位和字節。位(bit)是指電腦裡面存放的二進制數值=0或者1。而只要有8個位便可稱之為字節(byte)。例子：01000001，在16進制裡面，這個字節=0x41。</p>
-<p>字符編碼的意思是電腦會使用某種規則將平時我們日常生活中會用到的一些文字/符號轉換成電腦可以讀取的二進制數字進行相互的轉換。</p>
+<p>字符編碼的意思是電腦會使用某種規則將平時我們日常生活中會用到的一些文字/符號轉換成電腦可以讀取的二進制數字進行相互的轉換。<a id="more"></a></p>
 <p>例子：電腦使用ASCII字符集來進行字母“A”的轉換。<br><code>01000001（0x41）&lt;-&gt; 65 &lt;-&gt; &#39;A&#39;</code></p>
 <p>在編碼時，這些規則就會用所謂的字符集來處理字符和二進制數字代碼之間的轉換。</p>
 <p>而字符集則是一個系統支持的所有抽象字符的集合。這些字符就是各種文字和符號的總稱。通常包括了各個國家文字、標點符號、圖形符號、數字等等。</p>
@@ -268,7 +406,7 @@
     <entry>
       <title><![CDATA[Hackmd.io使用指南]]></title>
       <url>/2017/11/18/hackmdio/</url>
-      <content type="html"><![CDATA[<h1 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h1><p><i class="fa fa-file-text"></i> <strong>HackMD</strong> 是一個跨平台的Markdown即時協作筆記。<br>所以你可以和朋友們在<strong>電腦、平板甚至是手機</strong>上同一時間製作你們的筆記。<br>最方便的就是，你可以在首頁透過<strong>Facebook、Twitter、GitHub、Dropbox以及Google</strong>來登入<strong>HackMD</strong>。</p>
+      <content type="html"><![CDATA[<h1 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h1><p><i class="fa fa-file-text"></i> <strong>HackMD</strong> 是一個跨平台的Markdown即時協作筆記。所以你可以和朋友們在<strong>電腦、平板甚至是手機</strong>上同一時間製作你們的筆記。最方便的就是，你可以在首頁透過<strong>Facebook、Twitter、GitHub、Dropbox以及Google</strong>來登入<strong>HackMD</strong>。<a id="more"></a></p>
 <h1 id="分享功能"><a href="#分享功能" class="headerlink" title="分享功能"></a>分享功能</h1><p>你可以輕易的複製文件的網址來分享此文件。</p>
 <h1 id="權限設置"><a href="#權限設置" class="headerlink" title="權限設置"></a>權限設置</h1><p>在頁面的右上方有個小按鈕，你可以透過以下選項來更改權限：<br><i class="fa fa-leaf fa-fw"></i> 隨意：任何人都可以編輯以及瀏覽這份筆記。<br><i class="fa fa-shield fa-fw"></i>可編輯：已經登入的使用者才可以編輯這個筆記。（客人可以瀏覽）<br><i class="fa fa-id-card" fa-fw=""></i> 限制：已經登入的使用者可以編輯這個筆記。（禁止客人瀏覽）<br><i class="fa fa-lock fa-fw"></i> 鎖定：只有擁有者可以更改這份筆記。（客人可瀏覽）<br><i class="fa fa-umbrella fa-fw"></i> 保護：只有擁有者可以更改這份筆記。（禁止客人瀏覽）<br><i class="fa fa-hand-stop-o fa-fw"></i> 私有：只有擁有者可以更改與檢視這份筆記。</p>
 <p><strong>只有筆記的擁有者可以更改權限。</strong></p>
@@ -1026,7 +1164,7 @@
 <ul>
 <li>CTF All in one</li>
 </ul>
-<h1 id="0x01-什麼是CTF"><a href="#0x01-什麼是CTF" class="headerlink" title="0x01 什麼是CTF"></a>0x01 什麼是CTF</h1><p>PS:暫時參考內容以後再修改。<br>CTF全稱為Capture The Flag，也就是所謂的奪旗賽，起源于1996年DEFCON全球黑客大會，是讓黑客和資安愛好者進行技術競技的一種比賽。</p>
+<h1 id="0x01-什麼是CTF"><a href="#0x01-什麼是CTF" class="headerlink" title="0x01 什麼是CTF"></a>0x01 什麼是CTF</h1><p>CTF全稱為Capture The Flag，也就是所謂的奪旗賽，起源于1996年DEFCON全球黑客大會，是讓黑客和資安愛好者進行技術競技的一種比賽。<br><a id="more"></a></p>
 <h1 id="0x02-CTF的歷史"><a href="#0x02-CTF的歷史" class="headerlink" title="0x02 CTF的歷史"></a>0x02 CTF的歷史</h1><h1 id="0x03-CTF的種類"><a href="#0x03-CTF的種類" class="headerlink" title="0x03 CTF的種類"></a>0x03 CTF的種類</h1><p>比賽一般上有3種模式。分別是</p>
 <ul>
 <li>解題模式 - Jeopardy</li>
@@ -1051,8 +1189,8 @@
 </ul>
 </li>
 <li>Forensics<ul>
-<li>In a CTF context, “Forensics” challenges can include file format analysis, memory dump analysis, or network packet capture analysis. Any challenge to examine and process a hidden piece of information out of static data files could be considered a Forensics challenge.</li>
-<li>所需知識：fil format，scripting language (e.g.Python)，manipulate binary data (byte-level manipulations) in that language understand protocols, structures, and encodings</li>
+<li>In a CTF context, “Forensics” challenges can include file format analysis,stegonography, memory dump analysis, or network packet capture analysis. Any challenge to examine and process a hidden piece of information out of static data files could be considered a Forensics challenge.</li>
+<li>所需知識：file format，scripting language (e.g.Python)，manipulate binary data (byte-level manipulations) in that language understand protocols, structures, and encodings</li>
 </ul>
 </li>
 <li>Pwn<ul>
@@ -1111,7 +1249,7 @@
 <li><a href="https://goo.gl/jyDmYQ" target="_blank" rel="noopener">逆向工程學習指南</a></li>
 <li><a href="https://goo.gl/e5XqmZ" target="_blank" rel="noopener">PwnWiki.io</a></li>
 <li><a href="https://www.pediy.com/kssd/index.html" target="_blank" rel="noopener">看雪软件安全文档库2013版本</a>：內有電腦基礎，逆向，系統，調試，編程語言，軟件保護，PEDIY，病毒，漏洞分析，網絡安全等知識。</li>
-<li><a href="https://goo.gl/X1nxBn" target="_blank" rel="noopener">《加密解密第三版》</a>。這本書已經包含了大部分前面文檔庫裡面涵蓋的知識。</li>
+<li><a href="https://goo.gl/X1nxBn" target="_blank" rel="noopener">加密解密第三版</a>。這本書已經包含了大部分前面文檔庫裡面涵蓋的知識。</li>
 <li><a href="https://www.kanxue.com/book-list.htm" target="_blank" rel="noopener">看雪學院2017精華資源指南</a></li>
 <li><a href="https://goo.gl/e2Dp6n" target="_blank" rel="noopener">看雪論壇</a></li>
 <li><a href="http://www.shentoushi.top" target="_blank" rel="noopener">滲透師導航</a></li>
@@ -1143,7 +1281,9 @@
 </ul>
 <h1 id="0x07-CTF出題方向學習資源"><a href="#0x07-CTF出題方向學習資源" class="headerlink" title="0x07 CTF出題方向學習資源"></a>0x07 CTF出題方向學習資源</h1><h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><ul>
 <li><a href="https://goo.gl/h3EJKJ" target="_blank" rel="noopener">Web Security Learning by Chybeta</a></li>
-<li><a href="https://chybeta.gitbooks.io/waf-bypass/sqlzhu-ru/mysqlzhu-ru.html" target="_blank" rel="noopener">WAF by pass</a><br><a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">https://github.com/Audi-1/sqli-labs</a><br><a href="http://redtiger.labs.overthewire.org" target="_blank" rel="noopener">http://redtiger.labs.overthewire.org</a><br><a href="http://xss-quiz.int21h.jp" target="_blank" rel="noopener">http://xss-quiz.int21h.jp</a><br><a href="https://alf.nu/alert1" target="_blank" rel="noopener">https://alf.nu/alert1</a><br><a href="http://google-gruyere.appspot.com" target="_blank" rel="noopener">http://google-gruyere.appspot.com</a><br><a href="https://xss-game.appspot.com" target="_blank" rel="noopener">https://xss-game.appspot.com</a><br><a href="http://ctf.infosecinstitute.com/index.php" target="_blank" rel="noopener">http://ctf.infosecinstitute.com/index.php</a><br><a href="http://ctf.infosecinstitute.com/ctf2/" target="_blank" rel="noopener">http://ctf.infosecinstitute.com/ctf2/</a><br><a href="http://prompt.ml/0" target="_blank" rel="noopener">http://prompt.ml/0</a><br><a href="http://www.webug.org" target="_blank" rel="noopener">http://www.webug.org</a></li>
+<li><a href="https://chybeta.gitbooks.io/waf-bypass/sqlzhu-ru/mysqlzhu-ru.html" target="_blank" rel="noopener">WAF by pass</a></li>
+<li><a href="https://github.com/Audi-1/sqli-labs" target="_blank" rel="noopener">SQLI Labs</a></li>
+<li><a href="http://redtiger.labs.overthewire.org" target="_blank" rel="noopener">Redtiger Lab Overthewire</a><br><a href="http://xss-quiz.int21h.jp" target="_blank" rel="noopener">http://xss-quiz.int21h.jp</a><br><a href="https://alf.nu/alert1" target="_blank" rel="noopener">https://alf.nu/alert1</a><br><a href="http://google-gruyere.appspot.com" target="_blank" rel="noopener">http://google-gruyere.appspot.com</a><br><a href="https://xss-game.appspot.com" target="_blank" rel="noopener">https://xss-game.appspot.com</a><br><a href="http://ctf.infosecinstitute.com/index.php" target="_blank" rel="noopener">http://ctf.infosecinstitute.com/index.php</a><br><a href="http://ctf.infosecinstitute.com/ctf2/" target="_blank" rel="noopener">http://ctf.infosecinstitute.com/ctf2/</a><br><a href="http://prompt.ml/0" target="_blank" rel="noopener">http://prompt.ml/0</a><br><a href="http://www.webug.org" target="_blank" rel="noopener">http://www.webug.org</a></li>
 </ul>
 <h2 id="Forensic"><a href="#Forensic" class="headerlink" title="Forensic"></a>Forensic</h2><h2 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h2><ul>
 <li><a href="https://goo.gl/L7rcxz" target="_blank" rel="noopener">Software Security Learning by Chybeta</a><br><a href="http://vancir.com/tutorials.html" target="_blank" rel="noopener">http://vancir.com/tutorials.html</a><br><a href="http://www.louys.net.cn/index.php/archives/120/" target="_blank" rel="noopener">http://www.louys.net.cn/index.php/archives/120/</a><br><a href="https://github.com/firmianay/Binary-Reading-List" target="_blank" rel="noopener">https://github.com/firmianay/Binary-Reading-List</a><br><a href="http://security.cs.rpi.edu/courses/binexp-spring2015/" target="_blank" rel="noopener">http://security.cs.rpi.edu/courses/binexp-spring2015/</a></li>
@@ -1238,9 +1378,9 @@
         
         <tags>
             
-            <tag> cryptography </tag>
-            
             <tag> note </tag>
+            
+            <tag> cryptography </tag>
             
             <tag> stream cipher </tag>
             
@@ -1330,9 +1470,9 @@
         
         <tags>
             
-            <tag> cryptography </tag>
-            
             <tag> note </tag>
+            
+            <tag> cryptography </tag>
             
             <tag> security </tag>
             

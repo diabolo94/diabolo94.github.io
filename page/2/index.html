@@ -397,6 +397,509 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/11/08/stego/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/milo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子能量塔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/08/stego/" itemprop="url">解開隱寫術之謎</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-11-08T14:03:59+08:00">
+                2017-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Steganography/" itemprop="url" rel="index">
+                    <span itemprop="name">Steganography</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/08/stego/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/08/stego/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/08/stego/" class="leancloud_visitors" data-flag-title="解開隱寫術之謎">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字數統計&#58;</span>
+                
+                <span title="字數統計">
+                  2,556
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="0x01-什麼是隱寫術"><a href="#0x01-什麼是隱寫術" class="headerlink" title="0x01 什麼是隱寫術"></a>0x01 什麼是隱寫術</h1><p><img src="/images/stego/01.jpg" alt=""><br>隱寫術是將想要隱藏的消息嵌入到載體中，而達到信息保密的效果。隱寫術的使用可以追溯到古埃及時代又或者中國的元朝。而現代隱寫術通過使用電腦以及不同的隱寫軟件將信息隱藏在不同種類的文件當中。</p>
+<p>另外，使用隱寫術也可以為加密的信息提供多一層的保護。也就是說，我們可以將加密後的信息用一些非常普通的文件，如圖片，音頻，視頻，文檔等等，經過一系列的特殊處理將其隱藏起來。</p>
+<p>一個完整的隱寫系統包含了4個要素：</p>
+<ul>
+<li>被嵌入信息：隱藏在普通文件背後的秘密信息。</li>
+<li>普通文件：用於隱藏訊息的文件。</li>
+<li>隱寫鑰匙：用於加密和解密信息的鑰匙。</li>
+<li>隱寫軟件：負責將需隱藏信息和普通文件整合在一起的軟件。</li>
+</ul>
+<h1 id="0x02-現代隱寫術的方法"><a href="#0x02-現代隱寫術的方法" class="headerlink" title="0x02 現代隱寫術的方法"></a>0x02 現代隱寫術的方法</h1><ul>
+<li>注入</li>
+<li>最低有效位Least Significant bit(LSB)</li>
+<li>File generation</li>
+<li>Transform-Domain technique</li>
+<li>Spread spectrum encoding</li>
+<li>perceptual masking</li>
+<li>Statistical method </li>
+<li>Distortion technique</li>
+</ul>
+<h2 id="注入"><a href="#注入" class="headerlink" title="注入"></a>注入</h2><h2 id="最低有效位-LSB"><a href="#最低有效位-LSB" class="headerlink" title="最低有效位(LSB)"></a>最低有效位(LSB)</h2><p>最低有效位(Least Significant Bit)代表着二進制數中的最小的單位，可以用來指示數字很小的變化。也就是說,LSB是一個二進制數字中的第0位（即最低位），具有權值為$2^0$，可以用它來檢測數的奇偶性。在大端序(Big Endian)中，LSB指最右邊的位。</p>
+<p>舉個例子，在圖像隱寫術裡面，所謂的LSB隱寫就是去修改RGB的顏色分量中的最低位。也就是去修改像數最低的1位元。當然人類的眼睛是無法分辨得出當中的變化，唯有通過一些軟件去檢驗，才能得知圖片裡面是隱藏了信息。</p>
+<h2 id="文件生成"><a href="#文件生成" class="headerlink" title="文件生成"></a>文件生成</h2><h2 id="領域轉換技巧"><a href="#領域轉換技巧" class="headerlink" title="領域轉換技巧"></a>領域轉換技巧</h2><h2 id="擴頻編碼"><a href="#擴頻編碼" class="headerlink" title="擴頻編碼"></a>擴頻編碼</h2><h2 id="感知掩蔽"><a href="#感知掩蔽" class="headerlink" title="感知掩蔽"></a>感知掩蔽</h2><h2 id="統計學方式"><a href="#統計學方式" class="headerlink" title="統計學方式"></a>統計學方式</h2><h2 id="失真技術"><a href="#失真技術" class="headerlink" title="失真技術"></a>失真技術</h2><h1 id="0x03-元數據Metadata"><a href="#0x03-元數據Metadata" class="headerlink" title="0x03 元數據Metadata"></a>0x03 元數據Metadata</h1><p>元數據，又稱中介數據、中繼數據，為描述數據的數據(data about data)，主要是描述數據屬性(property)的信息，用來支持如指示存儲位置、歷史數據、資源查找、文件記錄等功能。</p>
+<p>元數據中隱藏信息在比賽中是最基本的一種手法，通常用來隱藏一些關鍵的<code>Hint</code>信息或者是一些重要的如<code>password</code>等信息。</p>
+<h2 id="Strings指令"><a href="#Strings指令" class="headerlink" title="Strings指令"></a>Strings指令</h2><p>這類元數據你可以右鍵–&gt;屬性去查看，也可以通過<code>strings</code>去查看，一般來說，一些隱藏的信息(奇怪的字元串)常常出現在頭部或者尾部。</p>
+<p>用法:<a href="http://man.linuxde.net/strings" target="_blank" rel="noopener">Strings指令</a></p>
+<p>例子<br>Breakin-ctf-2017:Mysterious-GIF<br><img src="https://media.giphy.com/media/3ohs7MnWicbg6MPG4U/giphy.gif" alt=""></p>
+<p>要分析這個Gif，我們可以用<code>strings</code>這指令來查看裡面的所有字符串。</p>
+<p>結果我們發現到異常的部分如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">GIF89a</div><div class="line">   !!!<span class="string">""</span><span class="string">"###$$$%%%&amp;&amp;&amp;'''((()))***+++,,,---...///000111222333444555666777888999:::;;;&lt;&lt;&lt;===&gt;&gt;&gt;???@@@AAABBBCCCDDDEEEFFFGGGHHHIIIJJJKKKLLLMMMNNNOOOPPPQQQRRRSSSTTTUUUVVVWWWXXXYYYZZZ[[[\\\]]]^^^___```aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnooopppqqqrrrssstttuuuvvvwwwxxxyyyzzz&#123;&#123;&#123;|||&#125;&#125;&#125;~~~</span></div><div class="line"><span class="string">4d494945767749424144414e42676b71686b6947397730424151454641415343424b6b776767536c41674541416f4942415144644d4e624c3571565769435172</span></div><div class="line"><span class="string">NETSCAPE2.0</span></div><div class="line"><span class="string">ImageMagick</span></div><div class="line"><span class="string">...</span></div></pre></td></tr></table></figure></p>
+<h2 id="identify指令"><a href="#identify指令" class="headerlink" title="identify指令"></a>identify指令</h2><p>這裡的16進制其實是藏在GIF的元數據區裡面。</p>
+<p>接下來就是提取，你可以選擇python，但是利用<code>identify</code>指令顯得更加便捷。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">root <span class="keyword">in</span> ~/Desktop/tmp λ identify -format <span class="string">"%s %c \n"</span> Question.gif</div><div class="line">0 4d494945767749424144414e42676b71686b6947397730424151454641415343424b6b776767536c41674541416f4942415144644d4e624c3571565769435172</div><div class="line">1 5832773639712f377933536849507565707478664177525162524f72653330633655772f6f4b3877655a547834346d30414c6f75685634364b63514a6b687271</div><div class="line">...</div><div class="line">24 484b7735432b667741586c4649746d30396145565458772b787a4c4a623253723667415450574d35715661756278667362356d58482f77443969434c684a536f</div><div class="line">25 724b3052485a6b745062457335797444737142486435504646773d3d</div></pre></td></tr></table></figure></p>
+<p>用法:<a href="https://linux.die.net/man/1/identify" target="_blank" rel="noopener">identify指令</a>。</p>
+<p>而想知道這題的完整做法的人，可以看此<a href="https://goo.gl/pFtkjJ" target="_blank" rel="noopener">Writeup</a>。</p>
+<h2 id="exiftool"><a href="#exiftool" class="headerlink" title="exiftool"></a>exiftool</h2><p>Exiftool是一個專門用來讀寫和編輯文件元數據的cmd工具。此工具也支援了非常多的元數據種類，包括了EXIF, GPS, IPTC, XMP, JFIF, GeoTIFF, ICC Profile, Photoshop IRB, FlashPix, AFCP and ID3。當然也可辨認出某些元數據是來自什麼樣的數碼相機如Canon, Casio, DJI, FLIR, FujiFilm, GE, HP, JVC/Victor, Kodak, Leaf, Minolta/Konica-Minolta, Motorola, Nikon, Nintendo, Olympus/Epson, Panasonic/Leica, Pentax/Asahi, Phase One, Reconyx, Ricoh, Samsung, Sanyo, Sigma/Foveon and Sony。</p>
+<p>例子：只需輸入<code>exiftool.exe 文件名</code>，你就可以取得文件的Metadata了。</p>
+<p><img src="/images/stego/teaexample.JPG" alt=""></p>
+<p>更多exiftool使用方法和功能可以到以下的鏈接裡面的Documentation學習。</p>
+<ul>
+<li><a href="https://www.sno.phy.queensu.ca/~phil/exiftool/" target="_blank" rel="noopener">ExifTool Official Website</a></li>
+</ul>
+<h2 id="binwalk"><a href="#binwalk" class="headerlink" title="binwalk"></a><a href="https://github.com/devttys0/binwalk" target="_blank" rel="noopener">binwalk</a></h2><ul>
+<li><a href="https://hackfun.org/2017/09/07/Kali-Linux取证分析之Binwalk/" target="_blank" rel="noopener">binwalk使用教學</a> </li>
+</ul>
+<h1 id="0x04-圖片隱寫術"><a href="#0x04-圖片隱寫術" class="headerlink" title="0x04 圖片隱寫術"></a>0x04 圖片隱寫術</h1><h2 id="GIF"><a href="#GIF" class="headerlink" title="GIF"></a>GIF</h2><h3 id="文件結構"><a href="#文件結構" class="headerlink" title="文件結構"></a>文件結構</h3><p>一个GIF文件的結構可分為</p>
+<ul>
+<li>文件頭(File Header)</li>
+<li>GIF文件署名(Signature)</li>
+<li>版本號(Version)</li>
+<li>GIF數據流(GIF Data Stream)</li>
+<li>控制標識符</li>
+<li>圖象塊(Image Block)</li>
+<li>其他的一些擴展塊</li>
+<li>文件終結器(Trailer)</li>
+</ul>
+<p>下表顯示了一個GIF文件的組成結構：<br><img src="/images/stego/gif.png" alt=""></p>
+<p>中間的那個大塊可以被重複任意次。</p>
+<h3 id="文件頭"><a href="#文件頭" class="headerlink" title="文件頭"></a>文件頭</h3><p>GIF署名(Signature)和版本號(Version)</p>
+<p>GIF署名用來確認一個文件是否是GIF格式的文件，這一部分由三個字元組成：”GIF”;文件版本號也是由三個位元組組成,通常是”87a”或”89a”。</p>
+<h3 id="邏輯屏幕標識符-Logical-Screen-Descriptor"><a href="#邏輯屏幕標識符-Logical-Screen-Descriptor" class="headerlink" title="邏輯屏幕標識符(Logical Screen Descriptor)"></a>邏輯屏幕標識符(Logical Screen Descriptor)</h3><p>Logical Screen Descriptor（邏輯屏幕描述符）緊跟在header後面。這個塊告訴decoder（解碼器）圖片需要占用的空間。它的大小固定為7個位元組，以canvas width（畫布寬度）和canvas height（畫布高度）開始。</p>
+<h3 id="全局顏色列表-Global-Color-Table"><a href="#全局顏色列表-Global-Color-Table" class="headerlink" title="全局顏色列表(Global Color Table)"></a>全局顏色列表(Global Color Table)</h3><p>GIF格式可以擁有global color table，或用於針對每個子圖片集，提供local color table。每個color table由一個RGB（就像通常我們見到的（255，0，0）紅色 那種）列表組成。</p>
+<h3 id="圖象標識符-Image-Descriptor"><a href="#圖象標識符-Image-Descriptor" class="headerlink" title="圖象標識符(Image Descriptor)"></a>圖象標識符(Image Descriptor)</h3><p>一個GIF文件一般包含多個圖片。之前的圖片渲染模式一般是將多個圖片繪製到一個大的（virtual canvas）虛擬畫布上，而現在一般將這些圖片集用於實現動畫。</p>
+<p>每個image都以一個image descriptor block（圖象描述塊）作為開頭，這個塊固定為10位元組。</p>
+<h3 id="圖象數據-Image-Data"><a href="#圖象數據-Image-Data" class="headerlink" title="圖象數據(Image Data)"></a>圖象數據(Image Data)</h3><p>終於到了圖片數據實際存儲的地方。Image Data是由一系列的輸出編碼（output codes）構成，它們告訴decoder（解碼器）需要繪製在畫布上的每個顏色信息。這些編碼以位元組碼的形式組織在這個塊中。</p>
+<h3 id="文件終結器-Trailer"><a href="#文件終結器-Trailer" class="headerlink" title="文件終結器(Trailer)"></a>文件終結器(Trailer)</h3><p>該塊為一個單欄位塊，用來指示該數據流的結束。取固定值0x3b。</p>
+<p>想完整了解的可看<a href="http://www.jianshu.com/p/df52f1511cf8" target="_blank" rel="noopener">GIF格式圖片詳細解釋</a></p>
+<h3 id="分離GIF圖片"><a href="#分離GIF圖片" class="headerlink" title="分離GIF圖片"></a>分離GIF圖片</h3><p>因為GIF是由多幅圖片組合而成，因此要分離GIF成PNG/JPG，我們可以在Linux裡面用<code>convert gif名 圖片名</code>指令來對GIF做出分離的動作。<br><img src="/images/stego/fishsplit.JPG" alt=""></p>
+<h3 id="CTF例題1-WDCTF-2017-3-2"><a href="#CTF例題1-WDCTF-2017-3-2" class="headerlink" title="CTF例題1 WDCTF-2017:3-2"></a>CTF例題1 WDCTF-2017:3-2</h3><p>而想知道這題的完整做法的人，可以看此<a href="https://goo.gl/pFtkjJ" target="_blank" rel="noopener">Writeup</a>。</p>
+<h3 id="CTF例題2"><a href="#CTF例題2" class="headerlink" title="CTF例題2"></a>CTF例題2</h3><p>利用GIF文件的時間間隔來當成是信息隱藏的載體。</p>
+<h2 id="PNG"><a href="#PNG" class="headerlink" title="PNG"></a>PNG</h2><p>PNG全稱為Protable Network Graphic，屬於無損壓縮位圖圖形格式(lossless data compression)。PNG的出現是為了改善以及替代GIF成為適合在網絡傳輸的圖片格式。此外PNG也具有以下的特色：</p>
+<ul>
+<li>最高支持24位真彩色圖像(24 bit RGB or 32 Bit RGBA)</li>
+<li>8位灰度圖像(無論是否為Alpha通道)。</li>
+<li>支持256色调色板計算，來生成體積容量較小的文件。</li>
+<li>支持Alpha通道和一般通道的透明/半透明特性。</li>
+<li>支持圖像亮度的Gamma校准信息。</li>
+<li>支持存储附加文本信息，以保留圖像名稱、作者、版權、創造時間、注釋等信息。</li>
+<li>漸近顯示和流式讀寫，適合在網絡傳輸中快速顯示預覽效果後再展示全貌。</li>
+<li>使用CRC防止文件出錯。</li>
+<li>最新的PNG標準還可以允许在一个文件內存储多幅圖像。</li>
+</ul>
+<h3 id="文件結構-1"><a href="#文件結構-1" class="headerlink" title="文件結構"></a>文件結構</h3><p>首先PNG文件是由一個8字節的PNG文件標識(file signature)域和3個以上的後續數據塊(Chunk)組成。</p>
+<p>文件頭<code>89 50 4E 47 0D 0A 1A 0A</code> + 數據塊 + 數據塊 + 數據塊…。</p>
+<h3 id="文件頭-1"><a href="#文件頭-1" class="headerlink" title="文件頭"></a>文件頭</h3><table>
+<thead>
+<tr>
+<th>十六進制</th>
+<th>含義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>89</td>
+<td>用於檢測傳輸系統是否支持8位的字符編碼（8 bit data），用以減少將文本文件被錯誤的識別成PNG文件的機會，反之亦然。</td>
+</tr>
+<tr>
+<td>50 4E 47</td>
+<td>PNG每個字母對應的ASCII，讓用戶可以使用文本編輯器查看時，識別出是PNG文件。</td>
+</tr>
+<tr>
+<td>0D 0A</td>
+<td>DOS風格的換行符（CRLF）。用於DOS-Unix數據的換行符轉換。</td>
+</tr>
+<tr>
+<td>1A</td>
+<td>在DOS命令行下，用於阻止文件顯示的文件結束符。</td>
+</tr>
+<tr>
+<td>0A</td>
+<td>Unix風格的換行符（LF）。用於Unix-DOS換行符的轉換。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="數據塊CHUNK"><a href="#數據塊CHUNK" class="headerlink" title="數據塊CHUNK"></a>數據塊CHUNK</h3><p>PNG定義了兩種類型的數據塊，一種是稱為關鍵數據塊(critical chunk)，這是標準的數據塊，</p>
+<p>另一種叫做輔助數據塊(ancillary chunks)，這是可選的數據塊。關鍵數據塊定義了4個標準數據塊，每個PNG文件都必須包含它們，PNG讀寫軟件也都必須要支持這些數據塊。<br><img src="/images/stego/datasection.JPG" alt=""></p>
+<p>而這些數據塊都由4個部分組成。<br>|名稱|字節數|說明|<br>|—–|——|——|<br>|Length (長度)|4字節|指定数据块中数据域的长度，其长度不超过(231－1)字节|<br>|Chunk Type Code (數據塊類型碼)|4字節|數據塊類型碼由ASCII字母(A-Z和a-z)組成|<br>|Chunk Data (數據塊數據)|可變長度|存儲按照Chunk Type Code指定的數據|<br>|CRC (循環冗餘檢測)|4字節|存儲用來檢測是否有錯誤的循環冗餘碼|        </p>
+<p>另外，CRC(cyclic redundancy check)域中的值是對Chunk Type Code域和Chunk Data域中的數據進行計算得到的。</p>
+<h3 id="IHDR"><a href="#IHDR" class="headerlink" title="IHDR"></a>IHDR</h3><p>文件頭數據塊IHDR(header chunk)包含了儲存的圖像數據基本信息，由13字節組成，而且必須出現在PNG的第一段數據塊內，也只能有一個IHDR。</p>
+<p>需要注意的是前8個字節的內容。<br>|域名稱|字節數|說明|<br>|—–|——|——|<br>|Width|4 bytes|圖像寬度，單位是像素|<br>|Height|4 bytes|圖像高度，單位是像素|</p>
+<p>更關於PNG資料可看：</p>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/便携式网络图形" target="_blank" rel="noopener">便携式网络图形</a></li>
+<li><a href="http://www.libpng.org/pub/png/" target="_blank" rel="noopener">LiB PNG</a></li>
+<li><a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#4Concepts.PNGImageTransformation" target="_blank" rel="noopener">Portable Network Graphics (PNG) Specification (Second Edition)</a></li>
+</ul>
+<h1 id="0x05-音頻"><a href="#0x05-音頻" class="headerlink" title="0x05 音頻"></a>0x05 音頻</h1><h2 id="音頻分析三大走向：頻譜，波形，LSB"><a href="#音頻分析三大走向：頻譜，波形，LSB" class="headerlink" title="音頻分析三大走向：頻譜，波形，LSB"></a>音頻分析三大走向：頻譜，波形，LSB</h2><p><a href="https://www.hackpwn.me/archives/272" target="_blank" rel="noopener">https://www.hackpwn.me/archives/272</a></p>
+<h1 id="0x06-視頻"><a href="#0x06-視頻" class="headerlink" title="0x06 視頻"></a>0x06 視頻</h1><h1 id="0x07-文檔：Word-PDF"><a href="#0x07-文檔：Word-PDF" class="headerlink" title="0x07 文檔：Word / PDF"></a>0x07 文檔：Word / PDF</h1><h1 id="0x08-流量包：附件，協議，字符串拆分"><a href="#0x08-流量包：附件，協議，字符串拆分" class="headerlink" title="0x08 流量包：附件，協議，字符串拆分"></a>0x08 流量包：附件，協議，字符串拆分</h1><h1 id="0x09-交換數據流"><a href="#0x09-交換數據流" class="headerlink" title="0x09 交換數據流"></a>0x09 交換數據流</h1><h1 id="0x10-HTML"><a href="#0x10-HTML" class="headerlink" title="0x10 HTML"></a>0x10 HTML</h1><h1 id="0x11-Vmdk"><a href="#0x11-Vmdk" class="headerlink" title="0x11 Vmdk"></a>0x11 Vmdk</h1><h1 id="0x12-Python字節碼"><a href="#0x12-Python字節碼" class="headerlink" title="0x12 Python字節碼"></a>0x12 Python字節碼</h1><h1 id="0x13-參考工具"><a href="#0x13-參考工具" class="headerlink" title="0x13 參考工具"></a>0x13 參考工具</h1><p>1.<a href="https://github.com/crorvick/outguess" target="_blank" rel="noopener">Outguess</a><br>2.<a href="http://www.cnblogs.com/pcat/p/6716502.html" target="_blank" rel="noopener">http://www.cnblogs.com/pcat/p/6716502.html</a></p>
+<h1 id="0x14-參考資料"><a href="#0x14-參考資料" class="headerlink" title="0x14 參考資料"></a>0x14 參考資料</h1><p>1.<a href="https://emiyajibo.github.io/2017/02/24/隐写术-个人总结/" target="_blank" rel="noopener">隐写术个人总结</a><br>2.<a href="http://bobao.360.cn/learning/detail/243.html" target="_blank" rel="noopener">隐写术总结</a><br>3.<a href="https://ctf-wiki.github.io/ctf-wiki/misc/picture/index.html" target="_blank" rel="noopener">圖片分析</a><br>4.<a href="http://blog.csdn.net/fuzz_nancheng/article/details/53384353" target="_blank" rel="noopener">世安杯-LSB隐写-png</a><br>5.<a href="http://blog.csdn.net/zhang_dashuai/article/details/48173673" target="_blank" rel="noopener">PNG 文檔格式</a><br>6.<a href="https://bbs.ichunqiu.com/thread-23756-1-1.html" target="_blank" rel="noopener">CTF中隐写术一些基础【一】</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/11/06/CTFfinalguide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/milo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子能量塔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/06/CTFfinalguide/" itemprop="url">CTF終極指南</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-11-06T18:58:16+08:00">
+                2017-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/06/CTFfinalguide/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/06/CTFfinalguide/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/06/CTFfinalguide/" class="leancloud_visitors" data-flag-title="CTF終極指南">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字數統計&#58;</span>
+                
+                <span title="字數統計">
+                  1,668
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>11月9日更新：</p>
+<ul>
+<li>CTF All in one</li>
+</ul>
+<h1 id="0x01-什麼是CTF"><a href="#0x01-什麼是CTF" class="headerlink" title="0x01 什麼是CTF"></a>0x01 什麼是CTF</h1><p>CTF全稱為Capture The Flag，也就是所謂的奪旗賽，起源于1996年DEFCON全球黑客大會，是讓黑客和資安愛好者進行技術競技的一種比賽。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/06/CTFfinalguide/" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/11/05/rnganbitstream/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1328,7 +1831,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -1339,7 +1842,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -1350,7 +1853,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -1518,7 +2021,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14.3k</span>
+    <span title="Site words total count">16.7k</span>
   
 </div>
 

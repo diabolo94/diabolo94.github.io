@@ -119,7 +119,7 @@
 
 
 
-  <meta name="keywords" content="量子能量塔,資安部落格,克蘇魯7版規則,博客,diabolo94" />
+  <meta name="keywords" content="writeups,SANS," />
 
 
 
@@ -132,16 +132,33 @@
 
 
 
-<meta name="description" content="塔內高能！非黑客人員請火速撤離！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="量子能量塔">
-<meta property="og:url" content="https://diabolo94.github.io/tags/security/index.html">
+<meta name="description" content="SANS2016HHCThis is the writeup on how I solve the 2016 SANS Holiday Hack Challege Introduction故事發生在一個夜深人靜的晚上，喬斯(Josh Doise)和傑西卡(Jessica Doise)在睡覺的時候聽到聖誕老人竟然出現在他">
+<meta name="keywords" content="writeups,SANS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2016 SANS Holiday Hack Challenge Writeups">
+<meta property="og:url" content="https://diabolo94.github.io/2017/12/05/sans2016HHC/index.html">
 <meta property="og:site_name" content="量子能量塔">
-<meta property="og:description" content="塔內高能！非黑客人員請火速撤離！">
+<meta property="og:description" content="SANS2016HHCThis is the writeup on how I solve the 2016 SANS Holiday Hack Challege Introduction故事發生在一個夜深人靜的晚上，喬斯(Josh Doise)和傑西卡(Jessica Doise)在睡覺的時候聽到聖誕老人竟然出現在他們家裡的聲音。但正當他們決定要去看看聖誕老人的真面目時，發生了一些十分奇怪的事情">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://s29.postimg.org/88tfwhkjr/venue1.jpg">
+<meta property="og:image" content="https://s29.postimg.org/69cik10ef/santawclaus_shadow.png">
+<meta property="og:image" content="https://s23.postimg.org/xsrti039n/bugbunty.jpg">
+<meta property="og:image" content="https://s23.postimg.org/aq25xsut7/Insta.jpg">
+<meta property="og:image" content="https://s30.postimg.org/g3duylzrl/instagram_p1.png">
+<meta property="og:image" content="https://s23.postimg.org/j130t7gzf/instagram_p2.png">
+<meta property="og:image" content="https://s24.postimg.org/t3kwc4rad/Holly.jpg">
+<meta property="og:image" content="https://s23.postimg.org/7zo277wor/Shinny_Uptree.jpg">
+<meta property="og:image" content="https://s28.postimg.org/4gi5nv3gt/userpass.jpg">
+<meta property="og:image" content="https://s28.postimg.org/6o0gdt80t/Mountimg.jpg">
+<meta property="og:image" content="https://s30.postimg.org/c0yurwpup/shadow.jpg">
+<meta property="og:image" content="https://s23.postimg.org/4sgnepyxn/cracked.jpg">
+<meta property="og:image" content="https://s27.postimg.org/t16jh940z/cpi.jpg">
+<meta property="og:image" content="https://s24.postimg.org/hq02dcuol/Elf_House2_Front.jpg">
+<meta property="og:updated_time" content="2017-12-07T15:42:18.858Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="量子能量塔">
-<meta name="twitter:description" content="塔內高能！非黑客人員請火速撤離！">
+<meta name="twitter:title" content="2016 SANS Holiday Hack Challenge Writeups">
+<meta name="twitter:description" content="SANS2016HHCThis is the writeup on how I solve the 2016 SANS Holiday Hack Challege Introduction故事發生在一個夜深人靜的晚上，喬斯(Josh Doise)和傑西卡(Jessica Doise)在睡覺的時候聽到聖誕老人竟然出現在他們家裡的聲音。但正當他們決定要去看看聖誕老人的真面目時，發生了一些十分奇怪的事情">
+<meta name="twitter:image" content="https://s29.postimg.org/88tfwhkjr/venue1.jpg">
 
 
 
@@ -171,7 +188,7 @@
 
 
 
-  <link rel="canonical" href="https://diabolo94.github.io/tags/security/"/>
+  <link rel="canonical" href="https://diabolo94.github.io/2017/12/05/sans2016HHC/"/>
 
 
 
@@ -214,7 +231,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -382,167 +399,326 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>security<small>標籤</small>
-        </h2>
-      </div>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/12/05/sans2016HHC/">
 
-      
-        
-        
-        
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/milo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子能量塔">
+    </span>
+
+    
+      <header class="post-header">
 
         
+        
+          <h2 class="post-title" itemprop="name headline">2016 SANS Holiday Hack Challenge Writeups</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
             
-            <div class="collection-title">
-                <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-05T14:26:39+08:00">
+                2017-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Writeups/" itemprop="url" rel="index">
+                    <span itemprop="name">Writeups</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/05/sans2016HHC/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/05/sans2016HHC/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/05/sans2016HHC/" class="leancloud_visitors" data-flag-title="2016 SANS Holiday Hack Challenge Writeups">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字數統計&#58;</span>
+                
+                <span title="字數統計">
+                  1,886
+                </span>
+              
+
+              
+
+              
             </div>
-        
-        
-        
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/05/rnganbitstream/" itemprop="url">
-              
-                <span itemprop="name">隨機數生成原理</span>
-              
-            </a>
-        
-      </h3>
+        </div>
+      </header>
+    
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-05T19:21:36+08:00"
-              content="2017-11-05" >
-          11-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-        
-        
-
-        
-        
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/03/stream-cipher/" itemprop="url">
-              
-                <span itemprop="name">序列密码</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-03T11:57:18+08:00"
-              content="2017-11-03" >
-          11-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-        
-        
-
-        
-        
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/02/top5gitsectool/" itemprop="url">
-              
-                <span itemprop="name">2017 10月份Github 5大受歡迎的資安工具和目錄</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-02T03:01:45+08:00"
-              content="2017-11-02" >
-          11-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-        
-        
-
-        
-        
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/01/unpackguide/" itemprop="url">
-              
-                <span itemprop="name">脫壳學習指南(UNPACK LEARNING GUIDE)</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-01T13:44:55+08:00"
-              content="2017-11-01" >
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h1 id="SANS2016HHC"><a href="#SANS2016HHC" class="headerlink" title="SANS2016HHC"></a>SANS2016HHC</h1><p>This is the writeup on how I solve the 2016 SANS Holiday Hack Challege</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>故事發生在一個夜深人靜的晚上，喬斯(Josh Doise)和傑西卡(Jessica Doise)在睡覺的時候聽到聖誕老人竟然出現在他們家裡的聲音。但正當他們決定要去看看聖誕老人的真面目時，發生了一些十分奇怪的事情，一陣禮物被撕破的聲音從他們家樓下傳出來。他們還聽到尖銳的打鬥聲，很可惜的是，在他們去到樓下時候，聖誕老人已經不見了，只見到家裡一片混亂，家裡的聖誕樹還甚至被劈開一半呢。為了調查事件的發生你們將開始一段新的冒險。<a id="more"></a>在我進入遊戲教程前，我想先說這個遊戲裡面所有的挑戰都是他們設計的：</p>
+<ul>
+<li>Mark Baggett</li>
+<li>Tad Bennett</li>
+<li>Ron Bowes</li>
+<li>Jeff McJunkin</li>
+<li>Tim Medin</li>
+<li>Lee Neely</li>
+<li>Ed Skoudis</li>
+<li>Joshua Wright</li>
+</ul>
+<p>在這裡感謝他們設計的挑戰讓我學到新的Forensic知識。想進入遊戲挑戰自己的人可以按<a href="https://quest2016.holidayhackchallenge.com/" target="_blank" rel="noopener">這裡</a></p>
+<h1 id="Part-1-A-Most-Curious-Business-Card"><a href="#Part-1-A-Most-Curious-Business-Card" class="headerlink" title="Part 1:A Most Curious Business Card"></a>Part 1:A Most Curious Business Card</h1><p><img src="https://s29.postimg.org/88tfwhkjr/venue1.jpg" alt=""></p>
+<p>遊戲一開始你就會身處在聖誕老人不見了的案發現場。在和喬斯和傑西卡對話後，你知道你需要調查那張留在現場神秘的卡片。這張卡片留下了聖誕老人的Twitter戶口以及Instagram戶口。</p>
+<p><img src="https://s29.postimg.org/69cik10ef/santawclaus_shadow.png" alt=""></p>
+<p>仔細調查後，你可以發現到聖誕老人的Tweet隱藏着其他信息。如果想快速獲取聖誕老人留下的所以信息你可以用tweet_dumper.py，一次過將所有對話save成CSV文件。當你成功把所有對話都整齊排列好你會看到所有的信息會組成一個很大而且明顯的信息，那就是:BUGBOUNTY。</p>
+<p>你也可以在<a href="http://twlets.com/" target="_blank" rel="noopener">http://twlets.com/</a> 這個網站直接將自己或他人Twitter的信息變成CSV文件。<br><img src="https://s23.postimg.org/xsrti039n/bugbunty.jpg" alt=""></p>
+<p>接著你可以查看聖誕老人的Instagram，在第一張照片找到了2個Zip File的提示。</p>
+<p><img src="https://s23.postimg.org/aq25xsut7/Insta.jpg" alt=""></p>
+<ul>
+<li><p>提示1：電腦上出現了Zip file的名字：SantaGram_v4.2.zip<br><img src="https://s30.postimg.org/g3duylzrl/instagram_p1.png" alt=""></p>
+</li>
+<li><p>提示2：紙張上有這個網站<a href="http://www.northpolewonderland.com/" target="_blank" rel="noopener">http://www.northpolewonderland.com/</a><br><img src="https://s23.postimg.org/j130t7gzf/instagram_p2.png" alt=""></p>
+</li>
+</ul>
+<p>憑著這兩個提示你可以聯想到的是Zip File的位置可能就是:<a href="http://www.northpolewonderland.com/SantaGram_v4.2.zip" target="_blank" rel="noopener">http://www.northpolewonderland.com/SantaGram_v4.2.zip</a> 。經過嘗試後你就會成功下載到那個Zip File。裡面有一個SantaGram_4.2.apk的文件。</p>
+<h1 id="Part-2-Awesome-Package-Konveyance"><a href="#Part-2-Awesome-Package-Konveyance" class="headerlink" title="Part 2:Awesome Package Konveyance"></a>Part 2:Awesome Package Konveyance</h1><p><img src="https://s24.postimg.org/t3kwc4rad/Holly.jpg" alt=""></p>
+<p>接下來的故事發展，你會通過一個禮物袋來到一個冰天雪地的地方。沒錯，這裡就是聖誕老人和他的精靈居住的地方，北極。這時候你會見到Holly Evergreen。他會告訴你以下幾件事情：</p>
+<ul>
+<li>在你去攻擊任何一個系統之前，請先去拜訪Oracle。</li>
+<li>Santagram 是聖誕老人和他的精靈所使用的社交媒體，想知道更多可以去拜訪在北極的其他精靈哦。</li>
+<li>找齊所有啟動Cranberry Pi的零件，找齊後他會給你Cranbian image，並且希望你能幫他找到Login的密碼。[詳細資料請參考Part 3]</li>
+</ul>
+<p>零件的所在地:[以後補充]</p>
+<ul>
+<li>Cranberry Pi Board</li>
+<li>Power Cord</li>
+<li>HDMI Cable</li>
+<li>SD Card</li>
+<li>Heat Sink</li>
+</ul>
+<p><img src="https://s23.postimg.org/7zo277wor/Shinny_Uptree.jpg" alt=""></p>
+<p>為了找回失踪的聖誕老人，你必須想辦法去知道Santagram_4.2.apk 這個文件裡面到底隱藏了什麼信息。在北極尋找了一段時間後，你可以在聖誕老人工作室的火車站找到Shinny Upatree。他會告訴你怎樣去分析你找到的APK文件。從他口中你明白到了以下的事情：</p>
+<ul>
+<li>APK File 也是Zip File的一種你可以Unzip來取得裡面的所有文件。</li>
+<li>APK File 是用Java程式語言來寫，想找回原本的Coding，要用Android Studio 或者JadX 來Decompile那個APK File。</li>
+<li>Jadx commandline可以將APK file Decompile成每一個獨立的Java文件。</li>
+<li>Joshua在2016Hack Fest呈現的<a href="https://goo.gl/m076lb" target="_blank" rel="noopener">簡報</a>裡面也有提及如何更有效的使用Android Studio and JadX來分析Apk文件。</li>
+</ul>
+<p>得到這些有用的情報後，你可以開始分析你得到的Apk文件了。正當你Unzip的時候發覺你需要輸入密碼才能繼續你的分析，不然你就無法繼續下去。其實，我在解題的時候在這裡卡了很久的一段時間，直到我在Reddit那邊見到有一個人給予的提示：你可能已經一早獲得了Unzip Santagram的密碼，只是你自己沒察覺到而已。我腦中醒起會不會是之前的BUGBOUNTY。最後，皇天不負有心人，我成功找到密碼(bugbounty)啦。進入分析Apk的階段，你可以用JadX 去Decompile 你得到的Apk文件，一旦Jadx成功Decompile後，你就能找題目要求你的username and password。使用Text Search功能你可以找到username and password 都隱藏在Code裡面。這段Code你可以在northpolewonderlad.santagram.SplashScreen Class裡面找到。</p>
+<p><img src="https://s28.postimg.org/4gi5nv3gt/userpass.jpg" alt=""></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jSONObject.<span class="keyword">put</span>(<span class="string">"username"</span>, <span class="string">"guest"</span>);</div><div class="line">jSONObject.<span class="keyword">put</span>(<span class="string">"password"</span>, <span class="string">"busyreindeer78"</span>);</div></pre></td></tr></table></figure>
+<p>另外，題目要求的Audio Component你可以在res/raw裡面找到，文件名稱為：discombobulatedaudio1.mp3。Unzip Santagram的Apk你也可以的直接得到該Mp3 File。</p>
+<p><code>unzip Santagram_4.2.apk</code></p>
+<p>如果想要該Mp3文件，可以到這裡<a href="https://drive.google.com/open?id=0B18u7ECQO-gTLTUteDQ4ZDZsdkk" target="_blank" rel="noopener">下載</a></p>
+<h1 id="Part-3-A-Fresh-Baked-Holiday-Pi"><a href="#Part-3-A-Fresh-Baked-Holiday-Pi" class="headerlink" title="Part 3: A Fresh-Baked Holiday Pi"></a>Part 3: A Fresh-Baked Holiday Pi</h1><p>在解決了apk的文件後，你終於可以靜下心來研究一下你剛剛得到的Cranbian image。要知道怎樣使用這個Image你可以找在聖誕樹下的Wunhorse Openslae來詢問。從他口中你明白到了以下的事情：</p>
+<ul>
+<li>Cranbian 其實是Linux Based的File System Image。</li>
+<li>Eskoudis 的部落格會教你<a href="https://pen-testing.sans.org/blog/2016/12/07/mount-a-raspberry-pi-file-system-image" target="_blank" rel="noopener">如何Mount a Raspberry Pi File System Image</a></li>
+</ul>
+<p>當你Unzip disk image後，你可以按照以下步驟來打開Cranbian image。</p>
+<ul>
+<li>Step 1:用<code>fdisk -l cranbian-jessie.img</code>command你可以得知這個Image由2個部分組成。而你要找的資料是在第二個部分裡面。你也會知道開始的Sectors會是137216。 </li>
+<li>Step 2:由於mount command需要用到Offset，所以你要計算出Offset的總值得。這個Image的offset=512×137216=70254592</li>
+<li>Step 3:打<code>mount -v -o offset=70254592 -t ext4 cranbian-jessie.img mnt/</code> 你就能成功Mount Cranbian Image。這個Mount Command裡面的 -v 是verbose, 會顯示更多正在Run着的Command的資訊。-o options列出還要使用的Option。 -t = type System file的種類， 而最後的/mnt是我自己設定的Mount Point.你可以用mkdir來建立一個你要的Mount point。<br><img src="https://s28.postimg.org/6o0gdt80t/Mountimg.jpg" alt=""></li>
+</ul>
+<p>根據題目要求，你需要找出Cranpi account的Password。一般來說，Linux存儲密碼的位置會放在<code>/etc/shadow</code>File裡面。而這些密碼都會用某些演算法進行加密再被存儲到這個位置。用<code>cat mnt/etc/shadow</code>,會得到Cranpi account密碼被hashing後的value。<br><img src="https://s30.postimg.org/c0yurwpup/shadow.jpg" alt=""></p>
+<p>要找會原來的值(密碼)，你需要將Hash值還原回原本的文字。在Kali Linux裡面John the ripper是一個非常優秀的密碼破解工具。為了減輕破解密碼的難度，住在Small Tree house的Minty Candycane給了你最有用的提示，用Rockyou.txt來配合Crack的過程。使用方法是，在Linux Shell裡面打<code>john --wordlist=rockyou.lst mnt/etc/shadow</code>就會開始進行Password Cracking。破解後的密碼是yummycookies。<br><img src="https://s23.postimg.org/4sgnepyxn/cracked.jpg" alt="cracked.jpg"></p>
+<p>然後把你得到的密碼告訴Holly Evergreen，他就會Unlock Cranbian Pi的Account讓你使用。<br><img src="https://s27.postimg.org/t16jh940z/cpi.jpg" alt=""></p>
+<p>現在你可以用Cranbian Pi去啟動遊戲裡面每個Terminal了。</p>
+<p>當你找到Terminal後，會見到旁邊有一個被密碼上鎖的門。你需要好好利用Terminal裡面的資訊來找到門的密碼。<br><img src="https://s24.postimg.org/hq02dcuol/Elf_House2_Front.jpg" alt="Elf House2Front.jpg"></p>
+<ul>
+<li>Door 1 - Elf House #2</li>
+</ul>
+<p>一旦你Access Terminal後，你會見到這句話</p>
+<blockquote>
+<p>To open the door, find both parts of the passphrase inside the /out.pcap file</p>
+</blockquote>
+<p>待補充</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author：</strong>
+    Milo
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link：</strong>
+    <a href="https://diabolo94.github.io/2017/12/05/sans2016HHC/" title="2016 SANS Holiday Hack Challenge Writeups">https://diabolo94.github.io/2017/12/05/sans2016HHC/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice： </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/writeups/" rel="tag"># writeups</a>
+          
+            <a href="/tags/SANS/" rel="tag"># SANS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/02/hexomarkdown/" rel="next" title="Hexo世界裡靈活運用Markdown和html不是夢">
+                <i class="fa fa-chevron-left"></i> Hexo世界裡靈活運用Markdown和html不是夢
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/06/opch1/" rel="prev" title="深入理解計算機第一章筆記">
+                深入理解計算機第一章筆記 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a0435fe1fcb1776" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -550,6 +726,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -570,8 +760,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -755,6 +954,22 @@ show_date_time();
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SANS2016HHC"><span class="nav-number">1.</span> <span class="nav-text">SANS2016HHC</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-1-A-Most-Curious-Business-Card"><span class="nav-number">3.</span> <span class="nav-text">Part 1:A Most Curious Business Card</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-2-Awesome-Package-Konveyance"><span class="nav-number">4.</span> <span class="nav-text">Part 2:Awesome Package Konveyance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Part-3-A-Fresh-Baked-Holiday-Pi"><span class="nav-number">5.</span> <span class="nav-text">Part 3: A Fresh-Baked Holiday Pi</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -919,7 +1134,9 @@ show_date_time();
   
 
   
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
 
 
   
@@ -938,6 +1155,18 @@ show_date_time();
       <script id="dsq-count-scr" src="https://quantiumtower.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://diabolo94.github.io/2017/12/05/sans2016HHC/';
+          this.page.identifier = '2017/12/05/sans2016HHC/';
+          this.page.title = '2016 SANS Holiday Hack Challenge Writeups';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://quantiumtower.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
@@ -1404,26 +1633,6 @@ show_date_time();
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
