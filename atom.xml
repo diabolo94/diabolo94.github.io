@@ -48,9 +48,9 @@
     <link href="https://diabolo94.github.io/2017/12/06/opch1/"/>
     <id>https://diabolo94.github.io/2017/12/06/opch1/</id>
     <published>2017-12-06T01:59:50.000Z</published>
-    <updated>2017-12-07T11:29:37.457Z</updated>
+    <updated>2017-12-08T02:54:03.349Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="編譯系統"><a href="#編譯系統" class="headerlink" title="編譯系統"></a>編譯系統</h1><p>要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。<br>首先我們要有一個C文件。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//hello.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;   </span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"hello,world\n"</span>);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure><p>在Unix裡面執行<code>gcc -o hello hello.c</code>，此時編譯器便會讀取hello.c且將它轉成二進制文件。轉換過程如下。<br><img src="" alt=""></p><p>這過程(編譯系統)總共有4個階段：</p><h2 id="預處理階段"><a href="#預處理階段" class="headerlink" title="預處理階段"></a>預處理階段</h2><p>預處理器(cpp)會根據C文件裡面的#的命令來讀取Header，例如在這裡會讀取stdio.h, 然後將其內容加入原本的C文件裡面，生成一個以.i作為擴展名的文件。</p><h2 id="編譯階段"><a href="#編譯階段" class="headerlink" title="編譯階段"></a>編譯階段</h2><p>然後編譯器會把hello.i轉成hello.s,也就是所謂的匯編語言程序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">main：</div><div class="line">    subq $8,%rsp</div><div class="line">    movl $.LCO,%edi</div><div class="line">    call puts</div><div class="line">    movl $0, %eax</div><div class="line">    addq $8, %rsp</div><div class="line">    ret</div></pre></td></tr></table></figure></p><h2 id="匯編階段"><a href="#匯編階段" class="headerlink" title="匯編階段"></a>匯編階段</h2><p>然後就匯編器就可以派上用場啦，他能將hello.s轉成機械語言指令，再把指令變成可重定位目標程序(Relocatable object program)的格式，存放在hello.o中。</p><h2 id="鏈接階段"><a href="#鏈接階段" class="headerlink" title="鏈接階段"></a>鏈接階段</h2><p>因為這裡helloc程序用了printf函數。此函數其實是本來就屬於標準C Library裡面的一個函數要調用此函數，我們就必須用到鏈接器(ld)將函數合拼到hello.o裡面，完成這過程後，最終也生成了可以被系統執行的hello文件(可執行目標文件)。</p><h1 id="運行可執行目標文件hello"><a href="#運行可執行目標文件hello" class="headerlink" title="運行可執行目標文件hello"></a>運行可執行目標文件hello</h1><p>在命令行輸入<code>./hello</code>,系統便會運行hello程序，也會返回結果hello,world在你的Shell裡面。</p><h1 id="系統的硬件組成"><a href="#系統的硬件組成" class="headerlink" title="系統的硬件組成"></a>系統的硬件組成</h1><p>包括了總線，I/O設備，主存還有處理器。</p><h2 id="總線"><a href="#總線" class="headerlink" title="總線"></a>總線</h2><h2 id="I-O設備"><a href="#I-O設備" class="headerlink" title="I/O設備"></a>I/O設備</h2><h2 id="主存"><a href="#主存" class="headerlink" title="主存"></a>主存</h2><h2 id="處理器"><a href="#處理器" class="headerlink" title="處理器"></a>處理器</h2><p>## </p>]]></content>
+    <content type="html"><![CDATA[<h1 id="編譯系統"><a href="#編譯系統" class="headerlink" title="編譯系統"></a>編譯系統</h1><p>要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。<br>首先我們要有一個C文件。</p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//hello.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;   </span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"hello,world\n"</span>);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure><p>在Unix裡面執行<code>gcc -o hello hello.c</code>，此時編譯器便會讀取hello.c且將它轉成二進制文件。轉換過程如下。<br><img src="" alt=""></p><p>這過程(編譯系統)總共有4個階段：</p><h2 id="預處理階段"><a href="#預處理階段" class="headerlink" title="預處理階段"></a>預處理階段</h2><p>預處理器(cpp)會根據C文件裡面的#的命令來讀取Header，例如在這裡會讀取stdio.h, 然後將其內容加入原本的C文件裡面，生成一個以.i作為擴展名的文件。</p><h2 id="編譯階段"><a href="#編譯階段" class="headerlink" title="編譯階段"></a>編譯階段</h2><p>然後編譯器會把hello.i轉成hello.s,也就是所謂的匯編語言程序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">main：</div><div class="line">    subq $8,%rsp</div><div class="line">    movl $.LCO,%edi</div><div class="line">    call puts</div><div class="line">    movl $0, %eax</div><div class="line">    addq $8, %rsp</div><div class="line">    ret</div></pre></td></tr></table></figure></p><h2 id="匯編階段"><a href="#匯編階段" class="headerlink" title="匯編階段"></a>匯編階段</h2><p>然後就匯編器就可以派上用場啦，它能將hello.s轉成機械語言指令，再把指令變成可重定位目標程序(Relocatable object program)的格式，存放在hello.o中。</p><h2 id="鏈接階段"><a href="#鏈接階段" class="headerlink" title="鏈接階段"></a>鏈接階段</h2><p>因為這裡helloc程序用了printf函數。此函數其實是本來就屬於標準C Library裡面的一個函數要調用此函數，我們就必須用到鏈接器(ld)將函數合拼到hello.o裡面，完成這過程後，最終也生成了可以被系統執行的hello文件(可執行目標文件)。</p><h1 id="運行可執行目標文件hello"><a href="#運行可執行目標文件hello" class="headerlink" title="運行可執行目標文件hello"></a>運行可執行目標文件hello</h1><p>在命令行輸入<code>./hello</code>,系統便會運行hello程序，也會返回結果hello,world在你的Shell裡面。</p><h1 id="系統的硬件組成"><a href="#系統的硬件組成" class="headerlink" title="系統的硬件組成"></a>系統的硬件組成</h1><p>包括了總線，I/O設備，主存還有處理器。</p><h2 id="總線"><a href="#總線" class="headerlink" title="總線"></a>總線</h2><h2 id="I-O設備"><a href="#I-O設備" class="headerlink" title="I/O設備"></a>I/O設備</h2><h2 id="主存"><a href="#主存" class="headerlink" title="主存"></a>主存</h2><h2 id="處理器"><a href="#處理器" class="headerlink" title="處理器"></a>處理器</h2><h1 id="操作系統管理硬件"><a href="#操作系統管理硬件" class="headerlink" title="操作系統管理硬件"></a>操作系統管理硬件</h1><ul><li>防止硬件被失控的應用程序濫用</li><li>向應用程序提供簡單一致的機制來控制複雜而又不相同的低級硬件設備</li></ul><h1 id="進程"><a href="#進程" class="headerlink" title="進程"></a>進程</h1><h1 id="線程"><a href="#線程" class="headerlink" title="線程"></a>線程</h1><h1 id="虛擬內存"><a href="#虛擬內存" class="headerlink" title="虛擬內存"></a>虛擬內存</h1><p>虛擬內存是一種當CPU內存不夠的時候而需要用到的一種技術，它允許CPU的每一個進程都擁有一個私有的虛擬地址，這樣能使到每一個進程都可以看到一樣的內存空間。下圖是Linux進程使用虛擬地址的例子。至於裡面各區域的詳細解釋以後會在別的文章為你們一一介紹。<br><img src="https://s33.postimg.org/a8mmc2kv3/vradd.jpg" alt=""></p><p><img src="https://s33.postimg.org/6qamfnp3z/engva.jpg" alt=""></p><ul><li>程序代碼和數據(Code and Data)：<a href="">第七章筆記</a></li><li>堆(heap)：<a href="">第九章筆記</a>或<a href="">深入了解堆</a></li><li>共享庫(Shared Library)：<a href="">第九章筆記</a></li><li>棧(Stack)：[第三章筆記]或<a href="">深入了解棧</a></li><li>內核虛擬內存(Kernal Virtual Memory)：<a href="">第九章筆記</a></li></ul>]]></content>
     
     <summary type="html">
     
@@ -68,9 +68,9 @@
     
       <category term="guide" scheme="https://diabolo94.github.io/tags/guide/"/>
     
-      <category term="operating system" scheme="https://diabolo94.github.io/tags/operating-system/"/>
-    
       <category term="note" scheme="https://diabolo94.github.io/tags/note/"/>
+    
+      <category term="operating system" scheme="https://diabolo94.github.io/tags/operating-system/"/>
     
   </entry>
   
@@ -119,9 +119,9 @@
     
       <category term="guide" scheme="https://diabolo94.github.io/tags/guide/"/>
     
-      <category term="hexo" scheme="https://diabolo94.github.io/tags/hexo/"/>
-    
       <category term="markdown" scheme="https://diabolo94.github.io/tags/markdown/"/>
+    
+      <category term="hexo" scheme="https://diabolo94.github.io/tags/hexo/"/>
     
   </entry>
   
@@ -196,9 +196,9 @@
     
       <category term="guide" scheme="https://diabolo94.github.io/tags/guide/"/>
     
-      <category term="markdown" scheme="https://diabolo94.github.io/tags/markdown/"/>
-    
       <category term="tools" scheme="https://diabolo94.github.io/tags/tools/"/>
+    
+      <category term="markdown" scheme="https://diabolo94.github.io/tags/markdown/"/>
     
   </entry>
   
@@ -361,9 +361,9 @@
       <category term="Cryptography" scheme="https://diabolo94.github.io/categories/Cryptography/"/>
     
     
-      <category term="note" scheme="https://diabolo94.github.io/tags/note/"/>
-    
       <category term="cryptography" scheme="https://diabolo94.github.io/tags/cryptography/"/>
+    
+      <category term="note" scheme="https://diabolo94.github.io/tags/note/"/>
     
       <category term="stream cipher" scheme="https://diabolo94.github.io/tags/stream-cipher/"/>
     
@@ -392,9 +392,9 @@
       <category term="Cryptography" scheme="https://diabolo94.github.io/categories/Cryptography/"/>
     
     
-      <category term="note" scheme="https://diabolo94.github.io/tags/note/"/>
-    
       <category term="cryptography" scheme="https://diabolo94.github.io/tags/cryptography/"/>
+    
+      <category term="note" scheme="https://diabolo94.github.io/tags/note/"/>
     
       <category term="security" scheme="https://diabolo94.github.io/tags/security/"/>
     
@@ -422,9 +422,9 @@
       <category term="Tools" scheme="https://diabolo94.github.io/categories/Tools/"/>
     
     
-      <category term="tools" scheme="https://diabolo94.github.io/tags/tools/"/>
-    
       <category term="security" scheme="https://diabolo94.github.io/tags/security/"/>
+    
+      <category term="tools" scheme="https://diabolo94.github.io/tags/tools/"/>
     
       <category term="github" scheme="https://diabolo94.github.io/tags/github/"/>
     
