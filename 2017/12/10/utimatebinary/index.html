@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-tw">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('請使用正確的咒語') !== ''){
+                alert('咒語無法發動，請再嘗試');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="jP1adw4x65DvqhgN8RF3-hto_ym608I4M5iTzJ5_cww" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Lato:300,300italic,400,400italic,700,700italic|Source Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="guide,binary," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="量子能量塔" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前置技能 C學習指南 匯編語言指南  ToolsTools Guide Intro to r2 Diving into radare2 Radare2 Book  Courses Modern Binary Exploitation  Linux Exploitation Course Binary Hacking O">
+<meta name="keywords" content="guide,binary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Binary學習終極指南">
+<meta property="og:url" content="https://diabolo94.github.io/2017/12/10/utimatebinary/index.html">
+<meta property="og:site_name" content="量子能量塔">
+<meta property="og:description" content="前置技能 C學習指南 匯編語言指南  ToolsTools Guide Intro to r2 Diving into radare2 Radare2 Book  Courses Modern Binary Exploitation  Linux Exploitation Course Binary Hacking Offensive Computer Security Lecture 2016">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2017-12-12T03:30:26.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Binary學習終極指南">
+<meta name="twitter:description" content="前置技能 C學習指南 匯編語言指南  ToolsTools Guide Intro to r2 Diving into radare2 Radare2 Book  Courses Modern Binary Exploitation  Linux Exploitation Course Binary Hacking Offensive Computer Security Lecture 2016">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://diabolo94.github.io/2017/12/10/utimatebinary/"/>
+
+
+
+
+
+  <title></title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '<app_id>',
+      xfbml      : true,
+      version    : 'v2.10'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_tw/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">量子能量塔</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">量子雖然連肉眼都看不見，但卻有著無限的能量。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首頁">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-歸檔">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-標籤">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分類">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-關於我">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於我
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-聯動之術">
+          <a href="/friends" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-users"></i> <br />
+            
+            聯動之術
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-coc7版">
+          <a href="/COC7.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-space-shuttle"></i> <br />
+            
+            COC7版
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-模範合集">
+          <a href="/havey.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-subway"></i> <br />
+            
+            模範合集
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/12/10/utimatebinary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/milo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子能量塔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Binary學習終極指南</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-10T12:17:20+08:00">
+                2017-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Binary-Security/" itemprop="url" rel="index">
+                    <span itemprop="name">Binary Security</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/10/utimatebinary/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/10/utimatebinary/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/10/utimatebinary/" class="leancloud_visitors" data-flag-title="Binary學習終極指南">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字數統計&#58;</span>
+                
+                <span title="字數統計">
+                  432
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前置技能"><a href="#前置技能" class="headerlink" title="前置技能"></a>前置技能</h1><ul>
+<li><a href="">C學習指南</a></li>
+<li><a href="">匯編語言指南</a></li>
+</ul>
+<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><h2 id="Tools-Guide"><a href="#Tools-Guide" class="headerlink" title="Tools Guide"></a>Tools Guide</h2><ul>
+<li><a href="http://sushant94.me/2015/05/31/Introduction_to_radare2/" target="_blank" rel="noopener">Intro to r2</a></li>
+<li><a href="http://blog.devit.co/diving-into-radare2/" target="_blank" rel="noopener">Diving into radare2</a></li>
+<li><a href="https://radare.gitbooks.io/radare2book/content/" target="_blank" rel="noopener">Radare2 Book</a></li>
+</ul>
+<h1 id="Courses"><a href="#Courses" class="headerlink" title="Courses"></a>Courses</h1><ul>
+<li><a href="http://security.cs.rpi.edu/courses/binexp-spring2015/" target="_blank" rel="noopener">Modern Binary Exploitation </a></li>
+<li><a href="https://github.com/nnamon/linux-exploitation-course" target="_blank" rel="noopener">Linux Exploitation Course</a></li>
+<li><a href="https://liveoverflow.com/binary_hacking/index.html" target="_blank" rel="noopener">Binary Hacking</a></li>
+<li><a href="http://howto.hackallthethings.com/2016/07/learning-exploitation-with-offensive.html" target="_blank" rel="noopener">Offensive Computer Security Lecture 2016 version</a></li>
+<li><a href="https://www.cs.fsu.edu/%7Eredwood/OffensiveComputerSecurity/lectures.html" target="_blank" rel="noopener">Offensive Computer Security Lecture 2014 version</a></li>
+<li><a href="https://www.fuzzysecurity.com/tutorials.html" target="_blank" rel="noopener">Exploit Tutorial by Fuzzy Security</a></li>
+<li><a href="https://github.com/NoviceLive/bintut" target="_blank" rel="noopener">Bintut - a set of tutorials, as well as exercises.</a></li>
+<li><a href="https://www.corelan.be/index.php/category/security/exploit-writing-tutorials/" target="_blank" rel="noopener">exploit-writing-tutorials corelan team</a></li>
+<li><a href="https://drive.google.com/open?id=1VHylYxq8DEohPKM7dz87cn8MgC9B-zMr" target="_blank" rel="noopener">Exploit 編寫教程翻譯文</a></li>
+<li><a href="https://www.gitbook.com/book/wizardforcel/sploitfun-linux-x86-exp-tut/details" target="_blank" rel="noopener">SploitFun Linux x86 Exploit 开发系列教程</a></li>
+<li><a href="https://sploitfun.wordpress.com/2015/06/26/linux-x86-exploit-development-tutorial-series/" target="_blank" rel="noopener">Linux (x86) Exploit Development Series</a></li>
+</ul>
+<h1 id="Conference-Video-Slide"><a href="#Conference-Video-Slide" class="headerlink" title="Conference Video/Slide"></a>Conference Video/Slide</h1><ul>
+<li><a href="https://www.youtube.com/watch?v=29RbO5bftwo" target="_blank" rel="noopener">AFL fuzzing primer</a> </li>
+<li><a href="https://sec-consult.com/en/blog/2017/11/the-art-of-fuzzing-slides-and-demos/index.html" target="_blank" rel="noopener">The Art of Fuzzing</a></li>
+<li><a href="https://drive.google.com/open?id=1zdqP9bioBivawfNOFZEjgd2Tga1IZxbG" target="_blank" rel="noopener">AIS3 2017 Linux Binary Exploitation</a></li>
+</ul>
+<h1 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h1><ul>
+<li><a href="https://mega.nz/#!9lwRnAAB!Hw0pP7NMLfdcE8saw0uI9coAG2a_0xckiL9IMhUJz_Y" target="_blank" rel="noopener">Modern Windows Exploit Development</a></li>
+</ul>
+<h1 id="Cheat-Sheet"><a href="#Cheat-Sheet" class="headerlink" title="Cheat Sheet"></a>Cheat Sheet</h1><h1 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h1><ul>
+<li><a href="http://pwnable.kr/" target="_blank" rel="noopener">Pwnable KR</a></li>
+<li><a href="https://hackme.inndy.tw/" target="_blank" rel="noopener">Hackme.inddy</a></li>
+<li><a href="https://pwnable.tw/" target="_blank" rel="noopener">Pwnable TW</a></li>
+<li><a href="https://ropemporium.com/" target="_blank" rel="noopener">ROP Emporium</a></li>
+<li><a href="http://pastebin.com/raw/uyifxgPu" target="_blank" rel="noopener">Pwn challenges list</a></li>
+<li><a href="https://pastebin.com/raw/q7LGi8w5" target="_blank" rel="noopener">Rev challenges list</a></li>
+</ul>
+<h1 id="PWN-in-CTF-Wargame-Writeups-Tips"><a href="#PWN-in-CTF-Wargame-Writeups-Tips" class="headerlink" title="PWN in CTF/Wargame Writeups/Tips"></a>PWN in CTF/Wargame Writeups/Tips</h1><h2 id="Writeups"><a href="#Writeups" class="headerlink" title="Writeups"></a>Writeups</h2><ul>
+<li><a href="https://blog.trailofbits.com/2016/06/03/2000-cuts-with-binary-ninja/" target="_blank" rel="noopener">2000 cuts with Binary Ninja</a></li>
+<li><a href="http://ctfhacker.com/ctf/python/symbolic/execution/reverse/radare/2015/11/28/cmu-binary-bomb-flag2.html" target="_blank" rel="noopener">CMU Binary Bomb</a></li>
+</ul>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ul>
+<li><a href="https://github.com/Naetw/CTF-pwn-tips" target="_blank" rel="noopener">CTF pwn tips by Naetw</a></li>
+<li><a href="https://firmianay.gitbooks.io/ctf-all-in-one/content/doc/3.3_pwn.html" target="_blank" rel="noopener">CTF All in one: PWN</a></li>
+<li><a href="https://drive.google.com/open?id=1g30jNUaz2P2PrI_DQUTpHDfGCxrGeJ1lKJRckm1PmKY" target="_blank" rel="noopener">科總CTF+Binary小技巧</a></li>
+</ul>
+<h1 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge"></a>Knowledge</h1><h2 id="棧"><a href="#棧" class="headerlink" title="棧"></a>棧</h2><h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><ul>
+<li><a href="https://github.com/shellphish/how2heap" target="_blank" rel="noopener">How 2 Heap</a></li>
+</ul>
+<h2 id="ROP"><a href="#ROP" class="headerlink" title="ROP"></a>ROP</h2><ul>
+<li><a href="https://blog.skullsecurity.org/2013/ropasaurusrex-a-primer-on-return-oriented-programming" target="_blank" rel="noopener">ropasaurusrex: a primer on return-oriented programming</a></li>
+</ul>
+<h2 id="格式化字符串"><a href="#格式化字符串" class="headerlink" title="格式化字符串"></a>格式化字符串</h2><ul>
+<li><a href="https://www.exploit-db.com/docs/28476.pdf" target="_blank" rel="noopener">Format String Exploitation</a></li>
+<li><a href="https://crypto.stanford.edu/cs155old/cs155-spring08/papers/formatstring-1.2.pdf" target="_blank" rel="noopener">Exploiting Format String Vulnerabilities</a></li>
+</ul>
+<h2 id="Fuzzing"><a href="#Fuzzing" class="headerlink" title="Fuzzing"></a>Fuzzing</h2><ul>
+<li><a href="https://www.youtube.com/watch?v=BrDujogxYSk" target="_blank" rel="noopener">Basics of Fuzzing by Gynvael</a></li>
+</ul>
+<h2 id="Shellcode"><a href="#Shellcode" class="headerlink" title="Shellcode"></a>Shellcode</h2><ul>
+<li><a href="https://paraschetal.in/writing-your-own-shellcode" target="_blank" rel="noopener">Writing your own shellcode – blog by Paras Chetal</a></li>
+</ul>
+<h2 id="ElF-file-format"><a href="#ElF-file-format" class="headerlink" title="ElF file format"></a>ElF file format</h2><ul>
+<li><a href="http://nullprogram.com/blog/2016/11/17/" target="_blank" rel="noopener">A Magnetized Needle and a Steady Hand– elf structures with a nice storyline.</a> </li>
+<li><a href="https://www.cs.stevens.edu/~jschauma/631/elf.html" target="_blank" rel="noopener">Executable and Linkable Format (ELF) info</a></li>
+</ul>
+<h3 id="Return-to-Dl-Resolve"><a href="#Return-to-Dl-Resolve" class="headerlink" title="Return to Dl Resolve"></a>Return to Dl Resolve</h3><ul>
+<li><a href="http://bestwing.me/2017/11/14/Return-to-dl-resolve/" target="_blank" rel="noopener">By Swing</a></li>
+<li><a href="https://www.slideshare.net/AngelBoy1/re2dlresolve" target="_blank" rel="noopener">By Angel Boy</a></li>
+<li><a href="http://www.evil0x.com/posts/19226.html" target="_blank" rel="noopener">通过ELF动态装载构造ROP链(Return-to-dl-resolve)</a></li>
+<li><a href="http://d0m021ng.github.io/2016/11/03/PWN/ret2-dl-resolve-payload-%E6%9E%84%E9%80%A0%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">Linux栈溢出利用之return to dl-resolve payload 构造原理(一)</a></li>
+<li><a href="http://d0m021ng.github.io/2016/11/03/PWN/ret2-dl-resolve-payload-%E6%9E%84%E9%80%A0%E5%8E%9F%E7%90%86%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="noopener">Linux栈溢出利用之return to dl-resolve payload 构造原理(二)</a></li>
+<li><a href="http://rk700.github.io/2015/08/09/return-to-dl-resolve/" target="_blank" rel="noopener">ROP之return to dl-resolve</a></li>
+<li><a href="http://inaz2.hatenablog.com/entry/2014/07/27/205322" target="_blank" rel="noopener"> x64でROP stager + Return-to-dl-resolveによるASLR+DEP回避をやってみる Exploit </a></li>
+<li><a href="http://blog.binpang.me/2017/05/16/seed-returnToLibc/" target="_blank" rel="noopener">seedLab:returnToLibc</a></li>
+<li><a href="http://www.cis.syr.edu/~wedu/seed/Labs_12.04/Software/Return_to_libc/" target="_blank" rel="noopener">Return-to-libc Attack Lab</a></li>
+</ul>
+<h2 id="Windows-Kernal-Exploit"><a href="#Windows-Kernal-Exploit" class="headerlink" title="Windows Kernal Exploit"></a>Windows Kernal Exploit</h2><ul>
+<li><a href="https://o0xmuhe.github.io/tags/windows-kernel/" target="_blank" rel="noopener">Windows Kernal Exploit Study(123)</a></li>
+<li><a href="https://drive.google.com/open?id=1fDz3Yt69bTrrxGd1kox6dkOoib05eV-0" target="_blank" rel="noopener">Windows Kernal Exploitation PDF</a></li>
+</ul>
+<h2 id="Linux-Kernal-Exploit"><a href="#Linux-Kernal-Exploit" class="headerlink" title="Linux Kernal Exploit"></a>Linux Kernal Exploit</h2><h2 id="Buffer-Overflow"><a href="#Buffer-Overflow" class="headerlink" title="Buffer Overflow"></a>Buffer Overflow</h2><ul>
+<li><a href="https://drive.google.com/open?id=1uv_ZVU6CLfh9Yt0L0rWmwMYbYd12YDR7" target="_blank" rel="noopener">Win32缓冲区溢出实战</a></li>
+</ul>
+<h1 id="Others-Repository"><a href="#Others-Repository" class="headerlink" title="Others Repository"></a>Others Repository</h1><ul>
+<li><a href="https://chybeta.github.io/2017/08/19/Software-Security-Learning/" target="_blank" rel="noopener">Software Security Learning by Chybeta</a></li>
+<li><a href="http://www.pentest.guru/index.php/2016/01/28/best-books-tutorials-and-courses-to-learn-about-exploit-development/" target="_blank" rel="noopener">Best books &amp; Tutorials &amp; Course to learn abot explot developement</a></li>
+<li><a href="https://github.com/SteinsGatep001/Binary" target="_blank" rel="noopener">SteinsGatep001</a></li>
+<li><a href="https://github.com/InfoSecIITR/reading-material" target="_blank" rel="noopener">Reading Material by InfoSecIITR</a></li>
+</ul>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><ul>
+<li><a href="http://www.agner.org/optimize/calling_conventions.pdf" target="_blank" rel="noopener">Calling Conventions</a> </li>
+<li><a href="https://youtu.be/TQlOXdXtLnQ" target="_blank" rel="noopener">AIS3 2016 中區 Binary Exploitation</a></li>
+<li><a href="https://youtu.be/kD2V_t9zU_M" target="_blank" rel="noopener">AIS3 2016 南區 Binary Exploitation</a></li>
+<li><a href="https://www.youtube.com/watch?v=NMgIYI_xUt8" target="_blank" rel="noopener">2015計算機安全 Day1</a></li>
+<li><a href="https://www.youtube.com/watch?v=ADJUgEhNlZI" target="_blank" rel="noopener">2015計算機安全 Day2</a></li>
+<li><a href="https://www.youtube.com/watch?v=WnDAHK-PxhQ" target="_blank" rel="noopener">STCS 2016 Week 3</a></li>
+<li><a href="https://www.youtube.com/watch?v=9bHibgrjNlc" target="_blank" rel="noopener">STCS 2016 Week 4</a></li>
+<li><a href="https://www.youtube.com/watch?v=SwrjWioEXkk" target="_blank" rel="noopener">STCS 2016 Week 5</a></li>
+<li><a href="https://www.youtube.com/watch?v=wsIvqd9YqTI" target="_blank" rel="noopener">STCS 2016 Week 8</a></li>
+<li><a href="https://www.youtube.com/watch?v=qFyoWH_5Clo" target="_blank" rel="noopener">STCS 2016 Week 10</a></li>
+<li><a href="https://www.youtube.com/watch?v=IY7jYUCEz1o" target="_blank" rel="noopener">STCS 2016 Week 11</a></li>
+<li><a href="https://www.youtube.com/watch?v=dooN6X28daI" target="_blank" rel="noopener">STCS 2016 Week 12</a></li>
+<li><a href="https://www.youtube.com/watch?v=jEHgm7S58N8" target="_blank" rel="noopener">STCS 2016 Week 13</a></li>
+<li><a href="https://www.youtube.com/watch?v=gQXyZY7Ucjc&amp;t" target="_blank" rel="noopener">STCS 2016 Seccom and Ptrace</a></li>
+<li><a href="https://www.youtube.com/watch?v=PhMcUJ9pWs0" target="_blank" rel="noopener">STCS 2016 JavaScript Exploits</a></li>
+</ul>
+<h1 id="待分類"><a href="#待分類" class="headerlink" title="待分類"></a>待分類</h1><p><a href="http://blog.binpang.me/2016/04/13/ExploitTutorial/" target="_blank" rel="noopener">http://blog.binpang.me/2016/04/13/ExploitTutorial/</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author：</strong>
+    Milo
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link：</strong>
+    <a href="https://diabolo94.github.io/2017/12/10/utimatebinary/" title="Binary學習終極指南">https://diabolo94.github.io/2017/12/10/utimatebinary/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice： </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/guide/" rel="tag"># guide</a>
+          
+            <a href="/tags/binary/" rel="tag"># binary</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/06/opch1/" rel="next" title="深入理解計算機第一章筆記">
+                <i class="fa fa-chevron-left"></i> 深入理解計算機第一章筆記
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/12/practicallinux03/" rel="prev" title="A Practical Guide to Linux 第三章 The Utilities 筆記">
+                A Practical Guide to Linux 第三章 The Utilities 筆記 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a0435fe1fcb1776" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/" class="site-author-image" rel="start" style="border:none">
+                <img class="site-author-image" itemprop="image"
+                    src="/images/milo.jpg"
+                    alt="Milo" />
+              </a>
+            
+              <p class="site-author-name" itemprop="name">Milo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/diabolo94" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/JenqNing" target="_blank" title="Twitter">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:tomlimjenqning@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/+NoelSebastianLimJenqNing" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/diabolowing" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/SFERA1000/?ref=bookmarks" target="_blank" title="Security and Digital Forensic Information">
+                    
+                      <i class="fa fa-fw fa-facebook"></i>Security and Digital Forensic Information</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                LINKS
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rupigcute.wixsite.com/quantiumtown" title="量子城" target="_blank">量子城</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://unlimitmaze.blogspot.my" title="洛林賢者無盡迷宮" target="_blank">洛林賢者無盡迷宮</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bluebear171.github.io" title="星塵物語" target="_blank">星塵物語</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://seesaawiki.jp/forgetlostspace" title="破碎的失落空間" target="_blank">破碎的失落空間</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://trpgrss.weebly.com" title="卡特莱兹酒館" target="_blank">卡特莱兹酒館</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rupigcute.wixsite.com/dramatime" title="Dramatime" target="_blank">Dramatime</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://rupigcute.wixsite.com/nicetools" title="小熊天藍星工具屋" target="_blank">小熊天藍星工具屋</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://seesaawiki.jp/bluebear119" title="實用索引" target="_blank">實用索引</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://diabloice.blogspot.my" title="風鈴的世界" target="_blank">風鈴的世界</a>
+                  </li>
+                
+              </ul>
+            <div id="days"></div>
+</script>
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("11/01/2017 12:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已萌萌的運行了"+daysold+"天"+hrsold+"小時"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>  
+            </div>            
+           
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前置技能"><span class="nav-number">1.</span> <span class="nav-text">前置技能</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tools"><span class="nav-number">2.</span> <span class="nav-text">Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tools-Guide"><span class="nav-number">2.1.</span> <span class="nav-text">Tools Guide</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Courses"><span class="nav-number">3.</span> <span class="nav-text">Courses</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conference-Video-Slide"><span class="nav-number">4.</span> <span class="nav-text">Conference Video/Slide</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Books"><span class="nav-number">5.</span> <span class="nav-text">Books</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cheat-Sheet"><span class="nav-number">6.</span> <span class="nav-text">Cheat Sheet</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Challenges"><span class="nav-number">7.</span> <span class="nav-text">Challenges</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PWN-in-CTF-Wargame-Writeups-Tips"><span class="nav-number">8.</span> <span class="nav-text">PWN in CTF/Wargame Writeups/Tips</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Writeups"><span class="nav-number">8.1.</span> <span class="nav-text">Writeups</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tips"><span class="nav-number">8.2.</span> <span class="nav-text">Tips</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Knowledge"><span class="nav-number">9.</span> <span class="nav-text">Knowledge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#棧"><span class="nav-number">9.1.</span> <span class="nav-text">棧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-number">9.2.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ROP"><span class="nav-number">9.3.</span> <span class="nav-text">ROP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化字符串"><span class="nav-number">9.4.</span> <span class="nav-text">格式化字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fuzzing"><span class="nav-number">9.5.</span> <span class="nav-text">Fuzzing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shellcode"><span class="nav-number">9.6.</span> <span class="nav-text">Shellcode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ElF-file-format"><span class="nav-number">9.7.</span> <span class="nav-text">ElF file format</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Return-to-Dl-Resolve"><span class="nav-number">9.7.1.</span> <span class="nav-text">Return to Dl Resolve</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-Kernal-Exploit"><span class="nav-number">9.8.</span> <span class="nav-text">Windows Kernal Exploit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-Kernal-Exploit"><span class="nav-number">9.9.</span> <span class="nav-text">Linux Kernal Exploit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Buffer-Overflow"><span class="nav-number">9.10.</span> <span class="nav-text">Buffer Overflow</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Others-Repository"><span class="nav-number">10.</span> <span class="nav-text">Others Repository</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Misc"><span class="nav-number">11.</span> <span class="nav-text">Misc</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#待分類"><span class="nav-number">12.</span> <span class="nav-text">待分類</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Milo</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">18.4k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="true"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://quantiumtower.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://diabolo94.github.io/2017/12/10/utimatebinary/';
+          this.page.identifier = '2017/12/10/utimatebinary/';
+          this.page.title = 'Binary學習終極指南';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://quantiumtower.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+
+  <script src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+</body>
+</html>

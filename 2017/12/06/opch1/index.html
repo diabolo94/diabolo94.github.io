@@ -119,7 +119,7 @@
 
 
 
-  <meta name="keywords" content="guide,note,operating system," />
+  <meta name="keywords" content="guide,operating system,note," />
 
 
 
@@ -132,21 +132,22 @@
 
 
 
-<meta name="description" content="編譯系統要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。首先我們要有一個C文件。 12345678//hello.c#include &amp;lt;stdio.h&amp;gt;   int main()  &amp;#123">
-<meta name="keywords" content="guide,note,operating system">
+<meta name="description" content="編譯系統要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。首先我們要有一個C文件。">
+<meta name="keywords" content="guide,operating system,note">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解計算機第一章筆記">
 <meta property="og:url" content="https://diabolo94.github.io/2017/12/06/opch1/index.html">
 <meta property="og:site_name" content="量子能量塔">
-<meta property="og:description" content="編譯系統要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。首先我們要有一個C文件。 12345678//hello.c#include &amp;lt;stdio.h&amp;gt;   int main()  &amp;#123;    printf(&quot;hello,world\n&quot;);      return 0;  &amp;#125;">
+<meta property="og:description" content="編譯系統要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。首先我們要有一個C文件。">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://s33.postimg.org/6uht5i4n3/change.jpg">
 <meta property="og:image" content="https://s33.postimg.org/a8mmc2kv3/vradd.jpg">
 <meta property="og:image" content="https://s33.postimg.org/6qamfnp3z/engva.jpg">
-<meta property="og:updated_time" content="2017-12-08T02:54:03.349Z">
+<meta property="og:updated_time" content="2017-12-13T04:56:04.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解計算機第一章筆記">
-<meta name="twitter:description" content="編譯系統要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。首先我們要有一個C文件。 12345678//hello.c#include &amp;lt;stdio.h&amp;gt;   int main()  &amp;#123;    printf(&quot;hello,world\n&quot;);      return 0;  &amp;#125;">
-<meta name="twitter:image" content="https://s33.postimg.org/a8mmc2kv3/vradd.jpg">
+<meta name="twitter:description" content="編譯系統要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。首先我們要有一個C文件。">
+<meta name="twitter:image" content="https://s33.postimg.org/6uht5i4n3/change.jpg">
 
 
 
@@ -524,7 +525,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  717
+                  1,172
                 </span>
               
 
@@ -549,15 +550,31 @@
       
 
       
-        <h1 id="編譯系統"><a href="#編譯系統" class="headerlink" title="編譯系統"></a>編譯系統</h1><p>要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。<br>首先我們要有一個C文件。</p>
+        <h1 id="編譯系統"><a href="#編譯系統" class="headerlink" title="編譯系統"></a>編譯系統</h1><p>要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。<br>首先我們要有一個C文件。<a id="more"></a></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//hello.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;   </span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"hello,world\n"</span>);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在Unix裡面執行<code>gcc -o hello hello.c</code>，此時編譯器便會讀取hello.c且將它轉成二進制文件。轉換過程如下。<br><img src="" alt=""></p>
-<p>這過程(編譯系統)總共有4個階段：</p>
+<p>在Unix裡面執行<code>gcc -o hello hello.c</code>，此時編譯器便會讀取hello.c且將它轉成二進制文件。轉換過程如下。<br><img src="https://s33.postimg.org/6uht5i4n3/change.jpg" alt=""></p>
+<p>這過程總共有4個階段：</p>
 <h2 id="預處理階段"><a href="#預處理階段" class="headerlink" title="預處理階段"></a>預處理階段</h2><p>預處理器(cpp)會根據C文件裡面的#的命令來讀取Header，例如在這裡會讀取stdio.h, 然後將其內容加入原本的C文件裡面，生成一個以.i作為擴展名的文件。</p>
-<h2 id="編譯階段"><a href="#編譯階段" class="headerlink" title="編譯階段"></a>編譯階段</h2><p>然後編譯器會把hello.i轉成hello.s,也就是所謂的匯編語言程序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">main：</div><div class="line">    subq $8,%rsp</div><div class="line">    movl $.LCO,%edi</div><div class="line">    call puts</div><div class="line">    movl $0, %eax</div><div class="line">    addq $8, %rsp</div><div class="line">    ret</div></pre></td></tr></table></figure></p>
-<h2 id="匯編階段"><a href="#匯編階段" class="headerlink" title="匯編階段"></a>匯編階段</h2><p>然後就匯編器就可以派上用場啦，它能將hello.s轉成機械語言指令，再把指令變成可重定位目標程序(Relocatable object program)的格式，存放在hello.o中。</p>
+<p>再來，如果只想進行預處理可輸入<code>gcc -E hello.c -o hello.i</code>。預處理階段，主要是處理源代碼裡面含有<code>#</code>字符的指令。<br>例如: “#include”,”#define”。</p>
+<h2 id="編譯階段"><a href="#編譯階段" class="headerlink" title="編譯階段"></a>編譯階段</h2><p>然後編譯器會把hello.i轉成hello.s,也就是所謂的匯編語言程序。<br><code>gcc -S hello.i -o hello.s</code></p>
+<p>變成彙編語言程序後的源代碼如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">main：</div><div class="line">    subq $8,%rsp</div><div class="line">    movl $.LCO,%edi</div><div class="line">    call puts</div><div class="line">    movl $0, %eax</div><div class="line">    addq $8, %rsp</div><div class="line">    ret</div></pre></td></tr></table></figure>
+<h2 id="匯編階段"><a href="#匯編階段" class="headerlink" title="匯編階段"></a>匯編階段</h2><p>然後就匯編器就可以派上用場啦，它能將hello.s轉成機械語言指令，再把指令變成可重定位目標程序(Relocatable object program)的格式，存放在hello.o中。<br><code>as hello.s -o hello.o</code></p>
 <h2 id="鏈接階段"><a href="#鏈接階段" class="headerlink" title="鏈接階段"></a>鏈接階段</h2><p>因為這裡helloc程序用了printf函數。此函數其實是本來就屬於標準C Library裡面的一個函數要調用此函數，我們就必須用到鏈接器(ld)將函數合拼到hello.o裡面，完成這過程後，最終也生成了可以被系統執行的hello文件(可執行目標文件)。</p>
+<p>由於，鏈接器需要用到一大堆文件把hello.o鏈接起來，才可以把源文件變成最終的可執行目標文件。所以我會在介紹鏈接文件的文章裡面讓大家了解當中的原因。</p>
 <h1 id="運行可執行目標文件hello"><a href="#運行可執行目標文件hello" class="headerlink" title="運行可執行目標文件hello"></a>運行可執行目標文件hello</h1><p>在命令行輸入<code>./hello</code>,系統便會運行hello程序，也會返回結果hello,world在你的Shell裡面。</p>
+<h1 id="編譯器到底做了什麼"><a href="#編譯器到底做了什麼" class="headerlink" title="編譯器到底做了什麼?"></a>編譯器到底做了什麼?</h1><p>在整個編譯流程裡面,你的源代碼會經過以下六個步驟變成最終目標代碼。</p>
+<ul>
+<li>掃描：源代碼被輸入到掃描器內進行詞法分析，系統會用有限狀態機算法分割每一個代碼字符成為一系列的記號(Token)。</li>
+<li>語法分析：接下來語法分析器(Grammar Parser)負責把那些記號進行語法分析後，會生成語法樹(Syntax Tree)。這裡只針對表達式語法做出分析。</li>
+<li>語意分析：語意分析器(Semantic Analyzer)負責判定代碼裡面的的靜態語意在語法上是否合法。靜態語意通常是指聲明和類型的轉換。</li>
+<li>源代碼優化：語法樹會被轉換成被優化後的中間代碼。</li>
+<li>代碼生成：而中間代碼此時終於可以轉換成目標機器代碼。</li>
+<li>目標碼優化：簡化目標碼(也是所謂的Assembly Code)。</li>
+</ul>
+<p>例子：未優化的代碼<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">movl index, %ecx</div><div class="line">addl $4,%ecx</div><div class="line">mull $8,%ecx</div><div class="line">movl index,%eax</div><div class="line">movl %ecx,array(,eax,4)</div></pre></td></tr></table></figure></p>
+<p>優化後：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">movl index, %edx</div><div class="line">leal 32(,%edx,8),%eax</div><div class="line">movl %eax,array(,%edx,4)</div></pre></td></tr></table></figure></p>
+<p>這裡只需要了解代碼被優化了，其代碼代表什麼在這文章並沒有討論意義。</p>
 <h1 id="系統的硬件組成"><a href="#系統的硬件組成" class="headerlink" title="系統的硬件組成"></a>系統的硬件組成</h1><p>包括了總線，I/O設備，主存還有處理器。</p>
 <h2 id="總線"><a href="#總線" class="headerlink" title="總線"></a>總線</h2><h2 id="I-O設備"><a href="#I-O設備" class="headerlink" title="I/O設備"></a>I/O設備</h2><h2 id="主存"><a href="#主存" class="headerlink" title="主存"></a>主存</h2><h2 id="處理器"><a href="#處理器" class="headerlink" title="處理器"></a>處理器</h2><h1 id="操作系統管理硬件"><a href="#操作系統管理硬件" class="headerlink" title="操作系統管理硬件"></a>操作系統管理硬件</h1><ul>
 <li>防止硬件被失控的應用程序濫用</li>
@@ -609,9 +626,9 @@
           
             <a href="/tags/guide/" rel="tag"># guide</a>
           
-            <a href="/tags/note/" rel="tag"># note</a>
-          
             <a href="/tags/operating-system/" rel="tag"># operating system</a>
+          
+            <a href="/tags/note/" rel="tag"># note</a>
           
         </div>
       
@@ -634,8 +651,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/3018/01/19/studynote/" rel="prev" title="個人學習記錄">
-                個人學習記錄 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/10/utimatebinary/" rel="prev" title="Binary學習終極指南">
+                Binary學習終極指南 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -735,7 +752,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -746,7 +763,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -757,7 +774,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -907,7 +924,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#編譯系統"><span class="nav-number">1.</span> <span class="nav-text">編譯系統</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#預處理階段"><span class="nav-number">1.1.</span> <span class="nav-text">預處理階段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#編譯階段"><span class="nav-number">1.2.</span> <span class="nav-text">編譯階段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匯編階段"><span class="nav-number">1.3.</span> <span class="nav-text">匯編階段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鏈接階段"><span class="nav-number">1.4.</span> <span class="nav-text">鏈接階段</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#運行可執行目標文件hello"><span class="nav-number">2.</span> <span class="nav-text">運行可執行目標文件hello</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系統的硬件組成"><span class="nav-number">3.</span> <span class="nav-text">系統的硬件組成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#總線"><span class="nav-number">3.1.</span> <span class="nav-text">總線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O設備"><span class="nav-number">3.2.</span> <span class="nav-text">I/O設備</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主存"><span class="nav-number">3.3.</span> <span class="nav-text">主存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#處理器"><span class="nav-number">3.4.</span> <span class="nav-text">處理器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作系統管理硬件"><span class="nav-number">4.</span> <span class="nav-text">操作系統管理硬件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#進程"><span class="nav-number">5.</span> <span class="nav-text">進程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#線程"><span class="nav-number">6.</span> <span class="nav-text">線程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#虛擬內存"><span class="nav-number">7.</span> <span class="nav-text">虛擬內存</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#編譯系統"><span class="nav-number">1.</span> <span class="nav-text">編譯系統</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#預處理階段"><span class="nav-number">1.1.</span> <span class="nav-text">預處理階段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#編譯階段"><span class="nav-number">1.2.</span> <span class="nav-text">編譯階段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匯編階段"><span class="nav-number">1.3.</span> <span class="nav-text">匯編階段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鏈接階段"><span class="nav-number">1.4.</span> <span class="nav-text">鏈接階段</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#運行可執行目標文件hello"><span class="nav-number">2.</span> <span class="nav-text">運行可執行目標文件hello</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#編譯器到底做了什麼"><span class="nav-number">3.</span> <span class="nav-text">編譯器到底做了什麼?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系統的硬件組成"><span class="nav-number">4.</span> <span class="nav-text">系統的硬件組成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#總線"><span class="nav-number">4.1.</span> <span class="nav-text">總線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-O設備"><span class="nav-number">4.2.</span> <span class="nav-text">I/O設備</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主存"><span class="nav-number">4.3.</span> <span class="nav-text">主存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#處理器"><span class="nav-number">4.4.</span> <span class="nav-text">處理器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作系統管理硬件"><span class="nav-number">5.</span> <span class="nav-text">操作系統管理硬件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#進程"><span class="nav-number">6.</span> <span class="nav-text">進程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#線程"><span class="nav-number">7.</span> <span class="nav-text">線程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#虛擬內存"><span class="nav-number">8.</span> <span class="nav-text">虛擬內存</span></a></li></ol></div>
             
 
           </div>
@@ -941,7 +958,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">16.9k</span>
+    <span title="Site words total count">18.4k</span>
   
 </div>
 
