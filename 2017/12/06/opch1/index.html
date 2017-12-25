@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="zh-tw">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -201,7 +201,7 @@
      js.src = "//connect.facebook.net/zh_tw/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 
 
@@ -220,7 +220,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -550,7 +550,7 @@
       
 
       
-        <h1 id="編譯系統"><a href="#編譯系統" class="headerlink" title="編譯系統"></a>編譯系統</h1><p>要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。<br>首先我們要有一個C文件。<a id="more"></a></p>
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="編譯系統"><a href="#編譯系統" class="headerlink" title="編譯系統"></a>編譯系統</h1><p>要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。<br>首先我們要有一個C文件。<a id="more"></a></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//hello.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;   </span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"hello,world\n"</span>);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在Unix裡面執行<code>gcc -o hello hello.c</code>，此時編譯器便會讀取hello.c且將它轉成二進制文件。轉換過程如下。<br><img src="https://s33.postimg.org/6uht5i4n3/change.jpg" alt=""></p>
 <p>這過程總共有4個階段：</p>
@@ -958,7 +958,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">19.4k</span>
+    <span title="Site words total count">23.0k</span>
   
 </div>
 
@@ -1607,23 +1607,6 @@ show_date_time();
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/love.js"></script>
 
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
 </script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 </body>
 </html>

@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="zh-tw">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -195,7 +195,7 @@
      js.src = "//connect.facebook.net/zh_tw/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
 
 
@@ -214,7 +214,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right 
+  <div class="container sidebar-position-right 
   page-home">
     <div class="headband"></div>
 
@@ -608,7 +608,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/17/regex/" itemprop="url">正則表達式Regular expression</a></h2>
+                <a class="post-title-link" href="/2017/12/17/regex/" itemprop="url">正則表達式Regular expression 個人筆記</a></h2>
         
 
         <div class="post-meta">
@@ -671,7 +671,7 @@
 
           
           
-             <span id="/2017/12/17/regex/" class="leancloud_visitors" data-flag-title="正則表達式Regular expression">
+             <span id="/2017/12/17/regex/" class="leancloud_visitors" data-flag-title="正則表達式Regular expression 個人筆記">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -698,7 +698,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  0
+                  682
                 </span>
               
 
@@ -725,7 +725,71 @@
       
         
           
-            
+            <script src="\assets\js\APlayer.min.js"> </script><h1 id="Regular-Expression-Syntax"><a href="#Regular-Expression-Syntax" class="headerlink" title="Regular Expression Syntax"></a>Regular Expression Syntax</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">特殊符號</th>
+<th style="text-align:left">說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left">匹配除换行符(Newline)以外的任意字符</td>
+</tr>
+<tr>
+<td style="text-align:left">^</td>
+<td style="text-align:left">匹配字符串的開始</td>
+</tr>
+<tr>
+<td style="text-align:left">$</td>
+<td style="text-align:left">匹配字符串的結束</td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left">匹配前面出現0次或多次的正則表達式</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">匹配前面出現1次或多次的正則表達式</td>
+</tr>
+<tr>
+<td style="text-align:left">?</td>
+<td style="text-align:left">匹配前面出現0次或1次的正則表達式</td>
+</tr>
+<tr>
+<td style="text-align:left">{m}</td>
+<td style="text-align:left">m必須為一個非負整數。匹配確定的m次，例如可以匹配a{6}，你只能匹配有6個’a’的正則式</td>
+</tr>
+<tr>
+<td style="text-align:left">{m,n}</td>
+<td style="text-align:left">匹配的次數需要在m和之間。其中m&lt;=n.例如，o{1,3}只可以匹配“fooooood”裡面前三個的o。</td>
+</tr>
+<tr>
+<td style="text-align:left">{m,}</td>
+<td style="text-align:left">匹配的次數最少為m，最多無限制。</td>
+</tr>
+<tr>
+<td style="text-align:left">{m,n}?</td>
+<td style="text-align:left">加了問號正則式只會匹配m而已，例子：‘aaaaaa’中，a{3,5}?,只會匹配3個a。</td>
+</tr>
+</tbody>
+</table>
+<p>\</p>
+<pre><code>Either escapes special characters (permitting you to match characters like &apos;*&apos;, &apos;?&apos;, and so forth), or signals a special sequence; special sequences are discussed below.
+
+If you’re not using a raw string to express the pattern, remember that Python also uses the backslash as an escape sequence in string literals; if the escape sequence isn’t recognized by Python’s parser, the backslash and subsequent character are included in the resulting string. However, if Python would recognize the resulting sequence, the backslash should be repeated twice. This is complicated and hard to understand, so it’s highly recommended that you use raw strings for all but the simplest expressions.
+</code></pre><p>[]</p>
+<pre><code>Used to indicate a set of characters. In a set:
+
+    Characters can be listed individually, e.g. [amk] will match &apos;a&apos;, &apos;m&apos;, or &apos;k&apos;.
+    Ranges of characters can be indicated by giving two characters and separating them by a &apos;-&apos;, for example [a-z] will match any lowercase ASCII letter, [0-5][0-9] will match all the two-digits numbers from 00 to 59, and [0-9A-Fa-f] will match any hexadecimal digit. If - is escaped (e.g. [a\-z]) or if it’s placed as the first or last character (e.g. [-a] or [a-]), it will match a literal &apos;-&apos;.
+    Special characters lose their special meaning inside sets. For example, [(+*)] will match any of the literal characters &apos;(&apos;, &apos;+&apos;, &apos;*&apos;, or &apos;)&apos;.
+    Character classes such as \w or \S (defined below) are also accepted inside a set, although the characters they match depends on whether ASCII or LOCALE mode is in force.
+    Characters that are not within a range can be matched by complementing the set. If the first character of the set is &apos;^&apos;, all the characters that are not in the set will be matched. For example, &lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt; will match any character except &apos;5&apos;, and [^^] will match any character except &apos;^&apos;. ^ has no special meaning if it’s not the first character in the set.
+    To match a literal &apos;]&apos; inside a set, precede it with a backslash, or place it at the beginning of the set. For example, both [()[\]{}] and []()[{}] will both match a parenthesis.
+</code></pre><p>|<br>    A|B, where A and B can be arbitrary REs, creates a regular expression that will match either A or B. An arbitrary number of REs can be separated by the ‘|’ in this way. This can be used inside groups (see below) as well. As the target string is scanned, REs separated by ‘|’ are tried from left to right. When one pattern completely matches, that branch is accepted. This means that once A matches, B will not be tested further, even if it would produce a longer overall match. In other words, the ‘|’ operator is never greedy. To match a literal ‘|’, use |, or enclose it inside a character class, as in [|].</p>
+
           
         
       
@@ -882,7 +946,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  1,255
+                  3,930
                 </span>
               
 
@@ -1271,7 +1335,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  634
+                  844
                 </span>
               
 
@@ -1297,7 +1361,7 @@
 
       
         
-          <h1 id="前置技能"><a href="#前置技能" class="headerlink" title="前置技能"></a>前置技能</h1><ul>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="前置技能"><a href="#前置技能" class="headerlink" title="前置技能"></a>前置技能</h1><ul>
 <li><a href="">C學習指南</a></li>
 <li><a href="">匯編語言指南</a></li>
 </ul>
@@ -2545,7 +2609,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">19.4k</span>
+    <span title="Site words total count">23.0k</span>
   
 </div>
 
@@ -3198,23 +3262,6 @@ show_date_time();
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/love.js"></script>
 
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
 </script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
 </body>
 </html>

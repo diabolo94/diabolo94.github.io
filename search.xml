@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[個人學習記錄]]></title>
       <url>/3018/01/19/studynote/</url>
-      <content type="html"><![CDATA[<h1 id="Personal-Notes-About-Everything"><a href="#Personal-Notes-About-Everything" class="headerlink" title="Personal Notes About Everything."></a>Personal Notes About Everything.</h1><blockquote>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="Personal-Notes-About-Everything"><a href="#Personal-Notes-About-Everything" class="headerlink" title="Personal Notes About Everything."></a>Personal Notes About Everything.</h1><blockquote>
 <p>Learning Journey is my way.</p>
 </blockquote>
 <p>This is my personal study notes for whatever that I like the most in my life time.<br><a id="more"></a></p>
@@ -48,9 +48,73 @@
     </entry>
     
     <entry>
-      <title><![CDATA[正則表達式Regular expression]]></title>
+      <title><![CDATA[正則表達式Regular expression 個人筆記]]></title>
       <url>/2017/12/17/regex/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="Regular-Expression-Syntax"><a href="#Regular-Expression-Syntax" class="headerlink" title="Regular Expression Syntax"></a>Regular Expression Syntax</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">特殊符號</th>
+<th style="text-align:left">說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">.</td>
+<td style="text-align:left">匹配除换行符(Newline)以外的任意字符</td>
+</tr>
+<tr>
+<td style="text-align:left">^</td>
+<td style="text-align:left">匹配字符串的開始</td>
+</tr>
+<tr>
+<td style="text-align:left">$</td>
+<td style="text-align:left">匹配字符串的結束</td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left">匹配前面出現0次或多次的正則表達式</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">匹配前面出現1次或多次的正則表達式</td>
+</tr>
+<tr>
+<td style="text-align:left">?</td>
+<td style="text-align:left">匹配前面出現0次或1次的正則表達式</td>
+</tr>
+<tr>
+<td style="text-align:left">{m}</td>
+<td style="text-align:left">m必須為一個非負整數。匹配確定的m次，例如可以匹配a{6}，你只能匹配有6個’a’的正則式</td>
+</tr>
+<tr>
+<td style="text-align:left">{m,n}</td>
+<td style="text-align:left">匹配的次數需要在m和之間。其中m&lt;=n.例如，o{1,3}只可以匹配“fooooood”裡面前三個的o。</td>
+</tr>
+<tr>
+<td style="text-align:left">{m,}</td>
+<td style="text-align:left">匹配的次數最少為m，最多無限制。</td>
+</tr>
+<tr>
+<td style="text-align:left">{m,n}?</td>
+<td style="text-align:left">加了問號正則式只會匹配m而已，例子：‘aaaaaa’中，a{3,5}?,只會匹配3個a。</td>
+</tr>
+</tbody>
+</table>
+<p>\</p>
+<pre><code>Either escapes special characters (permitting you to match characters like &apos;*&apos;, &apos;?&apos;, and so forth), or signals a special sequence; special sequences are discussed below.
+
+If you’re not using a raw string to express the pattern, remember that Python also uses the backslash as an escape sequence in string literals; if the escape sequence isn’t recognized by Python’s parser, the backslash and subsequent character are included in the resulting string. However, if Python would recognize the resulting sequence, the backslash should be repeated twice. This is complicated and hard to understand, so it’s highly recommended that you use raw strings for all but the simplest expressions.
+</code></pre><p>[]</p>
+<pre><code>Used to indicate a set of characters. In a set:
+
+    Characters can be listed individually, e.g. [amk] will match &apos;a&apos;, &apos;m&apos;, or &apos;k&apos;.
+    Ranges of characters can be indicated by giving two characters and separating them by a &apos;-&apos;, for example [a-z] will match any lowercase ASCII letter, [0-5][0-9] will match all the two-digits numbers from 00 to 59, and [0-9A-Fa-f] will match any hexadecimal digit. If - is escaped (e.g. [a\-z]) or if it’s placed as the first or last character (e.g. [-a] or [a-]), it will match a literal &apos;-&apos;.
+    Special characters lose their special meaning inside sets. For example, [(+*)] will match any of the literal characters &apos;(&apos;, &apos;+&apos;, &apos;*&apos;, or &apos;)&apos;.
+    Character classes such as \w or \S (defined below) are also accepted inside a set, although the characters they match depends on whether ASCII or LOCALE mode is in force.
+    Characters that are not within a range can be matched by complementing the set. If the first character of the set is &apos;^&apos;, all the characters that are not in the set will be matched. For example, &lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt; will match any character except &apos;5&apos;, and [^^] will match any character except &apos;^&apos;. ^ has no special meaning if it’s not the first character in the set.
+    To match a literal &apos;]&apos; inside a set, precede it with a backslash, or place it at the beginning of the set. For example, both [()[\]{}] and []()[{}] will both match a parenthesis.
+</code></pre><p>|<br>    A|B, where A and B can be arbitrary REs, creates a regular expression that will match either A or B. An arbitrary number of REs can be separated by the ‘|’ in this way. This can be used inside groups (see below) as well. As the target string is scanned, REs separated by ‘|’ are tried from left to right. When one pattern completely matches, that branch is accepted. This means that once A matches, B will not be tested further, even if it would produce a longer overall match. In other words, the ‘|’ operator is never greedy. To match a literal ‘|’, use |, or enclose it inside a character class, as in [|].</p>
+]]></content>
       
         <categories>
             
@@ -67,9 +131,9 @@
             
             <tag> Linking </tag>
             
-            <tag> Python </tag>
-            
             <tag> Regex </tag>
+            
+            <tag> Python </tag>
             
         </tags>
         
@@ -78,7 +142,7 @@
     <entry>
       <title><![CDATA[深入理解計算機第七章筆記-鏈接]]></title>
       <url>/2017/12/13/linking/</url>
-      <content type="html"><![CDATA[<h1 id="何為鏈接"><a href="#何為鏈接" class="headerlink" title="何為鏈接"></a>何為鏈接</h1><p>鏈接就是將不一樣部分的代碼和數據收集，然後再合成一個單一的文件，該文件可以被載入到內存並且被執行。鏈接可以在編譯時、載入時或運行時執行。<a id="more"></a></p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="何為鏈接"><a href="#何為鏈接" class="headerlink" title="何為鏈接"></a>何為鏈接</h1><p>鏈接就是將不一樣部分的代碼和數據收集，然後再合成一個單一的文件，該文件可以被載入到內存並且被執行。鏈接可以在編譯時、載入時或運行時執行。<a id="more"></a></p>
 <p>本文章涵蓋的內容有目標文件種類、ELF格式、PLT(Procedure Linkage Table，程序鏈接表)、GOT(Global Offset Table，全局偏移表)、靜態鏈接、載入時和運行時的動態鏈接。</p>
 <h1 id="目標文件"><a href="#目標文件" class="headerlink" title="目標文件"></a>目標文件</h1><p>目標文件是源代碼編譯後，但未進行鏈接的那些中間文件(Windows裡面是.obj，Linux裡面是.o)，也可以說是位元組塊的集合。而連結器的作用就是要將這些元組塊連接起來，確定被連結塊的運行時位置，並修改代碼和數據塊中的各種位置。</p>
 <p>目標文件的三種形式為：</p>
@@ -86,7 +150,7 @@
 <li>可重定位目標文件(Relocatable File)：包含二進位制代碼和數據，可以在編譯時和其他可重定位目標文件/或共享目標文件合拼，創建可執行目標文件。File Extension通常為 .o。</li>
 <li>可執行目標文件(Executable File)：包含二進位制代碼和數據，可以被直接複製到存儲器並執行。Linux裡面的一般沒有File Extension。</li>
 <li>共享目標文件(Shared Object File：特殊類型的可重定位目標文件，可在載入或運行時被動態地載入到存儲器並連結。通常以 .so 结尾。一般情况下，它有以下两种使用情景：<ul>
-<li>链接器(Link eDitor, ld)可能会处理它和其它可重定位文件以及共享目标文件，生成另外一个目标文件。</li>
+<li>链接器(Link editor, ld)可能会处理它和其它可重定位文件以及共享目标文件，生成另外一个目标文件。</li>
 <li>動態連結器(Dynamic Linker)將它與可執行文件以及其它共享目標合拼在一起生成進程映像。</li>
 </ul>
 </li>
@@ -95,7 +159,7 @@
 <p>英文版本的Elf文件格式<br><img src="https://s7.postimg.org/fst3am3m3/ELF101.png" alt=""></p>
 <h3 id="Elf頭部"><a href="#Elf頭部" class="headerlink" title="Elf頭部"></a>Elf頭部</h3><p>Elf頭部用來描述文件的基本屬性。例如：目標機器型號，程序入口地址和ELF文件版本等等。</p>
 <p>ELF文件頭結構以及裡面的相關常數會被定義在<code>/usr/include/elf.h</code>裡面。這裡是<a href="http://sourceware.org/git/?p=glibc.git;a=blob_plain;f=elf/elf.h" target="_blank" rel="noopener">elf.h</a>的內容。</p>
-<p>在<code>elf.h</code>裡面ELF文件頭的定義部分是這樣的。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* The ELF file header. This appears at the start of every ELF file.  */</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EI_NIDENT (16)</span></div><div class="line"></div><div class="line"><span class="comment">/*32位的版本*/</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span>	e_ident[EI_NIDENT];	<span class="comment">/* Magic number and other info */</span></div><div class="line">  Elf32_Half	e_type;			<span class="comment">/* Object file type */</span></div><div class="line">  Elf32_Half	e_machine;		<span class="comment">/* Architecture */</span></div><div class="line">  Elf32_Word	e_version;		<span class="comment">/* Object file version */</span></div><div class="line">  Elf32_Addr	e_entry;		<span class="comment">/* Entry point virtual address */</span></div><div class="line">  Elf32_Off	    e_phoff;		<span class="comment">/* Program header table file offset */</span></div><div class="line">  Elf32_Off	    e_shoff;		<span class="comment">/* Section header table file offset */</span></div><div class="line">  Elf32_Word	e_flags;		<span class="comment">/* Processor-specific flags */</span></div><div class="line">  Elf32_Half	e_ehsize;		<span class="comment">/* ELF header size in bytes */</span></div><div class="line">  Elf32_Half	e_phentsize;	<span class="comment">/* Program header table entry size */</span></div><div class="line">  Elf32_Half	e_phnum;		<span class="comment">/* Program header table entry count */</span></div><div class="line">  Elf32_Half	e_shentsize;	<span class="comment">/* Section header table entry size */</span></div><div class="line">  Elf32_Half	e_shnum;		<span class="comment">/* Section header table entry count */</span></div><div class="line">  Elf32_Half	e_shstrndx;		<span class="comment">/* Section header string table index */</span></div><div class="line">&#125; Elf32_Ehdr;</div><div class="line"></div><div class="line"><span class="comment">/*64位的版本*/</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span>	e_ident[EI_NIDENT];	<span class="comment">/* Magic number and other info */</span></div><div class="line">  Elf64_Half	e_type;			<span class="comment">/* Object file type */</span></div><div class="line">  Elf64_Half	e_machine;		<span class="comment">/* Architecture */</span></div><div class="line">  Elf64_Word	e_version;		<span class="comment">/* Object file version */</span></div><div class="line">  Elf64_Addr	e_entry;		<span class="comment">/* Entry point virtual address */</span></div><div class="line">  Elf64_Off	    e_phoff;		<span class="comment">/* Program header table file offset */</span></div><div class="line">  Elf64_Off	    e_shoff;		<span class="comment">/* Section header table file offset */</span></div><div class="line">  Elf64_Word	e_flags;		<span class="comment">/* Processor-specific flags */</span></div><div class="line">  Elf64_Half	e_ehsize;		<span class="comment">/* ELF header size in bytes */</span></div><div class="line">  Elf64_Half	e_phentsize;	<span class="comment">/* Program header table entry size */</span></div><div class="line">  Elf64_Half	e_phnum;		<span class="comment">/* Program header table entry count */</span></div><div class="line">  Elf64_Half	e_shentsize;	<span class="comment">/* Section header table entry size */</span></div><div class="line">  Elf64_Half	e_shnum;		<span class="comment">/* Section header table entry count */</span></div><div class="line">  Elf64_Half	e_shstrndx;		<span class="comment">/* Section header string table index */</span></div><div class="line">&#125; Elf64_Ehdr;</div><div class="line"></div><div class="line"><span class="comment">/* Fields in the e_ident array.  The EI_* macros are indices into the</span></div><div class="line"><span class="comment">   array.  The macros under each EI_* macro are the values the byte</span></div><div class="line"><span class="comment">   may have.  */</span></div></pre></td></tr></table></figure></p>
+<p>在<code>elf.h</code>裡面ELF文件頭的定義部分是這樣的。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* The ELF file header. This appears at the start of every ELF file.  */</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EI_NIDENT (16)</span></div><div class="line"></div><div class="line"><span class="comment">/*32位的版本*/</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span>	e_ident[EI_NIDENT];	<span class="comment">/* Magic number and other info */</span></div><div class="line">  Elf32_Half	e_type;			<span class="comment">/* Object file type */</span></div><div class="line">  Elf32_Half	e_machine;		<span class="comment">/* Architecture */</span></div><div class="line">  Elf32_Word	e_version;		<span class="comment">/* Object file version */</span></div><div class="line">  Elf32_Addr	e_entry;		<span class="comment">/* Entry point virtual address */</span></div><div class="line">  Elf32_Off	e_phoff;		<span class="comment">/* Program header table file offset */</span></div><div class="line">  Elf32_Off	e_shoff;		<span class="comment">/* Section header table file offset */</span></div><div class="line">  Elf32_Word	e_flags;		<span class="comment">/* Processor-specific flags */</span></div><div class="line">  Elf32_Half	e_ehsize;		<span class="comment">/* ELF header size in bytes */</span></div><div class="line">  Elf32_Half	e_phentsize;	<span class="comment">/* Program header table entry size */</span></div><div class="line">  Elf32_Half	e_phnum;		<span class="comment">/* Program header table entry count */</span></div><div class="line">  Elf32_Half	e_shentsize;	<span class="comment">/* Section header table entry size */</span></div><div class="line">  Elf32_Half	e_shnum;		<span class="comment">/* Section header table entry count */</span></div><div class="line">  Elf32_Half	e_shstrndx;		<span class="comment">/* Section header string table index */</span></div><div class="line">&#125; Elf32_Ehdr;</div><div class="line"></div><div class="line"><span class="comment">/*64位的版本*/</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span>	e_ident[EI_NIDENT];	<span class="comment">/* Magic number and other info */</span></div><div class="line">  Elf64_Half	e_type;			<span class="comment">/* Object file type */</span></div><div class="line">  Elf64_Half	e_machine;		<span class="comment">/* Architecture */</span></div><div class="line">  Elf64_Word	e_version;		<span class="comment">/* Object file version */</span></div><div class="line">  Elf64_Addr	e_entry;		<span class="comment">/* Entry point virtual address */</span></div><div class="line">  Elf64_Off	e_phoff;		<span class="comment">/* Program header table file offset */</span></div><div class="line">  Elf64_Off	e_shoff;		<span class="comment">/* Section header table file offset */</span></div><div class="line">  Elf64_Word	e_flags;		<span class="comment">/* Processor-specific flags */</span></div><div class="line">  Elf64_Half	e_ehsize;		<span class="comment">/* ELF header size in bytes */</span></div><div class="line">  Elf64_Half	e_phentsize;	<span class="comment">/* Program header table entry size */</span></div><div class="line">  Elf64_Half	e_phnum;		<span class="comment">/* Program header table entry count */</span></div><div class="line">  Elf64_Half	e_shentsize;	<span class="comment">/* Section header table entry size */</span></div><div class="line">  Elf64_Half	e_shnum;		<span class="comment">/* Section header table entry count */</span></div><div class="line">  Elf64_Half	e_shstrndx;		<span class="comment">/* Section header string table index */</span></div><div class="line">&#125; Elf64_Ehdr;</div><div class="line"></div><div class="line"><span class="comment">/* Fields in the e_ident array.  The EI_* macros are indices into the</span></div><div class="line"><span class="comment">   array.  The macros under each EI_* macro are the values the byte</span></div><div class="line"><span class="comment">   may have.  */</span></div></pre></td></tr></table></figure></p>
 <p>以下是ELF頭的例子。<br><img src="https://s7.postimg.org/rip3sgoyz/elfheader.jpg" alt=""></p>
 <p>而我用來查看<code>SimpleSection.o</code>的Elf頭。源文件代碼如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* SimpleSection.c */</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">printf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* format,...)</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> global_init_var =<span class="number">84</span>;</div><div class="line"><span class="keyword">int</span> global_uninit_var;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func1</span><span class="params">(<span class="keyword">int</span> i)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> static_var =<span class="number">85</span>;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> static_var2;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>然後用<code>gcc -c SimpleSection.c</code>後你會得到一個SimpleSection.o的二進制文件，這時你就可以用<code>readelf -h SimpleSection.o</code>來查看Elf頭。</p>
@@ -108,49 +172,49 @@
 <tr>
 <th style="text-align:left">宏名稱</th>
 <th style="text-align:left">取值</th>
-<th>目的</th>
+<th style="text-align:left">目的</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">EI_MAG0</td>
 <td style="text-align:left">0</td>
-<td>文件標識</td>
+<td style="text-align:left">文件標識</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_MAG1</td>
 <td style="text-align:left">1</td>
-<td>文件標識</td>
+<td style="text-align:left">文件標識</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_MAG2</td>
 <td style="text-align:left">2</td>
-<td>文件標識</td>
+<td style="text-align:left">文件標識</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_MAG3</td>
 <td style="text-align:left">3</td>
-<td>文件標識</td>
+<td style="text-align:left">文件標識</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_CLASS</td>
 <td style="text-align:left">4</td>
-<td>文件類別</td>
+<td style="text-align:left">文件類別</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_DATA</td>
 <td style="text-align:left">5</td>
-<td>數據編碼</td>
+<td style="text-align:left">數據編碼</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_VERSION</td>
 <td style="text-align:left">6</td>
-<td>文件版本</td>
+<td style="text-align:left">文件版本</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_PAD</td>
 <td style="text-align:left">7</td>
-<td>補齊字節開始處</td>
+<td style="text-align:left">補齊字節開始處</td>
 </tr>
 </tbody>
 </table>
@@ -160,36 +224,307 @@
 <tr>
 <th style="text-align:left">名稱</th>
 <th style="text-align:left">值</th>
-<th>位置</th>
+<th style="text-align:left">位置</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left">ELFMAG0</td>
 <td style="text-align:left">0x7f</td>
-<td>e_ident[EI_MAG0]</td>
+<td style="text-align:left">e_ident[EI_MAG0]</td>
 </tr>
 <tr>
 <td style="text-align:left">ELFMAG1</td>
 <td style="text-align:left">‘E’</td>
-<td>e_ident[EI_MAG1]</td>
+<td style="text-align:left">e_ident[EI_MAG1]</td>
 </tr>
 <tr>
 <td style="text-align:left">ELFMAG2</td>
 <td style="text-align:left">‘L’</td>
-<td>e_ident[EI_MAG2]</td>
+<td style="text-align:left">e_ident[EI_MAG2]</td>
 </tr>
 <tr>
 <td style="text-align:left">ELFMAG3</td>
 <td style="text-align:left">‘F’</td>
-<td>e_ident[EI_MAG3]</td>
+<td style="text-align:left">e_ident[EI_MAG3]</td>
 </tr>
 </tbody>
 </table>
-<p><code>e_ident[EI_CLASS]</code>為<code>e_ident[EI_MAG3]</code>的下一个字節，專用來表示文件的類型或容量。<br>|名稱|值|意義|<br>|:——|:———–|<br>|ELFCLASSNONE|0|無效類型|<br>|ELFCLASS32|1|32位文件|<br>|ELFCLASS64|2|64位文件|</p>
+<p><code>e_ident[EI_CLASS]</code>為<code>e_ident[EI_MAG3]</code>的下一个字節，專用來表示文件的類型或容量。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名稱</th>
+<th style="text-align:left">值</th>
+<th style="text-align:left">意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ELFCLASSNONE</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">無效類型</td>
+</tr>
+<tr>
+<td style="text-align:left">ELFCLASS32</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">32位文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ELFCLASS64</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">64位文件</td>
+</tr>
+</tbody>
+</table>
 <p>這兩個類型的差別在於ELFCLASS32類型支持文件大小和虚拟地址空間上限为4GB的機器而ELFCLASS64類型被保留用于64位架構。它表明目標文件能会改變。在必要时，会定義附带有不同的基本類型目標文件數據大小的其他類型。</p>
-<p><code>e_ident[EI_DATA]</code>字节给出了目标文件中的特定处理器数据的编码方式。下面是目前已定义的编码：<br>名称     值     意义<br>ELFDATANONE     0     无效数据编码<br>ELFDATA2LSB     1     小端<br>ELFDATA2MSB     2     大端</p>
-<p>其它值被保留，在未来必要时将被赋予新的编码。</p>
+<p><code>e_ident[EI_DATA]</code>位元組給出了目標文件中的特定處理器數據的編碼方式。下面是目前已定義的編碼：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名稱</th>
+<th style="text-align:left">值</th>
+<th style="text-align:left">意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ELFDATANONE</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">無效數據編碼</td>
+</tr>
+<tr>
+<td style="text-align:left">ELFDATA2LSB</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">小端</td>
+</tr>
+<tr>
+<td style="text-align:left">ELFDATA2MSB</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">大端</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>大端模式，是指數據的高位元組保存在記憶體的低地址中，而數據的低位元組保存在記憶體的高地址中，這樣的存儲模式有點類似於把數據當作字串順序處理：地址由小向大增加，而數據從高位往低位放；這和我們的閱讀習慣一致。<br><img src="https://s9.postimg.org/67rfvwfcf/elfdata2msb.jpg" alt=""></p>
+</li>
+<li><p>小端模式，是指數據的高位元組保存在記憶體的高地址中，而數據的低位元組保存在記憶體的低地址中，這種存儲模式將地址的高低和數據位權有效地結合起來，高地址部分權值高，低地址部分權值低。<br><img src="https://s9.postimg.org/x5lcxms9r/elfdata2lsb.jpg" alt=""></p>
+</li>
+</ul>
+<p>其它值被保留，在未來必要時將被賦予新的編碼。</p>
+<p><code>e_ident[EI_VERSION]</code>給出了ELF頭的版本號。目前這個值必須是EV_CURRENT，詳情請看等下的<code>e_version</code>。</p>
+<p><code>e_ident[EI_PAD]</code>給出了<code>e_ident</code>中未使用位元組的開始地址。這些位元組被保留並置為0。</p>
+<p>處理目標文件的程序應該忽略它們。如果之後這些位元組被使用，<code>EI_PAD</code>的值就會改變。</p>
+<blockquote>
+<p>e_type</p>
+</blockquote>
+<p>用來定義文件的類型。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名稱</th>
+<th style="text-align:left">值</th>
+<th style="text-align:left">意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ET_NONE</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">無文件類型</td>
+</tr>
+<tr>
+<td style="text-align:left">ET_REL</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">可重定位文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ET_EXEC</td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">可執行文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ET_DYN</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">共享目標文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ET_CORE</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">核心轉儲文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ET_LOOS</td>
+<td style="text-align:left">0xfe00</td>
+<td style="text-align:left">操作系統指定</td>
+</tr>
+<tr>
+<td style="text-align:left">ET_HIOS</td>
+<td style="text-align:left">0xfeff</td>
+<td style="text-align:left">操作系統指定</td>
+</tr>
+<tr>
+<td style="text-align:left">ET_LOPROC</td>
+<td style="text-align:left">0xff00</td>
+<td style="text-align:left">處理器指定</td>
+</tr>
+<tr>
+<td style="text-align:left">ET_HIPROC</td>
+<td style="text-align:left">0xffff</td>
+<td style="text-align:left">處理器指定</td>
+</tr>
+</tbody>
+</table>
+<p>雖然核心轉儲文件的內容沒有被詳細說明，但<code>ET_CORE</code>還是被保留用於標誌此類文件。從<code>ET_LOOS</code>到<code>ET_HIOS</code>(包括邊界)會被保留用於操作系統處理的場景。而從<code>ET_LOPROC</code>到<code>ET_HIPROC</code>(包括邊界)則會被保留用於處理器指定的場景。其它值在未來必要時可被賦予新的目標文件類型。</p>
+<blockquote>
+<p>e_machine</p>
+</blockquote>
+<p>用來定義當前文件的機械架構。</p>
+<p>名稱|值|意義|<br>|:——|:——|:——|<br>|EM_NONE|0|無機械類型|<br>|EM_M32|1|AT&amp;T WE 32100|<br>|EM_SPARC|2|SPARC|<br>|EM_386|3|Intel 80386|<br>|EM_68K|4|Motorola 68000|<br>|EM_88K|5|Motorola 88000|<br>|EM_860|7|Intel 80860|<br>|EM_MIPS|8|MIPS I Architecture|</p>
+<p>當然還有<a href="http://www.sco.com/developers/gabi/latest/ch4.eheader.html" target="_blank" rel="noopener">其他類別</a>的機械結構。</p>
+<blockquote>
+<p>e_version</p>
+</blockquote>
+<p>用來顯示文件當前版本。</p>
+<p>名稱|值|意義|<br>|:——|:——|:——|<br>|EV_NONE|0|無效版本|<br>|EV_CURRENT|1|目前版本|</p>
+<blockquote>
+<p>e_entry</p>
+</blockquote>
+<p>這一項給系統轉交控制權給ELF中的代碼的虛擬地址。如果沒有相關入口項(Associated entry point)，則這一項為0。</p>
+<blockquote>
+<p>e_phoff</p>
+</blockquote>
+<p>這一項給出程序頭部表在文件中的位元組偏移(Program Header table Offset)。如果文件中沒有程序頭部表，則為0。</p>
+<blockquote>
+<p>e_shoff</p>
+</blockquote>
+<p>這一項給出節頭表在文件中的位元組偏移(Section Header table Offset)。如果文件中沒有節頭表，則為0。</p>
+<blockquote>
+<p>e_flags</p>
+</blockquote>
+<p>這一項給出文件中與特定處理器相關的標誌，這些標誌命名格式為<code>EF_machine_flag</code>。</p>
+<blockquote>
+<p>e_ehsize</p>
+</blockquote>
+<p>這一項給出ELF文件頭部的位元組長度(ELF Header Size)。</p>
+<blockquote>
+<p>e_phentsize</p>
+</blockquote>
+<p>這一項給出程序頭部表中每個表項的位元組長度(Program Header Entry Size)。每個表項的大小相同。</p>
+<blockquote>
+<p>e_phnum</p>
+</blockquote>
+<p>這一項給出程序頭部表的項數(Program Header entry Number)。因此，<code>e_phnum</code>與<code>e_phentsize</code>的乘積即為程序頭部表的位元組長度。如果文件中沒有程序頭部表，則該項值為0。</p>
+<blockquote>
+<p>e_shentsize</p>
+</blockquote>
+<p>這一項給出節頭的位元組長度(Section Header Entry Size)。一個節頭是節頭表中的一項；節頭表中所有項占據的空間大小相同。</p>
+<blockquote>
+<p>e_shnum</p>
+</blockquote>
+<p>這一項給出節頭表中的項數(Section Header Number)。因此，<code>e_shnum</code>與<code>e_shentsize</code>的乘積即為節頭表的位元組長度。如果文件中沒有節頭表，則該項值為0。</p>
+<blockquote>
+<p>e_shstrndx</p>
+</blockquote>
+<p>這一項給出節頭表中與節名字串表相關的表項的索引值(Section Header Table Index related with Section Name String Table)。如果文件中沒有節名字串表，則該項值為SHN_UNDEF。關於細節的介紹，請參考後面的「節」和「字串表」部分。</p>
+<h3 id="Elf程序頭-Program-Header"><a href="#Elf程序頭-Program-Header" class="headerlink" title="Elf程序頭(Program Header)"></a>Elf程序頭(Program Header)</h3><p>程序的頭部只有對於可執行文件和共享目標文件有意義。其中，ELF文件的頭中的<code>e_phentsize</code>和<code>e_phnum</code>項指定了相應的程序頭的大小。程序頭的數據結構如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* Program segment header.  */</span></div><div class="line"></div><div class="line"><span class="comment">/*32位的版本*/</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  Elf32_Word	p_type;			<span class="comment">/* Segment type */</span></div><div class="line">  Elf32_Off	p_offset;		<span class="comment">/* Segment file offset */</span></div><div class="line">  Elf32_Addr	p_vaddr;		<span class="comment">/* Segment virtual address */</span></div><div class="line">  Elf32_Addr	p_paddr;		<span class="comment">/* Segment physical address */</span></div><div class="line">  Elf32_Word	p_filesz;		<span class="comment">/* Segment size in file */</span></div><div class="line">  Elf32_Word	p_memsz;		<span class="comment">/* Segment size in memory */</span></div><div class="line">  Elf32_Word	p_flags;		<span class="comment">/* Segment flags */</span></div><div class="line">  Elf32_Word	p_align;		<span class="comment">/* Segment alignment */</span></div><div class="line">&#125; Elf32_Phdr;</div><div class="line"></div><div class="line"><span class="comment">/*64位的版本*/</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  Elf64_Word	p_type;			<span class="comment">/* Segment type */</span></div><div class="line">  Elf64_Word	p_flags;		<span class="comment">/* Segment flags */</span></div><div class="line">  Elf64_Off	p_offset;		<span class="comment">/* Segment file offset */</span></div><div class="line">  Elf64_Addr	p_vaddr;		<span class="comment">/* Segment virtual address */</span></div><div class="line">  Elf64_Addr	p_paddr;		<span class="comment">/* Segment physical address */</span></div><div class="line">  Elf64_Xword	p_filesz;		<span class="comment">/* Segment size in file */</span></div><div class="line">  Elf64_Xword	p_memsz;		<span class="comment">/* Segment size in memory */</span></div><div class="line">  Elf64_Xword	p_align;		<span class="comment">/* Segment alignment */</span></div><div class="line">&#125; Elf64_Phdr;</div></pre></td></tr></table></figure>
+<h3 id="Elf程序頭成員"><a href="#Elf程序頭成員" class="headerlink" title="Elf程序頭成員"></a>Elf程序頭成員</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">字段</th>
+<th style="text-align:left">說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">p_type</td>
+<td style="text-align:left">表明了對應數組元素的類型或表面了如何解釋該數組元素，具體信息可看待會描述的p_type的段類型</td>
+</tr>
+<tr>
+<td style="text-align:left">p_offset</td>
+<td style="text-align:left">此字段為文件開始到段開頭第一字節的偏移</td>
+</tr>
+<tr>
+<td style="text-align:left">p_vaddr</td>
+<td style="text-align:left">第一字節內存的虛擬地址</td>
+</tr>
+<tr>
+<td style="text-align:left">p_paddr</td>
+<td style="text-align:left">用於物理地址尋址相關系統裡面，由於System V忽略了應用程序的物理尋址，因此可執行文件和共享文件的該項內容並沒有被限定</td>
+</tr>
+<tr>
+<td style="text-align:left">p_filesz</td>
+<td style="text-align:left">表明文件鏡像中該字段的大小，可以為0</td>
+</tr>
+<tr>
+<td style="text-align:left">p_memsz</td>
+<td style="text-align:left">表明內存鏡像中該字段的大小，可以為0</td>
+</tr>
+<tr>
+<td style="text-align:left">p_flags</td>
+<td style="text-align:left">給出和段相關的標記，具體信息可看待會的描述</td>
+</tr>
+<tr>
+<td style="text-align:left">p_align</td>
+<td style="text-align:left">需加載程序段的<code>p_vaddr</code>以及<code>p_offset</code>的大小為page的整數倍。該成員給出了段文件和內存中對齊方式。若該數值是0或者1，表示不需要對齊。此外，<code>p_align</code>是2的整數指數次方，並且<code>p_vaddr</code>與<code>p_offset</code>在Modulo p_align的意義下應該相等。詳情請看待會描述</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>p_type的段類型</p>
+</blockquote>
+<p>數值|名字|意義|<br>|:——|:——|:——|<br>|0x00000000|PT_NULL|表明段還沒被使用|<br>|0x00000001|PT_LOAD|是可加載的段，大小由<code>p_filesz</code>和<code>p_memsz</code>來決定。文件中的位元組被映射到相應記憶體段開始處。如果<code>p_memsz</code>大於<code>p_filesz</code>，剩餘」的位元組都會變成0。<code>p_filesz</code>不能大於<code>p_memsz</code>。可載入的段在程序頭部中按照<code>p_vaddr</code>的升序排列。|<br>|0x00000002|PT_DYNAMIC|和動態鏈接信息有關|<br>|0x00000003|PT_INTERP|給出以NULL為结尾的字符串的位置和長度。該字串將被當作解釋器調用。這種段類型僅對可執行文件有意義(也可能出現在共享目標文件中)。此外，這種段在一個文件中最多出現一次。而且這種類型的段存在的話，它必須在所有可載入段項的前面。<br>|0x00000004|PT_NOTE|給出附加信息的位置和大小。|<br>|0x00000005|PT_SHLIB|該段類型被保留，不過語義未指定。而且，包含這種類型的段的程序不符合ABI標準。|<br>|0x00000006|PT_PHDR|該段類型的數組元素如果存在的話，則給出了程序頭部表自身的大小和位置，既包括在文件中也包括在記憶體中的訊息。此類型的段在文件中最多出現一次。此外，只有程序頭部表是程序的記憶體映像的一部分時，它才會出現。如果此類型段存在，則必須在所有可載入段項目的前面。|<br>|0x70000000|PT_LOPROC|略|<br>|0x7FFFFFFF|PT_HIPROC|略|</p>
+<blockquote>
+<p>基地址-Base Address</p>
+</blockquote>
+<p>用途：在動態連結期間重新定位程序。</p>
+<p>1.程序頭部的虛擬地址可能並不是程序記憶體鏡像中實際的虛擬地址。可執行程序通常都會包含絕對地址的代碼。<br>2.為了使得程序可以正常執行，段必須在相應的虛擬地址處。<br>3.共享目標文件通常來說包含與地址無關的代碼。這可以使得共享目標文件可以被多個進程載入，同時保持程序執行的正確性。<br>4.系統會為不同的進程選擇不同的虛擬地址，也會保留段的相對地址，因為地址無關代碼使用段之間的相對地址來進行定址，記憶體中的虛擬地址之間的差必須與文件中的虛擬地址之間的差相匹配。<br>5.記憶體中任何段的虛擬地址與文件中對應的虛擬地址之間的差值對於任何一個可執行文件或共享對象來說是一個單一常量值。這個差值就是基地址。</p>
+<p>可執行文件或者共享目標文件的基地址是在執行過程中由以下三個數值計算的。</p>
+<ul>
+<li>虛擬記憶體載入地址</li>
+<li>最大頁面大小</li>
+<li>程序可載入段的最低虛擬地址</li>
+</ul>
+<p>要計算基地址，首先要確定可載入段中<code>p_vaddr</code>最小的記憶體虛擬地址，之後把該記憶體虛擬地址縮小為與之最近的最大頁面的整數倍即是基地址。根據要載入到記憶體中的文件的類型，記憶體地址可能與<code>p_vaddr</code>相同也可能不同。</p>
+<h3 id="段權限"><a href="#段權限" class="headerlink" title="段權限"></a>段權限</h3><h3 id="節頭部表"><a href="#節頭部表" class="headerlink" title="節頭部表"></a>節頭部表</h3><p>ELF可重定位文件裡面有不同大小的條目(entry)。這些條目組成了節頭部表(Section Header Table)。如下圖所示：<br><img src="https://s9.postimg.org/uw9oztkgf/sectionheader.jpg" alt=""></p>
+<p>在linux裡面查看Elf Section Header的方式是輸入<code>readelf -S SimpleSection.o</code>。<br><img src="https://s9.postimg.org/o735jmjn3/Simple1.jpg" alt=""><br><img src="https://s9.postimg.org/51zw9xa4v/Simple2.jpg" alt=""></p>
+<p>在這裡我們可以看到一共有13個條目(節)。以下我會說明這些節的作用。</p>
+<blockquote>
+<p>.text</p>
+</blockquote>
+<p>存放已編譯程序的代碼。</p>
+<blockquote>
+<p>.rodata</p>
+</blockquote>
+<p>用來只讀數據</p>
+<blockquote>
+<p>.data</p>
+</blockquote>
+<p>存放已初始化的全局和靜態C變量。而局部的C變量則會在運行時保存在棧中。</p>
+<blockquote>
+<p>.bss</p>
+</blockquote>
+<p>和上面相反，只存放未初始化的全局C變量。在目標文件中，该節只是佔位符，不占用實際空間。</p>
+<blockquote>
+<p>.symtab</p>
+</blockquote>
+<p>符號表，存放程序中被定義和引用的函數和全局變量的信息。另外，它不包含局部變量的表目。</p>
+<blockquote>
+<p>.rel.text</p>
+</blockquote>
+<p>和其他文件連結時，<code>.text</code>節中任何調用外部函數或引用全局變數的指令都需要修改（調用本地函數的指令不需要修改）。</p>
+<blockquote>
+<p>.rel.data</p>
+</blockquote>
+<p>被模組定義或引用的任何全局變數的訊息，<code>.data</code>節中任何已初始化全局變數的初始值是全局變數或外部定義函數的地址都需要修改。</p>
+<p>可執行目標文件不需要重定位訊息，通常省略<code>.rel.text</code>和<code>.rel.data</code>。</p>
+<blockquote>
+<p>.debug</p>
+</blockquote>
+<p>調校符號表，以 -g 選項編譯時得到。包含如定義的局部變數和類型定義，定義和引用的全局變數，原始的C源文件。</p>
+<p>.line：原始的C源文件中的行號和.text節中機器指令之間的映射，以 -g 選項編譯時得到。</p>
+<p>.strtab：字串表，是以 null 結尾的字串序列，包含.symtab和.debug節中的符號表，節頭部中的節名字。</p>
 ]]></content>
       
         <categories>
@@ -216,7 +551,7 @@
     <entry>
       <title><![CDATA[A Practical Guide to Linux 第三章 The Utilities 筆記]]></title>
       <url>/2017/12/12/practicallinux03/</url>
-      <content type="html"><![CDATA[<h1 id="PIPE-Line"><a href="#PIPE-Line" class="headerlink" title="PIPE Line"></a>PIPE Line</h1><p>在Linux裡面若要將幾個指令連在一行直接運行，可以使用<code>|</code>。例子：查看當前目錄下文件列表裡文件名為car的文件。<br>Command：<code>ls | grep car</code><br><a id="more"></a></p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="PIPE-Line"><a href="#PIPE-Line" class="headerlink" title="PIPE Line"></a>PIPE Line</h1><p>在Linux裡面若要將幾個指令連在一行直接運行，可以使用<code>|</code>。例子：查看當前目錄下文件列表裡文件名為car的文件。<br>Command：<code>ls | grep car</code><br><a id="more"></a></p>
 <h1 id="Four-More-Utilities"><a href="#Four-More-Utilities" class="headerlink" title="Four More Utilities"></a>Four More Utilities</h1><h2 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h2><h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><h2 id="script"><a href="#script" class="headerlink" title="script"></a>script</h2><h2 id="unix2dos"><a href="#unix2dos" class="headerlink" title="unix2dos"></a>unix2dos</h2><h1 id="Compressing-and-Archiving-Files"><a href="#Compressing-and-Archiving-Files" class="headerlink" title="Compressing and Archiving Files"></a>Compressing and Archiving Files</h1><h2 id="bzip2"><a href="#bzip2" class="headerlink" title="bzip2"></a>bzip2</h2><h2 id="bzcat-and-bunzip2"><a href="#bzcat-and-bunzip2" class="headerlink" title="bzcat and bunzip2"></a>bzcat and bunzip2</h2><h2 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a>gzip</h2><h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><h1 id="Locating-Utilities"><a href="#Locating-Utilities" class="headerlink" title="Locating Utilities"></a>Locating Utilities</h1><h2 id="which"><a href="#which" class="headerlink" title="which"></a>which</h2><h2 id="whereis"><a href="#whereis" class="headerlink" title="whereis"></a>whereis</h2><h3 id="which-vs-whereis"><a href="#which-vs-whereis" class="headerlink" title="which vs whereis"></a>which vs whereis</h3><h2 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h2><h1 id="Displaying-User-and-System-information"><a href="#Displaying-User-and-System-information" class="headerlink" title="Displaying  User and System information"></a>Displaying  User and System information</h1><h2 id="who"><a href="#who" class="headerlink" title="who"></a>who</h2><h2 id="finger"><a href="#finger" class="headerlink" title="finger"></a>finger</h2><h2 id="uptime"><a href="#uptime" class="headerlink" title="uptime"></a>uptime</h2><h2 id="w"><a href="#w" class="headerlink" title="w"></a>w</h2><h2 id="free"><a href="#free" class="headerlink" title="free"></a>free</h2><h1 id="Communicating-with-other-users"><a href="#Communicating-with-other-users" class="headerlink" title="Communicating with other users"></a>Communicating with other users</h1><h2 id="write"><a href="#write" class="headerlink" title="write"></a>write</h2><h2 id="mesg"><a href="#mesg" class="headerlink" title="mesg"></a>mesg</h2>]]></content>
       
         <categories>
@@ -239,7 +574,7 @@
     <entry>
       <title><![CDATA[Binary學習終極指南]]></title>
       <url>/2017/12/10/utimatebinary/</url>
-      <content type="html"><![CDATA[<h1 id="前置技能"><a href="#前置技能" class="headerlink" title="前置技能"></a>前置技能</h1><ul>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h1 id="前置技能"><a href="#前置技能" class="headerlink" title="前置技能"></a>前置技能</h1><ul>
 <li><a href="">C學習指南</a></li>
 <li><a href="">匯編語言指南</a></li>
 </ul>
@@ -248,6 +583,8 @@
 <li><a href="http://sushant94.me/2015/05/31/Introduction_to_radare2/" target="_blank" rel="noopener">Intro to r2</a></li>
 <li><a href="http://blog.devit.co/diving-into-radare2/" target="_blank" rel="noopener">Diving into radare2</a></li>
 <li><a href="https://radare.gitbooks.io/radare2book/content/" target="_blank" rel="noopener">Radare2 Book</a></li>
+<li><a href="http://bestwing.me/2017/03/08/angr-study/" target="_blank" rel="noopener">Angr 初探</a></li>
+<li><a href="https://github.com/zTrix/zio" target="_blank" rel="noopener">ZIO</a></li>
 </ul>
 <h1 id="Courses"><a href="#Courses" class="headerlink" title="Courses"></a>Courses</h1><ul>
 <li><a href="http://security.cs.rpi.edu/courses/binexp-spring2015/" target="_blank" rel="noopener">Modern Binary Exploitation </a></li>
@@ -290,6 +627,7 @@
 <h1 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge"></a>Knowledge</h1><h2 id="棧"><a href="#棧" class="headerlink" title="棧"></a>棧</h2><ul>
 <li>[CTF Wik Stack Intro]<a href="https://ctf-wiki.github.io/ctf-wiki/pwn/stackoverflow/stack_intro.html" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/pwn/stackoverflow/stack_intro.html</a></li>
 <li><a href="http://z1ng.net/post/trans/64wei-linuxzhan-yi-chu" target="_blank" rel="noopener">64位linux棧溢出</a></li>
+<li><a href="http://bestwing.me/2017/03/18/stack-overflow-one/" target="_blank" rel="noopener">基础栈溢出复习 一 基礎</a></li>
 </ul>
 <h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><ul>
 <li><a href="https://github.com/shellphish/how2heap" target="_blank" rel="noopener">How 2 Heap</a></li>
@@ -300,24 +638,43 @@
 <li><a href="http://www.freebuf.com/vuls/95708.html" target="_blank" rel="noopener">利用Linux内核里的Use-After-Free（UAF）漏洞提权</a></li>
 <li><a href="https://yq.aliyun.com/articles/185861" target="_blank" rel="noopener">通过静态分析检测二进制代码中的Use-After-Free漏洞</a></li>
 <li><a href="https://o0xmuhe.github.io/2015/11/05/dragon/" target="_blank" rel="noopener">Pwnable Dragon WP(UAF)</a></li>
+<li><a href="https://etenal.me/archives/1121" target="_blank" rel="noopener">关于heap overflow的一些笔记</a></li>
+<li><a href="https://blog.iret.xyz/article.aspx/linux_heapoverflow_enterance#fn:1" target="_blank" rel="noopener">Notes About Heap Overflow Under Linux</a></li>
+<li><a href="http://www.freebuf.com/articles/system/151372.html" target="_blank" rel="noopener">Dance In Heap（一）：浅析堆的申请释放及相应保护机制 </a></li>
 </ul>
 <h2 id="ROP"><a href="#ROP" class="headerlink" title="ROP"></a>ROP</h2><ul>
 <li><a href="https://blog.skullsecurity.org/2013/ropasaurusrex-a-primer-on-return-oriented-programming" target="_blank" rel="noopener">ropasaurusrex: a primer on return-oriented programming</a></li>
+<li><a href="http://bestwing.me/2017/03/19/stack-overflow-two-ROP/" target="_blank" rel="noopener">基础栈溢出复习 二 ROP</a></li>
+<li><a href="http://bestwing.me/2017/03/20/stack-overflow-three-SROP/" target="_blank" rel="noopener">基础栈溢出复习 三 SROP</a></li>
+<li><a href="http://bestwing.me/2017/03/24/stack-overflow-four-BROP/" target="_blank" rel="noopener">基础栈溢出复习 四 BROP</a></li>
+<li><a href="http://look3little.blogspot.my/2017/09/srop.html" target="_blank" rel="noopener">SROP學習資料</a></li>
 </ul>
 <h2 id="格式化字符串"><a href="#格式化字符串" class="headerlink" title="格式化字符串"></a>格式化字符串</h2><ul>
 <li><a href="https://www.exploit-db.com/docs/28476.pdf" target="_blank" rel="noopener">Format String Exploitation</a></li>
 <li><a href="https://crypto.stanford.edu/cs155old/cs155-spring08/papers/formatstring-1.2.pdf" target="_blank" rel="noopener">Exploiting Format String Vulnerabilities</a></li>
+<li><a href="http://www.freebuf.com/articles/system/74224.html" target="_blank" rel="noopener">格式化字符串的漏洞應用 Part 1</a></li>
+<li><a href="https://www.anquanke.com/post/id/85785" target="_blank" rel="noopener">格式化字符串漏洞利用小结（一）</a></li>
+<li><a href="http://www.moonsos.com/post/149.html" target="_blank" rel="noopener">CCTF pwn3格式化字符串漏洞详细writeup</a></li>
+<li><a href="http://veritas501.space/2017/04/28/格式化字符串漏洞学习/" target="_blank" rel="noopener">格式化字符串漏洞学习</a></li>
+<li><a href="http://www.rutk1t0r.org/2016/09/25/一起来撸printf吧/" target="_blank" rel="noopener">一起来撸printf吧</a></li>
+<li><a href="http://www.rutk1t0r.org/2017/01/07/fmt-exploit/" target="_blank" rel="noopener">fmt_exploit</a></li>
+<li><a href="http://www.xfocus.net/articles/200103/123.html" target="_blank" rel="noopener">浅析格式化串漏洞</a></li>
+<li><a href="https://blog.nullable.software/2015/07/format-string-exploitation.html" target="_blank" rel="noopener">Format String Exploitation</a></li>
+<li><a href="https://github.com/shiyanlou/seedlab/blob/master/formatstring.md" target="_blank" rel="noopener">格式化字符串漏洞实验</a></li>
 </ul>
 <h2 id="Fuzzing"><a href="#Fuzzing" class="headerlink" title="Fuzzing"></a>Fuzzing</h2><ul>
 <li><a href="https://www.youtube.com/watch?v=BrDujogxYSk" target="_blank" rel="noopener">Basics of Fuzzing by Gynvael</a></li>
 </ul>
 <h2 id="Shellcode"><a href="#Shellcode" class="headerlink" title="Shellcode"></a>Shellcode</h2><ul>
 <li><a href="https://paraschetal.in/writing-your-own-shellcode" target="_blank" rel="noopener">Writing your own shellcode – blog by Paras Chetal</a></li>
+<li><a href="http://shell-storm.org/shellcode/" target="_blank" rel="noopener">Shellcode Database</a></li>
 </ul>
 <h2 id="ElF-file-format"><a href="#ElF-file-format" class="headerlink" title="ElF file format"></a>ElF file format</h2><ul>
 <li><a href="https://www.cs.stevens.edu/~jschauma/631/elf.html" target="_blank" rel="noopener">Executable and Linkable Format (ELF) info</a></li>
 <li><a href="http://nullprogram.com/blog/2016/11/17/" target="_blank" rel="noopener">A Magnetized Needle and a Steady Hand– elf structures with a nice storyline.</a> </li>
 <li><a href="https://www.inforsec.org/wp/?p=389" target="_blank" rel="noopener">ELF如何摧毁圣诞 ——通过ELF动态装载机制进行漏洞利用</a></li>
+<li><a href="http://bestwing.me/2017/03/30/《A%20Programmer%20Prepares》--ELF/" target="_blank" rel="noopener">《程序员的自我修养》读书笔记—ELF文件结构 by Swing</a></li>
+<li><a href="http://opensecuritytraining.info/LifeOfBinaries_files/2012_LifeOfBinaries3.pdf" target="_blank" rel="noopener">Opensecurity Training:The life of binaries;Part 3:ELF info</a></li>
 </ul>
 <h3 id="Return-to-Dl-Resolve"><a href="#Return-to-Dl-Resolve" class="headerlink" title="Return to Dl Resolve"></a>Return to Dl Resolve</h3><ul>
 <li><a href="http://bestwing.me/2017/11/14/Return-to-dl-resolve/" target="_blank" rel="noopener">By Swing</a></li>
@@ -338,11 +695,11 @@
 <li><a href="http://bobao.360.cn/learning/detail/3700.html" target="_blank" rel="noopener">【系列分享】Linux 内核漏洞利用教程（一）：环境配置</a></li>
 <li><a href="http://bobao.360.cn/learning/detail/3702.html" target="_blank" rel="noopener">【系列分享】Linux 内核漏洞利用教程（二）：两个Demo</a></li>
 <li><a href="http://bobao.360.cn/learning/detail/3706.html" target="_blank" rel="noopener">【系列分享】Linux 内核漏洞利用教程（三）：实践 CSAW CTF 题目</a></li>
+<li><a href="http://bestwing.me" target="_blank" rel="noopener">linux-kernel expoit study (1-4)</a></li>
 </ul>
 <h2 id="Buffer-Overflow"><a href="#Buffer-Overflow" class="headerlink" title="Buffer Overflow"></a>Buffer Overflow</h2><ul>
 <li><a href="https://drive.google.com/open?id=1uv_ZVU6CLfh9Yt0L0rWmwMYbYd12YDR7" target="_blank" rel="noopener">Win32缓冲区溢出实战</a></li>
-</ul>
-<h1 id="Others-Repository"><a href="#Others-Repository" class="headerlink" title="Others Repository"></a>Others Repository</h1><ul>
+<li><a href="https://jinzihao.me/2016/08/%e7%bc%93%e5%86%b2%e5%8c%ba%e6%ba%a2%e5%87%ba%e6%bc%8f%e6%b4%9e%e7%9a%84%e5%88%a9%e7%94%a8/#more-1325" target="_blank" rel="noopener">缓冲区溢出漏洞的利用</a><h1 id="Others-Repository"><a href="#Others-Repository" class="headerlink" title="Others Repository"></a>Others Repository</h1></li>
 <li><a href="https://chybeta.github.io/2017/08/19/Software-Security-Learning/" target="_blank" rel="noopener">Software Security Learning by Chybeta</a></li>
 <li><a href="http://www.pentest.guru/index.php/2016/01/28/best-books-tutorials-and-courses-to-learn-about-exploit-development/" target="_blank" rel="noopener">Best books &amp; Tutorials &amp; Course to learn abot explot developement</a></li>
 <li><a href="https://github.com/SteinsGatep001/Binary" target="_blank" rel="noopener">SteinsGatep001</a></li>
@@ -365,7 +722,7 @@
 <li><a href="https://www.youtube.com/watch?v=gQXyZY7Ucjc&amp;t" target="_blank" rel="noopener">STCS 2016 Seccom and Ptrace</a></li>
 <li><a href="https://www.youtube.com/watch?v=PhMcUJ9pWs0" target="_blank" rel="noopener">STCS 2016 JavaScript Exploits</a></li>
 </ul>
-<h1 id="待分類"><a href="#待分類" class="headerlink" title="待分類"></a>待分類</h1><p><a href="http://blog.binpang.me/2016/04/13/ExploitTutorial/" target="_blank" rel="noopener">http://blog.binpang.me/2016/04/13/ExploitTutorial/</a><br>PLT GOT <a href="https://www.zhihu.com/question/21249496" target="_blank" rel="noopener">https://www.zhihu.com/question/21249496</a><br><a href="https://github.com/hacksysteam/HackSysExtremeVulnerableDriver" target="_blank" rel="noopener">https://github.com/hacksysteam/HackSysExtremeVulnerableDriver</a><br><a href="https://hshrzd.wordpress.com/2017/05/28/starting-with-windows-kernel-exploitation-part-1-setting-up-the-lab/" target="_blank" rel="noopener">https://hshrzd.wordpress.com/2017/05/28/starting-with-windows-kernel-exploitation-part-1-setting-up-the-lab/</a><br><a href="https://bbs.pediy.com/thread-218838.htm" target="_blank" rel="noopener">https://bbs.pediy.com/thread-218838.htm</a></p>
+<h1 id="待分類"><a href="#待分類" class="headerlink" title="待分類"></a>待分類</h1><p><a href="http://blog.binpang.me/2016/04/13/ExploitTutorial/" target="_blank" rel="noopener">http://blog.binpang.me/2016/04/13/ExploitTutorial/</a><br>PLT GOT <a href="https://www.zhihu.com/question/21249496" target="_blank" rel="noopener">https://www.zhihu.com/question/21249496</a><br><a href="https://github.com/hacksysteam/HackSysExtremeVulnerableDriver" target="_blank" rel="noopener">https://github.com/hacksysteam/HackSysExtremeVulnerableDriver</a><br><a href="https://hshrzd.wordpress.com/2017/05/28/starting-with-windows-kernel-exploitation-part-1-setting-up-the-lab/" target="_blank" rel="noopener">https://hshrzd.wordpress.com/2017/05/28/starting-with-windows-kernel-exploitation-part-1-setting-up-the-lab/</a><br><a href="https://bbs.pediy.com/thread-218838.htm" target="_blank" rel="noopener">https://bbs.pediy.com/thread-218838.htm</a><br><a href="http://vancir.com/tutorials.html" target="_blank" rel="noopener">http://vancir.com/tutorials.html</a></p>
 ]]></content>
       
         <categories>
@@ -390,7 +747,7 @@
     <entry>
       <title><![CDATA[深入理解計算機第一章筆記]]></title>
       <url>/2017/12/06/opch1/</url>
-      <content type="html"><![CDATA[<h1 id="編譯系統"><a href="#編譯系統" class="headerlink" title="編譯系統"></a>編譯系統</h1><p>要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。<br>首先我們要有一個C文件。<a id="more"></a></p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="編譯系統"><a href="#編譯系統" class="headerlink" title="編譯系統"></a>編譯系統</h1><p>要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。<br>首先我們要有一個C文件。<a id="more"></a></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//hello.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;   </span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"hello,world\n"</span>);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在Unix裡面執行<code>gcc -o hello hello.c</code>，此時編譯器便會讀取hello.c且將它轉成二進制文件。轉換過程如下。<br><img src="https://s33.postimg.org/6uht5i4n3/change.jpg" alt=""></p>
 <p>這過程總共有4個階段：</p>
@@ -455,7 +812,7 @@
     <entry>
       <title><![CDATA[2016 SANS Holiday Hack Challenge Writeups]]></title>
       <url>/2017/12/05/sans2016HHC/</url>
-      <content type="html"><![CDATA[<h1 id="SANS2016HHC"><a href="#SANS2016HHC" class="headerlink" title="SANS2016HHC"></a>SANS2016HHC</h1><p>This is the writeup on how I solve the 2016 SANS Holiday Hack Challege</p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="SANS2016HHC"><a href="#SANS2016HHC" class="headerlink" title="SANS2016HHC"></a>SANS2016HHC</h1><p>This is the writeup on how I solve the 2016 SANS Holiday Hack Challege</p>
 <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>故事發生在一個夜深人靜的晚上，喬斯(Josh Doise)和傑西卡(Jessica Doise)在睡覺的時候聽到聖誕老人竟然出現在他們家裡的聲音。但正當他們決定要去看看聖誕老人的真面目時，發生了一些十分奇怪的事情，一陣禮物被撕破的聲音從他們家樓下傳出來。他們還聽到尖銳的打鬥聲，很可惜的是，在他們去到樓下時候，聖誕老人已經不見了，只見到家裡一片混亂，家裡的聖誕樹還甚至被劈開一半呢。為了調查事件的發生你們將開始一段新的冒險。<a id="more"></a>在我進入遊戲教程前，我想先說這個遊戲裡面所有的挑戰都是他們設計的：</p>
 <ul>
 <li>Mark Baggett</li>
@@ -557,7 +914,7 @@
     <entry>
       <title><![CDATA[Hexo世界裡靈活運用Markdown和html不是夢]]></title>
       <url>/2017/12/02/hexomarkdown/</url>
-      <content type="html"><![CDATA[<p>Markdown是一種輕量級的標記語言，其用簡單的標記語法便可達到排版的目的，其可以使我們更加專注於內容的編寫，而不需過多關注排版。本文主要整理了 Markdown中的常用的標記語法，以便自己與他人以後查用。<br><a id="more"></a></p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>Markdown是一種輕量級的標記語言，其用簡單的標記語法便可達到排版的目的，其可以使我們更加專注於內容的編寫，而不需過多關注排版。本文主要整理了 Markdown中的常用的標記語法，以便自己與他人以後查用。<br><a id="more"></a></p>
 <h1 id="Note標籤"><a href="#Note標籤" class="headerlink" title="Note標籤"></a>Note標籤</h1><ul>
 <li>一般Note </li>
 </ul>
@@ -610,7 +967,7 @@
     <entry>
       <title><![CDATA[字符集(Charcater Set)與字符編碼(Encoding)]]></title>
       <url>/2017/11/29/charencoding/</url>
-      <content type="html"><![CDATA[<h1 id="0x01-基礎知識"><a href="#0x01-基礎知識" class="headerlink" title="0x01 基礎知識"></a>0x01 基礎知識</h1><p>在了解編碼是怎麼一回事之前，我們必須要先知道2個概念，那就是位和字節。位(bit)是指電腦裡面存放的二進制數值=0或者1。而只要有8個位便可稱之為字節(byte)。例子：01000001，在16進制裡面，這個字節=0x41。</p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-基礎知識"><a href="#0x01-基礎知識" class="headerlink" title="0x01 基礎知識"></a>0x01 基礎知識</h1><p>在了解編碼是怎麼一回事之前，我們必須要先知道2個概念，那就是位和字節。位(bit)是指電腦裡面存放的二進制數值=0或者1。而只要有8個位便可稱之為字節(byte)。例子：01000001，在16進制裡面，這個字節=0x41。</p>
 <p>字符編碼的意思是電腦會使用某種規則將平時我們日常生活中會用到的一些文字/符號轉換成電腦可以讀取的二進制數字進行相互的轉換。<a id="more"></a></p>
 <p>例子：電腦使用ASCII字符集來進行字母“A”的轉換。<br><code>01000001（0x41）&lt;-&gt; 65 &lt;-&gt; &#39;A&#39;</code></p>
 <p>在編碼時，這些規則就會用所謂的字符集來處理字符和二進制數字代碼之間的轉換。</p>
@@ -639,7 +996,7 @@
     <entry>
       <title><![CDATA[Debug指令完整教學]]></title>
       <url>/2017/11/20/debugexp/</url>
-      <content type="html"><![CDATA[<h1 id="0x01-背景"><a href="#0x01-背景" class="headerlink" title="0x01 背景"></a>0x01 背景</h1><p>Debug是DOS和Windows裡面專門調試程序以及讓你在電腦上編寫匯編語言一種工具。一般上，我們可以使用它，來查看CPU各種寄存器中的內容、內存的情況和在機器碼級跟蹤程序的運行。而Debug指令只能在這些版本的Windows內使用：Windows® 9x/Me，Windows® NT/2000/XP/2003。而在之後版本的Windows就再也無法使用這個指令了。<a id="more"></a>Debug最初的設計是用來處理.最大容量可達到65280 (6xx1024-256)bytes或少於此大小的.COM文件。而至於少過多少，那就得取決於程序必須在堆棧上同時放置的最大字節數。為什麼一定要減掉256字節呢？那是因為DEBUG經常使用從00到FF十六進制偏移量的區域來存儲一些內部數據，例如加載的文件的名字。所以.COM程序應該只能是用在單個內存段裡面（只有64 KiB）。</p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-背景"><a href="#0x01-背景" class="headerlink" title="0x01 背景"></a>0x01 背景</h1><p>Debug是DOS和Windows裡面專門調試程序以及讓你在電腦上編寫匯編語言一種工具。一般上，我們可以使用它，來查看CPU各種寄存器中的內容、內存的情況和在機器碼級跟蹤程序的運行。而Debug指令只能在這些版本的Windows內使用：Windows® 9x/Me，Windows® NT/2000/XP/2003。而在之後版本的Windows就再也無法使用這個指令了。<a id="more"></a>Debug最初的設計是用來處理.最大容量可達到65280 (6xx1024-256)bytes或少於此大小的.COM文件。而至於少過多少，那就得取決於程序必須在堆棧上同時放置的最大字節數。為什麼一定要減掉256字節呢？那是因為DEBUG經常使用從00到FF十六進制偏移量的區域來存儲一些內部數據，例如加載的文件的名字。所以.COM程序應該只能是用在單個內存段裡面（只有64 KiB）。</p>
 <p>這裡先簡單介紹會用到的Debug指令的Option。</p>
 <ul>
 <li><code>-r</code> 查看、改變CPU寄存器的內容</li>
@@ -778,7 +1135,7 @@
     <entry>
       <title><![CDATA[Hackmd.io使用指南]]></title>
       <url>/2017/11/18/hackmdio/</url>
-      <content type="html"><![CDATA[<h1 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h1><p><i class="fa fa-file-text"></i> <strong>HackMD</strong> 是一個跨平台的Markdown即時協作筆記。所以你可以和朋友們在<strong>電腦、平板甚至是手機</strong>上同一時間製作你們的筆記。最方便的就是，你可以在首頁透過<strong>Facebook、Twitter、GitHub、Dropbox以及Google</strong>來登入<strong>HackMD</strong>。<a id="more"></a></p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h1><p><i class="fa fa-file-text"></i> <strong>HackMD</strong> 是一個跨平台的Markdown即時協作筆記。所以你可以和朋友們在<strong>電腦、平板甚至是手機</strong>上同一時間製作你們的筆記。最方便的就是，你可以在首頁透過<strong>Facebook、Twitter、GitHub、Dropbox以及Google</strong>來登入<strong>HackMD</strong>。<a id="more"></a></p>
 <h1 id="分享功能"><a href="#分享功能" class="headerlink" title="分享功能"></a>分享功能</h1><p>你可以輕易的複製文件的網址來分享此文件。</p>
 <h1 id="權限設置"><a href="#權限設置" class="headerlink" title="權限設置"></a>權限設置</h1><p>在頁面的右上方有個小按鈕，你可以透過以下選項來更改權限：<br><i class="fa fa-leaf fa-fw"></i> 隨意：任何人都可以編輯以及瀏覽這份筆記。<br><i class="fa fa-shield fa-fw"></i>可編輯：已經登入的使用者才可以編輯這個筆記。（客人可以瀏覽）<br><i class="fa fa-id-card" fa-fw=""></i> 限制：已經登入的使用者可以編輯這個筆記。（禁止客人瀏覽）<br><i class="fa fa-lock fa-fw"></i> 鎖定：只有擁有者可以更改這份筆記。（客人可瀏覽）<br><i class="fa fa-umbrella fa-fw"></i> 保護：只有擁有者可以更改這份筆記。（禁止客人瀏覽）<br><i class="fa fa-hand-stop-o fa-fw"></i> 私有：只有擁有者可以更改與檢視這份筆記。</p>
 <p><strong>只有筆記的擁有者可以更改權限。</strong></p>
@@ -1069,7 +1426,7 @@
     <entry>
       <title><![CDATA[可愛又好玩的語音聊天平台-Discord]]></title>
       <url>/2017/11/16/discordpromote/</url>
-      <content type="html"><![CDATA[<h1 id="0x01-Discord的魅力在哪裡？"><a href="#0x01-Discord的魅力在哪裡？" class="headerlink" title="0x01 Discord的魅力在哪裡？"></a>0x01 Discord的魅力在哪裡？</h1><p>Discord是一個完全免費，且具備超多強大功能的語音通訊平台。而且，還有漂亮又簡單的界面，讓你輕鬆的建立你的文字和語音頻道。不僅如此，Discord不像QQ那樣會自帶廣告，所以你可以少掉被廣告洗腦的煩惱。</p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-Discord的魅力在哪裡？"><a href="#0x01-Discord的魅力在哪裡？" class="headerlink" title="0x01 Discord的魅力在哪裡？"></a>0x01 Discord的魅力在哪裡？</h1><p>Discord是一個完全免費，且具備超多強大功能的語音通訊平台。而且，還有漂亮又簡單的界面，讓你輕鬆的建立你的文字和語音頻道。不僅如此，Discord不像QQ那樣會自帶廣告，所以你可以少掉被廣告洗腦的煩惱。</p>
 <p>另外，你也可以應用各式各樣的機械人Bot來加強你頻道內的功能。例如：像電台那樣自動播放歌曲，用指令來投骰子，像玩RPG game升級系統那樣通過聊天中獲取經驗值，進行投票活動和個人備忘錄等等。此外，你還可以在不同頻道/子頻道擁有多過一個的暱稱。再來，只要你喜歡你還可以自己設定可愛的自定義身份呢。</p>
 <p>最重要的一點，Discord的支援十分全面，你可以在Windows，Mac OS，Linux，Android以及Ios上使用Discord來。當你在直播遊戲時，你也可以用Discord和他人進行談話，這是因為你可以用不同平台的賬號如：Youtube、Twitch、Steam、Skype等等來連接你的Discord Server。。</p>
 <h1 id="0x02-不需要再為語音而付費"><a href="#0x02-不需要再為語音而付費" class="headerlink" title="0x02 不需要再為語音而付費"></a>0x02 不需要再為語音而付費</h1><h1 id="0x03-不受打擾的享受線上遊戲"><a href="#0x03-不受打擾的享受線上遊戲" class="headerlink" title="0x03 不受打擾的享受線上遊戲"></a>0x03 不受打擾的享受線上遊戲</h1><h1 id="0x04-隨時和你好友保持連線"><a href="#0x04-隨時和你好友保持連線" class="headerlink" title="0x04 隨時和你好友保持連線"></a>0x04 隨時和你好友保持連線</h1><h1 id="0x05-擁有現代化的內容顯示界面"><a href="#0x05-擁有現代化的內容顯示界面" class="headerlink" title="0x05 擁有現代化的內容顯示界面"></a>0x05 擁有現代化的內容顯示界面</h1><h1 id="0x06-語音傳送不會影響你進行中游戲的速度"><a href="#0x06-語音傳送不會影響你進行中游戲的速度" class="headerlink" title="0x06 語音傳送不會影響你進行中游戲的速度"></a>0x06 語音傳送不會影響你進行中游戲的速度</h1><h1 id="0x07-超簡單的安裝過程"><a href="#0x07-超簡單的安裝過程" class="headerlink" title="0x07 超簡單的安裝過程"></a>0x07 超簡單的安裝過程</h1><h1 id="0x08-強大的伺服器管理功能"><a href="#0x08-強大的伺服器管理功能" class="headerlink" title="0x08 強大的伺服器管理功能"></a>0x08 強大的伺服器管理功能</h1><h1 id="0x09-維持語音質量"><a href="#0x09-維持語音質量" class="headerlink" title="0x09 維持語音質量"></a>0x09 維持語音質量</h1><h1 id="0x10-安全加友機制"><a href="#0x10-安全加友機制" class="headerlink" title="0x10 安全加友機制"></a>0x10 安全加友機制</h1><h1 id="0x11-不必退出遊戲來處理語音頻道"><a href="#0x11-不必退出遊戲來處理語音頻道" class="headerlink" title="0x11 不必退出遊戲來處理語音頻道"></a>0x11 不必退出遊戲來處理語音頻道</h1><p>更完整的功能和教學，請記得留守我下一篇的文章。</p>
@@ -1096,7 +1453,7 @@
     <entry>
       <title><![CDATA[資源搜索技巧和索引]]></title>
       <url>/2017/11/12/searchengine/</url>
-      <content type="html"><![CDATA[<h1 id="0x01-Google高級搜尋法"><a href="#0x01-Google高級搜尋法" class="headerlink" title="0x01 Google高級搜尋法"></a>0x01 Google高級搜尋法</h1><blockquote>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-Google高級搜尋法"><a href="#0x01-Google高級搜尋法" class="headerlink" title="0x01 Google高級搜尋法"></a>0x01 Google高級搜尋法</h1><blockquote>
 <p>雙引號” “來做精準搜尋</p>
 </blockquote>
 <p>搜索结果裡面的網站內容必須出現完全一樣的搜索關鍵詞，因此當你想尋找精準的內容時，你可以在在搜索關鍵詞上加上雙引號。<br>例子： <code>&quot;量子能量塔&quot;</code></p>
@@ -1226,6 +1583,7 @@
 <li><a href="https://bangumi.moe" target="_blank" rel="noopener">Bangumi</a></li>
 <li><a href="http://share.dmhy.org" target="_blank" rel="noopener">動漫資源花園網</a></li>
 <li><a href="https://nyaa.si" target="_blank" rel="noopener">Nyaa</a></li>
+<li><a href="https://ac.hishare.site/" target="_blank" rel="noopener">动漫风</a></li>
 </ul>
 <h2 id="美劇"><a href="#美劇" class="headerlink" title="美劇"></a>美劇</h2><ul>
 <li><a href="http://www.allyingshi.com" target="_blank" rel="noopener">人人影視</a></li>
@@ -1266,6 +1624,7 @@
 <li><a href="http://search.crossref.org" target="_blank" rel="noopener">Crossref</a></li>
 <li><a href="http://gen.lib.rus.ec/scimag/" target="_blank" rel="noopener">ligben:Scimag</a></li>
 <li><a href="http://airccj.org/csecfp/library/index.php" target="_blank" rel="noopener">Air CCJ ORG</a></li>
+<li><a href="https://www.douban.com/note/276894826/?session=ed948d07" target="_blank" rel="noopener">国外博士论文下载网站</a></li>
 </ul>
 <h2 id="遊戲-amp-遊戲直播"><a href="#遊戲-amp-遊戲直播" class="headerlink" title="遊戲&amp;遊戲直播"></a>遊戲&amp;遊戲直播</h2><ul>
 <li><a href="https://go.twitch.tv" target="_blank" rel="noopener">Twitch</a></li>
@@ -1325,6 +1684,7 @@
 <li><a href="http://5ciy.com/" target="_blank" rel="noopener">5次元導航</a></li>
 <li><a href="http://www.smallbear.me/" target="_blank" rel="noopener">小熊時光機</a></li>
 <li><a href="http://mdwhat.com/home/index/0/common" target="_blank" rel="noopener">魔導網</a></li>
+<li><a href="http://secnav.dropsec.xyz/" target="_blank" rel="noopener">DROPS安全導航</a></li>
 </ul>
 <h1 id="0x06-加入群組"><a href="#0x06-加入群組" class="headerlink" title="0x06 加入群組"></a>0x06 加入群組</h1><p>待更新</p>
 <h1 id="0x07-更換VPN"><a href="#0x07-更換VPN" class="headerlink" title="0x07 更換VPN"></a>0x07 更換VPN</h1><p>待更新</p>
@@ -1353,7 +1713,7 @@
     <entry>
       <title><![CDATA[1分鐘讓你認識Python最基本文件種類]]></title>
       <url>/2017/11/11/pythonfiletype/</url>
-      <content type="html"><![CDATA[<h1 id="0x01-什麼是py文件"><a href="#0x01-什麼是py文件" class="headerlink" title="0x01 什麼是py文件"></a>0x01 什麼是py文件</h1><p>一般上，我們都會用Python編譯器來運行py文件。而當我們查看py文件的時候，我們都可以直接看到程式的源代碼。然而，因為商業的需求，開發者必須想辦法保護程式源代碼，於是便有了pyc和pyo這2種的文件。</p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-什麼是py文件"><a href="#0x01-什麼是py文件" class="headerlink" title="0x01 什麼是py文件"></a>0x01 什麼是py文件</h1><p>一般上，我們都會用Python編譯器來運行py文件。而當我們查看py文件的時候，我們都可以直接看到程式的源代碼。然而，因為商業的需求，開發者必須想辦法保護程式源代碼，於是便有了pyc和pyo這2種的文件。</p>
 <h1 id="0x02-什麼是pyc文件"><a href="#0x02-什麼是pyc文件" class="headerlink" title="0x02 什麼是pyc文件"></a>0x02 什麼是pyc文件</h1><p>pyc是而二进制文件的一種。要生成此文件，我們必須先將py文件經過編譯後，再使用<code>python -m compileall &lt;your_script.py&gt;</code>來生成你要的pyc文件。pyc文件和py文件比較起來，加載的速度會快了一些。另外，要注意的是不同版本的Python編譯出來的pyc文件也會有所不一樣。</p>
 <h1 id="0x03-什麼是pyo文件"><a href="#0x03-什麼是pyo文件" class="headerlink" title="0x03 什麼是pyo文件"></a>0x03 什麼是pyo文件</h1><p>pyo是經過優化編譯後的程序。<code>python -O  &lt;your_script.py&gt;</code> 便可以直接生成所謂的pyo文件。小提示，python3.5版本以上都一律採用了新的優化機制，所以只有pyc，而沒有使用pyo文件了。</p>
 <h1 id="0x04-什麼是pyd文件"><a href="#0x04-什麼是pyd文件" class="headerlink" title="0x04 什麼是pyd文件"></a>0x04 什麼是pyd文件</h1><p>pyd是python的动态链接库。</p>
@@ -1384,7 +1744,7 @@
     <entry>
       <title><![CDATA[解開隱寫術之謎]]></title>
       <url>/2017/11/08/stego/</url>
-      <content type="html"><![CDATA[<h1 id="0x01-什麼是隱寫術"><a href="#0x01-什麼是隱寫術" class="headerlink" title="0x01 什麼是隱寫術"></a>0x01 什麼是隱寫術</h1><p><img src="/images/stego/01.jpg" alt=""><br>隱寫術是將想要隱藏的消息嵌入到載體中，而達到信息保密的效果。隱寫術的使用可以追溯到古埃及時代又或者中國的元朝。而現代隱寫術通過使用電腦以及不同的隱寫軟件將信息隱藏在不同種類的文件當中。</p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-什麼是隱寫術"><a href="#0x01-什麼是隱寫術" class="headerlink" title="0x01 什麼是隱寫術"></a>0x01 什麼是隱寫術</h1><p><img src="/images/stego/01.jpg" alt=""><br>隱寫術是將想要隱藏的消息嵌入到載體中，而達到信息保密的效果。隱寫術的使用可以追溯到古埃及時代又或者中國的元朝。而現代隱寫術通過使用電腦以及不同的隱寫軟件將信息隱藏在不同種類的文件當中。</p>
 <p>另外，使用隱寫術也可以為加密的信息提供多一層的保護。也就是說，我們可以將加密後的信息用一些非常普通的文件，如圖片，音頻，視頻，文檔等等，經過一系列的特殊處理將其隱藏起來。</p>
 <p>一個完整的隱寫系統包含了4個要素：</p>
 <ul>
@@ -1534,7 +1894,7 @@
     <entry>
       <title><![CDATA[CTF終極指南]]></title>
       <url>/2017/11/06/CTFfinalguide/</url>
-      <content type="html"><![CDATA[<p>11月9日更新：</p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>11月9日更新：</p>
 <ul>
 <li>CTF All in one</li>
 </ul>
@@ -1705,7 +2065,7 @@
     <entry>
       <title><![CDATA[隨機數生成原理]]></title>
       <url>/2017/11/05/rnganbitstream/</url>
-      <content type="html"><![CDATA[<h1 id="0x01-隨機數的使用"><a href="#0x01-隨機數的使用" class="headerlink" title="0x01 隨機數的使用"></a>0x01 隨機數的使用</h1><ul>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-隨機數的使用"><a href="#0x01-隨機數的使用" class="headerlink" title="0x01 隨機數的使用"></a>0x01 隨機數的使用</h1><ul>
 <li>Key distribution and reciprocal authenticaltion schemes.</li>
 <li>Generation of session keys or keys for RSA.</li>
 <li>Generation of a bit stream for symmetric encryption.</li>
@@ -1781,7 +2141,7 @@
     <entry>
       <title><![CDATA[序列密码]]></title>
       <url>/2017/11/03/stream-cipher/</url>
-      <content type="html"><![CDATA[<h1 id="0x01-背景"><a href="#0x01-背景" class="headerlink" title="0x01 背景"></a>0x01 背景</h1><p>序列密碼起源於20世紀20年代的維爾姆(Vernam)密碼。Vernam密碼中的密鑰序列要求是隨機的序列，由於密碼中的密鑰序列的產生、存儲以及分配等方面存在一定的困難，Vernam體制在當時並沒有得到廣泛的應用。然而，在微電子技術和數學理論逐漸變得完善後，序列密碼終於得到了長足的發展和應用。</p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-背景"><a href="#0x01-背景" class="headerlink" title="0x01 背景"></a>0x01 背景</h1><p>序列密碼起源於20世紀20年代的維爾姆(Vernam)密碼。Vernam密碼中的密鑰序列要求是隨機的序列，由於密碼中的密鑰序列的產生、存儲以及分配等方面存在一定的困難，Vernam體制在當時並沒有得到廣泛的應用。然而，在微電子技術和數學理論逐漸變得完善後，序列密碼終於得到了長足的發展和應用。</p>
 <p>目前，序列密碼是世界各國的軍事和外交等重要領域中使用的主要密碼體制之一。序列密碼是對稱密碼體制中的一類，又稱為流密碼。</p>
 <h1 id="0x02-原理"><a href="#0x02-原理" class="headerlink" title="0x02 原理"></a>0x02 原理</h1><p>在序列密碼中，明文的每一個位會和密鑰序列的位相加來進行所謂的加密。而序列密碼共有2種：同步序列密碼和異步序列密碼。前者密碼序列取決於密鑰而後者則是密鑰和密文。</p>
 <p>要對密文進行加密，我們需要將每一個位置的$x_i$與一個密鑰序列位$s_i$相加後再使用模數2來執行該運算。</p>
@@ -1871,7 +2231,7 @@
     <entry>
       <title><![CDATA[2017 10月份Github 5大受歡迎的資安工具和目錄]]></title>
       <url>/2017/11/02/top5gitsectool/</url>
-      <content type="html"><![CDATA[<ul>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><ul>
 <li>文章來源：<a href="https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd" target="_blank" rel="noopener">https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd</a></li>
 </ul>
 <p>Hack with Github在Medium上發布了他們10月份中最受矚目的5大工具和目錄。而所發布的工具以及目錄如下：</p>
@@ -1925,7 +2285,7 @@
     <entry>
       <title><![CDATA[脫壳學習指南(UNPACK LEARNING GUIDE)]]></title>
       <url>/2017/11/01/unpackguide/</url>
-      <content type="html"><![CDATA[<h1 id="第一個步驟：學C語言"><a href="#第一個步驟：學C語言" class="headerlink" title="第一個步驟：學C語言"></a>第一個步驟：學C語言</h1><h2 id="推薦課程"><a href="#推薦課程" class="headerlink" title="推薦課程"></a>推薦課程</h2><p><a href="https://cs50.harvard.edu/" target="_blank" rel="noopener">CS50</a>- 學習電腦基本知識以及可以學習到C的編程技巧<br>Second Link: <a href="https://www.edx.org/course/introduction-computer-science-harvardx-cs50x" target="_blank" rel="noopener">https://www.edx.org/course/introduction-computer-science-harvardx-cs50x</a></p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="第一個步驟：學C語言"><a href="#第一個步驟：學C語言" class="headerlink" title="第一個步驟：學C語言"></a>第一個步驟：學C語言</h1><h2 id="推薦課程"><a href="#推薦課程" class="headerlink" title="推薦課程"></a>推薦課程</h2><p><a href="https://cs50.harvard.edu/" target="_blank" rel="noopener">CS50</a>- 學習電腦基本知識以及可以學習到C的編程技巧<br>Second Link: <a href="https://www.edx.org/course/introduction-computer-science-harvardx-cs50x" target="_blank" rel="noopener">https://www.edx.org/course/introduction-computer-science-harvardx-cs50x</a></p>
 <h2 id="推薦書籍"><a href="#推薦書籍" class="headerlink" title="推薦書籍"></a>推薦書籍</h2><p><a href="https://goo.gl/9iRyB2" target="_blank" rel="noopener">C語言程序設計（The C Programming Language (2nd Edition), Brian W.Kernighan &amp; Dennis M.Ritchie著）</a><br><a href="https://goo.gl/qdBgsB" target="_blank" rel="noopener">C primer plus</a><br><a id="more"></a><br>需掌握内容：</p>
 <h1 id="第二個步驟：學匯編語言"><a href="#第二個步驟：學匯編語言" class="headerlink" title="第二個步驟：學匯編語言"></a>第二個步驟：學匯編語言</h1><h2 id="推薦課程-1"><a href="#推薦課程-1" class="headerlink" title="推薦課程"></a>推薦課程</h2><p>滴水逆向第三期培訓 課程內容一覽<br>小甲魚匯編語言 課程內容一覽</p>
 <h2 id="額外課程【自選】"><a href="#額外課程【自選】" class="headerlink" title="額外課程【自選】"></a>額外課程【自選】</h2><p>天草逆向資源VIP之50堂課</p>
