@@ -35,15 +35,23 @@
         
         <tags>
             
-            <tag> Guide </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> Guide </tag>
             
             <tag> Security </tag>
             
             <tag> Forensic </tag>
             
         </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[pythonlearn01]]></title>
+      <url>/2017/12/27/pythonlearn01/</url>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script>]]></content>
+      
         
     </entry>
     
@@ -131,9 +139,9 @@ If you’re not using a raw string to express the pattern, remember that Python 
             
             <tag> Linking </tag>
             
-            <tag> Regex </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Regex </tag>
             
         </tags>
         
@@ -690,12 +698,14 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <h2 id="Windows-Kernal-Exploit"><a href="#Windows-Kernal-Exploit" class="headerlink" title="Windows Kernal Exploit"></a>Windows Kernal Exploit</h2><ul>
 <li><a href="https://o0xmuhe.github.io/tags/windows-kernel/" target="_blank" rel="noopener">Windows Kernal Exploit Study(123)</a></li>
 <li><a href="https://drive.google.com/open?id=1fDz3Yt69bTrrxGd1kox6dkOoib05eV-0" target="_blank" rel="noopener">Windows Kernal Exploitation PDF</a></li>
+<li><a href="https://github.com/SecWiki/windows-kernel-exploits" target="_blank" rel="noopener">Sec Wiki Windows Kernal Exploit</a></li>
 </ul>
 <h2 id="Linux-Kernal-Exploit"><a href="#Linux-Kernal-Exploit" class="headerlink" title="Linux Kernal Exploit"></a>Linux Kernal Exploit</h2><ul>
 <li><a href="http://bobao.360.cn/learning/detail/3700.html" target="_blank" rel="noopener">【系列分享】Linux 内核漏洞利用教程（一）：环境配置</a></li>
 <li><a href="http://bobao.360.cn/learning/detail/3702.html" target="_blank" rel="noopener">【系列分享】Linux 内核漏洞利用教程（二）：两个Demo</a></li>
 <li><a href="http://bobao.360.cn/learning/detail/3706.html" target="_blank" rel="noopener">【系列分享】Linux 内核漏洞利用教程（三）：实践 CSAW CTF 题目</a></li>
 <li><a href="http://bestwing.me" target="_blank" rel="noopener">linux-kernel expoit study (1-4)</a></li>
+<li><a href="https://github.com/SecWiki/linux-kernel-exploits" target="_blank" rel="noopener">Sec Wiki Linux Kernal Exploits</a></li>
 </ul>
 <h2 id="Buffer-Overflow"><a href="#Buffer-Overflow" class="headerlink" title="Buffer Overflow"></a>Buffer Overflow</h2><ul>
 <li><a href="https://drive.google.com/open?id=1uv_ZVU6CLfh9Yt0L0rWmwMYbYd12YDR7" target="_blank" rel="noopener">Win32缓冲区溢出实战</a></li>
@@ -1442,9 +1452,9 @@ If you’re not using a raw string to express the pattern, remember that Python 
         
         <tags>
             
-            <tag> Discord </tag>
-            
             <tag> Guide </tag>
+            
+            <tag> Discord </tag>
             
         </tags>
         
@@ -1672,7 +1682,6 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="https://botw.org/" target="_blank" rel="noopener">Best of the web</a></li>
 <li><a href="http://www.pp93.com/" target="_blank" rel="noopener">PP93綠色導航</a></li>
 <li><a href="http://www.gitnavi.com/" target="_blank" rel="noopener">GitNavi.com</a></li>
-<li><a href="https://www.bidianer.com/" target="_blank" rel="noopener">筆點-簡潔自定義導航</a></li>
 <li><a href="https://www.seeseed.com/" target="_blank" rel="noopener">Seeseed-無盡設計可能</a></li>
 <li><a href="https://hi.hishare.site/" target="_blank" rel="noopener">星空導航</a></li>
 <li><a href="https://ac.hishare.site/" target="_blank" rel="noopener">動漫風導航</a></li>
@@ -1686,9 +1695,14 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="http://mdwhat.com/home/index/0/common" target="_blank" rel="noopener">魔導網</a></li>
 <li><a href="http://secnav.dropsec.xyz/" target="_blank" rel="noopener">DROPS安全導航</a></li>
 </ul>
-<h1 id="0x06-加入群組"><a href="#0x06-加入群組" class="headerlink" title="0x06 加入群組"></a>0x06 加入群組</h1><p>待更新</p>
-<h1 id="0x07-更換VPN"><a href="#0x07-更換VPN" class="headerlink" title="0x07 更換VPN"></a>0x07 更換VPN</h1><p>待更新</p>
-<h1 id="0x08-最終手段-踏入暗網"><a href="#0x08-最終手段-踏入暗網" class="headerlink" title="0x08 最終手段:踏入暗網"></a>0x08 最終手段:踏入暗網</h1><h1 id="0x09-參考資料"><a href="#0x09-參考資料" class="headerlink" title="0x09 參考資料"></a>0x09 參考資料</h1><p><a href="https://www.zhihu.com/question/28013848" target="_blank" rel="noopener">https://www.zhihu.com/question/28013848</a><br><a href="http://www.sowang.com/seek.htm" target="_blank" rel="noopener">http://www.sowang.com/seek.htm</a><br><a href="http://blog.joaoko.net/archives/222" target="_blank" rel="noopener">http://blog.joaoko.net/archives/222</a><br><a href="https://www.0101tx.com/about/" target="_blank" rel="noopener">https://www.0101tx.com/about/</a></p>
+<h1 id="0x06-個人自定義導航網站"><a href="#0x06-個人自定義導航網站" class="headerlink" title="0x06 個人自定義導航網站"></a>0x06 個人自定義導航網站</h1><ul>
+<li><a href="https://www.betterso.com/" target="_blank" rel="noopener">善用搜索</a></li>
+<li><a href="https://www.bidianer.com/" target="_blank" rel="noopener">筆點-簡潔自定義導航</a></li>
+<li><a href="http://www.miguyu.com" target="_blank" rel="noopener">咪咕魚</a></li>
+</ul>
+<h1 id="0x07-加入群組"><a href="#0x07-加入群組" class="headerlink" title="0x07 加入群組"></a>0x07 加入群組</h1><p>待更新</p>
+<h1 id="0x08-更換VPN"><a href="#0x08-更換VPN" class="headerlink" title="0x08 更換VPN"></a>0x08 更換VPN</h1><p>待更新</p>
+<h1 id="0x09-最終手段-踏入暗網"><a href="#0x09-最終手段-踏入暗網" class="headerlink" title="0x09 最終手段:踏入暗網"></a>0x09 最終手段:踏入暗網</h1><h1 id="0x10-參考資料"><a href="#0x10-參考資料" class="headerlink" title="0x10 參考資料"></a>0x10 參考資料</h1><p><a href="https://www.zhihu.com/question/28013848" target="_blank" rel="noopener">https://www.zhihu.com/question/28013848</a><br><a href="http://www.sowang.com/seek.htm" target="_blank" rel="noopener">http://www.sowang.com/seek.htm</a><br><a href="http://blog.joaoko.net/archives/222" target="_blank" rel="noopener">http://blog.joaoko.net/archives/222</a><br><a href="https://www.0101tx.com/about/" target="_blank" rel="noopener">https://www.0101tx.com/about/</a></p>
 ]]></content>
       
         <categories>
@@ -1881,9 +1895,9 @@ If you’re not using a raw string to express the pattern, remember that Python 
         
         <tags>
             
-            <tag> Guide </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> Guide </tag>
             
             <tag> Steganography </tag>
             
@@ -2054,9 +2068,9 @@ If you’re not using a raw string to express the pattern, remember that Python 
         
         <tags>
             
-            <tag> Guide </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> Guide </tag>
             
         </tags>
         
