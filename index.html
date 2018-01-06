@@ -516,7 +516,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  112
+                  130
                 </span>
               
 
@@ -599,7 +599,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/12/27/pythonlearn01/">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2018/01/02/writegreatpycode01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Milo">
@@ -618,7 +618,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/27/pythonlearn01/" itemprop="url">pythonlearn01</a></h2>
+                <a class="post-title-link" href="/2018/01/02/writegreatpycode01/" itemprop="url">寫出優雅的Python代碼Part1 - Structuring Your Project</a></h2>
         
 
         <div class="post-meta">
@@ -630,8 +630,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-27T12:14:25+08:00">
-                2017-12-27
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-01-02T00:45:58+08:00">
+                2018-01-02
               </time>
             
 
@@ -641,6 +641,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -649,9 +671,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/27/pythonlearn01/#comments" itemprop="discussionUrl">
+                <a href="/2018/01/02/writegreatpycode01/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/27/pythonlearn01/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/02/writegreatpycode01/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -659,7 +681,7 @@
 
           
           
-             <span id="/2017/12/27/pythonlearn01/" class="leancloud_visitors" data-flag-title="pythonlearn01">
+             <span id="/2018/01/02/writegreatpycode01/" class="leancloud_visitors" data-flag-title="寫出優雅的Python代碼Part1 - Structuring Your Project">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -686,7 +708,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  0
+                  948
                 </span>
               
 
@@ -713,8 +735,626 @@
       
         
           
-            <script src="\assets\js\APlayer.min.js"> </script>
+            <script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-Introduction"><a href="#0x01-Introduction" class="headerlink" title="0x01 Introduction"></a>0x01 Introduction</h1><p>The word ‘Sturcture’ here means how the files and folders are organized in the file system. What are the most important files should put in your project and why you need them. By understand this, you may find the best way to organise your codes and other related files effectively. </p>
+<p>In this section, I will going to show some of the point you can concern when you are structing your project.</p>
+<h1 id="0x02-Structure-of-Repository"><a href="#0x02-Structure-of-Repository" class="headerlink" title="0x02 Structure of Repository."></a>0x02 Structure of Repository.</h1><p>Repository is the first thing you need to concern. When other people see your repository’s page they need to understand what is your project about and how to use it and so on. Hence, you should put a “README” file in your repository to help others understand your project better. Usually, “README” should also include enough details to help a new user get started, e.g. how to compile, how to install, and how to start integrating.</p>
+<p>A good readme file for your project can have the following informations:</p>
+<ul>
+<li>Project Titile: A little info about your project and/ or overview that explains what the project is about.</li>
+<li>Motivation: Explain why you want to create this project.</li>
+<li>Build Status: This is to maintain the further integration.</li>
+<li>Screenshots: How’s does it look like, when your program is running.</li>
+<li>Tech/framework used:Telling others the framework can give an idea for them to build similar project or even develop a better project based on this project.</li>
+<li>Features: What your projet can do or help other finish their task?</li>
+<li>Code Example: Giving some example can let people understand the coding process on how you develope your project.</li>
+<li>Installation: This is the moset important part, you should teach your user on how to install it, if not they might even cant start using it.</li>
+<li>API Reference: A quick and concise reference containing what you need to know to use a library or work with a program. It details functions, classes, return types, and more.</li>
+<li>How to use: Telling user the best and right way to run your project</li>
+<li>Contribute: If you want people contribute your project, you can include this section.</li>
+<li>Credits: You can link to any post, people,tutorial that help you develope and contribute this project.  </li>
+<li>License: Including a proper software license can tells others what they can and can’t do with your project</li>
+</ul>
+<p>One thing you should remember, it is not nessecry to inlude all the above information in your “README”. As longs as you can point out the main things that a user should know about project is enough, for the rest of the full details information you can put under your documentation or wiki.</p>
+<p>Here are some guideline as well for writing a good “README”.</p>
+<ul>
+<li><a href="https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3" target="_blank" rel="noopener">Beginners Guide to writing a Kickass README</a></li>
+<li><a href="http://tom.preston-werner.com/2010/08/23/readme-driven-development.html" target="_blank" rel="noopener">Readme Driven Development</a></li>
+<li><a href="https://github.com/noffle/art-of-readme" target="_blank" rel="noopener">Art of Readme</a></li>
+</ul>
+<h2 id="Sample-Repository"><a href="#Sample-Repository" class="headerlink" title="Sample Repository"></a>Sample Repository</h2><p>Next, I will give an example of a python project repository.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">README.rst</div><div class="line">LICENSE</div><div class="line">setup.py</div><div class="line">requirements.txt</div><div class="line">sample/__init__.py</div><div class="line">sample/core.py</div><div class="line">sample/helpers.py</div><div class="line">docs/conf.py</div><div class="line">docs/index.rst</div><div class="line">tests/test_basic.py</div><div class="line">tests/test_advanced.py</div></pre></td></tr></table></figure>
+<h2 id="sample-py-or-sample"><a href="#sample-py-or-sample" class="headerlink" title="./sample.py or ./sample"></a>./sample.py or ./sample</h2><p>Purpose: code of intrest. The source code that you use in your project.</p>
+<h2 id="Setup-py"><a href="#Setup-py" class="headerlink" title="Setup.py"></a>Setup.py</h2><p><code>setup.py</code> is a python file, which usually tells you that the module/package you are about to install has been packaged and distributed with Distutils, which is the standard for distributing Python Modules. For more details, you can check <a href="https://github.com/kennethreitz/setup.py" target="_blank" rel="noopener">here</a></p>
+<h2 id="requirements-txt"><a href="#requirements-txt" class="headerlink" title="./requirements.txt"></a>./requirements.txt</h2><p>A <a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files" target="_blank" rel="noopener">pip requirements file</a> should be placed at the root of the repository. It should specify the dependencies required to contribute to the project: testing, building, and generating documentation.</p>
+<p>If your project has no development dependencies, or you prefer development environment setup via setup.py, this file may be unnecessary.</p>
+<h2 id="docs"><a href="#docs" class="headerlink" title="./docs"></a>./docs</h2><p>This is the place to put your documentation of your project.</p>
+<h2 id="test-basic-py-or-test-advance-py"><a href="#test-basic-py-or-test-advance-py" class="headerlink" title="./test_basic.py or./test_advance.py"></a>./test_basic.py or./test_advance.py</h2><p>Purpose: Package integration and unit tests.</p>
+<p>Starting out, a small test suite will often exist in a single file:</p>
+<p><code>./test_sample.py</code></p>
+<p>Once a test suite grows, you can move your tests to a directory, like so:</p>
+<p><code>tests/test_basic.py</code><br><code>tests/test_advanced.py</code></p>
+<p>In order to prevent keep importing the pakage modules whenever you are doing a testing, you can do it in this way.<br>Create a file call <code>tests/context.py</code>. This file allows you to modify the path for resolving the packaging issue.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="comment"># set absolute path.</span></div><div class="line">sys.path.insert(<span class="number">0</span>, os.path.abspath(os.path.join(os.path.dirname(__file__), <span class="string">'..'</span>)))</div><div class="line"></div><div class="line"><span class="keyword">import</span> sample</div></pre></td></tr></table></figure>
+<p>Fianally, what you need to do is just add one line in each of your test.py. After that you can skip install the dependencies or pakage modules.<br><code>from .context import sample</code></p>
+<h2 id="Makefile"><a href="#Makefile" class="headerlink" title=".Makefile"></a>.Makefile</h2><p>Purpose: Defining generic tasks for your project.</p>
+<p>A good makefile allow you to define the rules for your python file like which file need to pre-compile, recompile or even you can execute the shell script by using a makefile. The best part of using a makefile is to automate your code running. Once you done making your makefile, you only need to use the make command and easily run tests on your project.</p>
+<p>Sample of Python makefile</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">.PHONY: <span class="built_in">test</span> upload clean bootstrap</div><div class="line"></div><div class="line"><span class="built_in">test</span>:</div><div class="line">	sh -c <span class="string">'. _virtualenv/bin/activate; nosetests tests'</span></div><div class="line"></div><div class="line"><span class="built_in">test</span>-all:</div><div class="line">	tox</div><div class="line"></div><div class="line">upload: <span class="built_in">test</span>-all</div><div class="line">	python setup.py sdist bdist_wheel upload</div><div class="line">	make clean</div><div class="line">	</div><div class="line">register:</div><div class="line">	python setup.py register</div><div class="line"></div><div class="line">clean:</div><div class="line">	rm -f MANIFEST</div><div class="line">	rm -rf build dist</div><div class="line">	</div><div class="line">bootstrap: _virtualenv</div><div class="line">	_virtualenv/bin/pip install -e .</div><div class="line">ifneq ($(wildcard <span class="built_in">test</span>-requirements.txt),) </div><div class="line">	_virtualenv/bin/pip install -r <span class="built_in">test</span>-requirements.txt</div><div class="line">endif</div><div class="line">	make clean</div><div class="line"></div><div class="line">_virtualenv: </div><div class="line">	virtualenv _virtualenv</div><div class="line">	_virtualenv/bin/pip install --upgrade pip</div><div class="line">_virtualenv/bin/pip install --upgrade setuptools</div></pre></td></tr></table></figure>
+<p>Learn more about makefile.</p>
+<ul>
+<li><a href="https://krzysztofzuraw.com/blog/2016/makefiles-in-python-projects.html" target="_blank" rel="noopener">Makefiles in python projects</a></li>
+<li><a href="https://www.tianmaying.com/tutorial/makefile" target="_blank" rel="noopener">Makefile入門</a></li>
+<li><a href="https://www.gnu.org/software/make/manual/make.html#toc-Overview-of-make" target="_blank" rel="noopener">GNU Make Documentation</a></li>
+<li><a href="https://drive.google.com/open?id=1Uv6fMD9MZiBIDp1RNOQkszZJxZpMMi6V" target="_blank" rel="noopener">GNU Make 3.8中文指南</a></li>
+</ul>
+<h1 id="0x03-Structure-of-Code-is-Key"><a href="#0x03-Structure-of-Code-is-Key" class="headerlink" title="0x03 Structure of Code is Key"></a>0x03 Structure of Code is Key</h1>
           
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2018/01/01/GDB-tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/milo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子能量塔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/01/GDB-tutorial/" itemprop="url">GDB調試工具指南</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-01-01T19:31:38+08:00">
+                2018-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learning-Guide/" itemprop="url" rel="index">
+                    <span itemprop="name">Learning Guide</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/01/GDB-tutorial/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/01/01/GDB-tutorial/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/01/GDB-tutorial/" class="leancloud_visitors" data-flag-title="GDB調試工具指南">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字數統計&#58;</span>
+                
+                <span title="字數統計">
+                  7
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <script src="\assets\js\APlayer.min.js"> </script><p>GDB就是用来調試。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/12/29/op3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/milo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子能量塔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/29/op3/" itemprop="url">深入理解計算機第三章筆記</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-29T18:13:24+08:00">
+                2017-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deep-Understanding-of-Operating-System/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Understanding of Operating System</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/29/op3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/29/op3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/29/op3/" class="leancloud_visitors" data-flag-title="深入理解計算機第三章筆記">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字數統計&#58;</span>
+                
+                <span title="字數統計">
+                  257
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <script src="\assets\js\APlayer.min.js"> </script><p>深入理解計算機第三章筆記<br><figure class="highlight llvm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">multstore:</div><div class="line">	pushq <span class="symbol">%rbx</span></div><div class="line">	movq  <span class="symbol">%rdx</span>,<span class="symbol">%rbx</span></div><div class="line">	<span class="keyword">call</span>  mult<span class="number">2</span></div><div class="line">	movq  <span class="symbol">%rax</span>,(<span class="symbol">%rbx</span>)</div><div class="line">	popq  <span class="symbol">%rbx</span></div><div class="line">	<span class="keyword">ret</span></div></pre></td></tr></table></figure></p>
+<p>匯編代碼解釋<br><code>pushq %rbx</code>將寄存器rbx的內容放入程序棧</p>
+<p><code>objdump -d mstore.o</code><br>可查看機械代碼文件內容</p>
+<p>代碼範例2<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">multstore</span><span class="params">(<span class="keyword">long</span>,<span class="keyword">long</span>,<span class="keyword">long</span> *)</span></span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">long</span> d;</div><div class="line">	mulrstore(<span class="number">2</span>,<span class="number">3</span>, %d);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"2 *3 --&gt; %ld\n"</span>,d);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">long</span> <span class="title">mult2</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span></span>&#123;</div><div class="line">	<span class="keyword">long</span> s = a * b;</div><div class="line">	<span class="keyword">return</span> s;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>gcc -Og -o prog main.c mstore.c</code></p>
+<p>2大規則For生成小於8字節結果的指令<br>生成1字節和2字節的指令會保持，剩下的字節不會改變。<br>生成4字節數字的指令會把高位4個字節變0.</p>
+<p>RSP - 指明棧運行時結束位置。</p>
+<p>操作數<br>1.立即數(Immediate) - $ + 整數 例子$-577 /$0x1F等等<br>2.寄存器 - RAX,RBX,RCX…RIP等等  ra表示任意寄存器a，而R[ra]表示它的值，看成一個數組R，用寄存器標識符作為索引<br>3.內存引用 - 用Mb[Addr]表示對儲存在內存裡面</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/12/27/pythonlearn01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/milo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子能量塔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/27/pythonlearn01/" itemprop="url">Python數據結構-列表，元組，字典，集合</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-27T12:14:25+08:00">
+                2017-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/27/pythonlearn01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/27/pythonlearn01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/27/pythonlearn01/" class="leancloud_visitors" data-flag-title="Python數據結構-列表，元組，字典，集合">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字數統計&#58;</span>
+                
+                <span title="字數統計">
+                  749
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="0x01-列表"><a href="#0x01-列表" class="headerlink" title="0x01 列表"></a>0x01 列表</h1><p>用來保存一系列有序項目的集合。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/27/pythonlearn01/" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1507,7 +2147,7 @@ If you’re not using a raw string to express the pattern, remember that Python 
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  854
+                  1,158
                 </span>
               
 
@@ -1777,575 +2417,6 @@ If you’re not using a raw string to express the pattern, remember that Python 
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/12/05/sans2016HHC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Milo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/milo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="量子能量塔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/05/sans2016HHC/" itemprop="url">2016 SANS Holiday Hack Challenge Writeups</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-05T14:26:39+08:00">
-                2017-12-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Writeups/" itemprop="url" rel="index">
-                    <span itemprop="name">Writeups</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/05/sans2016HHC/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/05/sans2016HHC/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/12/05/sans2016HHC/" class="leancloud_visitors" data-flag-title="2016 SANS Holiday Hack Challenge Writeups">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">閱讀次數&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字數統計&#58;</span>
-                
-                <span title="字數統計">
-                  1,886
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="SANS2016HHC"><a href="#SANS2016HHC" class="headerlink" title="SANS2016HHC"></a>SANS2016HHC</h1><p>This is the writeup on how I solve the 2016 SANS Holiday Hack Challege</p>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>故事發生在一個夜深人靜的晚上，喬斯(Josh Doise)和傑西卡(Jessica Doise)在睡覺的時候聽到聖誕老人竟然出現在他們家裡的聲音。但正當他們決定要去看看聖誕老人的真面目時，發生了一些十分奇怪的事情，一陣禮物被撕破的聲音從他們家樓下傳出來。他們還聽到尖銳的打鬥聲，很可惜的是，在他們去到樓下時候，聖誕老人已經不見了，只見到家裡一片混亂，家裡的聖誕樹還甚至被劈開一半呢。為了調查事件的發生你們將開始一段新的冒險。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/05/sans2016HHC/" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/12/02/hexomarkdown/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Milo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/milo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="量子能量塔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/02/hexomarkdown/" itemprop="url">Hexo世界裡靈活運用Markdown和html不是夢</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-02T20:16:10+08:00">
-                2017-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning-Guide/" itemprop="url" rel="index">
-                    <span itemprop="name">Learning Guide</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/02/hexomarkdown/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/02/hexomarkdown/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/12/02/hexomarkdown/" class="leancloud_visitors" data-flag-title="Hexo世界裡靈活運用Markdown和html不是夢">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">閱讀次數&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字數統計&#58;</span>
-                
-                <span title="字數統計">
-                  140
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Markdown是一種輕量級的標記語言，其用簡單的標記語法便可達到排版的目的，其可以使我們更加專注於內容的編寫，而不需過多關注排版。本文主要整理了 Markdown中的常用的標記語法，以便自己與他人以後查用。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/02/hexomarkdown/" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/11/29/charencoding/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Milo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/milo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="量子能量塔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/29/charencoding/" itemprop="url">字符集(Charcater Set)與字符編碼(Encoding)</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-11-29T03:42:27+08:00">
-                2017-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Binary-Security/" itemprop="url" rel="index">
-                    <span itemprop="name">Binary Security</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/11/29/charencoding/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/11/29/charencoding/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/11/29/charencoding/" class="leancloud_visitors" data-flag-title="字符集(Charcater Set)與字符編碼(Encoding)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">閱讀次數&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字數統計&#58;</span>
-                
-                <span title="字數統計">
-                  288
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="0x01-基礎知識"><a href="#0x01-基礎知識" class="headerlink" title="0x01 基礎知識"></a>0x01 基礎知識</h1><p>在了解編碼是怎麼一回事之前，我們必須要先知道2個概念，那就是位和字節。位(bit)是指電腦裡面存放的二進制數值=0或者1。而只要有8個位便可稱之為字節(byte)。例子：01000001，在16進制裡面，這個字節=0x41。</p>
-<p>字符編碼的意思是電腦會使用某種規則將平時我們日常生活中會用到的一些文字/符號轉換成電腦可以讀取的二進制數字進行相互的轉換。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/29/charencoding/" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2402,7 +2473,7 @@ If you’re not using a raw string to express the pattern, remember that Python 
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -2424,7 +2495,7 @@ If you’re not using a raw string to express the pattern, remember that Python 
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -2578,7 +2649,7 @@ show_date_time();
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="heart">
     <i class="fa fa-heart"></i>
   </span>
@@ -2592,7 +2663,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">23.0k</span>
+    <span title="Site words total count">25.3k</span>
   
 </div>
 
