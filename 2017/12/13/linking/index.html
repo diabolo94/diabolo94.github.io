@@ -148,7 +148,7 @@
 <meta property="og:image" content="https://s9.postimg.org/uw9oztkgf/sectionheader.jpg">
 <meta property="og:image" content="https://s9.postimg.org/o735jmjn3/Simple1.jpg">
 <meta property="og:image" content="https://s9.postimg.org/51zw9xa4v/Simple2.jpg">
-<meta property="og:updated_time" content="2017-12-24T06:54:20.425Z">
+<meta property="og:updated_time" content="2018-01-07T09:02:08.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解計算機第七章筆記-鏈接">
 <meta name="twitter:description" content="何為鏈接鏈接就是將不一樣部分的代碼和數據收集，然後再合成一個單一的文件，該文件可以被載入到內存並且被執行。鏈接可以在編譯時、載入時或運行時執行。">
@@ -422,7 +422,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Milo">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/milo.jpg">
+      <meta itemprop="image" content="/images/privateinvestocat.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -529,7 +529,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  3,930
+                  4,271
                 </span>
               
 
@@ -934,9 +934,33 @@
 <blockquote>
 <p>.debug</p>
 </blockquote>
-<p>調校符號表，以 -g 選項編譯時得到。包含如定義的局部變數和類型定義，定義和引用的全局變數，原始的C源文件。</p>
-<p>.line：原始的C源文件中的行號和.text節中機器指令之間的映射，以 -g 選項編譯時得到。</p>
-<p>.strtab：字串表，是以 null 結尾的字串序列，包含.symtab和.debug節中的符號表，節頭部中的節名字。</p>
+<p>調校符號表，以<code>-g</code>選項編譯時得到。包含如定義的局部變數和類型定義，定義和引用的全局變數，原始的C源文件。</p>
+<blockquote>
+<p>.line</p>
+</blockquote>
+<p>原始的C源文件中的行號和.text節中機器指令之間的映射，以<code>-g</code>選項編譯時得到。</p>
+<blockquote>
+<p>.strtab</p>
+</blockquote>
+<p>字串表，是以null結尾的字串序列，包含.symtab和.debug節中的符號表，節頭部中的節名字。</p>
+<blockquote>
+<p>.line</p>
+</blockquote>
+<p>原始的C源文件中的行號和.text節中機器指令之間的映射，以<code>-g</code>選項編譯時得到。</p>
+<blockquote>
+<p>.strtab</p>
+</blockquote>
+<p>字符串表，是以null結尾的字符串序列，包含<code>.symtab</code>和<code>.debug</code>節中的符號表，節頭部中的節名字。</p>
+<h3 id="符號和符號表"><a href="#符號和符號表" class="headerlink" title="符號和符號表"></a>符號和符號表</h3><p>有3種符號：</p>
+<ul>
+<li>可重定位目標模塊定義並能被其他模塊引用的全局符號，對應於非靜態屬性的C函數和全局變量。</li>
+<li>其他模塊定義並被當前模塊引用的全局符號，稱為外部符號，對應於定義在其他模塊的非静态C函數和全局變量。</li>
+<li>只被當前模塊定義和引用的本地符號(局部符号)，對應於有靜態屬性的C函數和全局變量。</li>
+</ul>
+<p>符號表是匯編器構造的，它是一個包含了以下條目的數組。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></div><div class="line">    <span class="keyword">int</span> name; <span class="comment">/* String table offset */</span></div><div class="line">    <span class="keyword">char</span> type:<span class="number">4</span>, <span class="comment">/* Function or data */</span></div><div class="line">         binding:<span class="number">4</span>; <span class="comment">/* Local or global */</span></div><div class="line">    <span class="keyword">char</span> reserverd; <span class="comment">/* Unused */</span></div><div class="line">    <span class="keyword">short</span> section; <span class="comment">/* Section hearder index */</span></div><div class="line">    <span class="keyword">long</span> value; <span class="comment">/* Section offset or absolute address */</span></div><div class="line">    <span class="keyword">long</span> size;  <span class="comment">/* Object Size in bytes*/</span></div><div class="line">    &#125; Elf64_Symbol;</div></pre></td></tr></table></figure></p>
+<p>/<em> Symbol table entry.  </em>/</p>
+<p>typedef struct<br>{<br>  Elf32_Word    st_name;        /<em> Symbol name (string tbl index) </em>/<br>  Elf32_Addr    st_value;        /<em> Symbol value </em>/<br>  Elf32_Word    st_size;        /<em> Symbol size </em>/<br>  unsigned char    st_info;        /<em> Symbol type and binding </em>/<br>  unsigned char    st_other;        /<em> Symbol visibility </em>/<br>  Elf32_Section    st_shndx;        /<em> Section index </em>/<br>} Elf32_Sym;</p>
+<p>typedef struct<br>{<br>  Elf64_Word    st_name;        /<em> Symbol name (string tbl index) </em>/<br>  unsigned char    st_info;        /<em> Symbol type and binding </em>/<br>  unsigned char st_other;        /<em> Symbol visibility </em>/<br>  Elf64_Section    st_shndx;        /<em> Section index </em>/<br>  Elf64_Addr    st_value;        /<em> Symbol value </em>/<br>  Elf64_Xword    st_size;        /<em> Symbol size </em>/<br>} Elf64_Sym;</p>
 
       
     </div>
@@ -1087,7 +1111,7 @@
             
               <a href="/" class="site-author-image" rel="start" style="border:none">
                 <img class="site-author-image" itemprop="image"
-                    src="/images/milo.jpg"
+                    src="/images/privateinvestocat.jpg"
                     alt="Milo" />
               </a>
             
@@ -1102,7 +1126,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -1113,7 +1137,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -1124,7 +1148,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -1274,7 +1298,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#何為鏈接"><span class="nav-number">1.</span> <span class="nav-text">何為鏈接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目標文件"><span class="nav-number">2.</span> <span class="nav-text">目標文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#可重定位目標文件之ELF文件格式"><span class="nav-number">2.1.</span> <span class="nav-text">可重定位目標文件之ELF文件格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Elf頭部"><span class="nav-number">2.1.1.</span> <span class="nav-text">Elf頭部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ELF頭部成員"><span class="nav-number">2.1.2.</span> <span class="nav-text">ELF頭部成員</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elf程序頭-Program-Header"><span class="nav-number">2.1.3.</span> <span class="nav-text">Elf程序頭(Program Header)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elf程序頭成員"><span class="nav-number">2.1.4.</span> <span class="nav-text">Elf程序頭成員</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#段權限"><span class="nav-number">2.1.5.</span> <span class="nav-text">段權限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#節頭部表"><span class="nav-number">2.1.6.</span> <span class="nav-text">節頭部表</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#何為鏈接"><span class="nav-number">1.</span> <span class="nav-text">何為鏈接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目標文件"><span class="nav-number">2.</span> <span class="nav-text">目標文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#可重定位目標文件之ELF文件格式"><span class="nav-number">2.1.</span> <span class="nav-text">可重定位目標文件之ELF文件格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Elf頭部"><span class="nav-number">2.1.1.</span> <span class="nav-text">Elf頭部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ELF頭部成員"><span class="nav-number">2.1.2.</span> <span class="nav-text">ELF頭部成員</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elf程序頭-Program-Header"><span class="nav-number">2.1.3.</span> <span class="nav-text">Elf程序頭(Program Header)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elf程序頭成員"><span class="nav-number">2.1.4.</span> <span class="nav-text">Elf程序頭成員</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#段權限"><span class="nav-number">2.1.5.</span> <span class="nav-text">段權限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#節頭部表"><span class="nav-number">2.1.6.</span> <span class="nav-text">節頭部表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符號和符號表"><span class="nav-number">2.1.7.</span> <span class="nav-text">符號和符號表</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1308,7 +1332,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">25.3k</span>
+    <span title="Site words total count">28.8k</span>
   
 </div>
 

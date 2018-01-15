@@ -119,7 +119,7 @@
 
 
 
-  <meta name="keywords" content="量子能量塔,資安部落格,克蘇魯7版規則,博客,diabolo94" />
+  <meta name="keywords" content="Guide,Note,Assembly Language,PWN," />
 
 
 
@@ -132,16 +132,22 @@
 
 
 
-<meta name="description" content="塔內高能！非黑客人員請火速撤離！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="量子能量塔">
-<meta property="og:url" content="https://diabolo94.github.io/categories/Binary-Security/index.html">
+<meta name="description" content="0x01 前言PWN知識全制霸這系列是為了教導大家如何從一個PWN萌新成為佼佼者那樣的大佬。那麼是什麼是PWN呢？PWN就是利用各種漏洞攻擊系統主機從而獲得系統管理員的權限。">
+<meta name="keywords" content="Guide,Note,Assembly Language,PWN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PWN知識全制霸系列Part 1-1 匯編語言：基礎知識">
+<meta property="og:url" content="https://diabolo94.github.io/2018/01/11/learn-all-pwn/index.html">
 <meta property="og:site_name" content="量子能量塔">
-<meta property="og:description" content="塔內高能！非黑客人員請火速撤離！">
+<meta property="og:description" content="0x01 前言PWN知識全制霸這系列是為了教導大家如何從一個PWN萌新成為佼佼者那樣的大佬。那麼是什麼是PWN呢？PWN就是利用各種漏洞攻擊系統主機從而獲得系統管理員的權限。">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://s10.postimg.org/gqlv0k0ix/byte.jpg">
+<meta property="og:image" content="https://s10.postimg.org/j97k17byh/as-cpu-read.gif">
+<meta property="og:image" content="https://s10.postimg.org/651zolzd5/as-cpu-write.gif">
+<meta property="og:updated_time" content="2018-01-12T10:31:14.929Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="量子能量塔">
-<meta name="twitter:description" content="塔內高能！非黑客人員請火速撤離！">
+<meta name="twitter:title" content="PWN知識全制霸系列Part 1-1 匯編語言：基礎知識">
+<meta name="twitter:description" content="0x01 前言PWN知識全制霸這系列是為了教導大家如何從一個PWN萌新成為佼佼者那樣的大佬。那麼是什麼是PWN呢？PWN就是利用各種漏洞攻擊系統主機從而獲得系統管理員的權限。">
+<meta name="twitter:image" content="https://s10.postimg.org/gqlv0k0ix/byte.jpg">
 
 
 
@@ -171,7 +177,7 @@
 
 
 
-  <link rel="canonical" href="https://diabolo94.github.io/categories/Binary-Security/"/>
+  <link rel="canonical" href="https://diabolo94.github.io/2018/01/11/learn-all-pwn/"/>
 
 
 
@@ -214,7 +220,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -392,100 +398,302 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>Binary Security<small>分類</small>
-        </h2>
-      </div>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2018/01/11/learn-all-pwn/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/privateinvestocat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子能量塔">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h2 class="post-title" itemprop="name headline">PWN知識全制霸系列Part 1-1 匯編語言：基礎知識</h2>
         
 
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-01-11T03:41:16+08:00">
+                2018-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PWN-Knowledge/" itemprop="url" rel="index">
+                    <span itemprop="name">PWN Knowledge</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/11/learn-all-pwn/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/01/11/learn-all-pwn/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/11/learn-all-pwn/" class="leancloud_visitors" data-flag-title="PWN知識全制霸系列Part 1-1 匯編語言：基礎知識">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字數統計&#58;</span>
+                
+                <span title="字數統計">
+                  1,627
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
         </div>
-      
-      
-        
+      </header>
+    
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/10/utimatebinary/" itemprop="url">
-              
-                <span itemprop="name">Binary學習終極指南</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-10T12:17:20+08:00"
-              content="2017-12-10" >
-          12-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-        
-        
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
-        
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/29/charencoding/" itemprop="url">
-              
-                <span itemprop="name">字符集(Charcater Set)與字符編碼(Encoding)</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-29T03:42:27+08:00"
-              content="2017-11-29" >
-          11-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h1><p>PWN知識全制霸這系列是為了教導大家如何從一個PWN萌新成為佼佼者那樣的大佬。那麼是什麼是PWN呢？PWN就是利用各種漏洞攻擊系統主機從而獲得系統管理員的權限。<a id="more"></a></p>
+<p>而Part 1就是一些你們得懂的匯編基本和常用到的知識。</p>
+<h2 id="我能在這系列的的教學到什麼？"><a href="#我能在這系列的的教學到什麼？" class="headerlink" title="我能在這系列的的教學到什麼？"></a>我能在這系列的的教學到什麼？</h2><ul>
+<li>x86 &amp; x86-64的匯編語言。</li>
+<li>程序常用的保護機制：CANNARY，FORTIFY，NX（DEP），PIE（ASLR），RELRO等等  </li>
+<li>各種Pwn工具的應用：Pwntools，GDB，checksec，IDA Pro，Peda等等。</li>
+<li>Pwn類型Wargame/CTF題目的應對方式與解答。</li>
+<li>ELF和PE文件格式。</li>
+<li>程序執行，加載和鏈接詳解。</li>
+<li>各種二進制漏洞：栈溢出，堆溢出，返回導向編程(ROP)，格式化字符串漏洞，整數溢出等等。</li>
+<li>其他大佬的在挖掘漏洞以及利用Pwn的思路。</li>
+</ul>
+<h1 id="0x02-基礎知識"><a href="#0x02-基礎知識" class="headerlink" title="0x02 基礎知識"></a>0x02 基礎知識</h1><p>本文參考：王爽-匯編語言第三版</p>
+<p>機械語言是機械指令的集合。<br>例子指令： <code>01010000 (PUSH AX)</code> 左部分為機械語言括號裡面則是所謂的匯編語言。</p>
+<p>匯編語言就是能在硬件上直接工作的編程語言。而匯編語言的出現是為了讓人們用容易理解的方式去表達出機器指令代表的意思。雖然電腦只能讀懂0和1，然而，通過編譯器，我們輸入的匯編語言最終會轉譯成電腦所理解的機械語言。</p>
+<p>由3種匯編指令：匯編指令，偽指令和其他符號。</p>
+<ul>
+<li>匯編指令：mov,add,sub….等等</li>
+<li>偽指令：偽指令是對匯編起某種控制作用的特殊命令，其格式與通常的操作指令一樣，並可加在彙編程序的任何地方，但它們並不產生機器指令。</li>
+<li>符號：例如運輸符號加減乘除，邏輯符號等等。</li>
+</ul>
+<h2 id="存储器-寄存器"><a href="#存储器-寄存器" class="headerlink" title="存储器(寄存器)"></a>存储器(寄存器)</h2><p>也平常大家所說的內存，用來存放指令和需要運算的數據。</p>
+<h2 id="存儲單元"><a href="#存儲單元" class="headerlink" title="存儲單元"></a>存儲單元</h2><p>存儲器能被劃分成幾個單元，每個存儲器單元從0開始順序編號，如一個存儲器有128個存儲單元，編號從0到127微型機存儲器的存儲單元可以存儲一個Byte（1位元組=8bit，即8個二進位）。含有128個存儲單元的存儲器可以存儲128個Byte。</p>
+<p><img src="https://s10.postimg.org/gqlv0k0ix/byte.jpg" alt=""></p>
+<h2 id="讀寫存储器數據"><a href="#讀寫存储器數據" class="headerlink" title="讀寫存储器數據"></a>讀寫存储器數據</h2><p>CPU要從讀寫數據的需要知道存儲單元所在的地址，到底指明的是哪一個存儲器，進行怎樣的操作。而它會和電腦裡面的芯片進行以下3種的信息交互。</p>
+<ul>
+<li>存儲單元的地址(地址信息) 走地址總線</li>
+<li>器件的選擇,讀取還是寫入命令(控制信息) 走控制總線</li>
+<li>讀或寫的數據(數據信息) 走數據總線</li>
+</ul>
+<h3 id="CPU從3號地址讀取數據8的過程"><a href="#CPU從3號地址讀取數據8的過程" class="headerlink" title="CPU從3號地址讀取數據8的過程"></a>CPU從3號地址讀取數據8的過程</h3><p><img src="https://s10.postimg.org/j97k17byh/as-cpu-read.gif" alt=""></p>
+<p>1.CPU透過地址線發出地址訊息3。<br>2.CPU通過控制線發出記憶體讀命令，選中存儲器晶片，並通知它，將要從中讀取數據。<br>3.存儲器將3號單元中的數據8通過傳輸線送入CPU。</p>
+<h3 id="CPU將數據26寫入3號地址的過程"><a href="#CPU將數據26寫入3號地址的過程" class="headerlink" title="CPU將數據26寫入3號地址的過程"></a>CPU將數據26寫入3號地址的過程</h3><p><img src="https://s10.postimg.org/651zolzd5/as-cpu-write.gif" alt=""></p>
+<p>1.CPU透過地址線發出地址訊息3。<br>2.CPU通過控制線發出記憶體命令，選中存儲器晶片，並通知它，要想其中寫入數據。<br>3.CPU透過傳輸線將數據26送入記憶體的3號單元中。</p>
+<h2 id="地址總線"><a href="#地址總線" class="headerlink" title="地址總線"></a>地址總線</h2><blockquote>
+<p>CPU通過地址總線來指定存儲器單元。地址總線上能傳送多少個不同的信息，CPU就可以對多少個存儲單元進行尋址。<br>一個CPU有N根地址線，則可以說這個CPU的地址總線的寬度為N。這樣的CPU最多可以尋找 $ \ 2^N \ $ 個內存單元.</p>
+</blockquote>
+<p>決定了CPU的尋址能力。</p>
+<h2 id="數據總線"><a href="#數據總線" class="headerlink" title="數據總線"></a>數據總線</h2><blockquote>
+<p>CPU與內存或其他器件之間的數據傳送是通過數據總線來進行的。數據總線的寬度決定了CPU和外界的數據傳送速度。8根數據總線一次可傳送一個8位二進制數據（即一個字節）。16根數據總線一次可以傳送兩個字節，32的話就是4個字節，最後，64就會是8個字節了。</p>
+</blockquote>
+<p>決定了CPU與其他器件進行數據傳送時的一次數據傳送量。</p>
+<h2 id="控制總線"><a href="#控制總線" class="headerlink" title="控制總線"></a>控制總線</h2><blockquote>
+<p>CPU對外部器件的控制是通過控制總線來進行的。在這裏控制總線是一個總稱，控制總線是一些不同控制線的集合。有多少個控制總線，就意味着CPU提供了對外部器件的多少種控制。所以，控制總線的寬度決定了CPU對外部器件的控制能力。</p>
+</blockquote>
+<p>決定了CPU對系統中其他器件的控制能力</p>
+<h2 id="內存地址空間"><a href="#內存地址空間" class="headerlink" title="內存地址空間"></a>內存地址空間</h2><p>舉例來說，一個CPU的地址總線寬度為10，那麼可以尋址$ \ 2^10 = 1024\ $個內存單元，這1024個可尋到的內存單元就構成這個CPU的內存地址空間。</p>
+<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>在CPU裡面，寄存器的作用是用來暫存指令、數據和位址。它們分別是:</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="number">64</span>-bit register | Lower <span class="number">32</span> <span class="meta">bits</span> | Lower <span class="number">16</span> <span class="meta">bits</span> | Lower <span class="number">8</span> <span class="meta">bits</span></div><div class="line">==============================================================</div><div class="line"><span class="built_in">rax</span>             | <span class="built_in">eax</span>           | <span class="built_in">ax</span>            | <span class="built_in">al</span></div><div class="line"><span class="built_in">rbx</span>             | <span class="built_in">ebx</span>           | <span class="built_in">bx</span>            | <span class="built_in">bl</span></div><div class="line"><span class="built_in">rcx</span>             | <span class="built_in">ecx</span>           | <span class="built_in">cx</span>            | <span class="built_in">cl</span></div><div class="line"><span class="built_in">rdx</span>             | <span class="built_in">edx</span>           | <span class="built_in">dx</span>            | <span class="built_in">dl</span></div><div class="line"><span class="built_in">rsi</span>             | <span class="built_in">esi</span>           | <span class="built_in">si</span>            | <span class="built_in">sil</span></div><div class="line"><span class="built_in">rdi</span>             | <span class="built_in">edi</span>           | <span class="built_in">di</span>            | <span class="built_in">dil</span></div><div class="line"><span class="built_in">rbp</span>             | <span class="built_in">ebp</span>           | <span class="built_in">bp</span>            | <span class="built_in">bpl</span></div><div class="line"><span class="built_in">rsp</span>             | <span class="built_in">esp</span>           | <span class="built_in">sp</span>            | <span class="built_in">spl</span></div><div class="line"><span class="built_in">r8</span>              | <span class="built_in">r8d</span>           | <span class="built_in">r8w</span>           | <span class="built_in">r8b</span></div><div class="line"><span class="built_in">r9</span>              | <span class="built_in">r9d</span>           | <span class="built_in">r9w</span>           | <span class="built_in">r9b</span></div><div class="line"><span class="built_in">r10</span>             | <span class="built_in">r10d</span>          | <span class="built_in">r10w</span>          | <span class="built_in">r10b</span></div><div class="line"><span class="built_in">r11</span>             | <span class="built_in">r11d</span>          | <span class="built_in">r11w</span>          | <span class="built_in">r11b</span></div><div class="line"><span class="built_in">r12</span>             | <span class="built_in">r12d</span>          | <span class="built_in">r12w</span>          | <span class="built_in">r12b</span></div><div class="line"><span class="built_in">r13</span>             | <span class="built_in">r13d</span>          | <span class="built_in">r13w</span>          | <span class="built_in">r13b</span></div><div class="line"><span class="built_in">r14</span>             | <span class="built_in">r14d</span>          | <span class="built_in">r14w</span>          | <span class="built_in">r14b</span></div><div class="line"><span class="built_in">r15</span>             | <span class="built_in">r15d</span>          | <span class="built_in">r15w</span>          | <span class="built_in">r15b</span></div></pre></td></tr></table></figure>
+<p><a href="http://slideplayer.com/slide/4194257/14/images/11/Register+Layout+RAX+EAX+AX+AH+AL.jpg" target="_blank" rel="noopener">http://slideplayer.com/slide/4194257/14/images/11/Register+Layout+RAX+EAX+AX+AH+AL.jpg</a></p>
+<p>EAX寄存器：EAX称为累加器，常用于算数运算、布尔操作、逻辑操作、返回函数结果等。<br>EBX寄存器：EBX称为基址寄存器，常用于存档内存地址。<br>ECX寄存器：ECX称为计数寄存器，常用于存放循环语句的循环次数，字符串操作中也会常用。<br>EDX寄存器：称为数据寄存器，常常和EAX一起使用。</p>
+<p>注意：<br>上面所述的4个通用寄存器的专门用途不是一成不变的，编译器在编译程序的时候会根据很多因素，例如编译器、编译条件、操作系统等做出相应的改变，读者要知道着手研究的程序是用什么编译器编译，然后针对具体的编译器参考该编译器的说明。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author：</strong>
+    Milo
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link：</strong>
+    <a href="https://diabolo94.github.io/2018/01/11/learn-all-pwn/" title="PWN知識全制霸系列Part 1-1 匯編語言：基礎知識">https://diabolo94.github.io/2018/01/11/learn-all-pwn/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice： </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Guide/" rel="tag"># Guide</a>
+          
+            <a href="/tags/Note/" rel="tag"># Note</a>
+          
+            <a href="/tags/Assembly-Language/" rel="tag"># Assembly Language</a>
+          
+            <a href="/tags/PWN/" rel="tag"># PWN</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/02/writegreatpycode01/" rel="next" title="寫出優雅的Python代碼Part1 - Structuring Your Project">
+                <i class="fa fa-chevron-left"></i> 寫出優雅的Python代碼Part1 - Structuring Your Project
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/3018/01/19/studynote/" rel="prev" title="個人學習記錄">
+                個人學習記錄 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a0435fe1fcb1776" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -493,6 +701,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -513,8 +735,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -698,6 +929,22 @@ show_date_time();
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-前言"><span class="nav-number">1.</span> <span class="nav-text">0x01 前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我能在這系列的的教學到什麼？"><span class="nav-number">1.1.</span> <span class="nav-text">我能在這系列的的教學到什麼？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-基礎知識"><span class="nav-number">2.</span> <span class="nav-text">0x02 基礎知識</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#存储器-寄存器"><span class="nav-number">2.1.</span> <span class="nav-text">存储器(寄存器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存儲單元"><span class="nav-number">2.2.</span> <span class="nav-text">存儲單元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讀寫存储器數據"><span class="nav-number">2.3.</span> <span class="nav-text">讀寫存储器數據</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU從3號地址讀取數據8的過程"><span class="nav-number">2.3.1.</span> <span class="nav-text">CPU從3號地址讀取數據8的過程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU將數據26寫入3號地址的過程"><span class="nav-number">2.3.2.</span> <span class="nav-text">CPU將數據26寫入3號地址的過程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地址總線"><span class="nav-number">2.4.</span> <span class="nav-text">地址總線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#數據總線"><span class="nav-number">2.5.</span> <span class="nav-text">數據總線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制總線"><span class="nav-number">2.6.</span> <span class="nav-text">控制總線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#內存地址空間"><span class="nav-number">2.7.</span> <span class="nav-text">內存地址空間</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寄存器"><span class="nav-number">3.</span> <span class="nav-text">寄存器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -862,7 +1109,9 @@ show_date_time();
   
 
   
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
 
 
   
@@ -881,6 +1130,18 @@ show_date_time();
       <script id="dsq-count-scr" src="https://quantiumtower.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://diabolo94.github.io/2018/01/11/learn-all-pwn/';
+          this.page.identifier = '2018/01/11/learn-all-pwn/';
+          this.page.title = 'PWN知識全制霸系列Part 1-1 匯編語言：基礎知識';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://quantiumtower.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

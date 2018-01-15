@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="量子能量塔">
 <meta property="og:description" content="0x01 列表用來保存一系列有序項目的集合。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-01-06T15:34:19.053Z">
+<meta property="og:updated_time" content="2018-01-07T05:16:57.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python數據結構-列表，元組，字典，集合">
 <meta name="twitter:description" content="0x01 列表用來保存一系列有序項目的集合。">
@@ -413,7 +413,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Milo">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/milo.jpg">
+      <meta itemprop="image" content="/images/privateinvestocat.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -520,7 +520,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  749
+                  1,091
                 </span>
               
 
@@ -569,6 +569,17 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">list1 = [<span class="string">'Google'</span>, <span class="string">'Runoob'</span>, <span class="string">'Taobao'</span>,<span class="string">'Twitter'</span>]</div><div class="line"><span class="keyword">print</span> (<span class="string">'Twitter 索引值為'</span>, list1.index(<span class="string">'Twitter'</span>))</div><div class="line"><span class="keyword">print</span> (<span class="string">'Google 索引值為'</span>, list1.index(<span class="string">'Google'</span>))</div><div class="line"></div><div class="line">結果</div><div class="line">Twitter 索引值為<span class="number">3</span></div><div class="line">Google 索引值為<span class="number">0</span></div></pre></td></tr></table></figure>
 <h3 id="insert"><a href="#insert" class="headerlink" title="insert()"></a>insert()</h3><p><code>list.insert(index,obj)</code>- 將指定對象插入列表的指定位置。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">list1 = [<span class="string">'Google'</span>, <span class="string">'Yahoo'</span>, <span class="string">'Instargram'</span>]</div><div class="line">list1.insert(<span class="number">1</span>, <span class="string">'Catsoda'</span>)</div><div class="line"><span class="keyword">print</span> (<span class="string">'列表插入元素后為 : '</span>, list1)</div><div class="line"></div><div class="line">結果</div><div class="line">列表插入元素后為 : [<span class="string">'Google'</span>, <span class="string">'Catsoda'</span>, <span class="string">'Yahoo'</span>, <span class="string">'Instargram'</span>]</div></pre></td></tr></table></figure>
+<h1 id="0x02-元組"><a href="#0x02-元組" class="headerlink" title="0x02 元組"></a>0x02 元組</h1><p>用來保存一系列有序項目的集合，只是裡面的內容無法更改。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 一般使用方法</span></div><div class="line">tup1 = (<span class="string">'Google'</span>, <span class="string">'Yahoo'</span>, <span class="number">1997</span>, <span class="number">2000</span>)</div><div class="line">tup2 = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</div><div class="line">tup3 = () <span class="comment"># 創建空組</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> (<span class="string">"tup1[0]: "</span>, tup1[<span class="number">0</span>])</div><div class="line"><span class="keyword">print</span> (<span class="string">"tup2[1:5]: "</span>, tup2[<span class="number">1</span>:<span class="number">5</span>])</div><div class="line"></div><div class="line">結果</div><div class="line">tup1[<span class="number">0</span>]: Google</div><div class="line">tup2[<span class="number">1</span>:<span class="number">5</span>]: (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</div><div class="line"></div><div class="line"><span class="comment"># 完全刪除元組內容</span></div><div class="line">tup1 = [<span class="string">'Google'</span>, <span class="string">'Duckduckgo'</span>, <span class="string">'Instagram'</span>]</div><div class="line"><span class="keyword">del</span> tup1</div><div class="line"><span class="keyword">print</span> (tup1)</div><div class="line"></div><div class="line">結果</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"test.py"</span>, line <span class="number">8</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    <span class="keyword">print</span> (tup)</div><div class="line">NameError: name <span class="string">'tup'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</div><div class="line"></div><div class="line"><span class="comment"># 其他基本使用</span></div><div class="line">len((<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)) <span class="comment"># 結果為3</span></div><div class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)+(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>) <span class="comment"># 結果為(1.2.3.4.5.6)</span></div><div class="line">(<span class="string">"Hi"</span>,)*<span class="number">3</span> <span class="comment"># ("Hi","Hi","Hi")</span></div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>):<span class="keyword">print</span> x <span class="comment"># 1 2 3</span></div></pre></td></tr></table></figure>
+<h3 id="可應用的函數"><a href="#可應用的函數" class="headerlink" title="可應用的函數"></a>可應用的函數</h3><ul>
+<li>len(tuple)</li>
+<li>max(tuple)</li>
+<li>min(tuple)</li>
+<li>tuple(seq) - 將列表轉為元組。</li>
+</ul>
+<h1 id="0x04-字典"><a href="#0x04-字典" class="headerlink" title="0x04 字典"></a>0x04 字典</h1><p>屬於Associative arrays。字典是由键值(Keys)與數值(Values)組成。格式是這樣的<code>d = {key1 : value1, key2 : value2 }</code>。</p>
+<p>使用例子<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">dict = &#123;<span class="string">'Alice'</span>: <span class="string">'2341'</span>, <span class="string">'Beth'</span>: <span class="string">'9102'</span>, <span class="string">'Cecil'</span>: <span class="string">'3258'</span>&#125;</div><div class="line"> </div><div class="line"><span class="comment"># 訪問裡面的數值</span></div><div class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Milo'</span>,<span class="string">'Age'</span>: <span class="number">24</span>, <span class="string">'Class'</span>: <span class="string">'First'</span>&#125;</div><div class="line"></div><div class="line"><span class="keyword">print</span> (<span class="string">"dict['Name']: "</span>, dict[<span class="string">'Name'</span>])</div><div class="line"><span class="keyword">print</span> (<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</div><div class="line"></div><div class="line">結果</div><div class="line">dict[<span class="string">'Name'</span>]: Milo</div><div class="line">dict[<span class="string">'Age'</span>]: <span class="number">24</span></div><div class="line"></div><div class="line"><span class="comment"># 修改字典裡面的內容</span></div><div class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Milo'</span>, <span class="string">'Age'</span>: <span class="number">24</span>, <span class="string">'Class'</span>: <span class="string">'First'</span>&#125;</div><div class="line"></div><div class="line">dict[<span class="string">'Age'</span>] = <span class="number">8</span> <span class="comment"># 更新 Age</span></div><div class="line">dict[<span class="string">'School'</span>] = <span class="string">"W3School"</span>  <span class="comment"># 添加信息</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> (<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</div><div class="line"><span class="keyword">print</span> (<span class="string">"dict['School']: "</span>, dict[<span class="string">'School'</span>])</div><div class="line"></div><div class="line">結果</div><div class="line">dict[<span class="string">'Age'</span>]: <span class="number">8</span></div><div class="line">dict[<span class="string">'School'</span>]: W3School</div><div class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Runoob'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'First'</span>&#125;</div><div class="line"></div><div class="line"><span class="comment"># 刪除自動字典裡面的內容</span></div><div class="line"><span class="keyword">del</span> dict[<span class="string">'Name'</span>] <span class="comment"># 删除键 'Name'</span></div><div class="line">dict.clear()     <span class="comment"># 清空字典</span></div><div class="line"><span class="keyword">del</span> dict         <span class="comment"># 删除字典</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> (<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</div><div class="line"><span class="keyword">print</span> (<span class="string">"dict['School']: "</span>, dict[<span class="string">'School'</span>])</div></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -716,7 +727,7 @@
             
               <a href="/" class="site-author-image" rel="start" style="border:none">
                 <img class="site-author-image" itemprop="image"
-                    src="/images/milo.jpg"
+                    src="/images/privateinvestocat.jpg"
                     alt="Milo" />
               </a>
             
@@ -731,7 +742,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -742,7 +753,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -753,7 +764,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -903,7 +914,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-列表"><span class="nav-number">1.</span> <span class="nav-text">0x01 列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表函數"><span class="nav-number">1.1.</span> <span class="nav-text">列表函數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的使用方法"><span class="nav-number">1.2.</span> <span class="nav-text">列表的使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#append"><span class="nav-number">1.2.1.</span> <span class="nav-text">append()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#count"><span class="nav-number">1.2.2.</span> <span class="nav-text">count()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extend"><span class="nav-number">1.2.3.</span> <span class="nav-text">extend()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pop"><span class="nav-number">1.2.4.</span> <span class="nav-text">pop()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remove"><span class="nav-number">1.2.5.</span> <span class="nav-text">remove()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reverse"><span class="nav-number">1.2.6.</span> <span class="nav-text">reverse()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sort"><span class="nav-number">1.2.7.</span> <span class="nav-text">sort()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clear"><span class="nav-number">1.2.8.</span> <span class="nav-text">clear()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copy"><span class="nav-number">1.2.9.</span> <span class="nav-text">copy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index"><span class="nav-number">1.2.10.</span> <span class="nav-text">index()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insert"><span class="nav-number">1.2.11.</span> <span class="nav-text">insert()</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-列表"><span class="nav-number">1.</span> <span class="nav-text">0x01 列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#列表函數"><span class="nav-number">1.1.</span> <span class="nav-text">列表函數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的使用方法"><span class="nav-number">1.2.</span> <span class="nav-text">列表的使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#append"><span class="nav-number">1.2.1.</span> <span class="nav-text">append()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#count"><span class="nav-number">1.2.2.</span> <span class="nav-text">count()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extend"><span class="nav-number">1.2.3.</span> <span class="nav-text">extend()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pop"><span class="nav-number">1.2.4.</span> <span class="nav-text">pop()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#remove"><span class="nav-number">1.2.5.</span> <span class="nav-text">remove()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reverse"><span class="nav-number">1.2.6.</span> <span class="nav-text">reverse()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sort"><span class="nav-number">1.2.7.</span> <span class="nav-text">sort()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#clear"><span class="nav-number">1.2.8.</span> <span class="nav-text">clear()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copy"><span class="nav-number">1.2.9.</span> <span class="nav-text">copy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#index"><span class="nav-number">1.2.10.</span> <span class="nav-text">index()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insert"><span class="nav-number">1.2.11.</span> <span class="nav-text">insert()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-元組"><span class="nav-number">2.</span> <span class="nav-text">0x02 元組</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可應用的函數"><span class="nav-number">2.0.1.</span> <span class="nav-text">可應用的函數</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x04-字典"><span class="nav-number">3.</span> <span class="nav-text">0x04 字典</span></a></li></ol></div>
             
 
           </div>
@@ -937,7 +948,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">25.3k</span>
+    <span title="Site words total count">28.8k</span>
   
 </div>
 

@@ -119,7 +119,7 @@
 
 
 
-  <meta name="keywords" content="Binary,Guide,GDB,Note,Debug,Tools," />
+  <meta name="keywords" content="Guide,Binary,GDB,Note,Debug,Tools," />
 
 
 
@@ -132,18 +132,18 @@
 
 
 
-<meta name="description" content="GDB就是用来調試。">
-<meta name="keywords" content="Binary,Guide,GDB,Note,Debug,Tools">
+<meta name="description" content="0x01 什麼是GDBGDB是在Linux裡面用來調試C/C++程序的強大工具。而它主要的用途如下。">
+<meta name="keywords" content="Guide,Binary,GDB,Note,Debug,Tools">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GDB調試工具指南">
+<meta property="og:title" content="GDB調試工具指南+Peda插件的使用方式">
 <meta property="og:url" content="https://diabolo94.github.io/2018/01/01/GDB-tutorial/index.html">
 <meta property="og:site_name" content="量子能量塔">
-<meta property="og:description" content="GDB就是用来調試。">
+<meta property="og:description" content="0x01 什麼是GDBGDB是在Linux裡面用來調試C/C++程序的強大工具。而它主要的用途如下。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-01-02T13:48:44.366Z">
+<meta property="og:updated_time" content="2018-01-15T08:22:53.271Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GDB調試工具指南">
-<meta name="twitter:description" content="GDB就是用来調試。">
+<meta name="twitter:title" content="GDB調試工具指南+Peda插件的使用方式">
+<meta name="twitter:description" content="0x01 什麼是GDBGDB是在Linux裡面用來調試C/C++程序的強大工具。而它主要的用途如下。">
 
 
 
@@ -413,7 +413,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Milo">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/milo.jpg">
+      <meta itemprop="image" content="/images/privateinvestocat.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -425,7 +425,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">GDB調試工具指南</h2>
+          <h2 class="post-title" itemprop="name headline">GDB調試工具指南+Peda插件的使用方式</h2>
         
 
         <div class="post-meta">
@@ -488,7 +488,7 @@
 
           
           
-             <span id="/2018/01/01/GDB-tutorial/" class="leancloud_visitors" data-flag-title="GDB調試工具指南">
+             <span id="/2018/01/01/GDB-tutorial/" class="leancloud_visitors" data-flag-title="GDB調試工具指南+Peda插件的使用方式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -520,7 +520,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  7
+                  997
                 </span>
               
 
@@ -545,7 +545,38 @@
       
 
       
-        <script src="\assets\js\APlayer.min.js"> </script><p>GDB就是用来調試。</p>
+        <script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-什麼是GDB"><a href="#0x01-什麼是GDB" class="headerlink" title="0x01 什麼是GDB"></a>0x01 什麼是GDB</h1><p>GDB是在Linux裡面用來調試C/C++程序的強大工具。而它主要的用途如下。<a id="more"></a><br>• Start your program, specifying anything that might aﬀect its behavior.<br>• Make your program stop on specifed conditions.<br>• Examine what has happened, when your program has stopped.<br>• Change things in your program, so you can experiment with correcting the eﬀects of one bug and go on to learn about another.</p>
+<h1 id="0x02-啟動GDB的方法"><a href="#0x02-啟動GDB的方法" class="headerlink" title="0x02 啟動GDB的方法"></a>0x02 啟動GDB的方法</h1><p>在Terminal输入<code>gdb</code>進入GDB的環境後就可以用<code>file &lt;program名字&gt;</code>來開始調試你程序(program)。</p>
+<p>有3種啟動的方式。</p>
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法 1"></a>方法 1</h2><p><code>gdb &lt;program&gt;</code></p>
+<p>program是你的當前要執行的文件，一般在你現在所處於的目錄下</p>
+<h2 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h2><p><code>gdb &lt;program&gt; core</code></p>
+<p>用gdb同時調試一個運行中的程序以及core文件。</p>
+<h2 id="方法-3"><a href="#方法-3" class="headerlink" title="方法 3"></a>方法 3</h2><p><code>gdb &lt;program&gt; &lt;PID&gt;</code></p>
+<p>此外，你也可以指定GDB去調試運行中程序的Process ID。</p>
+<h1 id="0x02-GDB-常用參數選項"><a href="#0x02-GDB-常用參數選項" class="headerlink" title="0x02 GDB 常用參數選項"></a>0x02 GDB 常用參數選項</h1><ul>
+<li><code>-s &lt;program&gt;</code> :讀取program的符號表(Symbol Table)。</li>
+<li><code>-e &lt;program&gt;</code> :用program作为可執行的文件来執行，或者在和core dump連接的時候用来檢查出數據</li>
+<li><code>-c &lt;program&gt;</code> :用program作為core dump。</li>
+<li><code>-p &lt;program&gt;</code> :配合<code>attach</code>指令，來連接PID的號碼。</li>
+<li><code>-x &lt;program&gt;</code> :從program裡面執行GDB的指令</li>
+<li><code>-ex command</code>  :執行單一的GDB指令 例子：<code>gdb -ex ’target sim’</code></li>
+</ul>
+<h1 id="0x03-檢測源代碼-Source-File"><a href="#0x03-檢測源代碼-Source-File" class="headerlink" title="0x03 檢測源代碼(Source File)"></a>0x03 檢測源代碼(Source File)</h1><p><code>list</code><br><code>list &lt;linenum&gt;</code><br><code>list function</code><br><code>list -</code><br><code>set listsize count</code><br><code>set listsize unlimited</code></p>
+<h1 id="0x04-設置斷點"><a href="#0x04-設置斷點" class="headerlink" title="0x04 設置斷點"></a>0x04 設置斷點</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">基本使用 <span class="keyword">break</span> &lt;location&gt;,以下是可以用的location。</div><div class="line">(gdb) b/<span class="keyword">break</span>                   # 没有参数，表示下一跳指令處停住</div><div class="line">(gdb) b/<span class="keyword">break</span> linenum/func      # 停在第linenum行或某個function處</div><div class="line">(gdb) b/<span class="keyword">break</span> -/+offset         # 在當前行號前/後的offset行停住 例子： <span class="keyword">break</span> -</div><div class="line">(gdb) b/<span class="keyword">break</span> filename:linenum  # 停在源文件filename的linenum行</div><div class="line">(gdb) b/<span class="keyword">break</span> filename:func     # 停在在源文件的function入口</div><div class="line">(gdb) b/<span class="keyword">break</span> *address          # 在内存地址address處設定斷點</div><div class="line">(gdb) b/<span class="keyword">break</span> label             # 停在有label這個名字的那行</div><div class="line">(gdb) b/<span class="keyword">break</span> function:label    # 停在源文件的funtion裡面有label這個名字的那行</div><div class="line">(gdb) b/<span class="keyword">break</span> <span class="keyword">if</span> &lt;condition&gt;    # 條件成立是停住，如在循环中：<span class="keyword">break</span> <span class="keyword">if</span> i=<span class="number">50</span></div></pre></td></tr></table></figure>
+<h1 id="0x05-查看資訊"><a href="#0x05-查看資訊" class="headerlink" title="0x05 查看資訊"></a>0x05 查看資訊</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">基本使用 <span class="builtin-name">info</span> &lt;想看的資訊&gt;</div><div class="line">(gdb) <span class="builtin-name">info</span> &lt;breakpoint&gt; # </div><div class="line">(gdb) <span class="builtin-name">info</span> &lt;register&gt;   # 查看所有 register 狀態</div></pre></td></tr></table></figure>
+<h1 id="0x06-內存的顯示方式"><a href="#0x06-內存的顯示方式" class="headerlink" title="0x06 內存的顯示方式"></a>0x06 內存的顯示方式</h1><p>GDB中使用“x”命令来打印内存的值，格式为<code>x/nfu addr</code>。其意思為以f格式打印從addr開始的n个長度單元為u的內存值。參數具體含義如下：</p>
+<ul>
+<li>n：輸出單元的個數。</li>
+<li>f：是輸出格式，可用參數(‘x’=16進制, ‘d’=10進制, ‘u’=無符號10進制, ‘o’=8進制, ‘t’=2進制,‘a’=地址, ‘c’=符號, ‘f’=浮點數, ‘s’=字符串)。Default設定是x =16進制。</li>
+<li>u：標明一個單元的長度。b是一個byte，h是兩個byte（halfword），w是四個byte（word），g是八個byte（giant word）。 </li>
+</ul>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Example <span class="number">1</span>：打印<span class="number">16</span>個在地址a以<span class="number">16</span>進位表示且大小為byte數值</div><div class="line">(gdb) x/<span class="number">16</span>xb a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0</span>x00    <span class="number">0</span>x01    <span class="number">0</span>x02    <span class="number">0</span>x03    <span class="number">0</span>x04    <span class="number">0</span>x05    <span class="number">0</span>x06    <span class="number">0</span>x07</div><div class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">0</span>x08    <span class="number">0</span>x09    <span class="number">0</span>x0a    <span class="number">0</span>x0b    <span class="number">0</span>x0c    <span class="number">0</span>x0d    <span class="number">0</span>x0e    <span class="number">0</span>x0f</div><div class="line"></div><div class="line">Example <span class="number">2</span>：打印<span class="number">16</span>個在地址a以無符號<span class="number">10</span>進位表示且大小為byte數值</div><div class="line">(gdb) x/<span class="number">16</span>ub a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0</span>       <span class="number">1</span>       <span class="number">2</span>       <span class="number">3</span>       <span class="number">4</span>       <span class="number">5</span>       <span class="number">6</span>       <span class="number">7</span></div><div class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">8</span>       <span class="number">9</span>       <span class="number">10</span>      <span class="number">11</span>      <span class="number">12</span>      <span class="number">13</span>      <span class="number">14</span>      <span class="number">15</span></div><div class="line"></div><div class="line">Example <span class="number">3</span>：打印<span class="number">16</span>個在地址a以<span class="number">2</span>進位表示且大小為byte的數值</div><div class="line">(gdb) x/<span class="number">16</span>tb a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">00000000</span>        <span class="number">00000001</span>        <span class="number">00000010</span>        <span class="number">00000011</span>        <span class="number">00000100</span>        <span class="number">00000101</span>        <span class="number">00000110</span>        <span class="number">00000111</span></div><div class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">00001000</span>        <span class="number">00001001</span>        <span class="number">00001010</span>        <span class="number">00001011</span>        <span class="number">00001100</span>        <span class="number">00001101</span>        <span class="number">00001110</span>        <span class="number">00001111</span></div><div class="line"></div><div class="line">Example <span class="number">4</span>：打印<span class="number">16</span>個在地址a以<span class="number">16</span>進位表示的</div><div class="line">(gdb) x/<span class="number">16</span>xw a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0x03020100</span>      <span class="number">0x07060504</span>      <span class="number">0</span>x<span class="number">0b0a0908</span>      <span class="number">0</span>x0f0e0d0c</div><div class="line"><span class="number">0</span>x7fffffffe4b0: <span class="number">0x13121110</span>      <span class="number">0x17161514</span>      <span class="number">0</span>x<span class="number">1b1a1918</span>      <span class="number">0</span>x1f1e1d1c</div><div class="line"><span class="number">0</span>x7fffffffe4c0: <span class="number">0x23222120</span>      <span class="number">0x27262524</span>      <span class="number">0</span>x<span class="number">2b2a2928</span>      <span class="number">0</span>x2f2e2d2c</div><div class="line"><span class="number">0</span>x7fffffffe4d0: <span class="number">0x33323130</span>      <span class="number">0x37363534</span>      <span class="number">0</span>x<span class="number">3b3a3938</span>      <span class="number">0</span>x3f3e3d3c</div></pre></td></tr></table></figure>
+<h1 id="其他實用Command"><a href="#其他實用Command" class="headerlink" title="其他實用Command"></a>其他實用Command</h1><p>diasas <function name=""> # 反組譯某個function<br>ni - next instruction<br>• si - step into<br>• backtrace - 顯⽰上層所有 stack frame 的資訊<br>• continue</function></p>
+<p>set <em>address=value<br>• 將 address 中的值設成 value ⼀次設 4 byte<br>• 可將 </em> 換成 {char/short/long} 分別設定 1/2/8 byte<br>• e.g.<br>• set *0x602040=0xdeadbeef<br>• set {int}0x602040=1337</p>
+<p> 在有debug symbol下<br>• list : 列出 source code<br>• b 可直接接⾏號斷點<br>• info local : 列出區域變數<br>• print val : 印出變數 val 的值</p>
+<p>attach pid : attach ⼀個正在運⾏的 process<br>• 可以配合 ncat 進⾏ exploit 的 debug<br>• ncat -ve ./a.out -kl 8888<br>• echo 0 &gt; /proc/sys/kernel/yama/ptrace_scope</p>
+<h1 id="參考鏈接"><a href="#參考鏈接" class="headerlink" title="參考鏈接"></a>參考鏈接</h1><p><a href="http://wiki.ubuntu.org.cn/%E7%94%A8GDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener">http://wiki.ubuntu.org.cn/%E7%94%A8GDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F</a><br><a href="https://deepzz.com/post/gdb-debug.html" target="_blank" rel="noopener">https://deepzz.com/post/gdb-debug.html</a></p>
 
       
     </div>
@@ -566,7 +597,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link：</strong>
-    <a href="https://diabolo94.github.io/2018/01/01/GDB-tutorial/" title="GDB調試工具指南">https://diabolo94.github.io/2018/01/01/GDB-tutorial/</a>
+    <a href="https://diabolo94.github.io/2018/01/01/GDB-tutorial/" title="GDB調試工具指南+Peda插件的使用方式">https://diabolo94.github.io/2018/01/01/GDB-tutorial/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice： </strong>
@@ -581,9 +612,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Binary/" rel="tag"># Binary</a>
-          
             <a href="/tags/Guide/" rel="tag"># Guide</a>
+          
+            <a href="/tags/Binary/" rel="tag"># Binary</a>
           
             <a href="/tags/GDB/" rel="tag"># GDB</a>
           
@@ -684,14 +715,23 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <a href="/" class="site-author-image" rel="start" style="border:none">
                 <img class="site-author-image" itemprop="image"
-                    src="/images/milo.jpg"
+                    src="/images/privateinvestocat.jpg"
                     alt="Milo" />
               </a>
             
@@ -706,7 +746,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -717,7 +757,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -728,7 +768,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -869,6 +909,22 @@ show_date_time();
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-什麼是GDB"><span class="nav-number">1.</span> <span class="nav-text">0x01 什麼是GDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-啟動GDB的方法"><span class="nav-number">2.</span> <span class="nav-text">0x02 啟動GDB的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">2.1.</span> <span class="nav-text">方法 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-2"><span class="nav-number">2.2.</span> <span class="nav-text">方法 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-3"><span class="nav-number">2.3.</span> <span class="nav-text">方法 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-GDB-常用參數選項"><span class="nav-number">3.</span> <span class="nav-text">0x02 GDB 常用參數選項</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-檢測源代碼-Source-File"><span class="nav-number">4.</span> <span class="nav-text">0x03 檢測源代碼(Source File)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x04-設置斷點"><span class="nav-number">5.</span> <span class="nav-text">0x04 設置斷點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x05-查看資訊"><span class="nav-number">6.</span> <span class="nav-text">0x05 查看資訊</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x06-內存的顯示方式"><span class="nav-number">7.</span> <span class="nav-text">0x06 內存的顯示方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他實用Command"><span class="nav-number">8.</span> <span class="nav-text">其他實用Command</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考鏈接"><span class="nav-number">9.</span> <span class="nav-text">參考鏈接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -896,7 +952,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">25.3k</span>
+    <span title="Site words total count">28.8k</span>
   
 </div>
 
@@ -1059,7 +1115,7 @@ show_date_time();
         var disqus_config = function () {
           this.page.url = 'https://diabolo94.github.io/2018/01/01/GDB-tutorial/';
           this.page.identifier = '2018/01/01/GDB-tutorial/';
-          this.page.title = 'GDB調試工具指南';
+          this.page.title = 'GDB調試工具指南+Peda插件的使用方式';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://quantiumtower.disqus.com/embed.js';

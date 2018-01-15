@@ -21,10 +21,16 @@
 <h3 id="加密解密-第三版"><a href="#加密解密-第三版" class="headerlink" title="加密解密 第三版"></a>加密解密 第三版</h3><ul>
 <li>字符集和字符編碼</li>
 </ul>
-<h3 id="The-Hitchhiker’s-Guide-to-Python"><a href="#The-Hitchhiker’s-Guide-to-Python" class="headerlink" title="The Hitchhiker’s Guide to Python"></a>The Hitchhiker’s Guide to Python</h3><ul>
-<li>[如何寫出優雅的代碼]<h2 id="Course’s-Notes"><a href="#Course’s-Notes" class="headerlink" title="Course’s Notes"></a>Course’s Notes</h2></li>
+<h3 id="深入理解計算機"><a href="#深入理解計算機" class="headerlink" title="深入理解計算機"></a>深入理解計算機</h3><ul>
+<li>深入理解計算機第七章筆記-鏈接</li>
 </ul>
-<h2 id="CTF-Notes"><a href="#CTF-Notes" class="headerlink" title="CTF Notes"></a>CTF Notes</h2><h3 id="PWN終極指南"><a href="#PWN終極指南" class="headerlink" title="PWN終極指南"></a>PWN終極指南</h3><h2 id="LICENSE"><a href="#LICENSE" class="headerlink" title="LICENSE"></a>LICENSE</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MIT LICENSE.</div><div class="line">COPYRIGHT (C) <span class="number">2017</span> <span class="keyword">Diabolo </span><span class="keyword">Jenq </span>Ning</div></pre></td></tr></table></figure>
+<h3 id="The-Hitchhiker’s-Guide-to-Python"><a href="#The-Hitchhiker’s-Guide-to-Python" class="headerlink" title="The Hitchhiker’s Guide to Python"></a>The Hitchhiker’s Guide to Python</h3><ul>
+<li><a href="https://diabolo94.github.io/2018/01/02/writegreatpycode01/">如何寫出優雅的代碼</a><h2 id="Course’s-Notes"><a href="#Course’s-Notes" class="headerlink" title="Course’s Notes"></a>Course’s Notes</h2></li>
+</ul>
+<h2 id="CTF-Notes"><a href="#CTF-Notes" class="headerlink" title="CTF Notes"></a>CTF Notes</h2><h3 id="Binary終極指南"><a href="#Binary終極指南" class="headerlink" title="Binary終極指南"></a>Binary終極指南</h3><h2 id="工具使筆記"><a href="#工具使筆記" class="headerlink" title="工具使筆記"></a>工具使筆記</h2><ul>
+<li><a href="https://diabolo94.github.io/2018/01/01/GDB-tutorial/">GDB調試工具指南</a><h2 id="LICENSE"><a href="#LICENSE" class="headerlink" title="LICENSE"></a>LICENSE</h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MIT LICENSE.</div><div class="line">COPYRIGHT (C) <span class="number">2017</span> <span class="keyword">Diabolo </span><span class="keyword">Jenq </span>Ning</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <hr>
 <p>Started on 2017/11/22 </p>
 ]]></content>
@@ -38,9 +44,9 @@
         
         <tags>
             
-            <tag> Guide </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> Guide </tag>
             
             <tag> Security </tag>
             
@@ -51,9 +57,87 @@
     </entry>
     
     <entry>
+      <title><![CDATA[PWN知識全制霸系列Part 1-1 匯編語言：基礎知識]]></title>
+      <url>/2018/01/11/learn-all-pwn/</url>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h1><p>PWN知識全制霸這系列是為了教導大家如何從一個PWN萌新成為佼佼者那樣的大佬。那麼是什麼是PWN呢？PWN就是利用各種漏洞攻擊系統主機從而獲得系統管理員的權限。<a id="more"></a></p>
+<p>而Part 1就是一些你們得懂的匯編基本和常用到的知識。</p>
+<h2 id="我能在這系列的的教學到什麼？"><a href="#我能在這系列的的教學到什麼？" class="headerlink" title="我能在這系列的的教學到什麼？"></a>我能在這系列的的教學到什麼？</h2><ul>
+<li>x86 &amp; x86-64的匯編語言。</li>
+<li>程序常用的保護機制：CANNARY，FORTIFY，NX（DEP），PIE（ASLR），RELRO等等  </li>
+<li>各種Pwn工具的應用：Pwntools，GDB，checksec，IDA Pro，Peda等等。</li>
+<li>Pwn類型Wargame/CTF題目的應對方式與解答。</li>
+<li>ELF和PE文件格式。</li>
+<li>程序執行，加載和鏈接詳解。</li>
+<li>各種二進制漏洞：栈溢出，堆溢出，返回導向編程(ROP)，格式化字符串漏洞，整數溢出等等。</li>
+<li>其他大佬的在挖掘漏洞以及利用Pwn的思路。</li>
+</ul>
+<h1 id="0x02-基礎知識"><a href="#0x02-基礎知識" class="headerlink" title="0x02 基礎知識"></a>0x02 基礎知識</h1><p>本文參考：王爽-匯編語言第三版</p>
+<p>機械語言是機械指令的集合。<br>例子指令： <code>01010000 (PUSH AX)</code> 左部分為機械語言括號裡面則是所謂的匯編語言。</p>
+<p>匯編語言就是能在硬件上直接工作的編程語言。而匯編語言的出現是為了讓人們用容易理解的方式去表達出機器指令代表的意思。雖然電腦只能讀懂0和1，然而，通過編譯器，我們輸入的匯編語言最終會轉譯成電腦所理解的機械語言。</p>
+<p>由3種匯編指令：匯編指令，偽指令和其他符號。</p>
+<ul>
+<li>匯編指令：mov,add,sub….等等</li>
+<li>偽指令：偽指令是對匯編起某種控制作用的特殊命令，其格式與通常的操作指令一樣，並可加在彙編程序的任何地方，但它們並不產生機器指令。</li>
+<li>符號：例如運輸符號加減乘除，邏輯符號等等。</li>
+</ul>
+<h2 id="存储器-寄存器"><a href="#存储器-寄存器" class="headerlink" title="存储器(寄存器)"></a>存储器(寄存器)</h2><p>也平常大家所說的內存，用來存放指令和需要運算的數據。</p>
+<h2 id="存儲單元"><a href="#存儲單元" class="headerlink" title="存儲單元"></a>存儲單元</h2><p>存儲器能被劃分成幾個單元，每個存儲器單元從0開始順序編號，如一個存儲器有128個存儲單元，編號從0到127微型機存儲器的存儲單元可以存儲一個Byte（1位元組=8bit，即8個二進位）。含有128個存儲單元的存儲器可以存儲128個Byte。</p>
+<p><img src="https://s10.postimg.org/gqlv0k0ix/byte.jpg" alt=""></p>
+<h2 id="讀寫存储器數據"><a href="#讀寫存储器數據" class="headerlink" title="讀寫存储器數據"></a>讀寫存储器數據</h2><p>CPU要從讀寫數據的需要知道存儲單元所在的地址，到底指明的是哪一個存儲器，進行怎樣的操作。而它會和電腦裡面的芯片進行以下3種的信息交互。</p>
+<ul>
+<li>存儲單元的地址(地址信息) 走地址總線</li>
+<li>器件的選擇,讀取還是寫入命令(控制信息) 走控制總線</li>
+<li>讀或寫的數據(數據信息) 走數據總線</li>
+</ul>
+<h3 id="CPU從3號地址讀取數據8的過程"><a href="#CPU從3號地址讀取數據8的過程" class="headerlink" title="CPU從3號地址讀取數據8的過程"></a>CPU從3號地址讀取數據8的過程</h3><p><img src="https://s10.postimg.org/j97k17byh/as-cpu-read.gif" alt=""></p>
+<p>1.CPU透過地址線發出地址訊息3。<br>2.CPU通過控制線發出記憶體讀命令，選中存儲器晶片，並通知它，將要從中讀取數據。<br>3.存儲器將3號單元中的數據8通過傳輸線送入CPU。</p>
+<h3 id="CPU將數據26寫入3號地址的過程"><a href="#CPU將數據26寫入3號地址的過程" class="headerlink" title="CPU將數據26寫入3號地址的過程"></a>CPU將數據26寫入3號地址的過程</h3><p><img src="https://s10.postimg.org/651zolzd5/as-cpu-write.gif" alt=""></p>
+<p>1.CPU透過地址線發出地址訊息3。<br>2.CPU通過控制線發出記憶體命令，選中存儲器晶片，並通知它，要想其中寫入數據。<br>3.CPU透過傳輸線將數據26送入記憶體的3號單元中。</p>
+<h2 id="地址總線"><a href="#地址總線" class="headerlink" title="地址總線"></a>地址總線</h2><blockquote>
+<p>CPU通過地址總線來指定存儲器單元。地址總線上能傳送多少個不同的信息，CPU就可以對多少個存儲單元進行尋址。<br>一個CPU有N根地址線，則可以說這個CPU的地址總線的寬度為N。這樣的CPU最多可以尋找 $ \ 2^N \ $ 個內存單元.</p>
+</blockquote>
+<p>決定了CPU的尋址能力。</p>
+<h2 id="數據總線"><a href="#數據總線" class="headerlink" title="數據總線"></a>數據總線</h2><blockquote>
+<p>CPU與內存或其他器件之間的數據傳送是通過數據總線來進行的。數據總線的寬度決定了CPU和外界的數據傳送速度。8根數據總線一次可傳送一個8位二進制數據（即一個字節）。16根數據總線一次可以傳送兩個字節，32的話就是4個字節，最後，64就會是8個字節了。</p>
+</blockquote>
+<p>決定了CPU與其他器件進行數據傳送時的一次數據傳送量。</p>
+<h2 id="控制總線"><a href="#控制總線" class="headerlink" title="控制總線"></a>控制總線</h2><blockquote>
+<p>CPU對外部器件的控制是通過控制總線來進行的。在這裏控制總線是一個總稱，控制總線是一些不同控制線的集合。有多少個控制總線，就意味着CPU提供了對外部器件的多少種控制。所以，控制總線的寬度決定了CPU對外部器件的控制能力。</p>
+</blockquote>
+<p>決定了CPU對系統中其他器件的控制能力</p>
+<h2 id="內存地址空間"><a href="#內存地址空間" class="headerlink" title="內存地址空間"></a>內存地址空間</h2><p>舉例來說，一個CPU的地址總線寬度為10，那麼可以尋址$ \ 2^10 = 1024\ $個內存單元，這1024個可尋到的內存單元就構成這個CPU的內存地址空間。</p>
+<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>在CPU裡面，寄存器的作用是用來暫存指令、數據和位址。它們分別是:</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="number">64</span>-bit register | Lower <span class="number">32</span> <span class="meta">bits</span> | Lower <span class="number">16</span> <span class="meta">bits</span> | Lower <span class="number">8</span> <span class="meta">bits</span></div><div class="line">==============================================================</div><div class="line"><span class="built_in">rax</span>             | <span class="built_in">eax</span>           | <span class="built_in">ax</span>            | <span class="built_in">al</span></div><div class="line"><span class="built_in">rbx</span>             | <span class="built_in">ebx</span>           | <span class="built_in">bx</span>            | <span class="built_in">bl</span></div><div class="line"><span class="built_in">rcx</span>             | <span class="built_in">ecx</span>           | <span class="built_in">cx</span>            | <span class="built_in">cl</span></div><div class="line"><span class="built_in">rdx</span>             | <span class="built_in">edx</span>           | <span class="built_in">dx</span>            | <span class="built_in">dl</span></div><div class="line"><span class="built_in">rsi</span>             | <span class="built_in">esi</span>           | <span class="built_in">si</span>            | <span class="built_in">sil</span></div><div class="line"><span class="built_in">rdi</span>             | <span class="built_in">edi</span>           | <span class="built_in">di</span>            | <span class="built_in">dil</span></div><div class="line"><span class="built_in">rbp</span>             | <span class="built_in">ebp</span>           | <span class="built_in">bp</span>            | <span class="built_in">bpl</span></div><div class="line"><span class="built_in">rsp</span>             | <span class="built_in">esp</span>           | <span class="built_in">sp</span>            | <span class="built_in">spl</span></div><div class="line"><span class="built_in">r8</span>              | <span class="built_in">r8d</span>           | <span class="built_in">r8w</span>           | <span class="built_in">r8b</span></div><div class="line"><span class="built_in">r9</span>              | <span class="built_in">r9d</span>           | <span class="built_in">r9w</span>           | <span class="built_in">r9b</span></div><div class="line"><span class="built_in">r10</span>             | <span class="built_in">r10d</span>          | <span class="built_in">r10w</span>          | <span class="built_in">r10b</span></div><div class="line"><span class="built_in">r11</span>             | <span class="built_in">r11d</span>          | <span class="built_in">r11w</span>          | <span class="built_in">r11b</span></div><div class="line"><span class="built_in">r12</span>             | <span class="built_in">r12d</span>          | <span class="built_in">r12w</span>          | <span class="built_in">r12b</span></div><div class="line"><span class="built_in">r13</span>             | <span class="built_in">r13d</span>          | <span class="built_in">r13w</span>          | <span class="built_in">r13b</span></div><div class="line"><span class="built_in">r14</span>             | <span class="built_in">r14d</span>          | <span class="built_in">r14w</span>          | <span class="built_in">r14b</span></div><div class="line"><span class="built_in">r15</span>             | <span class="built_in">r15d</span>          | <span class="built_in">r15w</span>          | <span class="built_in">r15b</span></div></pre></td></tr></table></figure>
+<p><a href="http://slideplayer.com/slide/4194257/14/images/11/Register+Layout+RAX+EAX+AX+AH+AL.jpg" target="_blank" rel="noopener">http://slideplayer.com/slide/4194257/14/images/11/Register+Layout+RAX+EAX+AX+AH+AL.jpg</a></p>
+<p>EAX寄存器：EAX称为累加器，常用于算数运算、布尔操作、逻辑操作、返回函数结果等。<br>EBX寄存器：EBX称为基址寄存器，常用于存档内存地址。<br>ECX寄存器：ECX称为计数寄存器，常用于存放循环语句的循环次数，字符串操作中也会常用。<br>EDX寄存器：称为数据寄存器，常常和EAX一起使用。</p>
+<p>注意：<br>上面所述的4个通用寄存器的专门用途不是一成不变的，编译器在编译程序的时候会根据很多因素，例如编译器、编译条件、操作系统等做出相应的改变，读者要知道着手研究的程序是用什么编译器编译，然后针对具体的编译器参考该编译器的说明。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> PWN Knowledge </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Guide </tag>
+            
+            <tag> Note </tag>
+            
+            <tag> Assembly Language </tag>
+            
+            <tag> PWN </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[寫出優雅的Python代碼Part1 - Structuring Your Project]]></title>
       <url>/2018/01/02/writegreatpycode01/</url>
-      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-Introduction"><a href="#0x01-Introduction" class="headerlink" title="0x01 Introduction"></a>0x01 Introduction</h1><p>The word ‘Sturcture’ here means how the files and folders are organized in the file system. What are the most important files should put in your project and why you need them. By understand this, you may find the best way to organise your codes and other related files effectively. </p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-Introduction"><a href="#0x01-Introduction" class="headerlink" title="0x01 Introduction"></a>0x01 Introduction</h1><p>The word ‘Sturcture’ here means how the files and folders are organized in the file system. What are the most important files should put in your project and why you need them. By understand this, you may find the best way to organise your codes and other related files effectively. <a id="more"></a></p>
 <p>In this section, I will going to show some of the point you can concern when you are structing your project.</p>
 <h1 id="0x02-Structure-of-Repository"><a href="#0x02-Structure-of-Repository" class="headerlink" title="0x02 Structure of Repository."></a>0x02 Structure of Repository.</h1><p>Repository is the first thing you need to concern. When other people see your repository’s page they need to understand what is your project about and how to use it and so on. Hence, you should put a “README” file in your repository to help others understand your project better. Usually, “README” should also include enough details to help a new user get started, e.g. how to compile, how to install, and how to start integrating.</p>
 <p>A good readme file for your project can have the following informations:</p>
@@ -127,9 +211,40 @@
     </entry>
     
     <entry>
-      <title><![CDATA[GDB調試工具指南]]></title>
+      <title><![CDATA[GDB調試工具指南+Peda插件的使用方式]]></title>
       <url>/2018/01/01/GDB-tutorial/</url>
-      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><p>GDB就是用来調試。</p>
+      <content type="html"><![CDATA[<script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-什麼是GDB"><a href="#0x01-什麼是GDB" class="headerlink" title="0x01 什麼是GDB"></a>0x01 什麼是GDB</h1><p>GDB是在Linux裡面用來調試C/C++程序的強大工具。而它主要的用途如下。<a id="more"></a><br>• Start your program, specifying anything that might aﬀect its behavior.<br>• Make your program stop on specifed conditions.<br>• Examine what has happened, when your program has stopped.<br>• Change things in your program, so you can experiment with correcting the eﬀects of one bug and go on to learn about another.</p>
+<h1 id="0x02-啟動GDB的方法"><a href="#0x02-啟動GDB的方法" class="headerlink" title="0x02 啟動GDB的方法"></a>0x02 啟動GDB的方法</h1><p>在Terminal输入<code>gdb</code>進入GDB的環境後就可以用<code>file &lt;program名字&gt;</code>來開始調試你程序(program)。</p>
+<p>有3種啟動的方式。</p>
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法 1"></a>方法 1</h2><p><code>gdb &lt;program&gt;</code></p>
+<p>program是你的當前要執行的文件，一般在你現在所處於的目錄下</p>
+<h2 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h2><p><code>gdb &lt;program&gt; core</code></p>
+<p>用gdb同時調試一個運行中的程序以及core文件。</p>
+<h2 id="方法-3"><a href="#方法-3" class="headerlink" title="方法 3"></a>方法 3</h2><p><code>gdb &lt;program&gt; &lt;PID&gt;</code></p>
+<p>此外，你也可以指定GDB去調試運行中程序的Process ID。</p>
+<h1 id="0x02-GDB-常用參數選項"><a href="#0x02-GDB-常用參數選項" class="headerlink" title="0x02 GDB 常用參數選項"></a>0x02 GDB 常用參數選項</h1><ul>
+<li><code>-s &lt;program&gt;</code> :讀取program的符號表(Symbol Table)。</li>
+<li><code>-e &lt;program&gt;</code> :用program作为可執行的文件来執行，或者在和core dump連接的時候用来檢查出數據</li>
+<li><code>-c &lt;program&gt;</code> :用program作為core dump。</li>
+<li><code>-p &lt;program&gt;</code> :配合<code>attach</code>指令，來連接PID的號碼。</li>
+<li><code>-x &lt;program&gt;</code> :從program裡面執行GDB的指令</li>
+<li><code>-ex command</code>  :執行單一的GDB指令 例子：<code>gdb -ex ’target sim’</code></li>
+</ul>
+<h1 id="0x03-檢測源代碼-Source-File"><a href="#0x03-檢測源代碼-Source-File" class="headerlink" title="0x03 檢測源代碼(Source File)"></a>0x03 檢測源代碼(Source File)</h1><p><code>list</code><br><code>list &lt;linenum&gt;</code><br><code>list function</code><br><code>list -</code><br><code>set listsize count</code><br><code>set listsize unlimited</code></p>
+<h1 id="0x04-設置斷點"><a href="#0x04-設置斷點" class="headerlink" title="0x04 設置斷點"></a>0x04 設置斷點</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">基本使用 <span class="keyword">break</span> &lt;location&gt;,以下是可以用的location。</div><div class="line">(gdb) b/<span class="keyword">break</span>                   # 没有参数，表示下一跳指令處停住</div><div class="line">(gdb) b/<span class="keyword">break</span> linenum/func      # 停在第linenum行或某個function處</div><div class="line">(gdb) b/<span class="keyword">break</span> -/+offset         # 在當前行號前/後的offset行停住 例子： <span class="keyword">break</span> -</div><div class="line">(gdb) b/<span class="keyword">break</span> filename:linenum  # 停在源文件filename的linenum行</div><div class="line">(gdb) b/<span class="keyword">break</span> filename:func     # 停在在源文件的function入口</div><div class="line">(gdb) b/<span class="keyword">break</span> *address          # 在内存地址address處設定斷點</div><div class="line">(gdb) b/<span class="keyword">break</span> label             # 停在有label這個名字的那行</div><div class="line">(gdb) b/<span class="keyword">break</span> function:label    # 停在源文件的funtion裡面有label這個名字的那行</div><div class="line">(gdb) b/<span class="keyword">break</span> <span class="keyword">if</span> &lt;condition&gt;    # 條件成立是停住，如在循环中：<span class="keyword">break</span> <span class="keyword">if</span> i=<span class="number">50</span></div></pre></td></tr></table></figure>
+<h1 id="0x05-查看資訊"><a href="#0x05-查看資訊" class="headerlink" title="0x05 查看資訊"></a>0x05 查看資訊</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">基本使用 <span class="builtin-name">info</span> &lt;想看的資訊&gt;</div><div class="line">(gdb) <span class="builtin-name">info</span> &lt;breakpoint&gt; # </div><div class="line">(gdb) <span class="builtin-name">info</span> &lt;register&gt;   # 查看所有 register 狀態</div></pre></td></tr></table></figure>
+<h1 id="0x06-內存的顯示方式"><a href="#0x06-內存的顯示方式" class="headerlink" title="0x06 內存的顯示方式"></a>0x06 內存的顯示方式</h1><p>GDB中使用“x”命令来打印内存的值，格式为<code>x/nfu addr</code>。其意思為以f格式打印從addr開始的n个長度單元為u的內存值。參數具體含義如下：</p>
+<ul>
+<li>n：輸出單元的個數。</li>
+<li>f：是輸出格式，可用參數(‘x’=16進制, ‘d’=10進制, ‘u’=無符號10進制, ‘o’=8進制, ‘t’=2進制,‘a’=地址, ‘c’=符號, ‘f’=浮點數, ‘s’=字符串)。Default設定是x =16進制。</li>
+<li>u：標明一個單元的長度。b是一個byte，h是兩個byte（halfword），w是四個byte（word），g是八個byte（giant word）。 </li>
+</ul>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Example <span class="number">1</span>：打印<span class="number">16</span>個在地址a以<span class="number">16</span>進位表示且大小為byte數值</div><div class="line">(gdb) x/<span class="number">16</span>xb a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0</span>x00    <span class="number">0</span>x01    <span class="number">0</span>x02    <span class="number">0</span>x03    <span class="number">0</span>x04    <span class="number">0</span>x05    <span class="number">0</span>x06    <span class="number">0</span>x07</div><div class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">0</span>x08    <span class="number">0</span>x09    <span class="number">0</span>x0a    <span class="number">0</span>x0b    <span class="number">0</span>x0c    <span class="number">0</span>x0d    <span class="number">0</span>x0e    <span class="number">0</span>x0f</div><div class="line"></div><div class="line">Example <span class="number">2</span>：打印<span class="number">16</span>個在地址a以無符號<span class="number">10</span>進位表示且大小為byte數值</div><div class="line">(gdb) x/<span class="number">16</span>ub a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0</span>       <span class="number">1</span>       <span class="number">2</span>       <span class="number">3</span>       <span class="number">4</span>       <span class="number">5</span>       <span class="number">6</span>       <span class="number">7</span></div><div class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">8</span>       <span class="number">9</span>       <span class="number">10</span>      <span class="number">11</span>      <span class="number">12</span>      <span class="number">13</span>      <span class="number">14</span>      <span class="number">15</span></div><div class="line"></div><div class="line">Example <span class="number">3</span>：打印<span class="number">16</span>個在地址a以<span class="number">2</span>進位表示且大小為byte的數值</div><div class="line">(gdb) x/<span class="number">16</span>tb a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">00000000</span>        <span class="number">00000001</span>        <span class="number">00000010</span>        <span class="number">00000011</span>        <span class="number">00000100</span>        <span class="number">00000101</span>        <span class="number">00000110</span>        <span class="number">00000111</span></div><div class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">00001000</span>        <span class="number">00001001</span>        <span class="number">00001010</span>        <span class="number">00001011</span>        <span class="number">00001100</span>        <span class="number">00001101</span>        <span class="number">00001110</span>        <span class="number">00001111</span></div><div class="line"></div><div class="line">Example <span class="number">4</span>：打印<span class="number">16</span>個在地址a以<span class="number">16</span>進位表示的</div><div class="line">(gdb) x/<span class="number">16</span>xw a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0x03020100</span>      <span class="number">0x07060504</span>      <span class="number">0</span>x<span class="number">0b0a0908</span>      <span class="number">0</span>x0f0e0d0c</div><div class="line"><span class="number">0</span>x7fffffffe4b0: <span class="number">0x13121110</span>      <span class="number">0x17161514</span>      <span class="number">0</span>x<span class="number">1b1a1918</span>      <span class="number">0</span>x1f1e1d1c</div><div class="line"><span class="number">0</span>x7fffffffe4c0: <span class="number">0x23222120</span>      <span class="number">0x27262524</span>      <span class="number">0</span>x<span class="number">2b2a2928</span>      <span class="number">0</span>x2f2e2d2c</div><div class="line"><span class="number">0</span>x7fffffffe4d0: <span class="number">0x33323130</span>      <span class="number">0x37363534</span>      <span class="number">0</span>x<span class="number">3b3a3938</span>      <span class="number">0</span>x3f3e3d3c</div></pre></td></tr></table></figure>
+<h1 id="其他實用Command"><a href="#其他實用Command" class="headerlink" title="其他實用Command"></a>其他實用Command</h1><p>diasas <function name=""> # 反組譯某個function<br>ni - next instruction<br>• si - step into<br>• backtrace - 顯⽰上層所有 stack frame 的資訊<br>• continue</function></p>
+<p>set <em>address=value<br>• 將 address 中的值設成 value ⼀次設 4 byte<br>• 可將 </em> 換成 {char/short/long} 分別設定 1/2/8 byte<br>• e.g.<br>• set *0x602040=0xdeadbeef<br>• set {int}0x602040=1337</p>
+<p> 在有debug symbol下<br>• list : 列出 source code<br>• b 可直接接⾏號斷點<br>• info local : 列出區域變數<br>• print val : 印出變數 val 的值</p>
+<p>attach pid : attach ⼀個正在運⾏的 process<br>• 可以配合 ncat 進⾏ exploit 的 debug<br>• ncat -ve ./a.out -kl 8888<br>• echo 0 &gt; /proc/sys/kernel/yama/ptrace_scope</p>
+<h1 id="參考鏈接"><a href="#參考鏈接" class="headerlink" title="參考鏈接"></a>參考鏈接</h1><p><a href="http://wiki.ubuntu.org.cn/%E7%94%A8GDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener">http://wiki.ubuntu.org.cn/%E7%94%A8GDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F</a><br><a href="https://deepzz.com/post/gdb-debug.html" target="_blank" rel="noopener">https://deepzz.com/post/gdb-debug.html</a></p>
 ]]></content>
       
         <categories>
@@ -141,9 +256,9 @@
         
         <tags>
             
-            <tag> Binary </tag>
-            
             <tag> Guide </tag>
+            
+            <tag> Binary </tag>
             
             <tag> GDB </tag>
             
@@ -217,7 +332,18 @@
 <h3 id="index"><a href="#index" class="headerlink" title="index()"></a>index()</h3><p><code>list.index(obj)</code>- 從列表中找出某個值第一個匹配項的索引位置。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">list1 = [<span class="string">'Google'</span>, <span class="string">'Runoob'</span>, <span class="string">'Taobao'</span>,<span class="string">'Twitter'</span>]</div><div class="line"><span class="keyword">print</span> (<span class="string">'Twitter 索引值為'</span>, list1.index(<span class="string">'Twitter'</span>))</div><div class="line"><span class="keyword">print</span> (<span class="string">'Google 索引值為'</span>, list1.index(<span class="string">'Google'</span>))</div><div class="line"></div><div class="line">結果</div><div class="line">Twitter 索引值為<span class="number">3</span></div><div class="line">Google 索引值為<span class="number">0</span></div></pre></td></tr></table></figure>
 <h3 id="insert"><a href="#insert" class="headerlink" title="insert()"></a>insert()</h3><p><code>list.insert(index,obj)</code>- 將指定對象插入列表的指定位置。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">list1 = [<span class="string">'Google'</span>, <span class="string">'Yahoo'</span>, <span class="string">'Instargram'</span>]</div><div class="line">list1.insert(<span class="number">1</span>, <span class="string">'Catsoda'</span>)</div><div class="line"><span class="keyword">print</span> (<span class="string">'列表插入元素后為 : '</span>, list1)</div><div class="line"></div><div class="line">結果</div><div class="line">列表插入元素后為 : [<span class="string">'Google'</span>, <span class="string">'Catsoda'</span>, <span class="string">'Yahoo'</span>, <span class="string">'Instargram'</span>]</div></pre></td></tr></table></figure>]]></content>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">list1 = [<span class="string">'Google'</span>, <span class="string">'Yahoo'</span>, <span class="string">'Instargram'</span>]</div><div class="line">list1.insert(<span class="number">1</span>, <span class="string">'Catsoda'</span>)</div><div class="line"><span class="keyword">print</span> (<span class="string">'列表插入元素后為 : '</span>, list1)</div><div class="line"></div><div class="line">結果</div><div class="line">列表插入元素后為 : [<span class="string">'Google'</span>, <span class="string">'Catsoda'</span>, <span class="string">'Yahoo'</span>, <span class="string">'Instargram'</span>]</div></pre></td></tr></table></figure>
+<h1 id="0x02-元組"><a href="#0x02-元組" class="headerlink" title="0x02 元組"></a>0x02 元組</h1><p>用來保存一系列有序項目的集合，只是裡面的內容無法更改。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 一般使用方法</span></div><div class="line">tup1 = (<span class="string">'Google'</span>, <span class="string">'Yahoo'</span>, <span class="number">1997</span>, <span class="number">2000</span>)</div><div class="line">tup2 = (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</div><div class="line">tup3 = () <span class="comment"># 創建空組</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> (<span class="string">"tup1[0]: "</span>, tup1[<span class="number">0</span>])</div><div class="line"><span class="keyword">print</span> (<span class="string">"tup2[1:5]: "</span>, tup2[<span class="number">1</span>:<span class="number">5</span>])</div><div class="line"></div><div class="line">結果</div><div class="line">tup1[<span class="number">0</span>]: Google</div><div class="line">tup2[<span class="number">1</span>:<span class="number">5</span>]: (<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</div><div class="line"></div><div class="line"><span class="comment"># 完全刪除元組內容</span></div><div class="line">tup1 = [<span class="string">'Google'</span>, <span class="string">'Duckduckgo'</span>, <span class="string">'Instagram'</span>]</div><div class="line"><span class="keyword">del</span> tup1</div><div class="line"><span class="keyword">print</span> (tup1)</div><div class="line"></div><div class="line">結果</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"test.py"</span>, line <span class="number">8</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">    <span class="keyword">print</span> (tup)</div><div class="line">NameError: name <span class="string">'tup'</span> <span class="keyword">is</span> <span class="keyword">not</span> defined</div><div class="line"></div><div class="line"><span class="comment"># 其他基本使用</span></div><div class="line">len((<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)) <span class="comment"># 結果為3</span></div><div class="line">(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)+(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>) <span class="comment"># 結果為(1.2.3.4.5.6)</span></div><div class="line">(<span class="string">"Hi"</span>,)*<span class="number">3</span> <span class="comment"># ("Hi","Hi","Hi")</span></div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>):<span class="keyword">print</span> x <span class="comment"># 1 2 3</span></div></pre></td></tr></table></figure>
+<h3 id="可應用的函數"><a href="#可應用的函數" class="headerlink" title="可應用的函數"></a>可應用的函數</h3><ul>
+<li>len(tuple)</li>
+<li>max(tuple)</li>
+<li>min(tuple)</li>
+<li>tuple(seq) - 將列表轉為元組。</li>
+</ul>
+<h1 id="0x04-字典"><a href="#0x04-字典" class="headerlink" title="0x04 字典"></a>0x04 字典</h1><p>屬於Associative arrays。字典是由键值(Keys)與數值(Values)組成。格式是這樣的<code>d = {key1 : value1, key2 : value2 }</code>。</p>
+<p>使用例子<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">dict = &#123;<span class="string">'Alice'</span>: <span class="string">'2341'</span>, <span class="string">'Beth'</span>: <span class="string">'9102'</span>, <span class="string">'Cecil'</span>: <span class="string">'3258'</span>&#125;</div><div class="line"> </div><div class="line"><span class="comment"># 訪問裡面的數值</span></div><div class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Milo'</span>,<span class="string">'Age'</span>: <span class="number">24</span>, <span class="string">'Class'</span>: <span class="string">'First'</span>&#125;</div><div class="line"></div><div class="line"><span class="keyword">print</span> (<span class="string">"dict['Name']: "</span>, dict[<span class="string">'Name'</span>])</div><div class="line"><span class="keyword">print</span> (<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</div><div class="line"></div><div class="line">結果</div><div class="line">dict[<span class="string">'Name'</span>]: Milo</div><div class="line">dict[<span class="string">'Age'</span>]: <span class="number">24</span></div><div class="line"></div><div class="line"><span class="comment"># 修改字典裡面的內容</span></div><div class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Milo'</span>, <span class="string">'Age'</span>: <span class="number">24</span>, <span class="string">'Class'</span>: <span class="string">'First'</span>&#125;</div><div class="line"></div><div class="line">dict[<span class="string">'Age'</span>] = <span class="number">8</span> <span class="comment"># 更新 Age</span></div><div class="line">dict[<span class="string">'School'</span>] = <span class="string">"W3School"</span>  <span class="comment"># 添加信息</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> (<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</div><div class="line"><span class="keyword">print</span> (<span class="string">"dict['School']: "</span>, dict[<span class="string">'School'</span>])</div><div class="line"></div><div class="line">結果</div><div class="line">dict[<span class="string">'Age'</span>]: <span class="number">8</span></div><div class="line">dict[<span class="string">'School'</span>]: W3School</div><div class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Runoob'</span>, <span class="string">'Age'</span>: <span class="number">7</span>, <span class="string">'Class'</span>: <span class="string">'First'</span>&#125;</div><div class="line"></div><div class="line"><span class="comment"># 刪除自動字典裡面的內容</span></div><div class="line"><span class="keyword">del</span> dict[<span class="string">'Name'</span>] <span class="comment"># 删除键 'Name'</span></div><div class="line">dict.clear()     <span class="comment"># 清空字典</span></div><div class="line"><span class="keyword">del</span> dict         <span class="comment"># 删除字典</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> (<span class="string">"dict['Age']: "</span>, dict[<span class="string">'Age'</span>])</div><div class="line"><span class="keyword">print</span> (<span class="string">"dict['School']: "</span>, dict[<span class="string">'School'</span>])</div></pre></td></tr></table></figure></p>
+]]></content>
       
         <categories>
             
@@ -320,9 +446,9 @@ If you’re not using a raw string to express the pattern, remember that Python 
             
             <tag> Note </tag>
             
-            <tag> Python </tag>
-            
             <tag> Linking </tag>
+            
+            <tag> Python </tag>
             
             <tag> Regex </tag>
             
@@ -713,9 +839,33 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <blockquote>
 <p>.debug</p>
 </blockquote>
-<p>調校符號表，以 -g 選項編譯時得到。包含如定義的局部變數和類型定義，定義和引用的全局變數，原始的C源文件。</p>
-<p>.line：原始的C源文件中的行號和.text節中機器指令之間的映射，以 -g 選項編譯時得到。</p>
-<p>.strtab：字串表，是以 null 結尾的字串序列，包含.symtab和.debug節中的符號表，節頭部中的節名字。</p>
+<p>調校符號表，以<code>-g</code>選項編譯時得到。包含如定義的局部變數和類型定義，定義和引用的全局變數，原始的C源文件。</p>
+<blockquote>
+<p>.line</p>
+</blockquote>
+<p>原始的C源文件中的行號和.text節中機器指令之間的映射，以<code>-g</code>選項編譯時得到。</p>
+<blockquote>
+<p>.strtab</p>
+</blockquote>
+<p>字串表，是以null結尾的字串序列，包含.symtab和.debug節中的符號表，節頭部中的節名字。</p>
+<blockquote>
+<p>.line</p>
+</blockquote>
+<p>原始的C源文件中的行號和.text節中機器指令之間的映射，以<code>-g</code>選項編譯時得到。</p>
+<blockquote>
+<p>.strtab</p>
+</blockquote>
+<p>字符串表，是以null結尾的字符串序列，包含<code>.symtab</code>和<code>.debug</code>節中的符號表，節頭部中的節名字。</p>
+<h3 id="符號和符號表"><a href="#符號和符號表" class="headerlink" title="符號和符號表"></a>符號和符號表</h3><p>有3種符號：</p>
+<ul>
+<li>可重定位目標模塊定義並能被其他模塊引用的全局符號，對應於非靜態屬性的C函數和全局變量。</li>
+<li>其他模塊定義並被當前模塊引用的全局符號，稱為外部符號，對應於定義在其他模塊的非静态C函數和全局變量。</li>
+<li>只被當前模塊定義和引用的本地符號(局部符号)，對應於有靜態屬性的C函數和全局變量。</li>
+</ul>
+<p>符號表是匯編器構造的，它是一個包含了以下條目的數組。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></div><div class="line">    <span class="keyword">int</span> name; <span class="comment">/* String table offset */</span></div><div class="line">    <span class="keyword">char</span> type:<span class="number">4</span>, <span class="comment">/* Function or data */</span></div><div class="line">         binding:<span class="number">4</span>; <span class="comment">/* Local or global */</span></div><div class="line">    <span class="keyword">char</span> reserverd; <span class="comment">/* Unused */</span></div><div class="line">    <span class="keyword">short</span> section; <span class="comment">/* Section hearder index */</span></div><div class="line">    <span class="keyword">long</span> value; <span class="comment">/* Section offset or absolute address */</span></div><div class="line">    <span class="keyword">long</span> size;  <span class="comment">/* Object Size in bytes*/</span></div><div class="line">    &#125; Elf64_Symbol;</div></pre></td></tr></table></figure></p>
+<p>/<em> Symbol table entry.  </em>/</p>
+<p>typedef struct<br>{<br>  Elf32_Word    st_name;        /<em> Symbol name (string tbl index) </em>/<br>  Elf32_Addr    st_value;        /<em> Symbol value </em>/<br>  Elf32_Word    st_size;        /<em> Symbol size </em>/<br>  unsigned char    st_info;        /<em> Symbol type and binding </em>/<br>  unsigned char    st_other;        /<em> Symbol visibility </em>/<br>  Elf32_Section    st_shndx;        /<em> Section index </em>/<br>} Elf32_Sym;</p>
+<p>typedef struct<br>{<br>  Elf64_Word    st_name;        /<em> Symbol name (string tbl index) </em>/<br>  unsigned char    st_info;        /<em> Symbol type and binding </em>/<br>  unsigned char st_other;        /<em> Symbol visibility </em>/<br>  Elf64_Section    st_shndx;        /<em> Section index </em>/<br>  Elf64_Addr    st_value;        /<em> Symbol value </em>/<br>  Elf64_Xword    st_size;        /<em> Symbol size </em>/<br>} Elf64_Sym;</p>
 ]]></content>
       
         <categories>
@@ -776,6 +926,7 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="https://radare.gitbooks.io/radare2book/content/" target="_blank" rel="noopener">Radare2 Book</a></li>
 <li><a href="http://bestwing.me/2017/03/08/angr-study/" target="_blank" rel="noopener">Angr 初探</a></li>
 <li><a href="https://github.com/zTrix/zio" target="_blank" rel="noopener">ZIO</a></li>
+<li><a href="https://www.d4rk7r4c3r.cn/2017/01/gdb-peda-readme/" target="_blank" rel="noopener">GDB-peda學習筆記</a></li>
 </ul>
 <h1 id="Courses"><a href="#Courses" class="headerlink" title="Courses"></a>Courses</h1><ul>
 <li><a href="http://security.cs.rpi.edu/courses/binexp-spring2015/" target="_blank" rel="noopener">Modern Binary Exploitation </a></li>
@@ -790,11 +941,13 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="https://www.gitbook.com/book/wizardforcel/sploitfun-linux-x86-exp-tut/details" target="_blank" rel="noopener">SploitFun Linux x86 Exploit 开发系列教程</a></li>
 <li><a href="https://sploitfun.wordpress.com/2015/06/26/linux-x86-exploit-development-tutorial-series/" target="_blank" rel="noopener">Linux(x86)Exploit Development Series</a></li>
 <li><a href="https://github.com/hardenedlinux/linux-exploit-development-tutorial" target="_blank" rel="noopener">linux-exploit-development-tutorial</a></li>
+<li><a href="https://github.com/bkerler/exploit_me" target="_blank" rel="noopener">Exploit Tutorial:Exploit me for ARM</a></li>
 </ul>
 <h1 id="Conference-Video-Slide"><a href="#Conference-Video-Slide" class="headerlink" title="Conference Video/Slide"></a>Conference Video/Slide</h1><ul>
-<li><a href="https://www.youtube.com/watch?v=29RbO5bftwo" target="_blank" rel="noopener">AFL fuzzing primer</a> </li>
+<li><a href="https://www.youtube.com/watch?v=29RbO5bftwo" target="_blank" rel="noopener">AFL fuzzing primer</a></li>
 <li><a href="https://sec-consult.com/en/blog/2017/11/the-art-of-fuzzing-slides-and-demos/index.html" target="_blank" rel="noopener">The Art of Fuzzing</a></li>
 <li><a href="https://drive.google.com/open?id=1zdqP9bioBivawfNOFZEjgd2Tga1IZxbG" target="_blank" rel="noopener">AIS3 2017 Linux Binary Exploitation</a></li>
+<li><a href="http://veritas501.space/2017/05/23/HITCON-training%20writeup/" target="_blank" rel="noopener">AIS3 2017 Linux Binary Exploitation里面Example的Writeup</a></li>
 </ul>
 <h1 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h1><ul>
 <li><a href="https://mega.nz/#!9lwRnAAB!Hw0pP7NMLfdcE8saw0uI9coAG2a_0xckiL9IMhUJz_Y" target="_blank" rel="noopener">Modern Windows Exploit Development</a></li>
@@ -808,23 +961,61 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="https://pastebin.com/raw/q7LGi8w5" target="_blank" rel="noopener">Rev challenges list</a></li>
 </ul>
 <h1 id="PWN-in-CTF-Wargame-Writeups-Tips"><a href="#PWN-in-CTF-Wargame-Writeups-Tips" class="headerlink" title="PWN in CTF/Wargame Writeups/Tips"></a>PWN in CTF/Wargame Writeups/Tips</h1><h2 id="Writeups"><a href="#Writeups" class="headerlink" title="Writeups"></a>Writeups</h2><ul>
+<li><a href="http://www.wooy0ung.me/writeup/2018/01/12/rop-emporium-writeup/" target="_blank" rel="noopener">ROP Emporium平台writeup</a></li>
 <li><a href="https://blog.trailofbits.com/2016/06/03/2000-cuts-with-binary-ninja/" target="_blank" rel="noopener">2000 cuts with Binary Ninja</a></li>
 <li><a href="http://ctfhacker.com/ctf/python/symbolic/execution/reverse/radare/2015/11/28/cmu-binary-bomb-flag2.html" target="_blank" rel="noopener">CMU Binary Bomb</a></li>
 <li><a href="http://www.freebuf.com/articles/rookie/158520.html" target="_blank" rel="noopener">记一道PWN题的解题思路</a></li>
 <li><a href="http://www.freebuf.com/articles/rookie/155971.html" target="_blank" rel="noopener">解题思路 | 从一道Pwn题说起 </a></li>
+<li><a href="http://wps2015.org/drops/drops/%E4%B8%89%E4%B8%AA%E7%99%BD%E5%B8%BD-%E6%9D%A5%20PWN%20%E6%88%91%E4%B8%80%E4%B8%8B%E5%A5%BD%E5%90%97%20writeup.html" target="_blank" rel="noopener">三個白帽：來PWN我一下好嗎</a></li>
+<li><a href="http://wps2015.org/drops/drops/%E4%B8%89%E4%B8%AA%E7%99%BD%E5%B8%BD%E4%B9%8B%E4%BB%8Epwn%20me%E8%B0%83%E8%AF%95%E5%88%B0Linux%E6%94%BB%E9%98%B2%E5%AD%A6%E4%B9%A0.html" target="_blank" rel="noopener">個白帽：从pwn me调试到Linux攻防学习</a></li>
+<li><a href="http://bruce30262.logdown.com/posts/277024-asis-ctf-2015-quals-saw-this-1" target="_blank" rel="noopener">ASIS CTF 2015 Quals – Saw this (1 &amp; 2) </a></li>
+<li><a href="http://pzhxbz.cn/?p=83" target="_blank" rel="noopener">pwnable.tw-See the file筆記</a></li>
+<li><a href="http://pzhxbz.cn/?p=91" target="_blank" rel="noopener">pwnable.tw-babystack笔记</a></li>
+<li><a href="https://www.anquanke.com/post/id/83835" target="_blank" rel="noopener">CCTF pwn3格式化字符串漏洞详细writeup</a></li>
+<li><a href="http://www.reshahar.com/2017/05/10/2015-defcon-quals-r0pbaby%E8%A7%A3%E6%9E%90/" target="_blank" rel="noopener">2015-defcon-quals-r0pbaby解析</a></li>
+</ul>
+<h3 id="HITCON"><a href="#HITCON" class="headerlink" title="HITCON"></a>HITCON</h3><ul>
+<li><a href="https://tradahacking.vn/hitcon-2017-ghost-in-the-heap-writeup-ee6384cd0b7" target="_blank" rel="noopener">HITCON 2017 : Ghost in The Heap Writeup</a></li>
+<li><a href="http://pzhxbz.cn/?p=103" target="_blank" rel="noopener">HITCON 2017 : Everlasting Imaginative Void</a></li>
+<li><a href="https://4ngelboy.blogspot.my/2016/10/hitcon-ctf-qual-2016-house-of-orange.html" target="_blank" rel="noopener">HITCON CTF Qual 2016 - House of Orange Write up</a></li>
+<li><a href="pzhxbz.cn/?p=93">HITCON 2016 Baby Heap</a></li>
+<li><a href="http://skysider.com/?p=602" target="_blank" rel="noopener">HITCON QUALS CTF 2015 readable writeup</a></li>
 </ul>
 <h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><ul>
+<li><a href="https://drive.google.com/open?id=18ttjnJmdCajo8avxgJs53cF_SMuVvUuJ" target="_blank" rel="noopener">Pwn Basic 2(Linux)by TDOH &amp; NTUST</a></li>
 <li><a href="https://github.com/Naetw/CTF-pwn-tips" target="_blank" rel="noopener">CTF pwn tips by Naetw</a></li>
 <li><a href="https://firmianay.gitbooks.io/ctf-all-in-one/content/doc/3.3_pwn.html" target="_blank" rel="noopener">CTF All in one: PWN</a></li>
 <li><a href="https://drive.google.com/open?id=1g30jNUaz2P2PrI_DQUTpHDfGCxrGeJ1lKJRckm1PmKY" target="_blank" rel="noopener">科總CTF+Binary小技巧</a></li>
 <li><a href="https://paper.seebug.org/481/" target="_blank" rel="noopener">Linux下pwn从入门到放弃</a></li>
+<li><a href="https://www.slideshare.net/AngelBoy1/play-with-file-structure-yet-another-binary-exploit-technique" target="_blank" rel="noopener">Play with FILE Structure - Yet Another Binary Exploit Technique</a></li>
+<li><a href="https://drive.google.com/open?id=1QETaNSZAW-Cu07-TFKJKQ3bkNvj71hHL" target="_blank" rel="noopener">掘金CTF——CTF中的内存漏洞利用技巧</a></li>
+<li><a href="https://drive.google.com/open?id=1ac9djBXCAjXwuFEZ0a93dyBByhs8sNN9" target="_blank" rel="noopener">二进制漏洞挖掘与利用技术题解分享 -XMAN</a></li>
+<li><a href="http://aptx4869.me/ctf/2017/03/31/learnPwn.html" target="_blank" rel="noopener">CTF Pwn Notes by APTX-4869</a></li>
+<li><a href="http://skysiderPWN.com/?p=223" target="_blank" rel="noopener">pwn tips by Skysiders</a></li>
+<li><a href="https://bbs.pediy.com/thread-220508.htm" target="_blank" rel="noopener">一篇安全学习笔记</a></li>
+<li><a href="https://github.com/jaybosamiya/security-notes" target="_blank" rel="noopener">Binary Some Security Notes for PWN</a></li>
+<li><a href="https://drive.google.com/file/d/18UpGDvhccnnGWj7Mux7_2BGouIZK_5bK/view?usp=sharing" target="_blank" rel="noopener">Pwning with some styles by Dragon Sectors</a></li>
+<li><a href="https://speakerdeck.com/megumish/pwnru-men-bofkarahouse-of-orange-made" target="_blank" rel="noopener">Pwn入門 BoFからHouse of Orange まで</a></li>
 </ul>
-<h1 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge"></a>Knowledge</h1><h2 id="棧"><a href="#棧" class="headerlink" title="棧"></a>棧</h2><ul>
+<h1 id="Knowledge"><a href="#Knowledge" class="headerlink" title="Knowledge"></a>Knowledge</h1><h2 id="軟件保护技术"><a href="#軟件保护技术" class="headerlink" title="軟件保护技术"></a>軟件保护技术</h2><ul>
+<li><a href="goo.gl/g923tM">保护技术-此文章长期更新 by Poker</a></li>
+<li><a href="http://www.cnblogs.com/wangaohui/p/7122653.html" target="_blank" rel="noopener">Linux ASLR的实现</a></li>
+</ul>
+<h2 id="棧"><a href="#棧" class="headerlink" title="棧"></a>棧</h2><ul>
 <li>[CTF Wik Stack Intro]<a href="https://ctf-wiki.github.io/ctf-wiki/pwn/stackoverflow/stack_intro.html" target="_blank" rel="noopener">https://ctf-wiki.github.io/ctf-wiki/pwn/stackoverflow/stack_intro.html</a></li>
+<li><a href="http://libc.pw/2015/07/29/%E6%A0%88%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%88%A9%E7%94%A8/" target="_blank" rel="noopener">栈溢出漏洞介绍与利用</a></li>
+<li><a href="https://toalice.github.io/2017/04/11/index/" target="_blank" rel="noopener">CTF-PWN栈溢出入门</a></li>
 <li><a href="http://z1ng.net/post/trans/64wei-linuxzhan-yi-chu" target="_blank" rel="noopener">64位linux棧溢出</a></li>
+<li><a href="https://www.secpulse.com/archives/32328.html" target="_blank" rel="noopener">64位Linux栈溢出教程</a></li>
 <li><a href="http://bestwing.me/2017/03/18/stack-overflow-one/" target="_blank" rel="noopener">基础栈溢出复习 一 基礎</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/25816426" target="_blank" rel="noopener">手把手教你栈溢出从入门到放弃（上）</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/25892385" target="_blank" rel="noopener">手把手教你栈溢出从入门到放弃（下）</a></li>
+<li><a href="http://www.freebuf.com/articles/system/24177.html" target="_blank" rel="noopener">现代Linux操作系统的栈溢出（上）</a></li>
+<li><a href="http://insecure.org/stf/smashstack.html" target="_blank" rel="noopener">Smashing The Stack For Fun And Profit</a></li>
+<li><a href="https://gbmaster.wordpress.com/2014/06/18/x86-exploitation-101-when-the-stack-gets-over-its-head/" target="_blank" rel="noopener">x86 Exploitation-101:when-the-stack-gets-over-its-head</a></li>
+<li><a href="https://gbmaster.wordpress.com/2015/08/03/x86-exploitation-101-off-by-one-and-an-uninvited-friend-joins-the-party/" target="_blank" rel="noopener">x86 Exploitation 101: “Off-by-one”</a></li>
+<li><a href="http://0xpoker.cuit.site/20171202/%E4%B8%80%E7%82%B9%E5%85%B3%E4%BA%8E%E5%88%A9%E7%94%A8__stack_chk_fail%E7%BB%95%E8%BF%87canary%E7%9A%84%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">一点关于利用_stack_chk_fail绕过canary的方法</a></li>
+<li><a href="https://toalice.github.io/2017/07/14/functionCall&amp;Stack/" target="_blank" rel="noopener">函数调用&amp;栈</a></li>
 </ul>
 <h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><ul>
 <li><a href="https://heap-exploitation.dhavalkapil.com" target="_blank" rel="noopener">Heap Exploitation Tutorials by Dhavalkapil</a></li>
@@ -832,6 +1023,7 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="https://github.com/shellphish/how2heap" target="_blank" rel="noopener">How 2 Heap</a></li>
 <li><a href="http://www.reversing.win/2017/08/29/how2heap总结-上/" target="_blank" rel="noopener">how2heap总结-上</a></li>
 <li><a href="http://www.reversing.win/2017/08/29/how2heap总结-下/" target="_blank" rel="noopener">how2heap总结-下</a></li>
+<li><a href="http://pzhxbz.cn/?p=96" target="_blank" rel="noopener">poison_null_byte</a></li>
 <li><a href="http://bobao.360.cn/learning/detail/3379.html" target="_blank" rel="noopener">逆向安全系列：Use After Free漏洞浅析</a></li>
 <li><a href="http://huntcve.github.io/2015/06/14/uaf/" target="_blank" rel="noopener">从zergRush深入理解Use After Free</a></li>
 <li><a href="http://www.freebuf.com/vuls/95708.html" target="_blank" rel="noopener">利用Linux内核里的Use-After-Free（UAF）漏洞提权</a></li>
@@ -841,10 +1033,46 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="https://blog.iret.xyz/article.aspx/linux_heapoverflow_enterance#fn:1" target="_blank" rel="noopener">Notes About Heap Overflow Under Linux</a></li>
 <li><a href="http://www.freebuf.com/articles/system/151372.html" target="_blank" rel="noopener">Dance In Heap（一）：浅析堆的申请释放及相应保护机制 </a></li>
 <li><a href="http://vancir.com/tutorials.html" target="_blank" rel="noopener">Heap Exploitation系列翻譯 by Vancir</a></li>
+<li><a href="http://libc.pw/2015/08/06/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E4%B8%ADfree%E7%9A%84%E8%A1%8C%E4%B8%BA/" target="_blank" rel="noopener">内存管理中free的行为</a></li>
 <li><a href="https://securityintelligence.com/use-after-frees-that-pointer-may-be-pointing-to-something-bad/" target="_blank" rel="noopener">Use-after-frees: That pointer may be pointing to something bad</a></li>
 <li><a href="https://paper.seebug.org/255/" target="_blank" rel="noopener">PWN之堆内存管理</a></li>
-<li><a href="https://paper.seebug.org/papers/Archive/refs/heap/glibc%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86ptmalloc%e6%ba%90%e4%bb%a3%e7%a0%81%e5%88%86%e6%9e%90.pdf" target="_blank" rel="noopener">《glibc内存管理ptmalloc源代码分析》</a><h2 id="ROP"><a href="#ROP" class="headerlink" title="ROP"></a>ROP</h2></li>
+<li><a href="https://paper.seebug.org/papers/Archive/refs/heap/glibc%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86ptmalloc%e6%ba%90%e4%bb%a3%e7%a0%81%e5%88%86%e6%9e%90.pdf" target="_blank" rel="noopener">《glibc内存管理ptmalloc源代码分析》</a></li>
+<li><a href="https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/" target="_blank" rel="noopener">Understanding glibc malloc</a></li>
+<li><a href="https://sploitfun.wordpress.com/2015/02/11/syscalls-used-by-malloc/?spm=a313e.7916648.0.0.NP952U" target="_blank" rel="noopener">Syscalls used by malloc</a></li>
+<li><a href="https://drive.google.com/open?id=1cKz_M9dKBbO3dyLVxKHUBBFEQxiXEVW4" target="_blank" rel="noopener">Glibc Adventures The Forgotten Chunks</a></li>
+<li><a href="https://4ngelboy.blogspot.my/2015/08/heap-exploitation.html" target="_blank" rel="noopener">Heap exploitation by angelboy</a></li>
+<li><a href="https://4ngelboy.blogspot.my/2016/03/advanced-heap-exploitation.html" target="_blank" rel="noopener">Advanced heap exploitation</a></li>
+<li><a href="https://toalice.github.io/2017/07/19/Heap1/" target="_blank" rel="noopener">glibc堆管理机制</a></li>
+<li><a href="http://aptx4869.me/linux/2017/11/29/Glibc-malloc-learning.html" target="_blank" rel="noopener">Glibc堆管理学习笔记（一）</a></li>
+<li><a href="http://aptx4869.me/linux/2017/12/10/Glibc-malloc-learning2.html" target="_blank" rel="noopener">Glibc堆管理学习笔记（二）</a></li>
+<li><a href="http://pzhxbz.cn/?p=92" target="_blank" rel="noopener">關於堆的一點筆記</a></li>
+<li><a href="http://libc.pw/2015/07/31/0day%E4%B9%8Bret-to-libc/" target="_blank" rel="noopener">0day之ret to libc</a></li>
+<li><a href="libc.pw/2015/08/04/%E5%A0%86%E6%BA%A2%E5%87%BA%E6%BC%8F%E6%B4%9E%E7%AE%80%E4%BB%8B/">堆溢出漏洞简介</a></li>
+<li><a href="http://libc.pw/2015/08/08/%E4%B8%80%E6%AC%A1%E6%A8%A1%E6%8B%9F%E7%9A%84%E5%A0%86%E6%BA%A2%E5%87%BA%E5%88%A9%E7%94%A8/" target="_blank" rel="noopener">内存管理漏洞 part(1)</a></li>
+<li><a href="http://libc.pw/2015/08/24/Double%20Free%E6%B5%85%E6%9E%90/" target="_blank" rel="noopener">Double Free浅析 </a></li>
+<li><a href="https://gbmaster.wordpress.com/2015/07/16/x86-exploitation-101-house-of-lore-people-and-traditions/" target="_blank" rel="noopener">x86 Exploitation 101: “House of Lore”</a></li>
+<li><a href="https://gbmaster.wordpress.com/2015/07/21/x86-exploitation-101-house-of-spirit-friendly-stack-overflow/" target="_blank" rel="noopener">x86 Exploitation 101: “House of Spirit”</a></li>
+<li><a href="https://gbmaster.wordpress.com/2015/06/28/x86-exploitation-101-house-of-force-jedi-overflow/" target="_blank" rel="noopener">x86 Exploitation 101: “House of Force”</a></li>
+<li><a href="https://gbmaster.wordpress.com/2015/06/15/x86-exploitation-101-house-of-mind-undead-and-loving-it/" target="_blank" rel="noopener">x86 Exploitation 101: “House of Mind”</a></li>
+<li><a href="https://gbmaster.wordpress.com/2014/08/24/x86-exploitation-101-this-is-the-first-witchy-house/" target="_blank" rel="noopener">x86 Exploitation 101: this is the first witchy house</a></li>
+<li><a href="https://gbmaster.wordpress.com/2014/08/11/x86-exploitation-101-heap-overflows-unlink-me-would-you-please/" target="_blank" rel="noopener">x86 Exploitation 101:unlink-me</a></li>
+<li><a href="http://www.win.tue.nl/~aeb/linux/hh/hh-11.html" target="_blank" rel="noopener">Exploiting the heap</a></li>
+<li><a href="http://jaq.alibaba.com/community/art/show?spm=a313e.7916646.24000001.45.nv3onP&amp;articleid=315" target="_blank" rel="noopener">Linux堆內存管理深入分析</a></li>
+<li><a href="http://jaq.alibaba.com/community/art/show?spm=a313e.7916646.24000001.37.qktl5B&amp;articleid=360" target="_blank" rel="noopener">Linux堆溢出漏洞利用之unlink</a></li>
+<li><a href="https://www.anquanke.com/post/id/85357" target="_blank" rel="noopener">堆之House of Spirit</a></li>
+<li><a href="https://www.anquanke.com/post/id/85127" target="_blank" rel="noopener">unsorted bin attack分析</a></li>
+<li><a href="http://www.programlife.net/heapspray-cve2012-1889-exploit-1.html" target="_blank" rel="noopener">实战HeapSpray之CVE2012-1889 Exploit编写（一）</a></li>
+<li><a href="http://blog.csdn.net/magictong/article/details/7391397" target="_blank" rel="noopener">Heap Spray原理浅析</a></li>
+<li><a href="https://toalice.github.io/2017/07/24/Heap2unlink/" target="_blank" rel="noopener">堆溢出之Unlink</a></li>
+<li><a href="https://drive.google.com/open?id=1SREK7cjM9HxB27r2Sy5rAeMQLc_Aq0JH" target="_blank" rel="noopener">Play with Linux Heap</a></li>
+</ul>
+<h2 id="ROP"><a href="#ROP" class="headerlink" title="ROP"></a>ROP</h2><ul>
+<li><a href="http://tacxingxing.com/self-learning/2017/05/29/Rop/" target="_blank" rel="noopener">Rop by Tac Xing Xing</a></li>
+<li><a href="https://www.anquanke.com/post/id/85831" target="_blank" rel="noopener">现代栈溢出利用技术基础：ROP</a></li>
+<li><a href="http://jaq.alibaba.com/community/art/show?spm=a313e.7916646.24000001.29.qktl5B&amp;articleid=403" target="_blank" rel="noopener">一步一步学ROP之linux_x86篇</a></li>
+<li><a href="http://jaq.alibaba.com/community/art/show?spm=a313e.7916646.24000001.2.qktl5B&amp;articleid=473" target="_blank" rel="noopener">一步一步学ROP之linux_x64篇</a></li>
 <li><a href="https://blog.skullsecurity.org/2013/ropasaurusrex-a-primer-on-return-oriented-programming" target="_blank" rel="noopener">ropasaurusrex: a primer on return-oriented programming</a></li>
+<li><a href="http://0xpoker.cuit.site/20171206/ROP%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%97%85%28%E4%B8%80%29/" target="_blank" rel="noopener">ROP学习之旅(一)</a></li>
 <li><a href="http://bestwing.me/2017/03/19/stack-overflow-two-ROP/" target="_blank" rel="noopener">基础栈溢出复习 二 ROP</a></li>
 <li><a href="http://bestwing.me/2017/03/20/stack-overflow-three-SROP/" target="_blank" rel="noopener">基础栈溢出复习 三 SROP</a></li>
 <li><a href="http://bestwing.me/2017/03/24/stack-overflow-four-BROP/" target="_blank" rel="noopener">基础栈溢出复习 四 BROP</a></li>
@@ -856,10 +1084,18 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="http://vancir.com/posts/ret2libc%E6%94%BB%E5%87%BB%E6%8A%80%E6%9C%AF%E7%A4%BA%E4%BE%8B-%E6%B3%84%E9%9C%B2libc%E5%9F%BA%E5%9C%B0%E5%9D%80%E8%AE%A1%E7%AE%97system(" target="_blank" rel="noopener">ret2libc攻击技术示例-仅有system()情况下输入“/bin/sh”完成函数调用</a>%E5%9C%B0%E5%9D%80%E7%BB%95%E8%BF%87ASLR)</li>
 <li><a href="http://vancir.com/posts/ret2libc%E6%94%BB%E5%87%BB%E6%8A%80%E6%9C%AF%E7%A4%BA%E4%BE%8B-%E6%B3%84%E9%9C%B2libc%E5%9F%BA%E5%9C%B0%E5%9D%80%E8%AE%A1%E7%AE%97system(" target="_blank" rel="noopener">ret2libc攻击技术示例-泄露libc基地址计算system()地址绕过ASLR</a>%E5%9C%B0%E5%9D%80%E7%BB%95%E8%BF%87ASLR)</li>
 <li><a href="http://vancir.com/posts/ret2__libc_csu_init%E6%94%BB%E5%87%BB%E6%8A%80%E6%9C%AF%E7%A4%BA%E4%BE%8B-%E4%BD%BF%E7%94%A8%E9%80%9A%E7%94%A8gadget" target="_blank" rel="noopener">ret2__libc_csu_init攻击技术示例-使用通用gadget</a></li>
+<li><a href="http://skysider.com/?p=371" target="_blank" rel="noopener">linux x64 rop利用总结</a></li>
+<li><a href="http://www.freebuf.com/articles/system/94198.html" target="_blank" rel="noopener">Linux内核ROP姿势详解(一)</a></li>
+<li><a href="http://www.cnblogs.com/0xJDchen/p/6429272.html" target="_blank" rel="noopener">Linux内核ROP姿势详解(二)</a></li>
+<li><a href="http://www.freebuf.com/articles/network/87447.html" target="_blank" rel="noopener">Sigreturn Oriented Programming (SROP) Attack攻击原理</a></li>
+<li><a href="https://drive.google.com/open?id=0B18u7ECQO-gTdGdrZXZhSUZ3bmc" target="_blank" rel="noopener">Kiwicon 2012 Rop and Rool</a></li>
+<li><a href="https://paper.seebug.org/444/" target="_blank" rel="noopener">ROP小結</a></li>
+<li><a href="https://www.slideshare.net/hackstuff/rop-40525248" target="_blank" rel="noopener">ROP 輕鬆談</a></li>
 </ul>
 <h2 id="格式化字符串"><a href="#格式化字符串" class="headerlink" title="格式化字符串"></a>格式化字符串</h2><ul>
 <li><a href="https://www.exploit-db.com/docs/28476.pdf" target="_blank" rel="noopener">Format String Exploitation</a></li>
 <li><a href="https://crypto.stanford.edu/cs155old/cs155-spring08/papers/formatstring-1.2.pdf" target="_blank" rel="noopener">Exploiting Format String Vulnerabilities</a></li>
+<li><a href="http://libc.pw/2015/07/29/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%BC%8F%E6%B4%9E/" target="_blank" rel="noopener">格式化字符串漏洞 by Z神</a></li>
 <li><a href="http://www.freebuf.com/articles/system/74224.html" target="_blank" rel="noopener">格式化字符串的漏洞應用 Part 1</a></li>
 <li><a href="https://www.anquanke.com/post/id/85785" target="_blank" rel="noopener">格式化字符串漏洞利用小结（一）</a></li>
 <li><a href="http://www.moonsos.com/post/149.html" target="_blank" rel="noopener">CCTF pwn3格式化字符串漏洞详细writeup</a></li>
@@ -869,6 +1105,9 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="http://www.xfocus.net/articles/200103/123.html" target="_blank" rel="noopener">浅析格式化串漏洞</a></li>
 <li><a href="https://blog.nullable.software/2015/07/format-string-exploitation.html" target="_blank" rel="noopener">Format String Exploitation</a></li>
 <li><a href="https://github.com/shiyanlou/seedlab/blob/master/formatstring.md" target="_blank" rel="noopener">格式化字符串漏洞实验</a></li>
+<li><a href="http://www.edwardl.xyz/2016/09/01/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%BC%8F%E6%B4%9E/" target="_blank" rel="noopener">格式化字符串漏洞 by Edward</a></li>
+<li><a href="https://gbmaster.wordpress.com/2015/12/08/x86-exploitation-101-format-strings-ill-tell-ya-what-to-say/" target="_blank" rel="noopener">x86 Exploitation 101: “Format Strings” – I’ll tell ya what to say</a></li>
+<li><a href="http://0xpoker.cuit.site/20171126/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%28%E4%B8%80%29/" target="_blank" rel="noopener">格式化字符串漏洞学习笔记(一)</a></li>
 </ul>
 <h2 id="Fuzzing"><a href="#Fuzzing" class="headerlink" title="Fuzzing"></a>Fuzzing</h2><ul>
 <li><a href="https://www.youtube.com/watch?v=BrDujogxYSk" target="_blank" rel="noopener">Basics of Fuzzing by Gynvael</a></li>
@@ -876,14 +1115,20 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <h2 id="Shellcode"><a href="#Shellcode" class="headerlink" title="Shellcode"></a>Shellcode</h2><ul>
 <li><a href="https://paraschetal.in/writing-your-own-shellcode" target="_blank" rel="noopener">Writing your own shellcode – blog by Paras Chetal</a></li>
 <li><a href="http://shell-storm.org/shellcode/" target="_blank" rel="noopener">Shellcode Database</a></li>
+<li><a href="https://www.anquanke.com/post/id/85306" target="_blank" rel="noopener">远程漏洞利用：无需借助套接字的Shellcode</a></li>
+<li><a href="https://gbmaster.wordpress.com/2014/07/01/x86-exploitation-101-born-in-a-shell/" target="_blank" rel="noopener">x86 Exploitation 101:born-in-a-shell</a></li>
 </ul>
 <h2 id="ElF-file-format"><a href="#ElF-file-format" class="headerlink" title="ElF file format"></a>ElF file format</h2><ul>
 <li><a href="https://www.cs.stevens.edu/~jschauma/631/elf.html" target="_blank" rel="noopener">Executable and Linkable Format (ELF) info</a></li>
-<li><a href="http://nullprogram.com/blog/2016/11/17/" target="_blank" rel="noopener">A Magnetized Needle and a Steady Hand– elf structures with a nice storyline.</a> </li>
+<li><a href="http://nullprogram.com/blog/2016/11/17/" target="_blank" rel="noopener">A Magnetized Needle and a Steady Hand– elf structures with a nice storyline</a></li>
 <li><a href="https://www.inforsec.org/wp/?p=389" target="_blank" rel="noopener">ELF如何摧毁圣诞 ——通过ELF动态装载机制进行漏洞利用</a></li>
 <li><a href="http://bestwing.me/2017/03/30/《A%20Programmer%20Prepares》--ELF/" target="_blank" rel="noopener">《程序员的自我修养》读书笔记—ELF文件结构 by Swing</a></li>
 <li><a href="http://opensecuritytraining.info/LifeOfBinaries_files/2012_LifeOfBinaries3.pdf" target="_blank" rel="noopener">Opensecurity Training:The life of binaries;Part 3:ELF info</a></li>
 <li><a href="http://www.cnblogs.com/LittleHann/p/3871092.html ELF File Format" target="_blank" rel="noopener">ELF格式&amp;和其分析工具 by Little Hann</a></li>
+<li><a href="http://blog.betamao.me/2017/10/10/ELF%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E4%B9%8B%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5/" target="_blank" rel="noopener">ELF文件格式之动态链接</a></li>
+<li><a href="http://0xpoker.cuit.site/20171201/bss%E6%AE%B5-data%E6%AE%B5-text%E6%AE%B5%E7%AD%89%E8%BF%99%E4%BA%9B%E4%B8%9C%E8%A5%BF%E6%98%AF%E4%BB%80%E4%B9%88/" target="_blank" rel="noopener">bss段.data段.text段等这些东西是什么</a></li>
+<li><a href="https://www.anquanke.com/post/id/85129" target="_blank" rel="noopener">借助DynELF实现无libc的漏洞利用小结</a></li>
+<li><a href="http://bestwing.me/2017/02/15/Memory%20Leak%20&amp;%20DynELF/" target="_blank" rel="noopener">leak技巧以及DynELF的温习</a></li>
 </ul>
 <h3 id="Return-to-Dl-Resolve"><a href="#Return-to-Dl-Resolve" class="headerlink" title="Return to Dl Resolve"></a>Return to Dl Resolve</h3><ul>
 <li><a href="http://bestwing.me/2017/11/14/Return-to-dl-resolve/" target="_blank" rel="noopener">By Swing</a></li>
@@ -892,9 +1137,10 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="http://d0m021ng.github.io/2016/11/03/PWN/ret2-dl-resolve-payload-%E6%9E%84%E9%80%A0%E5%8E%9F%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">Linux栈溢出利用之return to dl-resolve payload 构造原理(一)</a></li>
 <li><a href="http://d0m021ng.github.io/2016/11/03/PWN/ret2-dl-resolve-payload-%E6%9E%84%E9%80%A0%E5%8E%9F%E7%90%86%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="noopener">Linux栈溢出利用之return to dl-resolve payload 构造原理(二)</a></li>
 <li><a href="http://rk700.github.io/2015/08/09/return-to-dl-resolve/" target="_blank" rel="noopener">ROP之return to dl-resolve</a></li>
-<li><a href="http://inaz2.hatenablog.com/entry/2014/07/27/205322" target="_blank" rel="noopener"> x64でROP stager + Return-to-dl-resolveによるASLR+DEP回避をやってみる Exploit </a></li>
+<li><a href="http://inaz2.hatenablog.com/entry/2014/07/27/205322" target="_blank" rel="noopener">x64でROP stager + Return-to-dl-resolveによるASLR+DEP回避をやってみる Exploit </a></li>
 <li><a href="http://blog.binpang.me/2017/05/16/seed-returnToLibc/" target="_blank" rel="noopener">seedLab:returnToLibc</a></li>
 <li><a href="http://www.cis.syr.edu/~wedu/seed/Labs_12.04/Software/Return_to_libc/" target="_blank" rel="noopener">Return-to-libc Attack Lab</a></li>
+<li><a href="blog.csdn.net/joez_blog/article/details/51268006">pwn学习之dl_resolve学习篇</a></li>
 </ul>
 <h2 id="Windows-Kernal-Exploit"><a href="#Windows-Kernal-Exploit" class="headerlink" title="Windows Kernal Exploit"></a>Windows Kernal Exploit</h2><ul>
 <li><a href="https://o0xmuhe.github.io/tags/windows-kernel/" target="_blank" rel="noopener">Windows Kernal Exploit Study(123)</a></li>
@@ -907,19 +1153,43 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="http://bobao.360.cn/learning/detail/3706.html" target="_blank" rel="noopener">【系列分享】Linux 内核漏洞利用教程（三）：实践 CSAW CTF 题目</a></li>
 <li><a href="http://bestwing.me" target="_blank" rel="noopener">linux-kernel expoit study (1-4)</a></li>
 <li><a href="https://github.com/SecWiki/linux-kernel-exploits" target="_blank" rel="noopener">Sec Wiki Linux Kernal Exploits</a></li>
+<li><a href="http://pzhxbz.cn/?p=97" target="_blank" rel="noopener">kernel pwn入门(0) 驱动开发相关</a></li>
+<li><a href="http://pzhxbz.cn/?p=98" target="_blank" rel="noopener">kernel pwn入门(1) 简易环境搭建</a></li>
+<li><a href="http://pzhxbz.cn/?p=99" target="_blank" rel="noopener">kernel pwn入门(2) 实战一下babydriver</a></li>
+<li><a href="https://speakerdeck.com/megumish/kernelfalseexploitle-siina" target="_blank" rel="noopener">KernelのExploit楽しいな</a></li>
+</ul>
+<h2 id="Linux-Kernal"><a href="#Linux-Kernal" class="headerlink" title="Linux Kernal"></a>Linux Kernal</h2><ul>
+<li><a href="https://www.linuxvoice.com/be-a-kernel-hacker/" target="_blank" rel="noopener">Write Your First Linux Kernel Module</a></li>
+<li><a href="http://blog.jobbole.com/72115/" target="_blank" rel="noopener">编写属于你的第一个Linux内核模块</a></li>
+<li><a href="https://goo.gl/BgQe2X" target="_blank" rel="noopener">上面教程用到的代碼</a></li>
 </ul>
 <h2 id="Buffer-Overflow"><a href="#Buffer-Overflow" class="headerlink" title="Buffer Overflow"></a>Buffer Overflow</h2><ul>
 <li><a href="https://www.gitbook.com/book/wizardforcel/q-buffer-overflow-tutorial/details" target="_blank" rel="noopener">Q版缓冲区溢出教程</a></li>
 <li><a href="http://www.freebuf.com/vuls/63580.html" target="_blank" rel="noopener">从零开始学Win32平台缓冲区溢出（Part1）</a></li>
 <li><a href="https://drive.google.com/open?id=1uv_ZVU6CLfh9Yt0L0rWmwMYbYd12YDR7" target="_blank" rel="noopener">Win32缓冲区溢出实战</a></li>
-<li><a href="https://jinzihao.me/2016/08/%e7%bc%93%e5%86%b2%e5%8c%ba%e6%ba%a2%e5%87%ba%e6%bc%8f%e6%b4%9e%e7%9a%84%e5%88%a9%e7%94%a8/#more-1325" target="_blank" rel="noopener">缓冲区溢出漏洞的利用</a><h1 id="Others-Repository"><a href="#Others-Repository" class="headerlink" title="Others Repository"></a>Others Repository</h1></li>
+<li><a href="https://jinzihao.me/2016/08/%e7%bc%93%e5%86%b2%e5%8c%ba%e6%ba%a2%e5%87%ba%e6%bc%8f%e6%b4%9e%e7%9a%84%e5%88%a9%e7%94%a8/#more-1325" target="_blank" rel="noopener">缓冲区溢出漏洞的利用</a></li>
+</ul>
+<h2 id="File-結構體"><a href="#File-結構體" class="headerlink" title="File 結構體"></a>File 結構體</h2><ul>
+<li><a href="https://www.anquanke.com/post/id/84987" target="_blank" rel="noopener">溢出利用FILE结构体</a></li>
+</ul>
+<h2 id="Integer-Overflow"><a href="#Integer-Overflow" class="headerlink" title="Integer Overflow"></a>Integer Overflow</h2><ul>
+<li><a href="https://gbmaster.wordpress.com/2015/08/13/x86-exploitation-101-integer-overflow-adding-one-more-aaaaaaaaaaand-its-gone/" target="_blank" rel="noopener">x86 Exploitation 101: “Integer overflow”</a></li>
+</ul>
+<h2 id="其他漏洞"><a href="#其他漏洞" class="headerlink" title="其他漏洞"></a>其他漏洞</h2><ul>
+<li><a href="https://www.anquanke.com/post/id/85571" target="_blank" rel="noopener">从一个CTF题目学习Python沙箱逃逸</a></li>
+</ul>
+<h1 id="Others-Repository"><a href="#Others-Repository" class="headerlink" title="Others Repository"></a>Others Repository</h1><ul>
 <li><a href="https://chybeta.github.io/2017/08/19/Software-Security-Learning/" target="_blank" rel="noopener">Software Security Learning by Chybeta</a></li>
 <li><a href="http://www.pentest.guru/index.php/2016/01/28/best-books-tutorials-and-courses-to-learn-about-exploit-development/" target="_blank" rel="noopener">Best books &amp; Tutorials &amp; Course to learn abot explot developement</a></li>
 <li><a href="https://github.com/SteinsGatep001/Binary" target="_blank" rel="noopener">SteinsGatep001</a></li>
 <li><a href="https://github.com/InfoSecIITR/reading-material" target="_blank" rel="noopener">Reading Material by InfoSecIITR</a></li>
+<li><a href="https://github.com/Vancir/CTF-Pwn-ResourcesList" target="_blank" rel="noopener">CTF-Pwn-ResourcesList</a></li>
 </ul>
 <h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><ul>
-<li><a href="http://www.agner.org/optimize/calling_conventions.pdf" target="_blank" rel="noopener">Calling Conventions</a> </li>
+<li><a href="http://libc.pw/2015/08/08/Dword-shoot/" target="_blank" rel="noopener">Dword Shoot漏洞</a></li>
+<li><a href="http://aptx4869.me/ctf/2017/09/08/Overflow.html" target="_blank" rel="noopener">Pwn探索笔记</a></li>
+<li><a href="http://repwn.com/wiki.html" target="_blank" rel="noopener">Binary wiki by bird for some good articles collection</a></li>
+<li><a href="http://www.agner.org/optimize/calling_conventions.pdf" target="_blank" rel="noopener">Calling Conventions</a></li>
 <li><a href="https://youtu.be/TQlOXdXtLnQ" target="_blank" rel="noopener">AIS3 2016 中區 Binary Exploitation</a></li>
 <li><a href="https://youtu.be/kD2V_t9zU_M" target="_blank" rel="noopener">AIS3 2016 南區 Binary Exploitation</a></li>
 <li><a href="https://www.youtube.com/watch?v=NMgIYI_xUt8" target="_blank" rel="noopener">2015計算機安全 Day1</a></li>
@@ -935,7 +1205,7 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="https://www.youtube.com/watch?v=gQXyZY7Ucjc&amp;t" target="_blank" rel="noopener">STCS 2016 Seccom and Ptrace</a></li>
 <li><a href="https://www.youtube.com/watch?v=PhMcUJ9pWs0" target="_blank" rel="noopener">STCS 2016 JavaScript Exploits</a></li>
 </ul>
-<h1 id="待分類"><a href="#待分類" class="headerlink" title="待分類"></a>待分類</h1><p><a href="http://blog.binpang.me/2016/04/13/ExploitTutorial/" target="_blank" rel="noopener">http://blog.binpang.me/2016/04/13/ExploitTutorial/</a><br>PLT GOT <a href="https://www.zhihu.com/question/21249496" target="_blank" rel="noopener">https://www.zhihu.com/question/21249496</a><br><a href="https://github.com/hacksysteam/HackSysExtremeVulnerableDriver" target="_blank" rel="noopener">https://github.com/hacksysteam/HackSysExtremeVulnerableDriver</a><br><a href="https://hshrzd.wordpress.com/2017/05/28/starting-with-windows-kernel-exploitation-part-1-setting-up-the-lab/" target="_blank" rel="noopener">https://hshrzd.wordpress.com/2017/05/28/starting-with-windows-kernel-exploitation-part-1-setting-up-the-lab/</a><br><a href="https://bbs.pediy.com/thread-218838.htm" target="_blank" rel="noopener">https://bbs.pediy.com/thread-218838.htm</a><br><a href="http://vancir.com/tutorials.html" target="_blank" rel="noopener">http://vancir.com/tutorials.html</a><br>Write Once, Pwn Anywhere in BlackHat 2014 </p>
+<h1 id="待分類"><a href="#待分類" class="headerlink" title="待分類"></a>待分類</h1><p><a href="http://blog.binpang.me/2016/04/13/ExploitTutorial/" target="_blank" rel="noopener">http://blog.binpang.me/2016/04/13/ExploitTutorial/</a><br>PLT GOT <a href="https://www.zhihu.com/question/21249496" target="_blank" rel="noopener">https://www.zhihu.com/question/21249496</a><br><a href="http://www.ifuryst.com/archives/Linux-PLT-GOT.html" target="_blank" rel="noopener">http://www.ifuryst.com/archives/Linux-PLT-GOT.html</a><br><a href="http://brandon-hy-lin.blogspot.my/2015/12/shared-library-plt-got.html" target="_blank" rel="noopener">http://brandon-hy-lin.blogspot.my/2015/12/shared-library-plt-got.html</a><br><a href="https://github.com/hacksysteam/HackSysExtremeVulnerableDriver" target="_blank" rel="noopener">https://github.com/hacksysteam/HackSysExtremeVulnerableDriver</a><br><a href="https://hshrzd.wordpress.com/2017/05/28/starting-with-windows-kernel-exploitation-part-1-setting-up-the-lab/" target="_blank" rel="noopener">https://hshrzd.wordpress.com/2017/05/28/starting-with-windows-kernel-exploitation-part-1-setting-up-the-lab/</a><br><a href="https://bbs.pediy.com/thread-218838.htm" target="_blank" rel="noopener">https://bbs.pediy.com/thread-218838.htm</a><br>Write Once, Pwn Anywhere in BlackHat 2014<br><a href="https://github.com/bruce30262/x86_shellcode_tutorial" target="_blank" rel="noopener">https://github.com/bruce30262/x86_shellcode_tutorial</a><br>Scraps of notes on remote stack overflow exploitation<br>The House Of Lore: Reloaded ptmalloc v2 &amp; v3: Analysis &amp; Corruption<br>Kernel instrumentation using kprobes<br>Infecting loadable kernel modules: kernel versions 2.6.x/3.0.x<br>A Eulogy for Format Strings<br>Dynamic Program Analysis and Software Exploitation<br>Phrackerz: Two Tales<br>Exploiting DLmalloc frees in 2009<br>Exploiting TCP Persist Timer Infiniteness<br>Linux Kernel Heap Tampering Detection<br>How close are they of hacking your brain<br>A brief history of the Underground scene<br>Attacking the Core: Kernel Exploitation Notes<br>Automated vulnerability auditing in machine code<br>Hacking deeper in the system</p>
 ]]></content>
       
         <categories>
@@ -949,9 +1219,9 @@ If you’re not using a raw string to express the pattern, remember that Python 
         
         <tags>
             
-            <tag> Binary </tag>
-            
             <tag> Guide </tag>
+            
+            <tag> Binary </tag>
             
         </tags>
         
@@ -1196,9 +1466,9 @@ If you’re not using a raw string to express the pattern, remember that Python 
         
         <tags>
             
-            <tag> Binary </tag>
-            
             <tag> Guide </tag>
+            
+            <tag> Binary </tag>
             
             <tag> Encoding </tag>
             
@@ -1824,11 +2094,11 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="https://www.jiumodiary.com" target="_blank" rel="noopener">鸠摩电子书搜索引擎</a></li>
 <li><a href="https://shuge.org" target="_blank" rel="noopener">書格</a></li>
 <li><a href="http://down.51cto.com" target="_blank" rel="noopener">51CTO:IT書籍類</a></li>
+<li><a href="http://www.guoxue123.com/" target="_blank" rel="noopener">国学导航</a></li>
+<li><a href="http://www.pdfzj.cn/" target="_blank" rel="noopener">PDF之家</a></li>
+<li><a href="http://www.ifblue.net/" target="_blank" rel="noopener">若蓝格杂志网</a></li>
+<li><a href="http://www.gqzzw.com/" target="_blank" rel="noopener">高清杂志网</a></li>
 </ul>
-<p>国学导航：国学导航,中国国学经典在线阅读。</p>
-<p>PDF之家：全网最全最新的PDF杂志免费下载，PDF杂志,PDF,杂志,电脑报,电脑爱好者,经济学人。</p>
-<p>若蓝格杂志网：国内最好的pdf电子杂志下载网站，电子杂志,PDF电子杂志,电子杂志下载,pdf杂志下载,pdf杂志。</p>
-<p>高清杂志网：高清杂志网提供杂志国内热门原版高清电子杂志下载服务，目前有财经理财、电脑数码、故事传奇、婚姻家庭、健康养生、教育教学、经济法律、科技科普、旅游民俗、女性杂志、企业管理、汽车军事、亲子读物、社科人文、时尚潮流、时事新闻、书画摄影、体育运动、文化艺术、文学文艺、文摘文萃、小说综合、学生阅读、影音娱乐24个大类，1056种子类。力争做到低价、优质、简单。</p>
 <h2 id="論文"><a href="#論文" class="headerlink" title="論文"></a>論文</h2><ul>
 <li><a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a></li>
 <li><a href="http://scholar.chongbuluo.com" target="_blank" rel="noopener">蟲部落學術搜索</a></li>
@@ -1855,13 +2125,15 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="http://newalbumreleases.net" target="_blank" rel="noopener">New album release</a></li>
 <li><a href="https://www.jamendo.com/start" target="_blank" rel="noopener">jamendo</a></li>
 </ul>
-<h2 id="源碼"><a href="#源碼" class="headerlink" title="源碼"></a>源碼</h2><p><a href="http://opensearch.krugle.org/" target="_blank" rel="noopener">Krugle</a>：Krugle是一個開源的搜索門戶，基本上主流的開源代碼都有收錄，比如 Apache、JavaDocs、SourceForge 等。你還可以搜索使用C++、Java、Perl、SQL、Ruby、XML、HTML 等語言編寫代碼。Krugle 還有一個非常高級的搜索功能，幫你快速定位到正確的 API、庫、示例代碼或文檔。在搜索結果頁面，你可以直接瀏覽項目源碼。</p>
-<p><a href="https://searchcode.com/" target="_blank" rel="noopener">SearchCode</a>：SearchCode 從 Github、BitBucket、CodePlex、SourceForge、Fedora 等代碼倉庫裡篩選了近 160 億行開源代碼，代碼和文檔由一位單獨的開發者維護。你可以使用文件擴展、特定代碼庫名字、URL、正則表達式、特殊字符等過濾器對源碼進行過濾，以便搜到你想要的代碼。</p>
-<p><a href="https://nerdydata.com/search" target="_blank" rel="noopener">NerdyData.com</a>：NerdyData.com 是一個可以搜索網頁源代碼中內容的搜索引擎，它已經擁有超過140萬個Web代碼索引，如果你是一名Web開發人員，你可以搜索到HTML標記、JavaScript 代碼或 CSS 樣式代碼段。NerdyData 的目標不僅僅是做一個簡單的源碼搜索引擎，他們也在圍繞Web開發流程來開發一系列功能。</p>
-<p><a href="http://symbolhound.com/" target="_blank" rel="noopener">Symbol Hound</a>：當涉及到搜索特殊符號時，谷歌和其他搜索引擎並不是最佳選擇。例如谷歌，去掉了許多標點符號和特殊符號。如果你想搜索含有特殊字符的變量和錯誤代碼，使用普通的搜索引擎可能不會返回你期望的結果。Symbol Hound 的出現解決了這一問題。</p>
-<p><a href="http://merobase.com/" target="_blank" rel="noopener">Merobase</a>：Merobase搜索引擎與其他不一樣，它並不是用來搜索源碼，而是幫你搜索和定位軟件組件，可以搜索Java、C++、C#等語言編寫的組件。Merobase還可以搜索基於查詢的簡單文本接口，你也可以搜索基於函數、面向對象、名稱、測試驅動的查詢，這也是它的一大亮點。</p>
-<p><a href="http://down.admin5.com" target="_blank" rel="noopener">a5源碼</a></p>
-<p><a href="http://www.oschina.net/project" target="_blank" rel="noopener">開源項目</a></p>
+<h2 id="源碼"><a href="#源碼" class="headerlink" title="源碼"></a>源碼</h2><ul>
+<li><a href="http://opensearch.krugle.org/" target="_blank" rel="noopener">Krugle</a></li>
+<li><a href="https://searchcode.com/" target="_blank" rel="noopener">SearchCode</a></li>
+<li><a href="https://nerdydata.com/search" target="_blank" rel="noopener">NerdyData.com</a></li>
+<li><a href="http://symbolhound.com/" target="_blank" rel="noopener">Symbol Hound</a></li>
+<li><a href="http://merobase.com/" target="_blank" rel="noopener">Merobase</a></li>
+<li><a href="http://down.admin5.com" target="_blank" rel="noopener">a5源碼</a></li>
+<li><a href="http://www.oschina.net/project" target="_blank" rel="noopener">開源項目</a></li>
+</ul>
 <h1 id="電驢"><a href="#電驢" class="headerlink" title="電驢"></a>電驢</h1><ul>
 <li><a href="http://tinyurl.com/3dahxw" target="_blank" rel="noopener">電驢資源搜索</a></li>
 <li><a href="https://emulefans.com" target="_blank" rel="noopener">電驢Fans</a></li>
@@ -1877,6 +2149,7 @@ If you’re not using a raw string to express the pattern, remember that Python 
 <li><a href="http://ilxdh.com/" target="_blank" rel="noopener">龍軒導航</a></li>
 <li><a href="https://fulck.com/" target="_blank" rel="noopener">Fluck</a></li>
 <li><a href="http://hao.uisdc.com/" target="_blank" rel="noopener">設計師導航</a></li>
+<li><a href="http://www.navdolphin.com/#" target="_blank" rel="noopener">海豚設計導航網站</a></li>
 <li><a href="https://shouku123.com/" target="_blank" rel="noopener">收庫網</a></li>
 <li><a href="http://www.meddir.cn/" target="_blank" rel="noopener">醫學導航</a></li>
 <li><a href="http://www.moe123.net/" target="_blank" rel="noopener">萌導航Moe</a></li>
@@ -2098,9 +2371,9 @@ If you’re not using a raw string to express the pattern, remember that Python 
         
         <tags>
             
-            <tag> Guide </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> Guide </tag>
             
             <tag> Steganography </tag>
             
@@ -2277,9 +2550,9 @@ If you’re not using a raw string to express the pattern, remember that Python 
         
         <tags>
             
-            <tag> Guide </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> Guide </tag>
             
         </tags>
         
