@@ -407,237 +407,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/12/29/op3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Milo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/privateinvestocat.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="量子能量塔">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/29/op3/" itemprop="url">深入理解計算機第三章筆記</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-12-29T18:13:24+08:00">
-                2017-12-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deep-Understanding-of-Operating-System/" itemprop="url" rel="index">
-                    <span itemprop="name">Deep Understanding of Operating System</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/12/29/op3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/29/op3/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/12/29/op3/" class="leancloud_visitors" data-flag-title="深入理解計算機第三章筆記">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">閱讀次數&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字數統計&#58;</span>
-                
-                <span title="字數統計">
-                  982
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <script src="\assets\js\APlayer.min.js"> </script><p>深入理解計算機第三章筆記<br><figure class="highlight llvm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">multstore:</div><div class="line">	pushq <span class="symbol">%rbx</span></div><div class="line">	movq  <span class="symbol">%rdx</span>,<span class="symbol">%rbx</span></div><div class="line">	<span class="keyword">call</span>  mult<span class="number">2</span></div><div class="line">	movq  <span class="symbol">%rax</span>,(<span class="symbol">%rbx</span>)</div><div class="line">	popq  <span class="symbol">%rbx</span></div><div class="line">	<span class="keyword">ret</span></div></pre></td></tr></table></figure></p>
-<p>匯編代碼解釋<br><code>pushq %rbx</code>將寄存器rbx的內容放入程序棧</p>
-<p><code>objdump -d mstore.o</code><br>可查看機械代碼文件內容</p>
-<p>代碼範例2<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">multstore</span><span class="params">(<span class="keyword">long</span>,<span class="keyword">long</span>,<span class="keyword">long</span> *)</span></span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">long</span> d;</div><div class="line">	mulrstore(<span class="number">2</span>,<span class="number">3</span>, %d);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"2 *3 --&gt; %ld\n"</span>,d);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">long</span> <span class="title">mult2</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span></span>&#123;</div><div class="line">	<span class="keyword">long</span> s = a * b;</div><div class="line">	<span class="keyword">return</span> s;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>gcc -Og -o prog main.c mstore.c</code></p>
-<p>2大規則For生成小於8字節結果的指令：<br>生成1字節和2字節的指令會保持，剩下的字節不會改變。<br>生成4字節數字的指令會把高位4個字節變0.</p>
-<p>RSP - 指明棧運行時結束位置。</p>
-<h1 id="操作數"><a href="#操作數" class="headerlink" title="操作數"></a>操作數</h1><p>1.立即數(Immediate) - $ + 整數 例子$-577 /$0x1F等等<br>2.寄存器 - RAX,RBX,RCX…RIP等等  ra表示任意寄存器a，而R[ra]表示它的值，看成一個數組R，用寄存器標識符作為索引。<br>3.內存引用 - 用Mb[Addr]表示對儲存在內存裡面。</p>
-<h1 id="操作數的各種尋址模式"><a href="#操作數的各種尋址模式" class="headerlink" title="操作數的各種尋址模式"></a>操作數的各種尋址模式</h1><p><img src="https://s9.postimg.org/6aihod7r3/adress.jpg" alt="adress.jpg"></p>
-<h1 id="練習題3-1"><a href="#練習題3-1" class="headerlink" title="練習題3.1"></a>練習題3.1</h1><p><img src="https://s9.postimg.org/vtau1s4a7/exercise.jpg" alt="exercise.jpg"></p>
-<p>答案<br>|操作數|值|解釋|<br>|:——|:——|:——|<br>|%rax|0x100|寄存器|<br>|0x104|0xAB|絕對地址|<br>|$0x108|0x108|立即數|<br>|(%rax)|0xFF|間接尋址：因為這裡說的是去尋找0x100地址的值|<br>|4(%rax)|0xAB|間接尋址：因為這裡說的是去尋找0x104地址的值|<br>|9(%rax,%rdx)|0x11|0100+0003+0009=0x10C,答案為地址0x10C的值|<br>|260(%rcx,%rdx)|0x13|0001+0003+0104=0x108,答案為地址0x108的值，260要轉成16進制才可以進行運算|<br>|0xFC(,%rcx,4)|0xFF|0004+00FC=0xFF, 0004是0001經過比例4後變成的|<br>|(%rax,%rdx,4)|0x11|000C+0100=0x10C，000C是0003經過比例4=&gt;3x4=12=C變成的|</p>
-<h1 id="數據傳輸指令"><a href="#數據傳輸指令" class="headerlink" title="數據傳輸指令"></a>數據傳輸指令</h1><p>mov S,D- 把數據從源位置S傳送到目標位置D。</p>
-<ul>
-<li>movb 傳送字節</li>
-<li>movw 傳送字</li>
-<li>movl 傳送雙字</li>
-<li>movq 傳送四字</li>
-<li>movabsq 傳送絕對四字 [以任意64位作為立即數，但目標對象只能是寄存器]</li>
-</ul>
-<h2 id="Mov傳輸的方式"><a href="#Mov傳輸的方式" class="headerlink" title="Mov傳輸的方式"></a>Mov傳輸的方式</h2><ul>
-<li>movl $0x4050,%EAX Immediate to Register 4 bytes</li>
-<li>movw %bp,%sp Register to Register 2 bytes</li>
-<li>movb (%rdi,%rcx),%al Memory to Register 1 byte</li>
-<li>movb $-17,(%rsp) Immediate to Memory 1 byte</li>
-<li>movq %rax,-12(%rbp) Register to Memory 8 bytes</li>
-</ul>
-<p>1.將較小的源值複製到較大的目的時使用MOVZ或MOVS。<br>2.MOVZ把目的中的字節填0<br>3.MOVS把指令通過符號擴展來填充，同時把源操作的最高位進行複製<br>4.每個指令最後2個字符是大小指示符號。第一個指定源的大小，後者指定第二個明目的大小</p>
-<ul>
-<li>movzbw 零擴展字節傳送到字</li>
-<li>movzbl 零擴展字節傳送到雙字</li>
-<li>movzwl 零擴展字傳送到雙字</li>
-<li>movzbq 零擴展字節傳送到四字</li>
-<li>movzwq 零擴展字傳送到四字</li>
-</ul>
-<p>【上述指令以內存地址為來源，以寄存器作為目的】</p>
-<ul>
-<li>movsbw 將做了符號擴展的字節傳送到字</li>
-<li>movsbl 將做了符號擴展的字節傳送到雙字</li>
-<li>movswl 將做了符號擴展的字傳送到雙字</li>
-<li>movsbq 將做了符號擴展的字節傳送到四字</li>
-<li>movswq 將做了符號擴展的字傳送到四字</li>
-<li>movslq 將做了符號擴展的雙子傳送到四字</li>
-<li>cltq 把%eax符號擴展到%rax [只作用在這2個寄存器]</li>
-</ul>
-<h2 id="MOV使用例子"><a href="#MOV使用例子" class="headerlink" title="MOV使用例子"></a>MOV使用例子</h2><p>movabsq $0x0011223344556677,%rax     %rax=0011223344556677<br>movb    $-1,%al                      %rax=00112233445566FF<br>movw    $-1,%ax                      %rax=001122334455FFFF<br>movl    $-1,%eax                     %rax=00000000FFFFFFFF<br>movq    $-1,%rax                     %rax=FFFFFFFFFFFFFFFF</p>
-<p>練習3.2<br>movl %eax,(%rsp) 雙字，因為EAX是32位元(雙字)寄存器<br>movw (%rax),%dx 字，因為dx是16位元寄存器<br>movb $0XFF,%bl 字節，因為bl是8位元寄存器<br>movb (%rsp,%rdx,4).%dl 字節，因為dl是8位元寄存器<br>movq (%rdx),(%rax) 四字，因為RAX為64位元寄存器<br>movw %dx,(%rax) 字，因為dx是16位元寄存器</p>
-<h2 id="例子2"><a href="#例子2" class="headerlink" title="例子2"></a>例子2</h2><p>下面是movb，movsbq和movzbq在傳送上改變/不改變高字節的差別<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">movabsq $0x001122334455677,%rax   %rax = <span class="number">0011223344556677</span></div><div class="line">movb    $0xAA,%dl                 %dl  = AA</div><div class="line">movb    $dl,%al                   %rax = <span class="number">00112233445566</span>AA</div><div class="line">movsbq  $dl,%rax                  %rax = FFFFFFFFFFFFFFAA</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/12/27/pythonlearn01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2412,11 +2181,200 @@ If you’re not using a raw string to express the pattern, remember that Python 
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://diabolo94.github.io/2017/11/20/debugexp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Milo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/privateinvestocat.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="量子能量塔">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/20/debugexp/" itemprop="url">Debug指令完整教學</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-11-20T21:08:11+08:00">
+                2017-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Assembly-language/" itemprop="url" rel="index">
+                    <span itemprop="name">Assembly language</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/20/debugexp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/20/debugexp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/20/debugexp/" class="leancloud_visitors" data-flag-title="Debug指令完整教學">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">閱讀次數&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字數統計&#58;</span>
+                
+                <span title="字數統計">
+                  1,059
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="0x01-背景"><a href="#0x01-背景" class="headerlink" title="0x01 背景"></a>0x01 背景</h1><p>Debug是DOS和Windows裡面專門調試程序以及讓你在電腦上編寫匯編語言一種工具。一般上，我們可以使用它，來查看CPU各種寄存器中的內容、內存的情況和在機器碼級跟蹤程序的運行。而Debug指令只能在這些版本的Windows內使用：Windows® 9x/Me，Windows® NT/2000/XP/2003。而在之後版本的Windows就再也無法使用這個指令了。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/20/debugexp/" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2468,7 +2426,7 @@ If you’re not using a raw string to express the pattern, remember that Python 
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -2479,7 +2437,7 @@ If you’re not using a raw string to express the pattern, remember that Python 
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -2490,7 +2448,7 @@ If you’re not using a raw string to express the pattern, remember that Python 
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
