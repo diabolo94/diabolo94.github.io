@@ -140,10 +140,13 @@
 <meta property="og:site_name" content="量子能量塔">
 <meta property="og:description" content="深入理解計算機第三章筆記1234567multstore:	pushq %rbx	movq  %rdx,%rbx	call  mult2	movq  %rax,(%rbx)	popq  %rbx	ret 匯編代碼解釋pushq %rbx將寄存器rbx的內容放入程序棧 objdump -d mstore.o可查看機械代碼文件內容 代碼範例212345678910111213#include &amp;lt">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-01-06T15:36:47.522Z">
+<meta property="og:image" content="https://s9.postimg.org/6aihod7r3/adress.jpg">
+<meta property="og:image" content="https://s9.postimg.org/vtau1s4a7/exercise.jpg">
+<meta property="og:updated_time" content="2018-01-21T02:04:53.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解計算機第三章筆記">
 <meta name="twitter:description" content="深入理解計算機第三章筆記1234567multstore:	pushq %rbx	movq  %rdx,%rbx	call  mult2	movq  %rax,(%rbx)	popq  %rbx	ret 匯編代碼解釋pushq %rbx將寄存器rbx的內容放入程序棧 objdump -d mstore.o可查看機械代碼文件內容 代碼範例212345678910111213#include &amp;lt">
+<meta name="twitter:image" content="https://s9.postimg.org/6aihod7r3/adress.jpg">
 
 
 
@@ -520,7 +523,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  257
+                  982
                 </span>
               
 
@@ -550,9 +553,48 @@
 <p><code>objdump -d mstore.o</code><br>可查看機械代碼文件內容</p>
 <p>代碼範例2<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">multstore</span><span class="params">(<span class="keyword">long</span>,<span class="keyword">long</span>,<span class="keyword">long</span> *)</span></span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">long</span> d;</div><div class="line">	mulrstore(<span class="number">2</span>,<span class="number">3</span>, %d);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"2 *3 --&gt; %ld\n"</span>,d);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">long</span> <span class="title">mult2</span><span class="params">(<span class="keyword">long</span> a,<span class="keyword">long</span> b)</span></span>&#123;</div><div class="line">	<span class="keyword">long</span> s = a * b;</div><div class="line">	<span class="keyword">return</span> s;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><code>gcc -Og -o prog main.c mstore.c</code></p>
-<p>2大規則For生成小於8字節結果的指令<br>生成1字節和2字節的指令會保持，剩下的字節不會改變。<br>生成4字節數字的指令會把高位4個字節變0.</p>
+<p>2大規則For生成小於8字節結果的指令：<br>生成1字節和2字節的指令會保持，剩下的字節不會改變。<br>生成4字節數字的指令會把高位4個字節變0.</p>
 <p>RSP - 指明棧運行時結束位置。</p>
-<p>操作數<br>1.立即數(Immediate) - $ + 整數 例子$-577 /$0x1F等等<br>2.寄存器 - RAX,RBX,RCX…RIP等等  ra表示任意寄存器a，而R[ra]表示它的值，看成一個數組R，用寄存器標識符作為索引<br>3.內存引用 - 用Mb[Addr]表示對儲存在內存裡面</p>
+<h1 id="操作數"><a href="#操作數" class="headerlink" title="操作數"></a>操作數</h1><p>1.立即數(Immediate) - $ + 整數 例子$-577 /$0x1F等等<br>2.寄存器 - RAX,RBX,RCX…RIP等等  ra表示任意寄存器a，而R[ra]表示它的值，看成一個數組R，用寄存器標識符作為索引。<br>3.內存引用 - 用Mb[Addr]表示對儲存在內存裡面。</p>
+<h1 id="操作數的各種尋址模式"><a href="#操作數的各種尋址模式" class="headerlink" title="操作數的各種尋址模式"></a>操作數的各種尋址模式</h1><p><img src="https://s9.postimg.org/6aihod7r3/adress.jpg" alt="adress.jpg"></p>
+<h1 id="練習題3-1"><a href="#練習題3-1" class="headerlink" title="練習題3.1"></a>練習題3.1</h1><p><img src="https://s9.postimg.org/vtau1s4a7/exercise.jpg" alt="exercise.jpg"></p>
+<p>答案<br>|操作數|值|解釋|<br>|:——|:——|:——|<br>|%rax|0x100|寄存器|<br>|0x104|0xAB|絕對地址|<br>|$0x108|0x108|立即數|<br>|(%rax)|0xFF|間接尋址：因為這裡說的是去尋找0x100地址的值|<br>|4(%rax)|0xAB|間接尋址：因為這裡說的是去尋找0x104地址的值|<br>|9(%rax,%rdx)|0x11|0100+0003+0009=0x10C,答案為地址0x10C的值|<br>|260(%rcx,%rdx)|0x13|0001+0003+0104=0x108,答案為地址0x108的值，260要轉成16進制才可以進行運算|<br>|0xFC(,%rcx,4)|0xFF|0004+00FC=0xFF, 0004是0001經過比例4後變成的|<br>|(%rax,%rdx,4)|0x11|000C+0100=0x10C，000C是0003經過比例4=&gt;3x4=12=C變成的|</p>
+<h1 id="數據傳輸指令"><a href="#數據傳輸指令" class="headerlink" title="數據傳輸指令"></a>數據傳輸指令</h1><p>mov S,D- 把數據從源位置S傳送到目標位置D。</p>
+<ul>
+<li>movb 傳送字節</li>
+<li>movw 傳送字</li>
+<li>movl 傳送雙字</li>
+<li>movq 傳送四字</li>
+<li>movabsq 傳送絕對四字 [以任意64位作為立即數，但目標對象只能是寄存器]</li>
+</ul>
+<h2 id="Mov傳輸的方式"><a href="#Mov傳輸的方式" class="headerlink" title="Mov傳輸的方式"></a>Mov傳輸的方式</h2><ul>
+<li>movl $0x4050,%EAX Immediate to Register 4 bytes</li>
+<li>movw %bp,%sp Register to Register 2 bytes</li>
+<li>movb (%rdi,%rcx),%al Memory to Register 1 byte</li>
+<li>movb $-17,(%rsp) Immediate to Memory 1 byte</li>
+<li>movq %rax,-12(%rbp) Register to Memory 8 bytes</li>
+</ul>
+<p>1.將較小的源值複製到較大的目的時使用MOVZ或MOVS。<br>2.MOVZ把目的中的字節填0<br>3.MOVS把指令通過符號擴展來填充，同時把源操作的最高位進行複製<br>4.每個指令最後2個字符是大小指示符號。第一個指定源的大小，後者指定第二個明目的大小</p>
+<ul>
+<li>movzbw 零擴展字節傳送到字</li>
+<li>movzbl 零擴展字節傳送到雙字</li>
+<li>movzwl 零擴展字傳送到雙字</li>
+<li>movzbq 零擴展字節傳送到四字</li>
+<li>movzwq 零擴展字傳送到四字</li>
+</ul>
+<p>【上述指令以內存地址為來源，以寄存器作為目的】</p>
+<ul>
+<li>movsbw 將做了符號擴展的字節傳送到字</li>
+<li>movsbl 將做了符號擴展的字節傳送到雙字</li>
+<li>movswl 將做了符號擴展的字傳送到雙字</li>
+<li>movsbq 將做了符號擴展的字節傳送到四字</li>
+<li>movswq 將做了符號擴展的字傳送到四字</li>
+<li>movslq 將做了符號擴展的雙子傳送到四字</li>
+<li>cltq 把%eax符號擴展到%rax [只作用在這2個寄存器]</li>
+</ul>
+<h2 id="MOV使用例子"><a href="#MOV使用例子" class="headerlink" title="MOV使用例子"></a>MOV使用例子</h2><p>movabsq $0x0011223344556677,%rax     %rax=0011223344556677<br>movb    $-1,%al                      %rax=00112233445566FF<br>movw    $-1,%ax                      %rax=001122334455FFFF<br>movl    $-1,%eax                     %rax=00000000FFFFFFFF<br>movq    $-1,%rax                     %rax=FFFFFFFFFFFFFFFF</p>
+<p>練習3.2<br>movl %eax,(%rsp) 雙字，因為EAX是32位元(雙字)寄存器<br>movw (%rax),%dx 字，因為dx是16位元寄存器<br>movb $0XFF,%bl 字節，因為bl是8位元寄存器<br>movb (%rsp,%rdx,4).%dl 字節，因為dl是8位元寄存器<br>movq (%rdx),(%rax) 四字，因為RAX為64位元寄存器<br>movw %dx,(%rax) 字，因為dx是16位元寄存器</p>
+<h2 id="例子2"><a href="#例子2" class="headerlink" title="例子2"></a>例子2</h2><p>下面是movb，movsbq和movzbq在傳送上改變/不改變高字節的差別<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">movabsq $0x001122334455677,%rax   %rax = <span class="number">0011223344556677</span></div><div class="line">movb    $0xAA,%dl                 %dl  = AA</div><div class="line">movb    $dl,%al                   %rax = <span class="number">00112233445566</span>AA</div><div class="line">movsbq  $dl,%rax                  %rax = FFFFFFFFFFFFFFAA</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -687,8 +729,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -709,7 +760,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -720,7 +771,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -731,7 +782,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -872,6 +923,22 @@ show_date_time();
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#操作數"><span class="nav-number">1.</span> <span class="nav-text">操作數</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#操作數的各種尋址模式"><span class="nav-number">2.</span> <span class="nav-text">操作數的各種尋址模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#練習題3-1"><span class="nav-number">3.</span> <span class="nav-text">練習題3.1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#數據傳輸指令"><span class="nav-number">4.</span> <span class="nav-text">數據傳輸指令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mov傳輸的方式"><span class="nav-number">4.1.</span> <span class="nav-text">Mov傳輸的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MOV使用例子"><span class="nav-number">4.2.</span> <span class="nav-text">MOV使用例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子2"><span class="nav-number">4.3.</span> <span class="nav-text">例子2</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -899,7 +966,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.8k</span>
+    <span title="Site words total count">35.3k</span>
   
 </div>
 

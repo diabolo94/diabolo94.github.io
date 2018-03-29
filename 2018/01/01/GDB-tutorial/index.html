@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="量子能量塔">
 <meta property="og:description" content="0x01 什麼是GDBGDB是在Linux裡面用來調試C/C++程序的強大工具。而它主要的用途如下。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-01-15T08:22:53.271Z">
+<meta property="og:updated_time" content="2018-01-15T17:27:51.251Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GDB調試工具指南+Peda插件的使用方式">
 <meta name="twitter:description" content="0x01 什麼是GDBGDB是在Linux裡面用來調試C/C++程序的強大工具。而它主要的用途如下。">
@@ -520,7 +520,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  997
+                  1,091
                 </span>
               
 
@@ -572,10 +572,15 @@
 <li>u：標明一個單元的長度。b是一個byte，h是兩個byte（halfword），w是四個byte（word），g是八個byte（giant word）。 </li>
 </ul>
 <figure class="highlight dns"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Example <span class="number">1</span>：打印<span class="number">16</span>個在地址a以<span class="number">16</span>進位表示且大小為byte數值</div><div class="line">(gdb) x/<span class="number">16</span>xb a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0</span>x00    <span class="number">0</span>x01    <span class="number">0</span>x02    <span class="number">0</span>x03    <span class="number">0</span>x04    <span class="number">0</span>x05    <span class="number">0</span>x06    <span class="number">0</span>x07</div><div class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">0</span>x08    <span class="number">0</span>x09    <span class="number">0</span>x0a    <span class="number">0</span>x0b    <span class="number">0</span>x0c    <span class="number">0</span>x0d    <span class="number">0</span>x0e    <span class="number">0</span>x0f</div><div class="line"></div><div class="line">Example <span class="number">2</span>：打印<span class="number">16</span>個在地址a以無符號<span class="number">10</span>進位表示且大小為byte數值</div><div class="line">(gdb) x/<span class="number">16</span>ub a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0</span>       <span class="number">1</span>       <span class="number">2</span>       <span class="number">3</span>       <span class="number">4</span>       <span class="number">5</span>       <span class="number">6</span>       <span class="number">7</span></div><div class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">8</span>       <span class="number">9</span>       <span class="number">10</span>      <span class="number">11</span>      <span class="number">12</span>      <span class="number">13</span>      <span class="number">14</span>      <span class="number">15</span></div><div class="line"></div><div class="line">Example <span class="number">3</span>：打印<span class="number">16</span>個在地址a以<span class="number">2</span>進位表示且大小為byte的數值</div><div class="line">(gdb) x/<span class="number">16</span>tb a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">00000000</span>        <span class="number">00000001</span>        <span class="number">00000010</span>        <span class="number">00000011</span>        <span class="number">00000100</span>        <span class="number">00000101</span>        <span class="number">00000110</span>        <span class="number">00000111</span></div><div class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">00001000</span>        <span class="number">00001001</span>        <span class="number">00001010</span>        <span class="number">00001011</span>        <span class="number">00001100</span>        <span class="number">00001101</span>        <span class="number">00001110</span>        <span class="number">00001111</span></div><div class="line"></div><div class="line">Example <span class="number">4</span>：打印<span class="number">16</span>個在地址a以<span class="number">16</span>進位表示的</div><div class="line">(gdb) x/<span class="number">16</span>xw a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0x03020100</span>      <span class="number">0x07060504</span>      <span class="number">0</span>x<span class="number">0b0a0908</span>      <span class="number">0</span>x0f0e0d0c</div><div class="line"><span class="number">0</span>x7fffffffe4b0: <span class="number">0x13121110</span>      <span class="number">0x17161514</span>      <span class="number">0</span>x<span class="number">1b1a1918</span>      <span class="number">0</span>x1f1e1d1c</div><div class="line"><span class="number">0</span>x7fffffffe4c0: <span class="number">0x23222120</span>      <span class="number">0x27262524</span>      <span class="number">0</span>x<span class="number">2b2a2928</span>      <span class="number">0</span>x2f2e2d2c</div><div class="line"><span class="number">0</span>x7fffffffe4d0: <span class="number">0x33323130</span>      <span class="number">0x37363534</span>      <span class="number">0</span>x<span class="number">3b3a3938</span>      <span class="number">0</span>x3f3e3d3c</div></pre></td></tr></table></figure>
-<h1 id="其他實用Command"><a href="#其他實用Command" class="headerlink" title="其他實用Command"></a>其他實用Command</h1><p>diasas <function name=""> # 反組譯某個function<br>ni - next instruction<br>• si - step into<br>• backtrace - 顯⽰上層所有 stack frame 的資訊<br>• continue</function></p>
+<h1 id="其他實用Command"><a href="#其他實用Command" class="headerlink" title="其他實用Command"></a>其他實用Command</h1><p>disass <function name=""> # 反組譯某個function<br>ni - next instruction<br>• si - step into<br>• backtrace - 顯⽰上層所有 stack frame 的資訊<br>• continue</function></p>
 <p>set <em>address=value<br>• 將 address 中的值設成 value ⼀次設 4 byte<br>• 可將 </em> 換成 {char/short/long} 分別設定 1/2/8 byte<br>• e.g.<br>• set *0x602040=0xdeadbeef<br>• set {int}0x602040=1337</p>
 <p> 在有debug symbol下<br>• list : 列出 source code<br>• b 可直接接⾏號斷點<br>• info local : 列出區域變數<br>• print val : 印出變數 val 的值</p>
 <p>attach pid : attach ⼀個正在運⾏的 process<br>• 可以配合 ncat 進⾏ exploit 的 debug<br>• ncat -ve ./a.out -kl 8888<br>• echo 0 &gt; /proc/sys/kernel/yama/ptrace_scope</p>
+<h1 id="表演時間來啦-Is-my-Show-Time"><a href="#表演時間來啦-Is-my-Show-Time" class="headerlink" title="表演時間來啦(Is my Show Time)"></a>表演時間來啦(Is my Show Time)</h1><p>預備文件：hello.c<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, world!\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>編譯<code>gcc -g hello.c -o hello</code>後就開始用GDB來調試。</p>
+<h2 id="查看其匯編語言"><a href="#查看其匯編語言" class="headerlink" title="查看其匯編語言"></a>查看其匯編語言</h2><p>/m<br>    When this option is specified, the disassemble command will show the source lines that correspond to the disassembled instructions.<br>/r<br>    When this option is specified, the disassemble command will show the raw byte values of all disassembled instructions.</p>
+<p>disass 0x4004ef,0x4004f9</p>
+<p>##</p>
 <h1 id="參考鏈接"><a href="#參考鏈接" class="headerlink" title="參考鏈接"></a>參考鏈接</h1><p><a href="http://wiki.ubuntu.org.cn/%E7%94%A8GDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener">http://wiki.ubuntu.org.cn/%E7%94%A8GDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F</a><br><a href="https://deepzz.com/post/gdb-debug.html" target="_blank" rel="noopener">https://deepzz.com/post/gdb-debug.html</a></p>
 
       
@@ -746,7 +751,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -757,7 +762,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -768,7 +773,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -918,7 +923,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-什麼是GDB"><span class="nav-number">1.</span> <span class="nav-text">0x01 什麼是GDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-啟動GDB的方法"><span class="nav-number">2.</span> <span class="nav-text">0x02 啟動GDB的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">2.1.</span> <span class="nav-text">方法 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-2"><span class="nav-number">2.2.</span> <span class="nav-text">方法 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-3"><span class="nav-number">2.3.</span> <span class="nav-text">方法 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-GDB-常用參數選項"><span class="nav-number">3.</span> <span class="nav-text">0x02 GDB 常用參數選項</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-檢測源代碼-Source-File"><span class="nav-number">4.</span> <span class="nav-text">0x03 檢測源代碼(Source File)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x04-設置斷點"><span class="nav-number">5.</span> <span class="nav-text">0x04 設置斷點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x05-查看資訊"><span class="nav-number">6.</span> <span class="nav-text">0x05 查看資訊</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x06-內存的顯示方式"><span class="nav-number">7.</span> <span class="nav-text">0x06 內存的顯示方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他實用Command"><span class="nav-number">8.</span> <span class="nav-text">其他實用Command</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考鏈接"><span class="nav-number">9.</span> <span class="nav-text">參考鏈接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-什麼是GDB"><span class="nav-number">1.</span> <span class="nav-text">0x01 什麼是GDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-啟動GDB的方法"><span class="nav-number">2.</span> <span class="nav-text">0x02 啟動GDB的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">2.1.</span> <span class="nav-text">方法 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-2"><span class="nav-number">2.2.</span> <span class="nav-text">方法 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-3"><span class="nav-number">2.3.</span> <span class="nav-text">方法 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-GDB-常用參數選項"><span class="nav-number">3.</span> <span class="nav-text">0x02 GDB 常用參數選項</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-檢測源代碼-Source-File"><span class="nav-number">4.</span> <span class="nav-text">0x03 檢測源代碼(Source File)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x04-設置斷點"><span class="nav-number">5.</span> <span class="nav-text">0x04 設置斷點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x05-查看資訊"><span class="nav-number">6.</span> <span class="nav-text">0x05 查看資訊</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x06-內存的顯示方式"><span class="nav-number">7.</span> <span class="nav-text">0x06 內存的顯示方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他實用Command"><span class="nav-number">8.</span> <span class="nav-text">其他實用Command</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表演時間來啦-Is-my-Show-Time"><span class="nav-number">9.</span> <span class="nav-text">表演時間來啦(Is my Show Time)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看其匯編語言"><span class="nav-number">9.1.</span> <span class="nav-text">查看其匯編語言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考鏈接"><span class="nav-number">10.</span> <span class="nav-text">參考鏈接</span></a></li></ol></div>
             
 
           </div>
@@ -952,7 +957,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.8k</span>
+    <span title="Site words total count">35.3k</span>
   
 </div>
 

@@ -119,7 +119,7 @@
 
 
 
-  <meta name="keywords" content="Guide,Note,Operating System,Linking," />
+  <meta name="keywords" content="Guide,Note,Operating System,Linking,ELF," />
 
 
 
@@ -133,7 +133,7 @@
 
 
 <meta name="description" content="何為鏈接鏈接就是將不一樣部分的代碼和數據收集，然後再合成一個單一的文件，該文件可以被載入到內存並且被執行。鏈接可以在編譯時、載入時或運行時執行。">
-<meta name="keywords" content="Guide,Note,Operating System,Linking">
+<meta name="keywords" content="Guide,Note,Operating System,Linking,ELF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解計算機第七章筆記-鏈接">
 <meta property="og:url" content="https://diabolo94.github.io/2017/12/13/linking/index.html">
@@ -142,13 +142,14 @@
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://s7.postimg.org/7yshpolnv/elfformat.jpg">
 <meta property="og:image" content="https://s7.postimg.org/fst3am3m3/ELF101.png">
+<meta property="og:image" content="https://s13.postimg.org/93k5ur3tj/angleversion.jpg">
 <meta property="og:image" content="https://s7.postimg.org/rip3sgoyz/elfheader.jpg">
 <meta property="og:image" content="https://s9.postimg.org/67rfvwfcf/elfdata2msb.jpg">
 <meta property="og:image" content="https://s9.postimg.org/x5lcxms9r/elfdata2lsb.jpg">
 <meta property="og:image" content="https://s9.postimg.org/uw9oztkgf/sectionheader.jpg">
 <meta property="og:image" content="https://s9.postimg.org/o735jmjn3/Simple1.jpg">
 <meta property="og:image" content="https://s9.postimg.org/51zw9xa4v/Simple2.jpg">
-<meta property="og:updated_time" content="2018-01-07T09:02:08.468Z">
+<meta property="og:updated_time" content="2018-03-03T07:34:40.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解計算機第七章筆記-鏈接">
 <meta name="twitter:description" content="何為鏈接鏈接就是將不一樣部分的代碼和數據收集，然後再合成一個單一的文件，該文件可以被載入到內存並且被執行。鏈接可以在編譯時、載入時或運行時執行。">
@@ -529,7 +530,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  4,271
+                  4,681
                 </span>
               
 
@@ -556,29 +557,36 @@
       
         <script src="\assets\js\APlayer.min.js"> </script><h1 id="何為鏈接"><a href="#何為鏈接" class="headerlink" title="何為鏈接"></a>何為鏈接</h1><p>鏈接就是將不一樣部分的代碼和數據收集，然後再合成一個單一的文件，該文件可以被載入到內存並且被執行。鏈接可以在編譯時、載入時或運行時執行。<a id="more"></a></p>
 <p>本文章涵蓋的內容有目標文件種類、ELF格式、PLT(Procedure Linkage Table，程序鏈接表)、GOT(Global Offset Table，全局偏移表)、靜態鏈接、載入時和運行時的動態鏈接。</p>
+<p>在了解鏈接的過程之前，我們必須先對ELF格式和目標文件有個概念才能更加容易對鏈接有深刻的理解。</p>
 <h1 id="目標文件"><a href="#目標文件" class="headerlink" title="目標文件"></a>目標文件</h1><p>目標文件是源代碼編譯後，但未進行鏈接的那些中間文件(Windows裡面是.obj，Linux裡面是.o)，也可以說是位元組塊的集合。而連結器的作用就是要將這些元組塊連接起來，確定被連結塊的運行時位置，並修改代碼和數據塊中的各種位置。</p>
 <p>目標文件的三種形式為：</p>
 <ul>
-<li>可重定位目標文件(Relocatable File)：包含二進位制代碼和數據，可以在編譯時和其他可重定位目標文件/或共享目標文件合拼，創建可執行目標文件。File Extension通常為 .o。</li>
+<li>可重定位目標文件(Relocatable File)：包含二進位制代碼和數據，可以在編譯時和其他可重定位目標文件或共享目標文件合拼，創建可執行目標文件。File Extension通常為.o。</li>
 <li>可執行目標文件(Executable File)：包含二進位制代碼和數據，可以被直接複製到存儲器並執行。Linux裡面的一般沒有File Extension。</li>
-<li>共享目標文件(Shared Object File：特殊類型的可重定位目標文件，可在載入或運行時被動態地載入到存儲器並連結。通常以 .so 结尾。一般情况下，它有以下两种使用情景：<ul>
-<li>链接器(Link editor, ld)可能会处理它和其它可重定位文件以及共享目标文件，生成另外一个目标文件。</li>
-<li>動態連結器(Dynamic Linker)將它與可執行文件以及其它共享目標合拼在一起生成進程映像。</li>
+<li>共享目標文件(Shared Object File：特殊類型的可重定位目標文件，可在載入或運行時被動態地載入到存儲器並連結。通常以 .so 结尾。一般情况下，它有以下两种使用情景：<br>(1)链接器(Link editor, ld)会处理它和其它可重定位文件以及共享目标文件，生成另外一个目标文件。<br>(2)動態連結器(Dynamic Linker)將它與可執行文件以及其它共享目標合拼在一起生成進程映像。</li>
 </ul>
-</li>
+<p>目标文件由匯編器和鏈接器創建，是可以在处理器上直接運行的二进制程序。那些需要虛擬機才能够執行的程序，如shell脚本，並不属于这一范围。</p>
+<h2 id="初步認識ELF文件"><a href="#初步認識ELF文件" class="headerlink" title="初步認識ELF文件"></a>初步認識ELF文件</h2><p>而以上三種形式在Linux裡面都主要稱為ELF文件格式，因為ELF其實本身就是程序的載體，只要通過編譯後的代碼，最終都會被轉成ELF文件格式然後再讓系統根據所定義出來的ELF格式文件來進行所謂的靜態鏈接或動態鏈接(待查證)。</p>
+<p>那麼一個ELF文件是由以下幾個部分所組成：</p>
+<ul>
+<li>File header(文件頭)</li>
+<li>Section header table(節區頭部表：通常可重定位目標文件需要這部分，而可執行目標文件則不一定要包含這部分。)</li>
+<li>Program header table(程序頭部表：通常可執行目標文件需要這部分，而是可重定位目標文件則不一定要包含這部分。)</li>
+<li>Contents of the sections or segments(節或段落裡面的內容)</li>
 </ul>
-<h2 id="可重定位目標文件之ELF文件格式"><a href="#可重定位目標文件之ELF文件格式" class="headerlink" title="可重定位目標文件之ELF文件格式"></a>可重定位目標文件之ELF文件格式</h2><p><img src="https://s7.postimg.org/7yshpolnv/elfformat.jpg" alt=""></p>
+<h2 id="ELF文件格式"><a href="#ELF文件格式" class="headerlink" title="ELF文件格式"></a>ELF文件格式</h2><p><img src="https://s7.postimg.org/7yshpolnv/elfformat.jpg" alt=""></p>
 <p>英文版本的Elf文件格式<br><img src="https://s7.postimg.org/fst3am3m3/ELF101.png" alt=""></p>
+<p>當然ELF文件一般會看成這2種視角。<br><img src="https://s13.postimg.org/93k5ur3tj/angleversion.jpg" alt=""></p>
 <h3 id="Elf頭部"><a href="#Elf頭部" class="headerlink" title="Elf頭部"></a>Elf頭部</h3><p>Elf頭部用來描述文件的基本屬性。例如：目標機器型號，程序入口地址和ELF文件版本等等。</p>
 <p>ELF文件頭結構以及裡面的相關常數會被定義在<code>/usr/include/elf.h</code>裡面。這裡是<a href="http://sourceware.org/git/?p=glibc.git;a=blob_plain;f=elf/elf.h" target="_blank" rel="noopener">elf.h</a>的內容。</p>
-<p>在<code>elf.h</code>裡面ELF文件頭的定義部分是這樣的。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* The ELF file header. This appears at the start of every ELF file.  */</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EI_NIDENT (16)</span></div><div class="line"></div><div class="line"><span class="comment">/*32位的版本*/</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span>	e_ident[EI_NIDENT];	<span class="comment">/* Magic number and other info */</span></div><div class="line">  Elf32_Half	e_type;			<span class="comment">/* Object file type */</span></div><div class="line">  Elf32_Half	e_machine;		<span class="comment">/* Architecture */</span></div><div class="line">  Elf32_Word	e_version;		<span class="comment">/* Object file version */</span></div><div class="line">  Elf32_Addr	e_entry;		<span class="comment">/* Entry point virtual address */</span></div><div class="line">  Elf32_Off	e_phoff;		<span class="comment">/* Program header table file offset */</span></div><div class="line">  Elf32_Off	e_shoff;		<span class="comment">/* Section header table file offset */</span></div><div class="line">  Elf32_Word	e_flags;		<span class="comment">/* Processor-specific flags */</span></div><div class="line">  Elf32_Half	e_ehsize;		<span class="comment">/* ELF header size in bytes */</span></div><div class="line">  Elf32_Half	e_phentsize;	<span class="comment">/* Program header table entry size */</span></div><div class="line">  Elf32_Half	e_phnum;		<span class="comment">/* Program header table entry count */</span></div><div class="line">  Elf32_Half	e_shentsize;	<span class="comment">/* Section header table entry size */</span></div><div class="line">  Elf32_Half	e_shnum;		<span class="comment">/* Section header table entry count */</span></div><div class="line">  Elf32_Half	e_shstrndx;		<span class="comment">/* Section header string table index */</span></div><div class="line">&#125; Elf32_Ehdr;</div><div class="line"></div><div class="line"><span class="comment">/*64位的版本*/</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span>	e_ident[EI_NIDENT];	<span class="comment">/* Magic number and other info */</span></div><div class="line">  Elf64_Half	e_type;			<span class="comment">/* Object file type */</span></div><div class="line">  Elf64_Half	e_machine;		<span class="comment">/* Architecture */</span></div><div class="line">  Elf64_Word	e_version;		<span class="comment">/* Object file version */</span></div><div class="line">  Elf64_Addr	e_entry;		<span class="comment">/* Entry point virtual address */</span></div><div class="line">  Elf64_Off	e_phoff;		<span class="comment">/* Program header table file offset */</span></div><div class="line">  Elf64_Off	e_shoff;		<span class="comment">/* Section header table file offset */</span></div><div class="line">  Elf64_Word	e_flags;		<span class="comment">/* Processor-specific flags */</span></div><div class="line">  Elf64_Half	e_ehsize;		<span class="comment">/* ELF header size in bytes */</span></div><div class="line">  Elf64_Half	e_phentsize;	<span class="comment">/* Program header table entry size */</span></div><div class="line">  Elf64_Half	e_phnum;		<span class="comment">/* Program header table entry count */</span></div><div class="line">  Elf64_Half	e_shentsize;	<span class="comment">/* Section header table entry size */</span></div><div class="line">  Elf64_Half	e_shnum;		<span class="comment">/* Section header table entry count */</span></div><div class="line">  Elf64_Half	e_shstrndx;		<span class="comment">/* Section header string table index */</span></div><div class="line">&#125; Elf64_Ehdr;</div><div class="line"></div><div class="line"><span class="comment">/* Fields in the e_ident array.  The EI_* macros are indices into the</span></div><div class="line"><span class="comment">   array.  The macros under each EI_* macro are the values the byte</span></div><div class="line"><span class="comment">   may have.  */</span></div></pre></td></tr></table></figure></p>
+<p>在<code>elf.h</code>裡面ELF文件頭的定義部分是這樣的。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* The ELF file header. This appears at the start of every ELF file.  */</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> EI_NIDENT (16)</span></div><div class="line"></div><div class="line"><span class="comment">/*32位的版本*/</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span>	e_ident[EI_NIDENT];	<span class="comment">/* Magic number and other info */</span></div><div class="line">  Elf32_Half	e_type;			<span class="comment">/* Object file type */</span></div><div class="line">  Elf32_Half	e_machine;		<span class="comment">/* Architecture */</span></div><div class="line">  Elf32_Word	e_version;		<span class="comment">/* Object file version */</span></div><div class="line">  Elf32_Addr	e_entry;		<span class="comment">/* Entry point virtual address */</span></div><div class="line">  Elf32_Off	    e_phoff;		<span class="comment">/* Program header table file offset */</span></div><div class="line">  Elf32_Off	    e_shoff;		<span class="comment">/* Section header table file offset */</span></div><div class="line">  Elf32_Word	e_flags;		<span class="comment">/* Processor-specific flags */</span></div><div class="line">  Elf32_Half	e_ehsize;		<span class="comment">/* ELF header size in bytes */</span></div><div class="line">  Elf32_Half	e_phentsize;	<span class="comment">/* Program header table entry size */</span></div><div class="line">  Elf32_Half	e_phnum;		<span class="comment">/* Program header table entry count */</span></div><div class="line">  Elf32_Half	e_shentsize;	<span class="comment">/* Section header table entry size */</span></div><div class="line">  Elf32_Half	e_shnum;		<span class="comment">/* Section header table entry count */</span></div><div class="line">  Elf32_Half	e_shstrndx;		<span class="comment">/* Section header string table index */</span></div><div class="line">&#125; Elf32_Ehdr;</div><div class="line"></div><div class="line"><span class="comment">/*64位的版本*/</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span>	e_ident[EI_NIDENT];	<span class="comment">/* Magic number and other info */</span></div><div class="line">  Elf64_Half	e_type;			<span class="comment">/* Object file type */</span></div><div class="line">  Elf64_Half	e_machine;		<span class="comment">/* Architecture */</span></div><div class="line">  Elf64_Word	e_version;		<span class="comment">/* Object file version */</span></div><div class="line">  Elf64_Addr	e_entry;		<span class="comment">/* Entry point virtual address */</span></div><div class="line">  Elf64_Off	    e_phoff;		<span class="comment">/* Program header table file offset */</span></div><div class="line">  Elf64_Off	    e_shoff;		<span class="comment">/* Section header table file offset */</span></div><div class="line">  Elf64_Word	e_flags;		<span class="comment">/* Processor-specific flags */</span></div><div class="line">  Elf64_Half	e_ehsize;		<span class="comment">/* ELF header size in bytes */</span></div><div class="line">  Elf64_Half	e_phentsize;	<span class="comment">/* Program header table entry size */</span></div><div class="line">  Elf64_Half	e_phnum;		<span class="comment">/* Program header table entry count */</span></div><div class="line">  Elf64_Half	e_shentsize;	<span class="comment">/* Section header table entry size */</span></div><div class="line">  Elf64_Half	e_shnum;		<span class="comment">/* Section header table entry count */</span></div><div class="line">  Elf64_Half	e_shstrndx;		<span class="comment">/* Section header string table index */</span></div><div class="line">&#125; Elf64_Ehdr;</div><div class="line"></div><div class="line"><span class="comment">/* Fields in the e_ident array.  The EI_* macros are indices into the</span></div><div class="line"><span class="comment">   array.  The macros under each EI_* macro are the values the byte</span></div><div class="line"><span class="comment">   may have.  */</span></div></pre></td></tr></table></figure></p>
 <p>以下是ELF頭的例子。<br><img src="https://s7.postimg.org/rip3sgoyz/elfheader.jpg" alt=""></p>
-<p>而我用來查看<code>SimpleSection.o</code>的Elf頭。源文件代碼如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* SimpleSection.c */</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">printf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* format,...)</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> global_init_var =<span class="number">84</span>;</div><div class="line"><span class="keyword">int</span> global_uninit_var;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func1</span><span class="params">(<span class="keyword">int</span> i)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> static_var =<span class="number">85</span>;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> static_var2;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>然後用<code>gcc -c SimpleSection.c</code>後你會得到一個SimpleSection.o的二進制文件，這時你就可以用<code>readelf -h SimpleSection.o</code>來查看Elf頭。</p>
+<p>而我用來查看<code>SimpleSection.o</code>的Elf頭。源文件代碼如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* SimpleSection.c */</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">printf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* format,...)</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> global_init_var =<span class="number">84</span>; <span class="comment">//</span></div><div class="line"><span class="keyword">int</span> global_uninit_var;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">func1</span><span class="params">(<span class="keyword">int</span> i)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> static_var =<span class="number">85</span>;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> static_var2;</div><div class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> b;</div><div class="line">    funcl1(static_var + static_var2 + a + b);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然後用<code>gcc -c SimpleSection.c</code>後你會得到一個SimpleSection.o的二進制文件，這時你就可以用<code>readelf -h SimpleSection.o</code>來查看Elf頭。這裡 -c 的意思為不進行鏈接。</p>
 <h3 id="ELF頭部成員"><a href="#ELF頭部成員" class="headerlink" title="ELF頭部成員"></a>ELF頭部成員</h3><blockquote>
-<p>e_ident</p>
+<p><code>e_ident</code> </p>
 </blockquote>
-<p>這部分位元組就提供了用於解碼和解釋文件中與機器無關的數據的方式。這個數組對於不同的下標的含義如下:</p>
+<p>主要是用來判定該文件為ELF目標文件，同時提供關於用於解碼和解釋文件結構有關的數據表示方式(Data Representation of a data structure)。這個數組對於不同的下標的含義如下:</p>
 <table>
 <thead>
 <tr>
@@ -591,42 +599,57 @@
 <tr>
 <td style="text-align:left">EI_MAG0</td>
 <td style="text-align:left">0</td>
-<td style="text-align:left">文件標識</td>
+<td style="text-align:left">文件標識(File identification)</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_MAG1</td>
 <td style="text-align:left">1</td>
-<td style="text-align:left">文件標識</td>
+<td style="text-align:left">文件標識(File identification)</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_MAG2</td>
 <td style="text-align:left">2</td>
-<td style="text-align:left">文件標識</td>
+<td style="text-align:left">文件標識(File identification)</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_MAG3</td>
 <td style="text-align:left">3</td>
-<td style="text-align:left">文件標識</td>
+<td style="text-align:left">文件標識(File identification)</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_CLASS</td>
 <td style="text-align:left">4</td>
-<td style="text-align:left">文件類別</td>
+<td style="text-align:left">文件類別(File Class)</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_DATA</td>
 <td style="text-align:left">5</td>
-<td style="text-align:left">數據編碼</td>
+<td style="text-align:left">數據編碼(Data Encoding)</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_VERSION</td>
 <td style="text-align:left">6</td>
-<td style="text-align:left">文件版本</td>
+<td style="text-align:left">文件版本(File Version)</td>
+</tr>
+<tr>
+<td style="text-align:left">EI_OSABI</td>
+<td style="text-align:left">7</td>
+<td style="text-align:left">OS/ABI 標識(OS/ABI)</td>
+</tr>
+<tr>
+<td style="text-align:left">EI_ABIVERSION</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">ABI版本</td>
 </tr>
 <tr>
 <td style="text-align:left">EI_PAD</td>
-<td style="text-align:left">7</td>
-<td style="text-align:left">補齊字節開始處</td>
+<td style="text-align:left">9</td>
+<td style="text-align:left">補齊字節開始處(Start of padding bytes)</td>
+</tr>
+<tr>
+<td style="text-align:left">EI_NIDENT</td>
+<td style="text-align:left">16</td>
+<td style="text-align:left">e_ident部分的大小(Size of e-ident[])</td>
 </tr>
 </tbody>
 </table>
@@ -1004,6 +1027,8 @@
           
             <a href="/tags/Linking/" rel="tag"># Linking</a>
           
+            <a href="/tags/ELF/" rel="tag"># ELF</a>
+          
         </div>
       
 
@@ -1126,7 +1151,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -1137,7 +1162,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -1148,7 +1173,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -1298,7 +1323,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#何為鏈接"><span class="nav-number">1.</span> <span class="nav-text">何為鏈接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目標文件"><span class="nav-number">2.</span> <span class="nav-text">目標文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#可重定位目標文件之ELF文件格式"><span class="nav-number">2.1.</span> <span class="nav-text">可重定位目標文件之ELF文件格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Elf頭部"><span class="nav-number">2.1.1.</span> <span class="nav-text">Elf頭部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ELF頭部成員"><span class="nav-number">2.1.2.</span> <span class="nav-text">ELF頭部成員</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elf程序頭-Program-Header"><span class="nav-number">2.1.3.</span> <span class="nav-text">Elf程序頭(Program Header)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elf程序頭成員"><span class="nav-number">2.1.4.</span> <span class="nav-text">Elf程序頭成員</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#段權限"><span class="nav-number">2.1.5.</span> <span class="nav-text">段權限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#節頭部表"><span class="nav-number">2.1.6.</span> <span class="nav-text">節頭部表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符號和符號表"><span class="nav-number">2.1.7.</span> <span class="nav-text">符號和符號表</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#何為鏈接"><span class="nav-number">1.</span> <span class="nav-text">何為鏈接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目標文件"><span class="nav-number">2.</span> <span class="nav-text">目標文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初步認識ELF文件"><span class="nav-number">2.1.</span> <span class="nav-text">初步認識ELF文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ELF文件格式"><span class="nav-number">2.2.</span> <span class="nav-text">ELF文件格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Elf頭部"><span class="nav-number">2.2.1.</span> <span class="nav-text">Elf頭部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ELF頭部成員"><span class="nav-number">2.2.2.</span> <span class="nav-text">ELF頭部成員</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elf程序頭-Program-Header"><span class="nav-number">2.2.3.</span> <span class="nav-text">Elf程序頭(Program Header)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elf程序頭成員"><span class="nav-number">2.2.4.</span> <span class="nav-text">Elf程序頭成員</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#段權限"><span class="nav-number">2.2.5.</span> <span class="nav-text">段權限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#節頭部表"><span class="nav-number">2.2.6.</span> <span class="nav-text">節頭部表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符號和符號表"><span class="nav-number">2.2.7.</span> <span class="nav-text">符號和符號表</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1332,7 +1357,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.8k</span>
+    <span title="Site words total count">35.3k</span>
   
 </div>
 

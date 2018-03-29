@@ -143,7 +143,7 @@
 <meta property="og:image" content="https://s10.postimg.org/gqlv0k0ix/byte.jpg">
 <meta property="og:image" content="https://s10.postimg.org/j97k17byh/as-cpu-read.gif">
 <meta property="og:image" content="https://s10.postimg.org/651zolzd5/as-cpu-write.gif">
-<meta property="og:updated_time" content="2018-01-12T10:31:14.929Z">
+<meta property="og:updated_time" content="2018-02-23T17:14:12.691Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PWN知識全制霸系列Part 1-1 匯編語言：基礎知識">
 <meta name="twitter:description" content="0x01 前言PWN知識全制霸這系列是為了教導大家如何從一個PWN萌新成為佼佼者那樣的大佬。那麼是什麼是PWN呢？PWN就是利用各種漏洞攻擊系統主機從而獲得系統管理員的權限。">
@@ -524,7 +524,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  1,627
+                  2,156
                 </span>
               
 
@@ -561,7 +561,7 @@
 <li>各種二進制漏洞：栈溢出，堆溢出，返回導向編程(ROP)，格式化字符串漏洞，整數溢出等等。</li>
 <li>其他大佬的在挖掘漏洞以及利用Pwn的思路。</li>
 </ul>
-<h1 id="0x02-基礎知識"><a href="#0x02-基礎知識" class="headerlink" title="0x02 基礎知識"></a>0x02 基礎知識</h1><p>本文參考：王爽-匯編語言第三版</p>
+<h1 id="0x02-基礎知識"><a href="#0x02-基礎知識" class="headerlink" title="0x02 基礎知識"></a>0x02 基礎知識</h1><p>本文參考：王爽-匯編語言第三版 &amp; 小信豬原始部落的學習筆記</p>
 <p>機械語言是機械指令的集合。<br>例子指令： <code>01010000 (PUSH AX)</code> 左部分為機械語言括號裡面則是所謂的匯編語言。</p>
 <p>匯編語言就是能在硬件上直接工作的編程語言。而匯編語言的出現是為了讓人們用容易理解的方式去表達出機器指令代表的意思。雖然電腦只能讀懂0和1，然而，通過編譯器，我們輸入的匯編語言最終會轉譯成電腦所理解的機械語言。</p>
 <p>由3種匯編指令：匯編指令，偽指令和其他符號。</p>
@@ -570,9 +570,18 @@
 <li>偽指令：偽指令是對匯編起某種控制作用的特殊命令，其格式與通常的操作指令一樣，並可加在彙編程序的任何地方，但它們並不產生機器指令。</li>
 <li>符號：例如運輸符號加減乘除，邏輯符號等等。</li>
 </ul>
-<h2 id="存储器-寄存器"><a href="#存储器-寄存器" class="headerlink" title="存储器(寄存器)"></a>存储器(寄存器)</h2><p>也平常大家所說的內存，用來存放指令和需要運算的數據。</p>
+<h2 id="存储器-寄存器"><a href="#存储器-寄存器" class="headerlink" title="存储器(寄存器)"></a>存储器(寄存器)</h2><p>也就是平常大家所說的內存，用來存放指令和需要運算的數據。</p>
 <h2 id="存儲單元"><a href="#存儲單元" class="headerlink" title="存儲單元"></a>存儲單元</h2><p>存儲器能被劃分成幾個單元，每個存儲器單元從0開始順序編號，如一個存儲器有128個存儲單元，編號從0到127微型機存儲器的存儲單元可以存儲一個Byte（1位元組=8bit，即8個二進位）。含有128個存儲單元的存儲器可以存儲128個Byte。</p>
 <p><img src="https://s10.postimg.org/gqlv0k0ix/byte.jpg" alt=""></p>
+<h3 id="數據的表達單位"><a href="#數據的表達單位" class="headerlink" title="數據的表達單位"></a>數據的表達單位</h3><p>二進位制是由0和1組成。</p>
+<ul>
+<li>位元組(byte)8個bit位組成</li>
+<li>字(WORD)16位：2個位元組組成</li>
+<li>雙字(DWORD)32位：兩個字組成</li>
+<li>四字(QWORD)64位元: 四個字組成</li>
+</ul>
+<h3 id="字節順序"><a href="#字節順序" class="headerlink" title="字節順序"></a>字節順序</h3><p>大端模式 Big Endian：低位放低位地址,高位放到高位地址。<br>低地址 ——– 高地址 (比如存放0x01234567)<br><code>0x01 0x02 0x03 0x04 0x05 0x06 0x07</code></p>
+<p>小端模式 Small Endian：低位放高地址,高位放低地址<br>低地址 ——– 高地址 (比如存放0x01234567)<br><code>0x07 0x06 0x05 0x04 0x03 0x02 0x01</code></p>
 <h2 id="讀寫存储器數據"><a href="#讀寫存储器數據" class="headerlink" title="讀寫存储器數據"></a>讀寫存储器數據</h2><p>CPU要從讀寫數據的需要知道存儲單元所在的地址，到底指明的是哪一個存儲器，進行怎樣的操作。而它會和電腦裡面的芯片進行以下3種的信息交互。</p>
 <ul>
 <li>存儲單元的地址(地址信息) 走地址總線</li>
@@ -599,9 +608,19 @@
 <h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><p>在CPU裡面，寄存器的作用是用來暫存指令、數據和位址。它們分別是:</p>
 <figure class="highlight x86asm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="number">64</span>-bit register | Lower <span class="number">32</span> <span class="meta">bits</span> | Lower <span class="number">16</span> <span class="meta">bits</span> | Lower <span class="number">8</span> <span class="meta">bits</span></div><div class="line">==============================================================</div><div class="line"><span class="built_in">rax</span>             | <span class="built_in">eax</span>           | <span class="built_in">ax</span>            | <span class="built_in">al</span></div><div class="line"><span class="built_in">rbx</span>             | <span class="built_in">ebx</span>           | <span class="built_in">bx</span>            | <span class="built_in">bl</span></div><div class="line"><span class="built_in">rcx</span>             | <span class="built_in">ecx</span>           | <span class="built_in">cx</span>            | <span class="built_in">cl</span></div><div class="line"><span class="built_in">rdx</span>             | <span class="built_in">edx</span>           | <span class="built_in">dx</span>            | <span class="built_in">dl</span></div><div class="line"><span class="built_in">rsi</span>             | <span class="built_in">esi</span>           | <span class="built_in">si</span>            | <span class="built_in">sil</span></div><div class="line"><span class="built_in">rdi</span>             | <span class="built_in">edi</span>           | <span class="built_in">di</span>            | <span class="built_in">dil</span></div><div class="line"><span class="built_in">rbp</span>             | <span class="built_in">ebp</span>           | <span class="built_in">bp</span>            | <span class="built_in">bpl</span></div><div class="line"><span class="built_in">rsp</span>             | <span class="built_in">esp</span>           | <span class="built_in">sp</span>            | <span class="built_in">spl</span></div><div class="line"><span class="built_in">r8</span>              | <span class="built_in">r8d</span>           | <span class="built_in">r8w</span>           | <span class="built_in">r8b</span></div><div class="line"><span class="built_in">r9</span>              | <span class="built_in">r9d</span>           | <span class="built_in">r9w</span>           | <span class="built_in">r9b</span></div><div class="line"><span class="built_in">r10</span>             | <span class="built_in">r10d</span>          | <span class="built_in">r10w</span>          | <span class="built_in">r10b</span></div><div class="line"><span class="built_in">r11</span>             | <span class="built_in">r11d</span>          | <span class="built_in">r11w</span>          | <span class="built_in">r11b</span></div><div class="line"><span class="built_in">r12</span>             | <span class="built_in">r12d</span>          | <span class="built_in">r12w</span>          | <span class="built_in">r12b</span></div><div class="line"><span class="built_in">r13</span>             | <span class="built_in">r13d</span>          | <span class="built_in">r13w</span>          | <span class="built_in">r13b</span></div><div class="line"><span class="built_in">r14</span>             | <span class="built_in">r14d</span>          | <span class="built_in">r14w</span>          | <span class="built_in">r14b</span></div><div class="line"><span class="built_in">r15</span>             | <span class="built_in">r15d</span>          | <span class="built_in">r15w</span>          | <span class="built_in">r15b</span></div></pre></td></tr></table></figure>
 <p><a href="http://slideplayer.com/slide/4194257/14/images/11/Register+Layout+RAX+EAX+AX+AH+AL.jpg" target="_blank" rel="noopener">http://slideplayer.com/slide/4194257/14/images/11/Register+Layout+RAX+EAX+AX+AH+AL.jpg</a></p>
-<p>EAX寄存器：EAX称为累加器，常用于算数运算、布尔操作、逻辑操作、返回函数结果等。<br>EBX寄存器：EBX称为基址寄存器，常用于存档内存地址。<br>ECX寄存器：ECX称为计数寄存器，常用于存放循环语句的循环次数，字符串操作中也会常用。<br>EDX寄存器：称为数据寄存器，常常和EAX一起使用。</p>
+<p>EAX：称为累加器，常用于算数运算、布尔操作、逻辑操作、返回函数结果等。<br>EBX：称为基地址寄存器，常用于存档内存地址。<br>ECX：称为计数寄存器，常用于存放循环语句的循环次数，字符串操作中也会常用。<br>EDX：称为数据寄存器，常常和EAX一起使用。</p>
+<p>对于寄存器%eax、%ebx、%ecx和%edx，各自可作为两个独立的16位寄存器使用，而低16位寄存器还可继续分为两个独立的8位寄存器使用。</p>
 <p>注意：<br>上面所述的4个通用寄存器的专门用途不是一成不变的，编译器在编译程序的时候会根据很多因素，例如编译器、编译条件、操作系统等做出相应的改变，读者要知道着手研究的程序是用什么编译器编译，然后针对具体的编译器参考该编译器的说明。</p>
-
+<p>EIP(Instruction Pointer)：是指令寄存器，指向处理器下条等待执行的指令地址(代码段内的偏移量)，每次执行完相应汇编指令EIP值就会增加。</p>
+<p>ESP(Stack Pointer)：是栈指针寄存器，存放执行函数对应栈帧的栈顶地址(也是系统栈的顶部)，永遠指向栈区域的栈顶位置。<br>EBP(Base Pointer)：是扩展基址指针寄存器，存放执行函数对应栈帧的栈底地址，用于C运行库访问栈中的局部变量和参数。</p>
+<p>变址寄存器：顾名思义，变址的含义是内存地址会变动，也就是说变址寄存器中存放在变动的内存地址。80386架构中有两个变址寄存器，分别为ESI和EDI。</p>
+<ul>
+<li>ESI寄存器：称为源变址寄存器，通常存放要处理的数据的内存地址。</li>
+<li>EDI寄存器：称为目的变址寄存器，通常存放处理后的数据的内存地址。</li>
+</ul>
+<p>用途：ESI和EDI通常用来配合使用完成数据的赋值操作，下面是一个EIS和EDI配合使用的例子。<br>Rep movs dword ptr [edi],dword ptr [esi]</p>
+<p>上面的指令把ESI所指向的内存地址中的内容复制到EDI所指向的内存中，数据的长度在ECX寄存器中指定。</p>
+<h1 id="Eflags"><a href="#Eflags" class="headerlink" title="Eflags"></a>Eflags</h1>
       
     </div>
     
@@ -665,8 +684,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/3018/01/19/studynote/" rel="prev" title="個人學習記錄">
-                個人學習記錄 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/29/malloctutorial/" rel="prev" title="關於Malloc函數的點點滴滴">
+                關於Malloc函數的點點滴滴 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -766,7 +785,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -777,7 +796,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -788,7 +807,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -938,7 +957,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-前言"><span class="nav-number">1.</span> <span class="nav-text">0x01 前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我能在這系列的的教學到什麼？"><span class="nav-number">1.1.</span> <span class="nav-text">我能在這系列的的教學到什麼？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-基礎知識"><span class="nav-number">2.</span> <span class="nav-text">0x02 基礎知識</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#存储器-寄存器"><span class="nav-number">2.1.</span> <span class="nav-text">存储器(寄存器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存儲單元"><span class="nav-number">2.2.</span> <span class="nav-text">存儲單元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讀寫存储器數據"><span class="nav-number">2.3.</span> <span class="nav-text">讀寫存储器數據</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU從3號地址讀取數據8的過程"><span class="nav-number">2.3.1.</span> <span class="nav-text">CPU從3號地址讀取數據8的過程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU將數據26寫入3號地址的過程"><span class="nav-number">2.3.2.</span> <span class="nav-text">CPU將數據26寫入3號地址的過程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地址總線"><span class="nav-number">2.4.</span> <span class="nav-text">地址總線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#數據總線"><span class="nav-number">2.5.</span> <span class="nav-text">數據總線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制總線"><span class="nav-number">2.6.</span> <span class="nav-text">控制總線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#內存地址空間"><span class="nav-number">2.7.</span> <span class="nav-text">內存地址空間</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寄存器"><span class="nav-number">3.</span> <span class="nav-text">寄存器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-前言"><span class="nav-number">1.</span> <span class="nav-text">0x01 前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我能在這系列的的教學到什麼？"><span class="nav-number">1.1.</span> <span class="nav-text">我能在這系列的的教學到什麼？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-基礎知識"><span class="nav-number">2.</span> <span class="nav-text">0x02 基礎知識</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#存储器-寄存器"><span class="nav-number">2.1.</span> <span class="nav-text">存储器(寄存器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存儲單元"><span class="nav-number">2.2.</span> <span class="nav-text">存儲單元</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#數據的表達單位"><span class="nav-number">2.2.1.</span> <span class="nav-text">數據的表達單位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字節順序"><span class="nav-number">2.2.2.</span> <span class="nav-text">字節順序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讀寫存储器數據"><span class="nav-number">2.3.</span> <span class="nav-text">讀寫存储器數據</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU從3號地址讀取數據8的過程"><span class="nav-number">2.3.1.</span> <span class="nav-text">CPU從3號地址讀取數據8的過程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU將數據26寫入3號地址的過程"><span class="nav-number">2.3.2.</span> <span class="nav-text">CPU將數據26寫入3號地址的過程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地址總線"><span class="nav-number">2.4.</span> <span class="nav-text">地址總線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#數據總線"><span class="nav-number">2.5.</span> <span class="nav-text">數據總線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制總線"><span class="nav-number">2.6.</span> <span class="nav-text">控制總線</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#內存地址空間"><span class="nav-number">2.7.</span> <span class="nav-text">內存地址空間</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寄存器"><span class="nav-number">3.</span> <span class="nav-text">寄存器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Eflags"><span class="nav-number">4.</span> <span class="nav-text">Eflags</span></a></li></ol></div>
             
 
           </div>
@@ -972,7 +991,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.8k</span>
+    <span title="Site words total count">35.3k</span>
   
 </div>
 
