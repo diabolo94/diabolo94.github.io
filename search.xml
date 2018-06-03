@@ -19,9 +19,9 @@
             
             <tag> Guide </tag>
             
-            <tag> Security </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> Security </tag>
             
             <tag> Forensic </tag>
             
@@ -712,11 +712,11 @@
             
             <tag> Note </tag>
             
+            <tag> Security </tag>
+            
             <tag> Cryptography </tag>
             
             <tag> Stream Cipher </tag>
-            
-            <tag> Security </tag>
             
         </tags>
       
@@ -739,9 +739,9 @@
             
             <tag> Note </tag>
             
-            <tag> Cryptography </tag>
-            
             <tag> Security </tag>
+            
+            <tag> Cryptography </tag>
             
         </tags>
       
