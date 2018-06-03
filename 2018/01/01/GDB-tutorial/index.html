@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="zh-tw">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -119,7 +119,7 @@
 
 
 
-  <meta name="keywords" content="Guide,Binary,GDB,Note,Debug,Tools," />
+  <meta name="keywords" content="Binary,Guide,GDB,Note,Debug,Tools," />
 
 
 
@@ -133,14 +133,14 @@
 
 
 <meta name="description" content="0x01 什麼是GDBGDB是在Linux裡面用來調試C/C++程序的強大工具。而它主要的用途如下。">
-<meta name="keywords" content="Guide,Binary,GDB,Note,Debug,Tools">
+<meta name="keywords" content="Binary,Guide,GDB,Note,Debug,Tools">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GDB調試工具指南+Peda插件的使用方式">
 <meta property="og:url" content="https://diabolo94.github.io/2018/01/01/GDB-tutorial/index.html">
 <meta property="og:site_name" content="量子能量塔">
 <meta property="og:description" content="0x01 什麼是GDBGDB是在Linux裡面用來調試C/C++程序的強大工具。而它主要的用途如下。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-01-15T17:27:51.251Z">
+<meta property="og:updated_time" content="2018-06-03T04:52:05.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GDB調試工具指南+Peda插件的使用方式">
 <meta name="twitter:description" content="0x01 什麼是GDBGDB是在Linux裡面用來調試C/C++程序的強大工具。而它主要的用途如下。">
@@ -197,7 +197,7 @@
      js.src = "//connect.facebook.net/zh_tw/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -216,7 +216,7 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -520,7 +520,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  1,091
+                  1,144
                 </span>
               
 
@@ -563,26 +563,25 @@
 <li><code>-ex command</code>  :執行單一的GDB指令 例子：<code>gdb -ex ’target sim’</code></li>
 </ul>
 <h1 id="0x03-檢測源代碼-Source-File"><a href="#0x03-檢測源代碼-Source-File" class="headerlink" title="0x03 檢測源代碼(Source File)"></a>0x03 檢測源代碼(Source File)</h1><p><code>list</code><br><code>list &lt;linenum&gt;</code><br><code>list function</code><br><code>list -</code><br><code>set listsize count</code><br><code>set listsize unlimited</code></p>
-<h1 id="0x04-設置斷點"><a href="#0x04-設置斷點" class="headerlink" title="0x04 設置斷點"></a>0x04 設置斷點</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">基本使用 <span class="keyword">break</span> &lt;location&gt;,以下是可以用的location。</div><div class="line">(gdb) b/<span class="keyword">break</span>                   # 没有参数，表示下一跳指令處停住</div><div class="line">(gdb) b/<span class="keyword">break</span> linenum/func      # 停在第linenum行或某個function處</div><div class="line">(gdb) b/<span class="keyword">break</span> -/+offset         # 在當前行號前/後的offset行停住 例子： <span class="keyword">break</span> -</div><div class="line">(gdb) b/<span class="keyword">break</span> filename:linenum  # 停在源文件filename的linenum行</div><div class="line">(gdb) b/<span class="keyword">break</span> filename:func     # 停在在源文件的function入口</div><div class="line">(gdb) b/<span class="keyword">break</span> *address          # 在内存地址address處設定斷點</div><div class="line">(gdb) b/<span class="keyword">break</span> label             # 停在有label這個名字的那行</div><div class="line">(gdb) b/<span class="keyword">break</span> function:label    # 停在源文件的funtion裡面有label這個名字的那行</div><div class="line">(gdb) b/<span class="keyword">break</span> <span class="keyword">if</span> &lt;condition&gt;    # 條件成立是停住，如在循环中：<span class="keyword">break</span> <span class="keyword">if</span> i=<span class="number">50</span></div></pre></td></tr></table></figure>
-<h1 id="0x05-查看資訊"><a href="#0x05-查看資訊" class="headerlink" title="0x05 查看資訊"></a>0x05 查看資訊</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">基本使用 <span class="builtin-name">info</span> &lt;想看的資訊&gt;</div><div class="line">(gdb) <span class="builtin-name">info</span> &lt;breakpoint&gt; # </div><div class="line">(gdb) <span class="builtin-name">info</span> &lt;register&gt;   # 查看所有 register 狀態</div></pre></td></tr></table></figure>
+<h1 id="0x04-設置斷點"><a href="#0x04-設置斷點" class="headerlink" title="0x04 設置斷點"></a>0x04 設置斷點</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">基本使用 <span class="keyword">break</span> &lt;location&gt;,以下是可以用的location。</span><br><span class="line">(gdb) b/<span class="keyword">break</span>                   # 没有参数，表示下一跳指令處停住</span><br><span class="line">(gdb) b/<span class="keyword">break</span> linenum/func      # 停在第linenum行或某個function處</span><br><span class="line">(gdb) b/<span class="keyword">break</span> -/+offset         # 在當前行號前/後的offset行停住 例子： <span class="keyword">break</span> -</span><br><span class="line">(gdb) b/<span class="keyword">break</span> filename:linenum  # 停在源文件filename的linenum行</span><br><span class="line">(gdb) b/<span class="keyword">break</span> filename:func     # 停在在源文件的function入口</span><br><span class="line">(gdb) b/<span class="keyword">break</span> *address          # 在内存地址address處設定斷點</span><br><span class="line">(gdb) b/<span class="keyword">break</span> label             # 停在有label這個名字的那行</span><br><span class="line">(gdb) b/<span class="keyword">break</span> function:label    # 停在源文件的funtion裡面有label這個名字的那行</span><br><span class="line">(gdb) b/<span class="keyword">break</span> <span class="keyword">if</span> &lt;condition&gt;    # 條件成立是停住，如在循环中：<span class="keyword">break</span> <span class="keyword">if</span> i=<span class="number">50</span></span><br></pre></td></tr></table></figure>
+<h1 id="0x05-查看資訊"><a href="#0x05-查看資訊" class="headerlink" title="0x05 查看資訊"></a>0x05 查看資訊</h1><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">基本使用 <span class="builtin-name">info</span> &lt;想看的資訊&gt;</span><br><span class="line">(gdb) <span class="builtin-name">info</span> &lt;breakpoint&gt; # </span><br><span class="line">(gdb) <span class="builtin-name">info</span> &lt;register&gt;   # 查看所有 register 狀態</span><br></pre></td></tr></table></figure>
 <h1 id="0x06-內存的顯示方式"><a href="#0x06-內存的顯示方式" class="headerlink" title="0x06 內存的顯示方式"></a>0x06 內存的顯示方式</h1><p>GDB中使用“x”命令来打印内存的值，格式为<code>x/nfu addr</code>。其意思為以f格式打印從addr開始的n个長度單元為u的內存值。參數具體含義如下：</p>
 <ul>
 <li>n：輸出單元的個數。</li>
 <li>f：是輸出格式，可用參數(‘x’=16進制, ‘d’=10進制, ‘u’=無符號10進制, ‘o’=8進制, ‘t’=2進制,‘a’=地址, ‘c’=符號, ‘f’=浮點數, ‘s’=字符串)。Default設定是x =16進制。</li>
 <li>u：標明一個單元的長度。b是一個byte，h是兩個byte（halfword），w是四個byte（word），g是八個byte（giant word）。 </li>
 </ul>
-<figure class="highlight dns"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">Example <span class="number">1</span>：打印<span class="number">16</span>個在地址a以<span class="number">16</span>進位表示且大小為byte數值</div><div class="line">(gdb) x/<span class="number">16</span>xb a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0</span>x00    <span class="number">0</span>x01    <span class="number">0</span>x02    <span class="number">0</span>x03    <span class="number">0</span>x04    <span class="number">0</span>x05    <span class="number">0</span>x06    <span class="number">0</span>x07</div><div class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">0</span>x08    <span class="number">0</span>x09    <span class="number">0</span>x0a    <span class="number">0</span>x0b    <span class="number">0</span>x0c    <span class="number">0</span>x0d    <span class="number">0</span>x0e    <span class="number">0</span>x0f</div><div class="line"></div><div class="line">Example <span class="number">2</span>：打印<span class="number">16</span>個在地址a以無符號<span class="number">10</span>進位表示且大小為byte數值</div><div class="line">(gdb) x/<span class="number">16</span>ub a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0</span>       <span class="number">1</span>       <span class="number">2</span>       <span class="number">3</span>       <span class="number">4</span>       <span class="number">5</span>       <span class="number">6</span>       <span class="number">7</span></div><div class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">8</span>       <span class="number">9</span>       <span class="number">10</span>      <span class="number">11</span>      <span class="number">12</span>      <span class="number">13</span>      <span class="number">14</span>      <span class="number">15</span></div><div class="line"></div><div class="line">Example <span class="number">3</span>：打印<span class="number">16</span>個在地址a以<span class="number">2</span>進位表示且大小為byte的數值</div><div class="line">(gdb) x/<span class="number">16</span>tb a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">00000000</span>        <span class="number">00000001</span>        <span class="number">00000010</span>        <span class="number">00000011</span>        <span class="number">00000100</span>        <span class="number">00000101</span>        <span class="number">00000110</span>        <span class="number">00000111</span></div><div class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">00001000</span>        <span class="number">00001001</span>        <span class="number">00001010</span>        <span class="number">00001011</span>        <span class="number">00001100</span>        <span class="number">00001101</span>        <span class="number">00001110</span>        <span class="number">00001111</span></div><div class="line"></div><div class="line">Example <span class="number">4</span>：打印<span class="number">16</span>個在地址a以<span class="number">16</span>進位表示的</div><div class="line">(gdb) x/<span class="number">16</span>xw a</div><div class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0x03020100</span>      <span class="number">0x07060504</span>      <span class="number">0</span>x<span class="number">0b0a0908</span>      <span class="number">0</span>x0f0e0d0c</div><div class="line"><span class="number">0</span>x7fffffffe4b0: <span class="number">0x13121110</span>      <span class="number">0x17161514</span>      <span class="number">0</span>x<span class="number">1b1a1918</span>      <span class="number">0</span>x1f1e1d1c</div><div class="line"><span class="number">0</span>x7fffffffe4c0: <span class="number">0x23222120</span>      <span class="number">0x27262524</span>      <span class="number">0</span>x<span class="number">2b2a2928</span>      <span class="number">0</span>x2f2e2d2c</div><div class="line"><span class="number">0</span>x7fffffffe4d0: <span class="number">0x33323130</span>      <span class="number">0x37363534</span>      <span class="number">0</span>x<span class="number">3b3a3938</span>      <span class="number">0</span>x3f3e3d3c</div></pre></td></tr></table></figure>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Example <span class="number">1</span>：打印<span class="number">16</span>個在地址a以<span class="number">16</span>進位表示且大小為byte數值</span><br><span class="line">(gdb) x/<span class="number">16</span>xb a</span><br><span class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0</span>x00    <span class="number">0</span>x01    <span class="number">0</span>x02    <span class="number">0</span>x03    <span class="number">0</span>x04    <span class="number">0</span>x05    <span class="number">0</span>x06    <span class="number">0</span>x07</span><br><span class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">0</span>x08    <span class="number">0</span>x09    <span class="number">0</span>x0a    <span class="number">0</span>x0b    <span class="number">0</span>x0c    <span class="number">0</span>x0d    <span class="number">0</span>x0e    <span class="number">0</span>x0f</span><br><span class="line"></span><br><span class="line">Example <span class="number">2</span>：打印<span class="number">16</span>個在地址a以無符號<span class="number">10</span>進位表示且大小為byte數值</span><br><span class="line">(gdb) x/<span class="number">16</span>ub a</span><br><span class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0</span>       <span class="number">1</span>       <span class="number">2</span>       <span class="number">3</span>       <span class="number">4</span>       <span class="number">5</span>       <span class="number">6</span>       <span class="number">7</span></span><br><span class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">8</span>       <span class="number">9</span>       <span class="number">10</span>      <span class="number">11</span>      <span class="number">12</span>      <span class="number">13</span>      <span class="number">14</span>      <span class="number">15</span></span><br><span class="line"></span><br><span class="line">Example <span class="number">3</span>：打印<span class="number">16</span>個在地址a以<span class="number">2</span>進位表示且大小為byte的數值</span><br><span class="line">(gdb) x/<span class="number">16</span>tb a</span><br><span class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">00000000</span>        <span class="number">00000001</span>        <span class="number">00000010</span>        <span class="number">00000011</span>        <span class="number">00000100</span>        <span class="number">00000101</span>        <span class="number">00000110</span>        <span class="number">00000111</span></span><br><span class="line"><span class="number">0</span>x7fffffffe4a8: <span class="number">00001000</span>        <span class="number">00001001</span>        <span class="number">00001010</span>        <span class="number">00001011</span>        <span class="number">00001100</span>        <span class="number">00001101</span>        <span class="number">00001110</span>        <span class="number">00001111</span></span><br><span class="line"></span><br><span class="line">Example <span class="number">4</span>：打印<span class="number">16</span>個在地址a以<span class="number">16</span>進位表示的</span><br><span class="line">(gdb) x/<span class="number">16</span>xw a</span><br><span class="line"><span class="number">0</span>x7fffffffe4a0: <span class="number">0x03020100</span>      <span class="number">0x07060504</span>      <span class="number">0</span>x<span class="number">0b0a0908</span>      <span class="number">0</span>x0f0e0d0c</span><br><span class="line"><span class="number">0</span>x7fffffffe4b0: <span class="number">0x13121110</span>      <span class="number">0x17161514</span>      <span class="number">0</span>x<span class="number">1b1a1918</span>      <span class="number">0</span>x1f1e1d1c</span><br><span class="line"><span class="number">0</span>x7fffffffe4c0: <span class="number">0x23222120</span>      <span class="number">0x27262524</span>      <span class="number">0</span>x<span class="number">2b2a2928</span>      <span class="number">0</span>x2f2e2d2c</span><br><span class="line"><span class="number">0</span>x7fffffffe4d0: <span class="number">0x33323130</span>      <span class="number">0x37363534</span>      <span class="number">0</span>x<span class="number">3b3a3938</span>      <span class="number">0</span>x3f3e3d3c</span><br></pre></td></tr></table></figure>
 <h1 id="其他實用Command"><a href="#其他實用Command" class="headerlink" title="其他實用Command"></a>其他實用Command</h1><p>disass <function name=""> # 反組譯某個function<br>ni - next instruction<br>• si - step into<br>• backtrace - 顯⽰上層所有 stack frame 的資訊<br>• continue</function></p>
 <p>set <em>address=value<br>• 將 address 中的值設成 value ⼀次設 4 byte<br>• 可將 </em> 換成 {char/short/long} 分別設定 1/2/8 byte<br>• e.g.<br>• set *0x602040=0xdeadbeef<br>• set {int}0x602040=1337</p>
 <p> 在有debug symbol下<br>• list : 列出 source code<br>• b 可直接接⾏號斷點<br>• info local : 列出區域變數<br>• print val : 印出變數 val 的值</p>
 <p>attach pid : attach ⼀個正在運⾏的 process<br>• 可以配合 ncat 進⾏ exploit 的 debug<br>• ncat -ve ./a.out -kl 8888<br>• echo 0 &gt; /proc/sys/kernel/yama/ptrace_scope</p>
-<h1 id="表演時間來啦-Is-my-Show-Time"><a href="#表演時間來啦-Is-my-Show-Time" class="headerlink" title="表演時間來啦(Is my Show Time)"></a>表演時間來啦(Is my Show Time)</h1><p>預備文件：hello.c<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, world!\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="表演時間來啦-Is-my-Show-Time"><a href="#表演時間來啦-Is-my-Show-Time" class="headerlink" title="表演時間來啦(Is my Show Time)"></a>表演時間來啦(Is my Show Time)</h1><p>預備文件：hello.c<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, world!\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>編譯<code>gcc -g hello.c -o hello</code>後就開始用GDB來調試。</p>
 <h2 id="查看其匯編語言"><a href="#查看其匯編語言" class="headerlink" title="查看其匯編語言"></a>查看其匯編語言</h2><p>/m<br>    When this option is specified, the disassemble command will show the source lines that correspond to the disassembled instructions.<br>/r<br>    When this option is specified, the disassemble command will show the raw byte values of all disassembled instructions.</p>
 <p>disass 0x4004ef,0x4004f9</p>
-<p>##</p>
 <h1 id="參考鏈接"><a href="#參考鏈接" class="headerlink" title="參考鏈接"></a>參考鏈接</h1><p><a href="http://wiki.ubuntu.org.cn/%E7%94%A8GDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F" target="_blank" rel="noopener">http://wiki.ubuntu.org.cn/%E7%94%A8GDB%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F</a><br><a href="https://deepzz.com/post/gdb-debug.html" target="_blank" rel="noopener">https://deepzz.com/post/gdb-debug.html</a></p>
-
+<h1 id="未完待續"><a href="#未完待續" class="headerlink" title="未完待續"></a>未完待續</h1>
       
     </div>
     
@@ -617,9 +616,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Guide/" rel="tag"># Guide</a>
-          
             <a href="/tags/Binary/" rel="tag"># Binary</a>
+          
+            <a href="/tags/Guide/" rel="tag"># Guide</a>
           
             <a href="/tags/GDB/" rel="tag"># GDB</a>
           
@@ -751,7 +750,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -762,7 +761,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -773,7 +772,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -923,7 +922,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-什麼是GDB"><span class="nav-number">1.</span> <span class="nav-text">0x01 什麼是GDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-啟動GDB的方法"><span class="nav-number">2.</span> <span class="nav-text">0x02 啟動GDB的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">2.1.</span> <span class="nav-text">方法 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-2"><span class="nav-number">2.2.</span> <span class="nav-text">方法 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-3"><span class="nav-number">2.3.</span> <span class="nav-text">方法 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-GDB-常用參數選項"><span class="nav-number">3.</span> <span class="nav-text">0x02 GDB 常用參數選項</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-檢測源代碼-Source-File"><span class="nav-number">4.</span> <span class="nav-text">0x03 檢測源代碼(Source File)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x04-設置斷點"><span class="nav-number">5.</span> <span class="nav-text">0x04 設置斷點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x05-查看資訊"><span class="nav-number">6.</span> <span class="nav-text">0x05 查看資訊</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x06-內存的顯示方式"><span class="nav-number">7.</span> <span class="nav-text">0x06 內存的顯示方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他實用Command"><span class="nav-number">8.</span> <span class="nav-text">其他實用Command</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表演時間來啦-Is-my-Show-Time"><span class="nav-number">9.</span> <span class="nav-text">表演時間來啦(Is my Show Time)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看其匯編語言"><span class="nav-number">9.1.</span> <span class="nav-text">查看其匯編語言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考鏈接"><span class="nav-number">10.</span> <span class="nav-text">參考鏈接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-什麼是GDB"><span class="nav-number">1.</span> <span class="nav-text">0x01 什麼是GDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-啟動GDB的方法"><span class="nav-number">2.</span> <span class="nav-text">0x02 啟動GDB的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">2.1.</span> <span class="nav-text">方法 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-2"><span class="nav-number">2.2.</span> <span class="nav-text">方法 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-3"><span class="nav-number">2.3.</span> <span class="nav-text">方法 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-GDB-常用參數選項"><span class="nav-number">3.</span> <span class="nav-text">0x02 GDB 常用參數選項</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-檢測源代碼-Source-File"><span class="nav-number">4.</span> <span class="nav-text">0x03 檢測源代碼(Source File)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x04-設置斷點"><span class="nav-number">5.</span> <span class="nav-text">0x04 設置斷點</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x05-查看資訊"><span class="nav-number">6.</span> <span class="nav-text">0x05 查看資訊</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x06-內存的顯示方式"><span class="nav-number">7.</span> <span class="nav-text">0x06 內存的顯示方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他實用Command"><span class="nav-number">8.</span> <span class="nav-text">其他實用Command</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表演時間來啦-Is-my-Show-Time"><span class="nav-number">9.</span> <span class="nav-text">表演時間來啦(Is my Show Time)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看其匯編語言"><span class="nav-number">9.1.</span> <span class="nav-text">查看其匯編語言</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考鏈接"><span class="nav-number">10.</span> <span class="nav-text">參考鏈接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#未完待續"><span class="nav-number">11.</span> <span class="nav-text">未完待續</span></a></li></ol></div>
             
 
           </div>
@@ -957,7 +956,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">35.3k</span>
+    <span title="Site words total count">39.7k</span>
   
 </div>
 
@@ -1606,6 +1605,23 @@ show_date_time();
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/love.js"></script>
 
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>

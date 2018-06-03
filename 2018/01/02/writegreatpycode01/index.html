@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="zh-tw">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -132,7 +132,7 @@
 
 
 
-<meta name="description" content="0x01 IntroductionThe word ‘Sturcture’ here means how the files and folders are organized in the file system. What are the most important files should put in you">
+<meta name="description" content="0x01 IntroductionThe word ‘Sturcture’ here means how the files and folders are organized in the file system. What are the most important files should put in your project and why you need them. By unde">
 <meta name="keywords" content="Guide,Note,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="寫出優雅的Python代碼Part1 - Structuring Your Project">
@@ -140,7 +140,7 @@
 <meta property="og:site_name" content="量子能量塔">
 <meta property="og:description" content="0x01 IntroductionThe word ‘Sturcture’ here means how the files and folders are organized in the file system. What are the most important files should put in your project and why you need them. By unde">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-01-11T09:09:34.412Z">
+<meta property="og:updated_time" content="2018-06-03T04:58:13.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="寫出優雅的Python代碼Part1 - Structuring Your Project">
 <meta name="twitter:description" content="0x01 IntroductionThe word ‘Sturcture’ here means how the files and folders are organized in the file system. What are the most important files should put in your project and why you need them. By unde">
@@ -197,7 +197,7 @@
      js.src = "//connect.facebook.net/zh_tw/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -216,7 +216,7 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -520,7 +520,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  948
+                  1,047
                 </span>
               
 
@@ -548,6 +548,9 @@
         <script src="\assets\js\APlayer.min.js"> </script><h1 id="0x01-Introduction"><a href="#0x01-Introduction" class="headerlink" title="0x01 Introduction"></a>0x01 Introduction</h1><p>The word ‘Sturcture’ here means how the files and folders are organized in the file system. What are the most important files should put in your project and why you need them. By understand this, you may find the best way to organise your codes and other related files effectively. <a id="more"></a></p>
 <p>In this section, I will going to show some of the point you can concern when you are structing your project.</p>
 <h1 id="0x02-Structure-of-Repository"><a href="#0x02-Structure-of-Repository" class="headerlink" title="0x02 Structure of Repository."></a>0x02 Structure of Repository.</h1><p>Repository is the first thing you need to concern. When other people see your repository’s page they need to understand what is your project about and how to use it and so on. Hence, you should put a “README” file in your repository to help others understand your project better. Usually, “README” should also include enough details to help a new user get started, e.g. how to compile, how to install, and how to start integrating.</p>
+<blockquote>
+<p>A README is a text file that introduces and explains a project. It contains information that is commonly required to understand what the project is about. </p>
+</blockquote>
 <p>A good readme file for your project can have the following informations:</p>
 <ul>
 <li>Project Titile: A little info about your project and/ or overview that explains what the project is about.</li>
@@ -567,12 +570,14 @@
 <p>One thing you should remember, it is not nessecry to inlude all the above information in your “README”. As longs as you can point out the main things that a user should know about project is enough, for the rest of the full details information you can put under your documentation or wiki.</p>
 <p>Here are some guideline as well for writing a good “README”.</p>
 <ul>
+<li><a href="https://www.makeareadme.com/" target="_blank" rel="noopener">Make A README</a></li>
 <li><a href="https://medium.com/@meakaakka/a-beginners-guide-to-writing-a-kickass-readme-7ac01da88ab3" target="_blank" rel="noopener">Beginners Guide to writing a Kickass README</a></li>
 <li><a href="http://tom.preston-werner.com/2010/08/23/readme-driven-development.html" target="_blank" rel="noopener">Readme Driven Development</a></li>
 <li><a href="https://github.com/noffle/art-of-readme" target="_blank" rel="noopener">Art of Readme</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/22900142" target="_blank" rel="noopener">如何寫好README</a></li>
 </ul>
 <h2 id="Sample-Repository"><a href="#Sample-Repository" class="headerlink" title="Sample Repository"></a>Sample Repository</h2><p>Next, I will give an example of a python project repository.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">README.rst</div><div class="line">LICENSE</div><div class="line">setup.py</div><div class="line">requirements.txt</div><div class="line">sample/__init__.py</div><div class="line">sample/core.py</div><div class="line">sample/helpers.py</div><div class="line">docs/conf.py</div><div class="line">docs/index.rst</div><div class="line">tests/test_basic.py</div><div class="line">tests/test_advanced.py</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">README.rst</span><br><span class="line">LICENSE</span><br><span class="line">setup.py</span><br><span class="line">requirements.txt</span><br><span class="line">sample/__init__.py</span><br><span class="line">sample/core.py</span><br><span class="line">sample/helpers.py</span><br><span class="line">docs/conf.py</span><br><span class="line">docs/index.rst</span><br><span class="line">tests/test_basic.py</span><br><span class="line">tests/test_advanced.py</span><br></pre></td></tr></table></figure>
 <h2 id="sample-py-or-sample"><a href="#sample-py-or-sample" class="headerlink" title="./sample.py or ./sample"></a>./sample.py or ./sample</h2><p>Purpose: code of intrest. The source code that you use in your project.</p>
 <h2 id="Setup-py"><a href="#Setup-py" class="headerlink" title="Setup.py"></a>Setup.py</h2><p><code>setup.py</code> is a python file, which usually tells you that the module/package you are about to install has been packaged and distributed with Distutils, which is the standard for distributing Python Modules. For more details, you can check <a href="https://github.com/kennethreitz/setup.py" target="_blank" rel="noopener">here</a></p>
 <h2 id="requirements-txt"><a href="#requirements-txt" class="headerlink" title="./requirements.txt"></a>./requirements.txt</h2><p>A <a href="https://pip.pypa.io/en/stable/user_guide/#requirements-files" target="_blank" rel="noopener">pip requirements file</a> should be placed at the root of the repository. It should specify the dependencies required to contribute to the project: testing, building, and generating documentation.</p>
@@ -584,12 +589,12 @@
 <p>Once a test suite grows, you can move your tests to a directory, like so:</p>
 <p><code>tests/test_basic.py</code><br><code>tests/test_advanced.py</code></p>
 <p>In order to prevent keep importing the pakage modules whenever you are doing a testing, you can do it in this way.<br>Create a file call <code>tests/context.py</code>. This file allows you to modify the path for resolving the packaging issue.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line"><span class="comment"># set absolute path.</span></div><div class="line">sys.path.insert(<span class="number">0</span>, os.path.abspath(os.path.join(os.path.dirname(__file__), <span class="string">'..'</span>)))</div><div class="line"></div><div class="line"><span class="keyword">import</span> sample</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># set absolute path.</span></span><br><span class="line">sys.path.insert(<span class="number">0</span>, os.path.abspath(os.path.join(os.path.dirname(__file__), <span class="string">'..'</span>)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sample</span><br></pre></td></tr></table></figure>
 <p>Fianally, what you need to do is just add one line in each of your test.py. After that you can skip install the dependencies or pakage modules.<br><code>from .context import sample</code></p>
 <h2 id="Makefile"><a href="#Makefile" class="headerlink" title=".Makefile"></a>.Makefile</h2><p>Purpose: Defining generic tasks for your project.</p>
 <p>A good makefile allow you to define the rules for your python file like which file need to pre-compile, recompile or even you can execute the shell script by using a makefile. The best part of using a makefile is to automate your code running. Once you done making your makefile, you only need to use the make command and easily run tests on your project.</p>
 <p>Sample of Python makefile</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">.PHONY: <span class="built_in">test</span> upload clean bootstrap</div><div class="line"></div><div class="line"><span class="built_in">test</span>:</div><div class="line">	sh -c <span class="string">'. _virtualenv/bin/activate; nosetests tests'</span></div><div class="line"></div><div class="line"><span class="built_in">test</span>-all:</div><div class="line">	tox</div><div class="line"></div><div class="line">upload: <span class="built_in">test</span>-all</div><div class="line">	python setup.py sdist bdist_wheel upload</div><div class="line">	make clean</div><div class="line">	</div><div class="line">register:</div><div class="line">	python setup.py register</div><div class="line"></div><div class="line">clean:</div><div class="line">	rm -f MANIFEST</div><div class="line">	rm -rf build dist</div><div class="line">	</div><div class="line">bootstrap: _virtualenv</div><div class="line">	_virtualenv/bin/pip install -e .</div><div class="line">ifneq ($(wildcard <span class="built_in">test</span>-requirements.txt),) </div><div class="line">	_virtualenv/bin/pip install -r <span class="built_in">test</span>-requirements.txt</div><div class="line">endif</div><div class="line">	make clean</div><div class="line"></div><div class="line">_virtualenv: </div><div class="line">	virtualenv _virtualenv</div><div class="line">	_virtualenv/bin/pip install --upgrade pip</div><div class="line">_virtualenv/bin/pip install --upgrade setuptools</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">.PHONY: <span class="built_in">test</span> upload clean bootstrap</span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>:</span><br><span class="line">	sh -c <span class="string">'. _virtualenv/bin/activate; nosetests tests'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>-all:</span><br><span class="line">	tox</span><br><span class="line"></span><br><span class="line">upload: <span class="built_in">test</span>-all</span><br><span class="line">	python setup.py sdist bdist_wheel upload</span><br><span class="line">	make clean</span><br><span class="line">	</span><br><span class="line">register:</span><br><span class="line">	python setup.py register</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">	rm -f MANIFEST</span><br><span class="line">	rm -rf build dist</span><br><span class="line">	</span><br><span class="line">bootstrap: _virtualenv</span><br><span class="line">	_virtualenv/bin/pip install -e .</span><br><span class="line">ifneq ($(wildcard <span class="built_in">test</span>-requirements.txt),) </span><br><span class="line">	_virtualenv/bin/pip install -r <span class="built_in">test</span>-requirements.txt</span><br><span class="line">endif</span><br><span class="line">	make clean</span><br><span class="line"></span><br><span class="line">_virtualenv: </span><br><span class="line">	virtualenv _virtualenv</span><br><span class="line">	_virtualenv/bin/pip install --upgrade pip</span><br><span class="line">_virtualenv/bin/pip install --upgrade setuptools</span><br></pre></td></tr></table></figure>
 <p>Learn more about makefile.</p>
 <ul>
 <li><a href="https://krzysztofzuraw.com/blog/2016/makefiles-in-python-projects.html" target="_blank" rel="noopener">Makefiles in python projects</a></li>
@@ -597,7 +602,8 @@
 <li><a href="https://www.gnu.org/software/make/manual/make.html#toc-Overview-of-make" target="_blank" rel="noopener">GNU Make Documentation</a></li>
 <li><a href="https://drive.google.com/open?id=1Uv6fMD9MZiBIDp1RNOQkszZJxZpMMi6V" target="_blank" rel="noopener">GNU Make 3.8中文指南</a></li>
 </ul>
-<h1 id="0x03-Structure-of-Code-is-Key"><a href="#0x03-Structure-of-Code-is-Key" class="headerlink" title="0x03 Structure of Code is Key"></a>0x03 Structure of Code is Key</h1>
+<h1 id="0x03-Structure-of-Code-is-Key"><a href="#0x03-Structure-of-Code-is-Key" class="headerlink" title="0x03 Structure of Code is Key"></a>0x03 Structure of Code is Key</h1><p>To be continue</p>
+
       
     </div>
     
@@ -760,7 +766,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -771,7 +777,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -782,7 +788,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -966,7 +972,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">35.3k</span>
+    <span title="Site words total count">39.7k</span>
   
 </div>
 
@@ -1615,6 +1621,23 @@ show_date_time();
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/love.js"></script>
 
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>

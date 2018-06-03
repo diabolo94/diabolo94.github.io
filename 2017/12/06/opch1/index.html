@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="zh-tw">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -201,7 +201,7 @@
      js.src = "//connect.facebook.net/zh_tw/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -220,7 +220,7 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -535,7 +535,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  1,172
+                  1,197
                 </span>
               
 
@@ -561,14 +561,14 @@
 
       
         <script src="\assets\js\APlayer.min.js"> </script><h1 id="編譯系統"><a href="#編譯系統" class="headerlink" title="編譯系統"></a>編譯系統</h1><p>要將C文件轉化成電腦可執行的文件，需要用編譯器將該文件轉化成電腦可讀懂的格式-二進制。我會使用編譯器GCC做例子來讓大家更明白其執行的過程。<br>首先我們要有一個C文件。<a id="more"></a></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//hello.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;   </span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"hello,world\n"</span>);  </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//hello.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;   </span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"hello,world\n"</span>);  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在Unix裡面執行<code>gcc -o hello hello.c</code>，此時編譯器便會讀取hello.c且將它轉成二進制文件。轉換過程如下。<br><img src="https://s33.postimg.org/6uht5i4n3/change.jpg" alt=""></p>
 <p>這過程總共有4個階段：</p>
 <h2 id="預處理階段"><a href="#預處理階段" class="headerlink" title="預處理階段"></a>預處理階段</h2><p>預處理器(cpp)會根據C文件裡面的#的命令來讀取Header，例如在這裡會讀取stdio.h, 然後將其內容加入原本的C文件裡面，生成一個以.i作為擴展名的文件。</p>
 <p>再來，如果只想進行預處理可輸入<code>gcc -E hello.c -o hello.i</code>。預處理階段，主要是處理源代碼裡面含有<code>#</code>字符的指令。<br>例如: “#include”,”#define”。</p>
 <h2 id="編譯階段"><a href="#編譯階段" class="headerlink" title="編譯階段"></a>編譯階段</h2><p>然後編譯器會把hello.i轉成hello.s,也就是所謂的匯編語言程序。<br><code>gcc -S hello.i -o hello.s</code></p>
 <p>變成彙編語言程序後的源代碼如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">main：</div><div class="line">    subq $8,%rsp</div><div class="line">    movl $.LCO,%edi</div><div class="line">    call puts</div><div class="line">    movl $0, %eax</div><div class="line">    addq $8, %rsp</div><div class="line">    ret</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">main：</span><br><span class="line">    subq $8,%rsp</span><br><span class="line">    movl $.LCO,%edi</span><br><span class="line">    call puts</span><br><span class="line">    movl $0, %eax</span><br><span class="line">    addq $8, %rsp</span><br><span class="line">    ret</span><br></pre></td></tr></table></figure>
 <h2 id="匯編階段"><a href="#匯編階段" class="headerlink" title="匯編階段"></a>匯編階段</h2><p>然後就匯編器就可以派上用場啦，它能將hello.s轉成機械語言指令，再把指令變成可重定位目標程序(Relocatable object program)的格式，存放在hello.o中。<br><code>as hello.s -o hello.o</code></p>
 <h2 id="鏈接階段"><a href="#鏈接階段" class="headerlink" title="鏈接階段"></a>鏈接階段</h2><p>因為這裡helloc程序用了printf函數。此函數其實是本來就屬於標準C Library裡面的一個函數要調用此函數，我們就必須用到鏈接器(ld)將函數合拼到hello.o裡面，完成這過程後，最終也生成了可以被系統執行的hello文件(可執行目標文件)。</p>
 <p>由於，鏈接器需要用到一大堆文件把hello.o鏈接起來，才可以把源文件變成最終的可執行目標文件。所以我會在介紹鏈接文件的文章裡面讓大家了解當中的原因。</p>
@@ -582,8 +582,8 @@
 <li>代碼生成：而中間代碼此時終於可以轉換成目標機器代碼。</li>
 <li>目標碼優化：簡化目標碼(也是所謂的Assembly Code)。</li>
 </ul>
-<p>例子：未優化的代碼<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">movl index, %ecx</div><div class="line">addl $4,%ecx</div><div class="line">mull $8,%ecx</div><div class="line">movl index,%eax</div><div class="line">movl %ecx,array(,eax,4)</div></pre></td></tr></table></figure></p>
-<p>優化後：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">movl index, %edx</div><div class="line">leal 32(,%edx,8),%eax</div><div class="line">movl %eax,array(,%edx,4)</div></pre></td></tr></table></figure></p>
+<p>例子：未優化的代碼<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">movl index, %ecx</span><br><span class="line">addl $4,%ecx</span><br><span class="line">mull $8,%ecx</span><br><span class="line">movl index,%eax</span><br><span class="line">movl %ecx,array(,eax,4)</span><br></pre></td></tr></table></figure></p>
+<p>優化後：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">movl index, %edx</span><br><span class="line">leal 32(,%edx,8),%eax</span><br><span class="line">movl %eax,array(,%edx,4)</span><br></pre></td></tr></table></figure></p>
 <p>這裡只需要了解代碼被優化了，其代碼代表什麼在這文章並沒有討論意義。</p>
 <h1 id="系統的硬件組成"><a href="#系統的硬件組成" class="headerlink" title="系統的硬件組成"></a>系統的硬件組成</h1><p>包括了總線，I/O設備，主存還有處理器。</p>
 <h2 id="總線"><a href="#總線" class="headerlink" title="總線"></a>總線</h2><h2 id="I-O設備"><a href="#I-O設備" class="headerlink" title="I/O設備"></a>I/O設備</h2><h2 id="主存"><a href="#主存" class="headerlink" title="主存"></a>主存</h2><h2 id="處理器"><a href="#處理器" class="headerlink" title="處理器"></a>處理器</h2><h1 id="操作系統管理硬件"><a href="#操作系統管理硬件" class="headerlink" title="操作系統管理硬件"></a>操作系統管理硬件</h1><ul>
@@ -762,7 +762,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -773,7 +773,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -784,7 +784,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -968,7 +968,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">35.3k</span>
+    <span title="Site words total count">39.7k</span>
   
 </div>
 
@@ -1617,6 +1617,23 @@ show_date_time();
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/love.js"></script>
 
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>

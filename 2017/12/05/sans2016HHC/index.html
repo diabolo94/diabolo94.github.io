@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="zh-tw">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -132,7 +132,7 @@
 
 
 
-<meta name="description" content="SANS2016HHCThis is the writeup on how I solve the 2016 SANS Holiday Hack Challege Introduction故事發生在一個夜深人靜的晚上，喬斯(Josh Doise)和傑西卡(Jessica Doise)在睡覺的時候聽到聖誕老人竟然出現在他">
+<meta name="description" content="SANS2016HHCThis is the writeup on how I solve the 2016 SANS Holiday Hack Challege Introduction故事發生在一個夜深人靜的晚上，喬斯(Josh Doise)和傑西卡(Jessica Doise)在睡覺的時候聽到聖誕老人竟然出現在他們家裡的聲音。但正當他們決定要去看看聖誕老人的真面目時，發生了一些十分奇怪的事情">
 <meta name="keywords" content="Writeups,SANS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2016 SANS Holiday Hack Challenge Writeups">
@@ -212,7 +212,7 @@
      js.src = "//connect.facebook.net/zh_tw/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -231,7 +231,7 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -535,7 +535,7 @@
                   <span class="post-meta-item-text">字數統計&#58;</span>
                 
                 <span title="字數統計">
-                  1,886
+                  1,887
                 </span>
               
 
@@ -612,7 +612,7 @@
 </ul>
 <p>得到這些有用的情報後，你可以開始分析你得到的Apk文件了。正當你Unzip的時候發覺你需要輸入密碼才能繼續你的分析，不然你就無法繼續下去。其實，我在解題的時候在這裡卡了很久的一段時間，直到我在Reddit那邊見到有一個人給予的提示：你可能已經一早獲得了Unzip Santagram的密碼，只是你自己沒察覺到而已。我腦中醒起會不會是之前的BUGBOUNTY。最後，皇天不負有心人，我成功找到密碼(bugbounty)啦。進入分析Apk的階段，你可以用JadX 去Decompile 你得到的Apk文件，一旦Jadx成功Decompile後，你就能找題目要求你的username and password。使用Text Search功能你可以找到username and password 都隱藏在Code裡面。這段Code你可以在northpolewonderlad.santagram.SplashScreen Class裡面找到。</p>
 <p><img src="https://s28.postimg.org/4gi5nv3gt/userpass.jpg" alt=""></p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jSONObject.<span class="keyword">put</span>(<span class="string">"username"</span>, <span class="string">"guest"</span>);</div><div class="line">jSONObject.<span class="keyword">put</span>(<span class="string">"password"</span>, <span class="string">"busyreindeer78"</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jSONObject.<span class="keyword">put</span>(<span class="string">"username"</span>, <span class="string">"guest"</span>);</span><br><span class="line">jSONObject.<span class="keyword">put</span>(<span class="string">"password"</span>, <span class="string">"busyreindeer78"</span>);</span><br></pre></td></tr></table></figure>
 <p>另外，題目要求的Audio Component你可以在res/raw裡面找到，文件名稱為：discombobulatedaudio1.mp3。Unzip Santagram的Apk你也可以的直接得到該Mp3 File。</p>
 <p><code>unzip Santagram_4.2.apk</code></p>
 <p>如果想要該Mp3文件，可以到這裡<a href="https://drive.google.com/open?id=0B18u7ECQO-gTLTUteDQ4ZDZsdkk" target="_blank" rel="noopener">下載</a></p>
@@ -801,7 +801,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">文章</span>
                 </a>
               </div>
@@ -812,7 +812,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分類</span>
                 </a>
               </div>
@@ -823,7 +823,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">標籤</span>
                 </a>
               </div>
@@ -1007,7 +1007,7 @@ show_date_time();
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">35.3k</span>
+    <span title="Site words total count">39.7k</span>
   
 </div>
 
@@ -1656,6 +1656,23 @@ show_date_time();
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/love.js"></script>
 
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
 </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 </body>
 </html>
